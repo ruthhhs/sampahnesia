@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmpdjdfwgolce"]
+
+[ext_resource type="Script" uid="uid://c0kihtyvlm5sk" path="res://UI/Prefabs/TabBar/Script/tab_bar.gd" id="1_ndtru"]
+[ext_resource type="AudioStream" uid="uid://dtfnoihedru8o" path="res://UI/UIFX/kenney_interface-sounds/Audio/click_003.ogg" id="3_0ks2t"]
+[ext_resource type="AudioStream" uid="uid://bscgd5eiar6g8" path="res://UI/UIFX/kenney_interface-sounds/Audio/click_004.ogg" id="3_ndtru"]
+
+[node name="TabBar" type="TabBar"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ndtru")
+
+[node name="HoverAudioButton" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ndtru")
+bus = &"AudioFX"
+
+[node name="ClickAudioButton" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0ks2t")
+bus = &"AudioFX"
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

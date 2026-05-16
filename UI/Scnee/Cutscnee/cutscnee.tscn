@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7m63245nyjtm"]
+
+[ext_resource type="Theme" uid="uid://2vx27ttvak05" path="res://UI/Saves/CuteTheme.tres" id="1_aidh5"]
+[ext_resource type="Script" uid="uid://bvvtq1vrdg82s" path="res://UI/Scnee/Cutscnee/Script/cutscnee.gd" id="2_52h2i"]
+[ext_resource type="PackedScene" uid="uid://c2ele75e6i3pi" path="res://UI/Prefabs/Button/button.tscn" id="2_nkxtg"]
+
+[sub_resource type="Gradient" id="Gradient_ge7ti"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.12, 0.88)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 25
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4qfwh"]
+gradient = SubResource("Gradient_ge7ti")
+width = 720
+height = 720
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Animation" id="Animation_3iyxo"]
+resource_name = "Cutscnee"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_js3wu"]
+_data = {
+&"Cutscnee": SubResource("Animation_3iyxo")
+}
+
+[node name="Cutscnee" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_aidh5")
+script = ExtResource("2_52h2i")
+level_1 = "res://UI/Scnee/InGame/in_game_ui.tscn"
+
+[node name="AspectRatio" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_4qfwh")
+expand_mode = 1
+
+[node name="Button" parent="." instance=ExtResource("2_nkxtg")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -70.0
+offset_right = -31.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Skip"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_js3wu")
+}
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

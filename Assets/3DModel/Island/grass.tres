@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://t6tfvghdei5s"]
+
+[ext_resource type="Texture2D" uid="uid://cjs00wh3x5tcb" path="res://Assets/3DModel/Island/Island_pattern_56.png" id="1_6hxhp"]
+
+[resource]
+resource_name = "grass"
+cull_mode = 2
+albedo_color = Color(0.48803544, 0.87736624, 1.1551381e-06, 1)
+metallic = 1.0
+metallic_texture = ExtResource("1_6hxhp")
+emission_enabled = true

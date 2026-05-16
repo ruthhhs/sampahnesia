@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://fn41kbj2frn4"]
+
+[sub_resource type="FontVariation" id="FontVariation_54yjc"]
+
+[resource]
+font = SubResource("FontVariation_54yjc")
+font_size = 29
+font_color = Color(0.16681597, 0.729412, 0, 1)
+outline_color = Color(0.40264726, 0.0053566396, 0.1637094, 1)

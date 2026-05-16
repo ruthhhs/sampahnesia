@@ -1,0 +1,212 @@
+[gd_scene format=3 uid="uid://b0w87frcj0os1"]
+
+[ext_resource type="Script" uid="uid://1yy72hn0aerw" path="res://Controller/CameraController/Script/camera_position.gd" id="1_hnn6p"]
+[ext_resource type="Script" uid="uid://mcnkdye25yox" path="res://Controller/CameraController/Script/mouse_follower_object.gd" id="2_eysth"]
+[ext_resource type="FontFile" uid="uid://dv4rnn0ml62q3" path="res://UI/fromAnotherTemplate/themes/Poppins-Bold.ttf" id="3_c8m7d"]
+[ext_resource type="Texture2D" uid="uid://dx1mgvax7fpl7" path="res://Assets/Sprite/Building Icon/kebunkayu.png" id="9_0ocxv"]
+[ext_resource type="Texture2D" uid="uid://bkm0suis510dq" path="res://Assets/Sprite/Building Icon/minyak.png" id="12_y6mn7"]
+[ext_resource type="Texture2D" uid="uid://4oayrfy0qtf" path="res://Assets/Sprite/Building Icon/Pabrik Kertas.png" id="15_so0rb"]
+
+[sub_resource type="FontVariation" id="FontVariation_eysth"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hnn6p"]
+font = SubResource("FontVariation_eysth")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_b2g4k"]
+font = ExtResource("3_c8m7d")
+font_size = 25
+
+[sub_resource type="Gradient" id="Gradient_eysth"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.141026, 0.509615, 0.586538, 0.663462, 0.884615)
+colors = PackedColorArray(0.56697, 0.413426, 0.223383, 1, 0, 0, 0, 0, 0.593864, 0.389765, 0.307531, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ejtff"]
+gradient = SubResource("Gradient_eysth")
+width = 1080
+height = 1080
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.90000004, 0.1)
+metadata/_snap_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c8m7d"]
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture2D_ejtff")
+
+[sub_resource type="QuadMesh" id="QuadMesh_b2g4k"]
+material = SubResource("StandardMaterial3D_c8m7d")
+size = Vector2(1.83, 1.345)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eysth"]
+size = Vector3(2.155, 1.4, 3.12)
+
+[node name="CameraPosition" type="Node3D" unique_id=508572600]
+script = ExtResource("1_hnn6p")
+
+[node name="CameraRotationX" type="Node3D" parent="." unique_id=1260349627]
+
+[node name="CameraZoomPivot" type="Node3D" parent="CameraRotationX" unique_id=1668261267]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 19, 23.5)
+
+[node name="Camera3D" type="Camera3D" parent="CameraRotationX/CameraZoomPivot" unique_id=1719253986]
+transform = Transform3D(0.999999, 9.7264e-05, 0.00117011, -9.53475e-05, 0.999999, -0.00162798, -0.00117026, 0.00162777, 0.999998, 0, 0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=592404322]
+
+[node name="GameUIBuilder" type="Control" parent="CanvasLayer" unique_id=315374148]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="FPSLabel" type="Label" parent="CanvasLayer/GameUIBuilder" unique_id=787228054]
+visible = false
+layout_mode = 0
+offset_left = 13.0
+offset_top = 13.0
+offset_right = 113.0
+offset_bottom = 55.0
+text = "FPS : 111"
+label_settings = SubResource("LabelSettings_hnn6p")
+vertical_alignment = 1
+
+[node name="MousePositionLabel" type="Label" parent="CanvasLayer/GameUIBuilder" unique_id=1042714406]
+visible = false
+layout_mode = 0
+offset_left = 13.0
+offset_top = 50.0
+offset_right = 197.0
+offset_bottom = 92.0
+text = "Mouse Position: "
+label_settings = SubResource("LabelSettings_hnn6p")
+vertical_alignment = 1
+
+[node name="RemoveButton" type="CheckButton" parent="CanvasLayer/GameUIBuilder" unique_id=937199143]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -174.0
+offset_top = -86.0
+offset_right = -27.0
+offset_bottom = -35.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "delete"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/GameUIBuilder" unique_id=1070871960]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -327.0
+offset_top = 39.0
+offset_right = -73.0
+offset_bottom = 449.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/GameUIBuilder/VBoxContainer2" unique_id=803960867]
+visible = false
+layout_mode = 2
+text = "Statistic"
+label_settings = SubResource("LabelSettings_b2g4k")
+horizontal_alignment = 1
+
+[node name="BuildingSelection" type="VBoxContainer" parent="CanvasLayer/GameUIBuilder" unique_id=1433391514]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -601.0
+offset_top = -94.0
+offset_right = 601.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 9
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/GameUIBuilder/BuildingSelection" unique_id=1104545939]
+visible = false
+layout_mode = 2
+text = "Bulding"
+label_settings = SubResource("LabelSettings_b2g4k")
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer/GameUIBuilder" unique_id=506827753]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -365.0
+offset_top = -153.0
+offset_right = 365.0
+grow_horizontal = 2
+grow_vertical = 0
+current_tab = 0
+
+[node name="Industry" type="TabBar" parent="CanvasLayer/GameUIBuilder/TabContainer" unique_id=1873388356]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="ItemList2" type="ItemList" parent="CanvasLayer/GameUIBuilder/TabContainer/Industry" unique_id=906543099]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+allow_reselect = true
+allow_rmb_select = true
+wraparound_items = false
+item_count = 3
+max_columns = 3
+icon_mode = 0
+icon_scale = 0.095
+item_0/text = "Bangunan1"
+item_0/icon = ExtResource("12_y6mn7")
+item_1/text = "Bangunan2"
+item_1/icon = ExtResource("9_0ocxv")
+item_2/text = "Bangunan3"
+item_2/icon = ExtResource("15_so0rb")
+
+[node name="Resident" type="TabBar" parent="CanvasLayer/GameUIBuilder/TabContainer" unique_id=2031141851]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="PowerPlant" type="TabBar" parent="CanvasLayer/GameUIBuilder/TabContainer" unique_id=987707079]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="MouseFollowerObject" type="Marker3D" parent="." unique_id=943857534]
+script = ExtResource("2_eysth")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MouseFollowerObject" unique_id=2019744671]
+unique_name_in_owner = true
+transform = Transform3D(6.7392, 0.000188801, -0.00197886, 0.0019789, -0.00200459, 6.7392, 0.000188402, -6.7392, -0.00200462, 0, 0.0247344, 0)
+mesh = SubResource("QuadMesh_b2g4k")
+
+[node name="CollidingCheckers" type="Area3D" parent="MouseFollowerObject" unique_id=518951340]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MouseFollowerObject/CollidingCheckers" unique_id=1745972516]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 0, 0.75, 0)
+shape = SubResource("BoxShape3D_eysth")
+
+[connection signal="toggled" from="CanvasLayer/GameUIBuilder/RemoveButton" to="." method="_on_check_button_toggled"]
+[connection signal="item_clicked" from="CanvasLayer/GameUIBuilder/TabContainer/Industry/ItemList2" to="MouseFollowerObject" method="_on_item_list_item_clicked"]
+[connection signal="body_exited" from="MouseFollowerObject/CollidingCheckers" to="." method="_on_colliding_checkers_body_exited"]
+[connection signal="body_exited" from="MouseFollowerObject/CollidingCheckers" to="MouseFollowerObject" method="_on_colliding_checkers_body_exited"]

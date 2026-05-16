@@ -1,0 +1,455 @@
+[gd_scene format=3 uid="uid://bylii8qiypgri"]
+
+[ext_resource type="Theme" uid="uid://2vx27ttvak05" path="res://UI/Saves/CuteTheme.tres" id="1_w60py"]
+[ext_resource type="Script" uid="uid://bqj4wi8ww4tjc" path="res://UI/Scnee/Setting/Script/setting.gd" id="2_2qubn"]
+[ext_resource type="FontVariation" uid="uid://cl1ghml6fsl2n" path="res://UI/Font/tress_font/UiFont.tres" id="2_o15vw"]
+[ext_resource type="Texture2D" uid="uid://cvdxntirjqdjt" path="res://UI/Icon/PNG/White/1x/cross.png" id="3_2qubn"]
+[ext_resource type="Script" uid="uid://pgr5gm5im16w" path="res://UI/Scnee/Setting/Script/tab_container.gd" id="3_mroum"]
+[ext_resource type="PackedScene" uid="uid://c2ele75e6i3pi" path="res://UI/Prefabs/Button/button.tscn" id="4_2qubn"]
+[ext_resource type="AudioStream" uid="uid://ehdny8574a7q" path="res://UI/UIFX/kenney_interface-sounds/Audio/select_006.ogg" id="5_h0kkp"]
+[ext_resource type="AudioStream" uid="uid://dtfnoihedru8o" path="res://UI/UIFX/kenney_interface-sounds/Audio/click_003.ogg" id="8_5g0fo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fxxad"]
+font = ExtResource("2_o15vw")
+font_size = 24
+font_color = Color(0.29394552, 0.25869095, 0.19134012, 1)
+
+[node name="Setting" type="Control" unique_id=198789454]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_w60py")
+script = ExtResource("2_2qubn")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=939243481]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.25490198)
+metadata/_edit_lock_ = true
+
+[node name="PanelControl" type="Control" parent="." unique_id=520197347]
+layout_mode = 1
+anchor_left = 0.208
+anchor_top = 0.19800001
+anchor_right = 0.79200006
+anchor_bottom = 0.77800006
+offset_left = 0.3840027
+offset_top = -0.3040161
+offset_right = -0.3840332
+offset_bottom = -0.14404297
+mouse_filter = 1
+
+[node name="TabContainer" type="TabContainer" parent="PanelControl" unique_id=1431237322]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+theme_override_constants/tab_separation = 8
+theme_override_font_sizes/font_size = 42
+tab_alignment = 1
+current_tab = 1
+script = ExtResource("3_mroum")
+
+[node name="HoverAudioButton" type="AudioStreamPlayer" parent="PanelControl/TabContainer" unique_id=333168863]
+stream = ExtResource("8_5g0fo")
+
+[node name="ClickAudioButton" type="AudioStreamPlayer" parent="PanelControl/TabContainer" unique_id=621468379]
+stream = ExtResource("5_h0kkp")
+
+[node name="Video" type="TabBar" parent="PanelControl/TabContainer" unique_id=633491251]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+metadata/_tab_index = 0
+
+[node name="Control" type="Control" parent="PanelControl/TabContainer/Video" unique_id=264556979]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelControl/TabContainer/Video/Control" unique_id=642200498]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Resolution" type="Control" parent="PanelControl/TabContainer/Video/Control/VBoxContainer" unique_id=1894394930]
+custom_minimum_size = Vector2(0, 37.985)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ResolutionLabel" type="Label" parent="PanelControl/TabContainer/Video/Control/VBoxContainer/Resolution" unique_id=214626460]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -17.5
+offset_right = 154.0
+offset_bottom = 17.5
+grow_vertical = 2
+text = "Resolution"
+label_settings = SubResource("LabelSettings_fxxad")
+
+[node name="ResolutionOption" type="OptionButton" parent="PanelControl/TabContainer/Video/Control/VBoxContainer/Resolution" unique_id=1063695788]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -294.8125
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 1
+selected = 1
+item_count = 3
+popup/item_0/text = "1920 x 1080"
+popup/item_0/id = 0
+popup/item_1/text = "1440 x 810"
+popup/item_1/id = 1
+popup/item_2/text = "800 x 450"
+popup/item_2/id = 2
+
+[node name="Fullscreen" type="Control" parent="PanelControl/TabContainer/Video/Control/VBoxContainer" unique_id=835631239]
+custom_minimum_size = Vector2(0, 37.985)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="FullscreenButton" type="CheckButton" parent="PanelControl/TabContainer/Video/Control/VBoxContainer/Fullscreen" unique_id=1150508874]
+custom_minimum_size = Vector2(289.69, 0)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -289.69
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+flat = true
+
+[node name="FullscreenLabel" type="Label" parent="PanelControl/TabContainer/Video/Control/VBoxContainer/Fullscreen" unique_id=2121881884]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -17.5
+offset_right = 154.0
+offset_bottom = 17.5
+grow_vertical = 2
+text = "FullScreen"
+label_settings = SubResource("LabelSettings_fxxad")
+
+[node name="Gameplay" type="TabBar" parent="PanelControl/TabContainer" unique_id=28633339]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Control" type="Control" parent="PanelControl/TabContainer/Gameplay" unique_id=289818475]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelControl/TabContainer/Gameplay/Control" unique_id=576583288]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="MouseSense" type="Control" parent="PanelControl/TabContainer/Gameplay/Control/VBoxContainer" unique_id=286791603]
+custom_minimum_size = Vector2(0, 37.985)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MouseSenseSlider" type="HSlider" parent="PanelControl/TabContainer/Gameplay/Control/VBoxContainer/MouseSense" unique_id=1150401479]
+custom_minimum_size = Vector2(289.69, 31.16)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="MouseSensLabel" type="Label" parent="PanelControl/TabContainer/Gameplay/Control/VBoxContainer/MouseSense" unique_id=1608801134]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -17.5
+offset_right = 154.0
+offset_bottom = 17.5
+grow_vertical = 2
+text = "Mouse Sensitivity"
+label_settings = SubResource("LabelSettings_fxxad")
+
+[node name="Fov" type="Control" parent="PanelControl/TabContainer/Gameplay/Control/VBoxContainer" unique_id=1378843258]
+custom_minimum_size = Vector2(0, 37.985)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="FovSlider" type="HSlider" parent="PanelControl/TabContainer/Gameplay/Control/VBoxContainer/Fov" unique_id=1812844463]
+custom_minimum_size = Vector2(289.69, 0)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+value = 50.0
+ticks_on_borders = true
+
+[node name="FovLabel" type="Label" parent="PanelControl/TabContainer/Gameplay/Control/VBoxContainer/Fov" unique_id=915993943]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -17.5
+offset_right = 154.0
+offset_bottom = 17.5
+grow_vertical = 2
+text = "Field of View"
+label_settings = SubResource("LabelSettings_fxxad")
+
+[node name="FpsCounter" type="Control" parent="PanelControl/TabContainer/Gameplay/Control/VBoxContainer" unique_id=763857551]
+custom_minimum_size = Vector2(0, 37.985)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="FPSEnabler" type="CheckButton" parent="PanelControl/TabContainer/Gameplay/Control/VBoxContainer/FpsCounter" unique_id=1494983931]
+custom_minimum_size = Vector2(289.69, 0)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -289.69
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+flat = true
+
+[node name="FovLabel" type="Label" parent="PanelControl/TabContainer/Gameplay/Control/VBoxContainer/FpsCounter" unique_id=86340562]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -17.5
+offset_right = 154.0
+offset_bottom = 17.5
+grow_vertical = 2
+text = "FPS Counter"
+label_settings = SubResource("LabelSettings_fxxad")
+
+[node name="Audio" type="TabBar" parent="PanelControl/TabContainer" unique_id=981927844]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Control" type="Control" parent="PanelControl/TabContainer/Audio" unique_id=840659736]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelControl/TabContainer/Audio/Control" unique_id=467389356]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Master" type="Control" parent="PanelControl/TabContainer/Audio/Control/VBoxContainer" unique_id=1404882178]
+custom_minimum_size = Vector2(0, 37.985)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="AudioMasterSlider" type="HSlider" parent="PanelControl/TabContainer/Audio/Control/VBoxContainer/Master" unique_id=2127211646]
+custom_minimum_size = Vector2(289.69, 31.16)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+min_value = -22.0
+max_value = 0.0
+
+[node name="MouseSensLabel" type="Label" parent="PanelControl/TabContainer/Audio/Control/VBoxContainer/Master" unique_id=817319631]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -17.5
+offset_right = 154.0
+offset_bottom = 17.5
+grow_vertical = 2
+text = "Master Audio"
+label_settings = SubResource("LabelSettings_fxxad")
+
+[node name="SFX" type="Control" parent="PanelControl/TabContainer/Audio/Control/VBoxContainer" unique_id=1084915254]
+custom_minimum_size = Vector2(0, 37.985)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="AudioSFXSlider" type="HSlider" parent="PanelControl/TabContainer/Audio/Control/VBoxContainer/SFX" unique_id=2067004856]
+custom_minimum_size = Vector2(289.69, 31.16)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+min_value = -22.0
+max_value = 0.0
+
+[node name="MouseSensLabel" type="Label" parent="PanelControl/TabContainer/Audio/Control/VBoxContainer/SFX" unique_id=317752469]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -17.5
+offset_right = 154.0
+offset_bottom = 17.5
+grow_vertical = 2
+text = "SFX Audio"
+label_settings = SubResource("LabelSettings_fxxad")
+
+[node name="Music" type="Control" parent="PanelControl/TabContainer/Audio/Control/VBoxContainer" unique_id=1422511512]
+custom_minimum_size = Vector2(0, 37.985)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="AudioMusicSlider" type="HSlider" parent="PanelControl/TabContainer/Audio/Control/VBoxContainer/Music" unique_id=986894644]
+custom_minimum_size = Vector2(289.69, 31.16)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+min_value = -22.0
+max_value = 0.0
+
+[node name="MouseSensLabel" type="Label" parent="PanelControl/TabContainer/Audio/Control/VBoxContainer/Music" unique_id=2431705]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -17.5
+offset_right = 154.0
+offset_bottom = 17.5
+grow_vertical = 2
+text = "Music Audio"
+label_settings = SubResource("LabelSettings_fxxad")
+
+[node name="ExitButton" parent="." unique_id=2041638655 instance=ExtResource("4_2qubn")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.94400007
+anchor_top = 0.025
+anchor_right = 0.98600006
+anchor_bottom = 0.074
+offset_left = 0.5119629
+offset_top = -0.20000076
+offset_right = 0.12792969
+offset_bottom = 0.048000336
+grow_horizontal = 0
+icon = ExtResource("3_2qubn")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Debugger" type="Panel" parent="." unique_id=1754334853]
+visible = false
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 128.0
+offset_bottom = 64.0
+
+[node name="Label" type="Label" parent="Debugger" unique_id=998075226]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical_alignment = 1
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="tab_clicked" from="PanelControl/TabContainer" to="PanelControl/TabContainer" method="_on_tab_clicked"]
+[connection signal="tab_hovered" from="PanelControl/TabContainer" to="PanelControl/TabContainer" method="_on_tab_hovered"]
+[connection signal="item_selected" from="PanelControl/TabContainer/Video/Control/VBoxContainer/Resolution/ResolutionOption" to="." method="_on_resolution_option_item_selected"]
+[connection signal="toggled" from="PanelControl/TabContainer/Video/Control/VBoxContainer/Fullscreen/FullscreenButton" to="." method="_on_fullscreen_button_toggled"]
+[connection signal="value_changed" from="PanelControl/TabContainer/Gameplay/Control/VBoxContainer/MouseSense/MouseSenseSlider" to="." method="_on_mouse_sense_slider_value_changed"]
+[connection signal="value_changed" from="PanelControl/TabContainer/Gameplay/Control/VBoxContainer/Fov/FovSlider" to="." method="_on_fov_slider_value_changed"]
+[connection signal="toggled" from="PanelControl/TabContainer/Gameplay/Control/VBoxContainer/FpsCounter/FPSEnabler" to="." method="_on_fps_enabler_toggled"]
+[connection signal="value_changed" from="PanelControl/TabContainer/Audio/Control/VBoxContainer/Master/AudioMasterSlider" to="." method="_on_audio_master_slider_value_changed"]
+[connection signal="value_changed" from="PanelControl/TabContainer/Audio/Control/VBoxContainer/SFX/AudioSFXSlider" to="." method="_on_audio_sfx_slider_value_changed"]
+[connection signal="value_changed" from="PanelControl/TabContainer/Audio/Control/VBoxContainer/Music/AudioMusicSlider" to="." method="_on_audio_music_slider_value_changed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

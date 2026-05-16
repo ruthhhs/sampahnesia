@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://73bbews7jxsf"]
+
+[ext_resource type="Texture2D" uid="uid://58tcg4hnt3yd" path="res://UI/Icon/PNG/White/1x/down.png" id="1_d04s5"]
+[ext_resource type="Script" uid="uid://ca7c5n115dke8" path="res://UI/Prefabs/needs_something/needs_something.gd" id="1_qrifw"]
+[ext_resource type="Texture2D" uid="uid://d3g4r4hbpttlg" path="res://Assets/Sprite/ItemIcon/silicon-waffer.png" id="2_qrifw"]
+[ext_resource type="Texture2D" uid="uid://dy87b30l4je6h" path="res://UI/Icon/PNG/White/1x/warning.png" id="3_ij1do"]
+[ext_resource type="Texture2D" uid="uid://cncj7wvh3dvoa" path="res://UI/Icon/SelfMade/lightning-01.png" id="4_bbtgu"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nnyns"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ospi0"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 88
+corner_radius_top_right = 88
+corner_radius_bottom_right = 88
+corner_radius_bottom_left = 88
+
+[node name="NeedsSomething" type="Sprite3D" unique_id=799687890]
+pixel_size = 0.005
+billboard = 1
+texture = SubResource("ViewportTexture_nnyns")
+script = ExtResource("1_qrifw")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1738322909]
+transparent_bg = true
+size_2d_override_stretch = true
+
+[node name="Control" type="Control" parent="SubViewport" unique_id=1479601603]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/Control" unique_id=758006881]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="SubViewport/Control/VBoxContainer" unique_id=1271732358]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ospi0")
+
+[node name="TextureRect" type="TextureRect" parent="SubViewport/Control/VBoxContainer/Panel" unique_id=1757855084]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -68.205
+offset_right = 256.0
+offset_bottom = 102.795135
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+texture = ExtResource("1_d04s5")
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SubViewport/Control/VBoxContainer/Panel" unique_id=687754970]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ImageInput" type="TextureRect" parent="SubViewport/Control/VBoxContainer/Panel/HBoxContainer" unique_id=1097268710]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_qrifw")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="SubViewport/Control/VBoxContainer/Panel/HBoxContainer/ImageInput" unique_id=695579305]
+modulate = Color(1.0480936, 0.6446457, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.481
+anchor_top = 0.537
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ij1do")
+stretch_mode = 5
+
+[node name="Electricity" type="TextureRect" parent="SubViewport/Control/VBoxContainer/Panel/HBoxContainer" unique_id=1735797734]
+unique_name_in_owner = true
+modulate = Color(1.2450454, 0.85016793, 0.2001419, 1)
+layout_mode = 2
+texture = ExtResource("4_bbtgu")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="SubViewport/Control/VBoxContainer/Panel/HBoxContainer/Electricity" unique_id=218862583]
+modulate = Color(1.0480936, 0.6446457, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.481
+anchor_top = 0.537
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ij1do")
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="SubViewport/Control/VBoxContainer" unique_id=246821624]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+mouse_filter = 2

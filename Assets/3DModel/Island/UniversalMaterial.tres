@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bwwws2fdlcuyh"]
+
+[ext_resource type="Texture2D" uid="uid://esnnm6pxv6oj" path="res://Assets/3DModel/Island/Island_TextureMasice_1.png" id="1_f4x1q"]
+
+[resource]
+resource_name = "UniversalMaterial"
+albedo_texture = ExtResource("1_f4x1q")
+metallic = 0.2681818
