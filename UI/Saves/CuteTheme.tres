@@ -1,0 +1,156 @@
+[gd_resource type="Theme" format=3 uid="uid://2vx27ttvak05"]
+
+[ext_resource type="FontVariation" uid="uid://cl1ghml6fsl2n" path="res://UI/Font/tress_font/UiFont.tres" id="1_tu7m3"]
+[ext_resource type="Texture2D" uid="uid://p7s7hjxbr8li" path="res://UI/Icon/PNG/White/1x/gear.png" id="2_v8hku"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tu7m3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v8hku"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7rhpx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tu7m3"]
+bg_color = Color(0.4392157, 0.67058825, 0.54509807, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_left = 8.0
+expand_margin_top = 3.0
+expand_margin_right = 8.0
+expand_margin_bottom = 3.0
+shadow_color = Color(0, 0, 0, 0.3764706)
+shadow_size = 1
+shadow_offset = Vector2(2.005, 3.29)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rhpx"]
+bg_color = Color(0.2509804, 0.25882354, 0.3647059, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.3764706)
+shadow_size = 1
+shadow_offset = Vector2(2.005, 3.29)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aw4ao"]
+bg_color = Color(0.50980395, 0.6313726, 0.5764706, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m3px7"]
+bg_color = Color(0.33333334, 0.34509805, 0.46666667, 0.21568628)
+border_width_top = 5
+border_width_bottom = 5
+border_color = Color(0.33361515, 0.34580213, 0.4661066, 0.216)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_csybf"]
+bg_color = Color(0.9353985, 0.89911836, 0.8927329, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+shadow_color = Color(0, 0, 0, 0.293)
+shadow_size = 5
+shadow_offset = Vector2(1.435, 2.235)
+anti_aliasing_size = 3.1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lyomr"]
+bg_color = Color(0.1389701, 0.31416827, 0.34834853, 1)
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vdtx7"]
+bg_color = Color(0.35220784, 0.63454723, 0.8121979, 1)
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
+
+[sub_resource type="FontVariation" id="FontVariation_v8hku"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8m5u0"]
+bg_color = Color(0.9989249, 0.96507186, 0.96185344, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 4
+shadow_offset = Vector2(2.95, 2.93)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8hku"]
+bg_color = Color(0.33333334, 0.34509805, 0.47058824, 0.99215686)
+border_width_left = 15
+border_width_right = 15
+border_color = Color(0.33333334, 0.34509805, 0.47058824, 0.99215686)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 4
+shadow_offset = Vector2(2.95, 2.93)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8m5u0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_827k6"]
+bg_color = Color(0.51151204, 0.63369673, 0.5752922, 1)
+border_width_left = 15
+border_width_right = 15
+border_color = Color(0.51151204, 0.63369673, 0.5752922, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 20
+expand_margin_top = 7.0
+shadow_size = 4
+shadow_offset = Vector2(2.95, 2.93)
+anti_aliasing = false
+
+[resource]
+Button/font_sizes/font_size = 41
+Button/fonts/font = ExtResource("1_tu7m3")
+Button/styles/disabled = SubResource("StyleBoxEmpty_tu7m3")
+Button/styles/disabled_mirrored = SubResource("StyleBoxEmpty_v8hku")
+Button/styles/focus = SubResource("StyleBoxEmpty_7rhpx")
+Button/styles/hover = SubResource("StyleBoxFlat_tu7m3")
+Button/styles/hover_mirrored = SubResource("StyleBoxFlat_tu7m3")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_tu7m3")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_tu7m3")
+Button/styles/normal = SubResource("StyleBoxFlat_7rhpx")
+Button/styles/normal_mirrored = SubResource("StyleBoxFlat_7rhpx")
+Button/styles/pressed = SubResource("StyleBoxFlat_tu7m3")
+Button/styles/pressed_mirrored = SubResource("StyleBoxFlat_tu7m3")
+HSlider/icons/grabber = ExtResource("2_v8hku")
+HSlider/icons/grabber_disabled = ExtResource("2_v8hku")
+HSlider/icons/grabber_highlight = ExtResource("2_v8hku")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_aw4ao")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_aw4ao")
+HSlider/styles/slider = SubResource("StyleBoxFlat_m3px7")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_csybf")
+ProgressBar/fonts/font = ExtResource("1_tu7m3")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_lyomr")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_vdtx7")
+TabBar/font_sizes/font_size = 16
+TabBar/fonts/font = SubResource("FontVariation_v8hku")
+TabContainer/font_sizes/font_size = 23
+TabContainer/fonts/font = ExtResource("1_tu7m3")
+TabContainer/styles/panel = SubResource("StyleBoxFlat_8m5u0")
+TabContainer/styles/tab_disabled = SubResource("StyleBoxFlat_v8hku")
+TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_8m5u0")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_v8hku")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_827k6")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_v8hku")

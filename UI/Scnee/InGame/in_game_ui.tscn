@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://s13as1s14sv1"]
+
+[ext_resource type="Script" uid="uid://da8krallornwq" path="res://UI/Scnee/InGame/Script/in_game_ui.gd" id="1_grp7l"]
+[ext_resource type="PackedScene" uid="uid://diyrkqpmnn4gx" path="res://UI/Scnee/Pause/pause.tscn" id="2_vafgi"]
+
+[node name="InGameUi" type="Control" unique_id=1953453358]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_grp7l")
+
+[node name="Pause" parent="." unique_id=1855071409 instance=ExtResource("2_vafgi")]
+layout_mode = 1

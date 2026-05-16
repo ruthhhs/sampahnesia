@@ -1,0 +1,9 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://cl1ghml6fsl2n"]
+
+[ext_resource type="FontFile" uid="uid://dvfnuih886qyx" path="res://UI/Font/Alan_Sans/AlanSans-VariableFont_wght.ttf" id="1_sscmv"]
+
+[resource]
+base_font = ExtResource("1_sscmv")
+variation_embolden = 0.95
+spacing_top = 5
+spacing_bottom = 5

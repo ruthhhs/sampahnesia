@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://diyrkqpmnn4gx"]
+
+[ext_resource type="Theme" uid="uid://2vx27ttvak05" path="res://UI/Saves/CuteTheme.tres" id="1_esbbj"]
+[ext_resource type="Script" uid="uid://dks6kylywdd3k" path="res://UI/Scnee/Pause/Script/pause.gd" id="2_srmgu"]
+[ext_resource type="FontFile" uid="uid://dvfnuih886qyx" path="res://UI/Font/Alan_Sans/AlanSans-VariableFont_wght.ttf" id="2_yoixm"]
+[ext_resource type="PackedScene" uid="uid://bylii8qiypgri" path="res://UI/Scnee/Setting/setting.tscn" id="4_fbp5b"]
+[ext_resource type="PackedScene" uid="uid://c2ele75e6i3pi" path="res://UI/Prefabs/Button/button.tscn" id="4_nm23j"]
+
+[sub_resource type="Gradient" id="Gradient_fbp5b"]
+offsets = PackedFloat32Array(0.10526316, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.33100003)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nm23j"]
+gradient = SubResource("Gradient_fbp5b")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="FontVariation" id="FontVariation_wm3ow"]
+base_font = ExtResource("2_yoixm")
+variation_embolden = 1.26
+
+[sub_resource type="LabelSettings" id="LabelSettings_srmgu"]
+font = SubResource("FontVariation_wm3ow")
+font_size = 123
+font_color = Color(0.33079734, 0.293574, 0.62742066, 1)
+stacked_outline_count = 1
+stacked_shadow_count = 1
+stacked_outline_0/size = 31
+stacked_outline_0/color = Color(0.8055399, 0.8070272, 0.95303863, 1)
+stacked_shadow_0/offset = Vector2(2, 3)
+stacked_shadow_0/outline_size = 50
+
+[node name="Pause" type="Control" unique_id=1940487218]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_esbbj")
+script = ExtResource("2_srmgu")
+
+[node name="BG" type="TextureRect" parent="." unique_id=971243279]
+editor_description = "Jangan Diubah Namanya"
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_nm23j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=444224709]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -237.0
+offset_right = 320.0
+offset_bottom = 237.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=1531864586]
+layout_mode = 2
+text = "Paused"
+label_settings = SubResource("LabelSettings_srmgu")
+horizontal_alignment = 1
+
+[node name="ButtonList" type="VBoxContainer" parent="VBoxContainer" unique_id=784496219]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Resume" parent="VBoxContainer/ButtonList" unique_id=12335792 instance=ExtResource("4_nm23j")]
+layout_mode = 2
+text = "Resume"
+
+[node name="Restart" parent="VBoxContainer/ButtonList" unique_id=1539498100 instance=ExtResource("4_nm23j")]
+layout_mode = 2
+text = "Restart"
+
+[node name="Setting" parent="VBoxContainer/ButtonList" unique_id=1851271632 instance=ExtResource("4_nm23j")]
+layout_mode = 2
+text = "Setting"
+
+[node name="MainMenu" parent="VBoxContainer/ButtonList" unique_id=1927642508 instance=ExtResource("4_nm23j")]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="Setting" parent="." unique_id=1534566043 instance=ExtResource("4_fbp5b")]
+visible = false
+layout_mode = 1
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="VBoxContainer/ButtonList/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonList/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonList/Setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonList/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="visibility_changed" from="Setting" to="." method="_on_setting_visibility_changed"]

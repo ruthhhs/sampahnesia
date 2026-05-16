@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://q2rr03i841rl"]
+
+[ext_resource type="Script" uid="uid://c3l2fn6tc0oe2" path="res://Object/Prototype/PrototypeBangunan/Script/prototype_bangunan_1.gd" id="1_pyg1e"]
+[ext_resource type="Script" uid="uid://4isp3qvwqns" path="res://Object/Prototype/PrototypeBangunan/Script/area_selected.gd" id="2_gayf8"]
+[ext_resource type="Material" uid="uid://cos4ue1kk8en8" path="res://Global/lineMaterial.tres" id="2_ikn0r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4aoa"]
+albedo_color = Color(1, 0.150998, 0.34618, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q4aoa"]
+size = Vector3(2.03, 1.4, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gayf8"]
+material = ExtResource("2_ikn0r")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gayf8"]
+size = Vector3(15, 1, 15)
+
+[sub_resource type="Curve3D" id="Curve3D_gayf8"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 5, 2.81, 0, 0, 0, 0, 0, 0, 0, 0.475, 0.22, 0, 10, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pyg1e"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pyg1e"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[sub_resource type="FontVariation" id="FontVariation_rw4k3"]
+variation_embolden = 0.65
+
+[sub_resource type="LabelSettings" id="LabelSettings_ikn0r"]
+font = SubResource("FontVariation_rw4k3")
+font_size = 61
+
+[node name="PrototypeBangunan1" type="Area3D" unique_id=1478687491 node_paths=PackedStringArray("myself") groups=["bangunan"]]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+top_level = true
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_pyg1e")
+myself = NodePath(".")
+parent_group = "bangunan"
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1318817581]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.75, -0.0676181)
+visible = false
+size = Vector3(2, 1.5, 3)
+material = SubResource("StandardMaterial3D_q4aoa")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D" unique_id=2014406497]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09372, -0.187134, 0)
+operation = 2
+size = Vector3(1, 1.37427, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D" unique_id=1945289217]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.743282, 0)
+size = Vector3(2.16, 0.13, 3.125)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1034619687]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.75, -0.07)
+shape = SubResource("BoxShape3D_q4aoa")
+debug_color = Color(0.989497, 0, 0.295201, 1)
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=829017485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+
+[node name="Scaller" type="Node3D" parent="RayCast3D" unique_id=1813411564]
+transform = Transform3D(0.065, 0, 0, 0, -2.84124e-09, 0.065, 0, -0.065, -2.84124e-09, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RayCast3D/Scaller" unique_id=87577202]
+transform = Transform3D(1, 0, 0, 0, 1, -7.10543e-15, 0, 7.10543e-15, 1, 0, 0.5, 0)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_gayf8")
+skeleton = NodePath("../..")
+
+[node name="InteractToLine" type="Area3D" parent="RayCast3D/Scaller/MeshInstance3D" unique_id=186466773]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RayCast3D/Scaller/MeshInstance3D/InteractToLine" unique_id=502699903]
+shape = SubResource("BoxShape3D_gayf8")
+
+[node name="DistributePath" type="Path3D" parent="RayCast3D" unique_id=523712094]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+curve = SubResource("Curve3D_gayf8")
+
+[node name="AreaSelected" type="Area3D" parent="." unique_id=339813136 node_paths=PackedStringArray("my_parent")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+script = ExtResource("2_gayf8")
+my_parent = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaSelected" unique_id=963891733]
+shape = SubResource("BoxShape3D_pyg1e")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1150680663]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.99628, 0)
+billboard = 1
+shaded = true
+texture = SubResource("ViewportTexture_pyg1e")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=881147018]
+transparent_bg = true
+
+[node name="DebugLabel" type="Label" parent="Sprite3D/SubViewport" unique_id=1113290470]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -42.0
+offset_right = 74.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_ikn0r")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="input_event" from="RayCast3D/Scaller/MeshInstance3D/InteractToLine" to="." method="_on_interact_to_line_input_event"]
+[connection signal="area_entered" from="AreaSelected" to="AreaSelected" method="_on_area_entered"]

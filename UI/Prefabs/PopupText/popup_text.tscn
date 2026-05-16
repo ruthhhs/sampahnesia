@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://dfko614i8t244"]
+
+[ext_resource type="LabelSettings" uid="uid://w63dku8ljqja" path="res://UI/Prefabs/PopupText/WarningLabelSetting.tres" id="1_54yjc"]
+[ext_resource type="Script" uid="uid://bx7swahhg11jh" path="res://UI/Prefabs/PopupText/Script/popup_text.gd" id="1_ftdey"]
+
+[sub_resource type="Animation" id="Animation_54yjc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ftdey"]
+resource_name = "fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n8pr1"]
+_data = {
+&"RESET": SubResource("Animation_54yjc"),
+&"fade": SubResource("Animation_ftdey")
+}
+
+[node name="PopupText" type="Label" unique_id=13558569]
+show_behind_parent = true
+top_level = true
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "success added"
+label_settings = ExtResource("1_54yjc")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+text_direction = 3
+script = ExtResource("1_ftdey")
+speed_move = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=131450734]
+libraries/ = SubResource("AnimationLibrary_n8pr1")
+
+[node name="Control" type="Control" parent="." unique_id=1795982770]
+top_level = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(20, 20)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

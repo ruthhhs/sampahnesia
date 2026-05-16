@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://ci7v8ilxd5qpo"]
+
+[ext_resource type="Script" uid="uid://blmpsrd84lgw1" path="res://Object/Prototype/PrototypeSampah/Script/raycaster.gd" id="1_33tac"]
+[ext_resource type="Material" uid="uid://cos4ue1kk8en8" path="res://Global/lineMaterial.tres" id="2_ax5nh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_33tac"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_33tac"]
+
+[sub_resource type="Curve3D" id="Curve3D_33tac"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 5, 2.81, 0, 0, 0, 0, 0, 0, 0, 0.475, 0.22, 0, 10, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ax5nh"]
+shading_mode = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_ax5nh"]
+material = SubResource("StandardMaterial3D_ax5nh")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qbiia"]
+size = Vector3(15, 1, 15)
+
+[node name="Raycaster" type="RayCast3D"]
+target_position = Vector3(0, 0, 0)
+script = ExtResource("1_33tac")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_33tac")
+
+[node name="AreaSelected" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaSelected"]
+shape = SubResource("BoxShape3D_33tac")
+
+[node name="DistributePath" type="Path3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+curve = SubResource("Curve3D_33tac")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="DistributePath"]
+transform = Transform3D(-1.46172e-07, -0.489912, -0.871729, -2.98023e-08, 0.871729, -0.489912, 1, -4.56317e-08, -1.42023e-07, 0, 0, 0)
+
+[node name="Scaller" type="Node3D" parent="."]
+transform = Transform3D(0.065, 0, 0, 0, -2.84124e-09, 0.065, 0, -0.065, -2.84124e-09, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Scaller"]
+transform = Transform3D(1, 0, 0, 0, 1, -7.10543e-15, 0, 7.10543e-15, 1, 0, 0.5, 0)
+material_override = ExtResource("2_ax5nh")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ax5nh")
+skeleton = NodePath("../..")
+
+[node name="InteractToLine" type="Area3D" parent="Scaller/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scaller/MeshInstance3D/InteractToLine"]
+shape = SubResource("BoxShape3D_qbiia")
+
+[connection signal="area_entered" from="AreaSelected" to="." method="_on_area_selected_area_entered"]
+[connection signal="input_event" from="Scaller/MeshInstance3D/InteractToLine" to="." method="_on_interact_to_line_input_event"]

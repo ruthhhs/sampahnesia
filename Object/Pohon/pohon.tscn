@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://r13bmnl33nei"]
+
+[ext_resource type="Script" uid="uid://6thbcq0vdpbm" path="res://Object/Pohon/script/pohon.gd" id="1_lrtq3"]
+[ext_resource type="PackedScene" uid="uid://bt7cwi81tt10y" path="res://Assets/3DModel/Pohon/Pohon.tscn" id="2_aki4d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5pjkx"]
+size = Vector3(12.34, 13.746, 12.34)
+
+[node name="Pohon" type="Area3D" unique_id=2046109367 groups=["Objek", "tumbuhan"]]
+script = ExtResource("1_lrtq3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1027856785 groups=["Objek"]]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 6.866206, 0)
+shape = SubResource("BoxShape3D_5pjkx")
+debug_color = Color(0, 1.1044922, 0.21663643, 0)
+
+[node name="Pohon" parent="." unique_id=464169348 instance=ExtResource("2_aki4d")]
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

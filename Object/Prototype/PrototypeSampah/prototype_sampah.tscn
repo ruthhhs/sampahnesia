@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://cdpausqjx75co"]
+
+[ext_resource type="Script" uid="uid://papn0phg16hv" path="res://Object/Prototype/PrototypeSampah/Script/prototype_sampah.gd" id="1_bs1oq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4aoa"]
+albedo_color = Color(1, 0.150998, 0.34618, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pj7eo"]
+size = Vector3(3, 4.345, 2)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pyg1e"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[sub_resource type="FontVariation" id="FontVariation_gayf8"]
+variation_embolden = 0.65
+
+[sub_resource type="LabelSettings" id="LabelSettings_ikn0r"]
+font = SubResource("FontVariation_gayf8")
+font_size = 61
+
+[node name="PrototypeSampah" type="Area3D" unique_id=1542263259]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+top_level = true
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_bs1oq")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1332411984]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.75, 0)
+visible = false
+size = Vector3(2, 1.5, 3)
+material = SubResource("StandardMaterial3D_q4aoa")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D" unique_id=1821686295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09372, -0.187134, 0)
+operation = 2
+size = Vector3(1, 1.37427, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D" unique_id=514317633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.743282, 0)
+size = Vector3(2.16, 0.13, 3.125)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1921821528]
+transform = Transform3D(2.62131e-15, 0.737832, 4.39782e-08, 3.22517e-08, -4.39782e-08, 0.737832, 0.737832, 1.56242e-22, -3.22517e-08, 1.31065e-15, 0.75, 0.0286478)
+shape = SubResource("BoxShape3D_pj7eo")
+debug_color = Color(0.628309, 0.530999, 0, 1)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1802090074]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.99628, 0)
+billboard = 1
+shaded = true
+texture = SubResource("ViewportTexture_pyg1e")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=983356879]
+transparent_bg = true
+
+[node name="DebugLabel" type="Label" parent="Sprite3D/SubViewport" unique_id=2094841395]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -42.0
+offset_right = 74.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_ikn0r")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KumpulanRay" type="Node3D" parent="." unique_id=37951967]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

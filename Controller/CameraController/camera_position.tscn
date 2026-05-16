@@ -1,0 +1,428 @@
+[gd_scene format=3 uid="uid://b0w87frcj0os1"]
+
+[ext_resource type="Script" uid="uid://1yy72hn0aerw" path="res://Controller/CameraController/Script/camera_position.gd" id="1_hnn6p"]
+[ext_resource type="Theme" uid="uid://2vx27ttvak05" path="res://UI/Saves/CuteTheme.tres" id="2_81pl2"]
+[ext_resource type="Script" uid="uid://mcnkdye25yox" path="res://Controller/CameraController/Script/mouse_follower_object.gd" id="2_eysth"]
+[ext_resource type="PackedScene" uid="uid://8kwlm8k4q1dc" path="res://UI/Prefabs/BuildingSelectButton/building_select_button.tscn" id="3_m4pt6"]
+[ext_resource type="Texture2D" uid="uid://bkm0suis510dq" path="res://Assets/Sprite/Building Icon/minyak.png" id="4_m4pt6"]
+[ext_resource type="Texture2D" uid="uid://bu6s820tbj2kw" path="res://Assets/Sprite/Building Icon/lab.png" id="4_thpvx"]
+[ext_resource type="Texture2D" uid="uid://cpo6j6qvxs46g" path="res://Assets/Sprite/Building Icon/Kebun.png" id="5_dtmcr"]
+[ext_resource type="Texture2D" uid="uid://xhxf6ekr85ja" path="res://Assets/Sprite/ItemIcon/sampah.png" id="5_thpvx"]
+[ext_resource type="PackedScene" uid="uid://s13as1s14sv1" path="res://UI/Scnee/InGame/in_game_ui.tscn" id="7_7ftq8"]
+[ext_resource type="Texture2D" uid="uid://d340g1if05egh" path="res://Assets/Sprite/Building Icon/ternak.png" id="7_an30i"]
+[ext_resource type="Texture2D" uid="uid://dx1mgvax7fpl7" path="res://Assets/Sprite/Building Icon/kebunkayu.png" id="9_0ocxv"]
+
+[sub_resource type="FontVariation" id="FontVariation_eysth"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hnn6p"]
+font = SubResource("FontVariation_eysth")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_b2g4k"]
+font_size = 25
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dtmcr"]
+load_path = "res://.godot/imported/Sampah.png-f08d08fd60e2935449eed7984c021bff.ctex"
+
+[sub_resource type="Gradient" id="Gradient_eysth"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.509615, 0.586538, 0.6282051, 0.974359)
+colors = PackedColorArray(0, 0, 0, 0, 0.96327204, 0.90862226, 0.8872742, 1, 0, 0, 0, 0, 0.7176471, 0.7176471, 0.7176471, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ejtff"]
+gradient = SubResource("Gradient_eysth")
+width = 1080
+height = 1080
+fill = 2
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0.7, 0.4)
+metadata/_snap_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c8m7d"]
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture2D_ejtff")
+
+[sub_resource type="QuadMesh" id="QuadMesh_b2g4k"]
+material = SubResource("StandardMaterial3D_c8m7d")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eysth"]
+size = Vector3(2.155, 1.4, 2.155)
+
+[node name="CameraPosition" type="Node3D" unique_id=508572600]
+script = ExtResource("1_hnn6p")
+
+[node name="CameraRotationX" type="Node3D" parent="." unique_id=1260349627]
+
+[node name="CameraZoomPivot" type="Node3D" parent="CameraRotationX" unique_id=1668261267]
+transform = Transform3D(1, 0, 0, 0, 0.6401099, 0.76828367, 0, -0.76828367, 0.6401099, 0, 19, 23.5)
+
+[node name="Camera3D" type="Camera3D" parent="CameraRotationX/CameraZoomPivot" unique_id=1719253986]
+transform = Transform3D(0.99999964, 0, 0, 0, 1.0000002, 0, 0, 0, 0.99999994, 0, 0, 33.325)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=592404322]
+
+[node name="GameUIBuilder" type="Control" parent="CanvasLayer" unique_id=315374148]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_81pl2")
+
+[node name="TecStats" type="VBoxContainer" parent="CanvasLayer/GameUIBuilder" unique_id=1123131119]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FPSLabel" type="Label" parent="CanvasLayer/GameUIBuilder/TecStats" unique_id=787228054]
+visible = false
+layout_mode = 2
+text = "FPS : 111"
+label_settings = SubResource("LabelSettings_hnn6p")
+vertical_alignment = 1
+
+[node name="MousePositionLabel" type="Label" parent="CanvasLayer/GameUIBuilder/TecStats" unique_id=1042714406]
+visible = false
+layout_mode = 2
+text = "Mouse Position: "
+label_settings = SubResource("LabelSettings_hnn6p")
+vertical_alignment = 1
+
+[node name="MoneyLabel" type="Label" parent="CanvasLayer/GameUIBuilder/TecStats" unique_id=934933433]
+layout_mode = 2
+text = "Money: 0"
+
+[node name="PollutionLabel" type="Label" parent="CanvasLayer/GameUIBuilder/TecStats" unique_id=1607249131]
+layout_mode = 2
+text = "Pollution: 0"
+
+[node name="OxigenLabel" type="Label" parent="CanvasLayer/GameUIBuilder/TecStats" unique_id=24520688]
+layout_mode = 2
+text = "Oxigen: 0"
+
+[node name="RemoveButton" type="CheckButton" parent="CanvasLayer/GameUIBuilder" unique_id=937199143]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.91600007
+anchor_right = 1.0
+anchor_bottom = 0.048
+offset_left = -0.23205566
+offset_bottom = 12.16
+grow_horizontal = 0
+text = "delete"
+alignment = 1
+
+[node name="BuildingSelection" type="VBoxContainer" parent="CanvasLayer/GameUIBuilder" unique_id=1433391514]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -601.0
+offset_top = -94.0
+offset_right = 601.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 9
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/GameUIBuilder/BuildingSelection" unique_id=1104545939]
+visible = false
+layout_mode = 2
+text = "Bulding"
+label_settings = SubResource("LabelSettings_b2g4k")
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer/GameUIBuilder" unique_id=506827753]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18300001
+anchor_top = 0.75600004
+anchor_right = 0.81700003
+anchor_bottom = 0.96300006
+offset_left = 0.18399048
+offset_top = -0.4800415
+offset_right = -0.18395996
+offset_bottom = -8.040039
+grow_horizontal = 2
+grow_vertical = 0
+current_tab = 1
+
+[node name="Bangunan" type="TabBar" parent="CanvasLayer/GameUIBuilder/TabContainer" unique_id=1873388356]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="ItemListBangunan" type="ItemList" parent="CanvasLayer/GameUIBuilder/TabContainer/Bangunan" unique_id=906543099]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+theme_override_constants/h_separation = 45
+allow_reselect = true
+allow_rmb_select = true
+wraparound_items = false
+item_count = 20
+max_columns = 21
+icon_mode = 0
+icon_scale = 0.095
+item_0/text = "Kebun"
+item_0/icon = ExtResource("4_thpvx")
+item_1/text = "Peternakan"
+item_1/icon = ExtResource("4_thpvx")
+item_2/text = "Kayu"
+item_2/icon = ExtResource("4_thpvx")
+item_3/text = "PlasticBag"
+item_3/icon = ExtResource("4_thpvx")
+item_4/text = "Daging"
+item_4/icon = ExtResource("4_thpvx")
+item_5/text = "Kertas"
+item_5/icon = ExtResource("4_thpvx")
+item_6/text = "Biji Plastik"
+item_6/icon = ExtResource("4_thpvx")
+item_7/text = "Kaleng Daging"
+item_7/icon = ExtResource("4_thpvx")
+item_8/text = "Glass Cup"
+item_8/icon = ExtResource("4_thpvx")
+item_9/text = "Buku"
+item_9/icon = ExtResource("4_thpvx")
+item_10/text = "Plastic Furnitur"
+item_10/icon = ExtResource("4_thpvx")
+item_11/text = "Furnitur Kayu"
+item_11/icon = ExtResource("4_thpvx")
+item_12/text = "Biji Kaca"
+item_12/icon = ExtResource("4_thpvx")
+item_13/text = "Glass Bulb"
+item_13/icon = ExtResource("4_thpvx")
+item_14/text = "PVC"
+item_14/icon = ExtResource("4_thpvx")
+item_15/text = "Lamp"
+item_15/icon = ExtResource("4_thpvx")
+item_16/text = "Silicon"
+item_16/icon = ExtResource("4_thpvx")
+item_17/text = "Processor"
+item_17/icon = ExtResource("4_thpvx")
+item_18/text = "Computer"
+item_18/icon = ExtResource("4_thpvx")
+item_19/text = "Super Computer"
+item_19/icon = ExtResource("4_thpvx")
+
+[node name="BuildingSelectButton" parent="CanvasLayer/GameUIBuilder/TabContainer/Bangunan" unique_id=1626912660 instance=ExtResource("3_m4pt6")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -60.5
+offset_right = 50.0
+offset_bottom = 60.5
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/GameUIBuilder/TabContainer/Bangunan" unique_id=899431731]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 7.0
+offset_right = -13.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+draw_focus_border = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder/TabContainer/Bangunan/ScrollContainer" unique_id=1532174555]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/separation = 32
+
+[node name="BuildingSelectButton" parent="CanvasLayer/GameUIBuilder/TabContainer/Bangunan/ScrollContainer/HBoxContainer" unique_id=1470383226 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+size_flags_horizontal = 6
+nama_bangunan = "Pertanian"
+gambar_bangunan = ExtResource("5_dtmcr")
+using_electricity = true
+gambar_input = SubResource("CompressedTexture2D_dtmcr")
+gambar_output = ExtResource("5_thpvx")
+control_parent = NodePath("../../../../../../../MouseFollowerObject")
+
+[node name="BuildingSelectButton2" parent="CanvasLayer/GameUIBuilder/TabContainer/Bangunan/ScrollContainer/HBoxContainer" unique_id=1665384672 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+size_flags_horizontal = 6
+nama_bangunan = "Peternakan"
+gambar_bangunan = ExtResource("7_an30i")
+using_electricity = true
+gambar_input = SubResource("CompressedTexture2D_dtmcr")
+gambar_output = ExtResource("5_thpvx")
+id_building = 1
+control_parent = NodePath("../../../../../../../MouseFollowerObject")
+
+[node name="Listrik" type="TabBar" parent="CanvasLayer/GameUIBuilder/TabContainer" unique_id=987707079]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="ItemListListrik" type="ItemList" parent="CanvasLayer/GameUIBuilder/TabContainer/Listrik" unique_id=1302060444]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+theme_override_constants/h_separation = 45
+allow_reselect = true
+allow_rmb_select = true
+wraparound_items = false
+item_count = 4
+max_columns = 5
+icon_mode = 0
+icon_scale = 0.095
+item_0/text = "PLTS"
+item_0/icon = ExtResource("4_m4pt6")
+item_1/icon = ExtResource("4_m4pt6")
+item_2/icon = ExtResource("4_m4pt6")
+item_3/icon = ExtResource("4_m4pt6")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/GameUIBuilder/TabContainer/Listrik" unique_id=1773546561]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 7.0
+offset_right = -13.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+draw_focus_border = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder/TabContainer/Listrik/ScrollContainer" unique_id=1452704859]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/separation = 32
+
+[node name="BuildingSelectButton" parent="CanvasLayer/GameUIBuilder/TabContainer/Listrik/ScrollContainer/HBoxContainer" unique_id=2055577685 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+size_flags_horizontal = 6
+nama_bangunan = "Pertanian"
+gambar_bangunan = ExtResource("4_m4pt6")
+using_electricity = true
+price_bangunan = 20
+id_building = 20
+control_parent = NodePath("../../../../../../../MouseFollowerObject")
+
+[node name="Tumbuhan" type="TabBar" parent="CanvasLayer/GameUIBuilder/TabContainer" unique_id=2031141851]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="ItemListTumbuhan" type="ItemList" parent="CanvasLayer/GameUIBuilder/TabContainer/Tumbuhan" unique_id=701040917]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+theme_override_constants/h_separation = 45
+allow_reselect = true
+allow_rmb_select = true
+wraparound_items = false
+item_count = 1
+max_columns = 5
+icon_mode = 0
+icon_scale = 0.095
+item_0/text = "Pohon"
+item_0/icon = ExtResource("9_0ocxv")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/GameUIBuilder/TabContainer/Tumbuhan" unique_id=1513965048]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 7.0
+offset_right = -13.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+draw_focus_border = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder/TabContainer/Tumbuhan/ScrollContainer" unique_id=1643242032]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/separation = 32
+
+[node name="BuildingSelectButton" parent="CanvasLayer/GameUIBuilder/TabContainer/Tumbuhan/ScrollContainer/HBoxContainer" unique_id=758393175 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+size_flags_horizontal = 6
+nama_bangunan = "Pertanian"
+gambar_bangunan = ExtResource("5_dtmcr")
+using_electricity = true
+gambar_input = SubResource("CompressedTexture2D_dtmcr")
+gambar_output = ExtResource("5_thpvx")
+control_parent = NodePath("../../../../../../../MouseFollowerObject")
+
+[node name="BuildingSelectButton2" parent="CanvasLayer/GameUIBuilder/TabContainer/Tumbuhan/ScrollContainer/HBoxContainer" unique_id=1742453596 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+size_flags_horizontal = 6
+nama_bangunan = "Peternakan"
+gambar_bangunan = ExtResource("7_an30i")
+using_electricity = true
+gambar_input = SubResource("CompressedTexture2D_dtmcr")
+gambar_output = ExtResource("5_thpvx")
+id_building = 1
+control_parent = NodePath("../../../../../../../MouseFollowerObject")
+
+[node name="InGameUi" parent="CanvasLayer" unique_id=1953453358 instance=ExtResource("7_7ftq8")]
+visible = false
+
+[node name="MouseFollowerObject" type="Marker3D" parent="." unique_id=943857534]
+script = ExtResource("2_eysth")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MouseFollowerObject" unique_id=2019744671]
+unique_name_in_owner = true
+transform = Transform3D(4.589, 0.00012869154, 5.625286e-12, 0, -2.0059157e-07, 4.589, 0.00012869154, -4.589, -2.0059157e-07, 3, 0.0247344, -3)
+mesh = SubResource("QuadMesh_b2g4k")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MouseFollowerObject" unique_id=1280652472]
+unique_name_in_owner = true
+transform = Transform3D(-0.00012875769, 4.589, 2.0059157e-07, 0, -2.0059157e-07, 4.589, 4.589, 0.00012875769, 5.628177e-12, 3, 0.0247344, 3)
+mesh = SubResource("QuadMesh_b2g4k")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MouseFollowerObject" unique_id=1813842881]
+unique_name_in_owner = true
+transform = Transform3D(-4.589, -0.00012870296, -5.6257854e-12, 0, -2.0059157e-07, 4.589, -0.00012870296, 4.589, 2.0059157e-07, -2.9999998, 0.0247344, 3)
+mesh = SubResource("QuadMesh_b2g4k")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="MouseFollowerObject" unique_id=740809109]
+unique_name_in_owner = true
+transform = Transform3D(0.00012835649, -4.589, -2.0059157e-07, 0, -2.0059157e-07, 4.589, -4.589, -0.00012835649, -5.610641e-12, -3.0000002, 0.0247344, -3)
+mesh = SubResource("QuadMesh_b2g4k")
+
+[node name="CollidingCheckers" type="Area3D" parent="MouseFollowerObject" unique_id=518951340]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MouseFollowerObject/CollidingCheckers" unique_id=1745972516]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 0, 0.75, 0)
+shape = SubResource("BoxShape3D_eysth")
+
+[connection signal="toggled" from="CanvasLayer/GameUIBuilder/RemoveButton" to="." method="_on_check_button_toggled"]
+[connection signal="item_clicked" from="CanvasLayer/GameUIBuilder/TabContainer/Bangunan/ItemListBangunan" to="MouseFollowerObject" method="_on_item_list_bangunan_item_clicked"]
+[connection signal="item_clicked" from="CanvasLayer/GameUIBuilder/TabContainer/Listrik/ItemListListrik" to="MouseFollowerObject" method="_on_item_list_listrik_item_clicked"]
+[connection signal="item_clicked" from="CanvasLayer/GameUIBuilder/TabContainer/Tumbuhan/ItemListTumbuhan" to="MouseFollowerObject" method="_on_item_list_tumbuhan_item_clicked"]
+[connection signal="body_exited" from="MouseFollowerObject/CollidingCheckers" to="." method="_on_colliding_checkers_body_exited"]
+[connection signal="body_exited" from="MouseFollowerObject/CollidingCheckers" to="MouseFollowerObject" method="_on_colliding_checkers_body_exited"]

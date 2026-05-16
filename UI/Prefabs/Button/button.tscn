@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c2ele75e6i3pi"]
+
+[ext_resource type="Script" uid="uid://dm1op0nlsabd8" path="res://UI/Prefabs/Button/Script/button.gd" id="1_b4era"]
+[ext_resource type="AudioStream" uid="uid://dtfnoihedru8o" path="res://UI/UIFX/kenney_interface-sounds/Audio/click_003.ogg" id="3_8tnuk"]
+[ext_resource type="AudioStream" uid="uid://ehdny8574a7q" path="res://UI/UIFX/kenney_interface-sounds/Audio/select_006.ogg" id="3_b4era"]
+
+[node name="Button" type="Button" unique_id=1308777811]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_b4era")
+
+[node name="HoverAudioButton" type="AudioStreamPlayer" parent="." unique_id=1497461843]
+stream = ExtResource("3_8tnuk")
+
+[node name="ClickAudioButton" type="AudioStreamPlayer" parent="." unique_id=1704619243]
+stream = ExtResource("3_b4era")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
