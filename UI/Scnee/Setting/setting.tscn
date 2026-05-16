@@ -11,8 +11,8 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_fxxad"]
 font = ExtResource("2_o15vw")
-font_size = 23
-font_color = Color(0.29394552, 0.25869095, 0.19134012, 1)
+font_size = 32
+font_color = Color(0.22506651, 0.24981222, 0.3776928, 1)
 
 [node name="Setting" type="Control" unique_id=198789454]
 layout_mode = 3
@@ -49,16 +49,21 @@ mouse_filter = 1
 
 [node name="TabContainer" type="TabContainer" parent="PanelControl" unique_id=1431237322]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_left = 0.071
+anchor_top = 0.001
+anchor_right = 0.92100006
 anchor_bottom = 1.0
+offset_left = 0.44364166
+offset_top = -0.62656003
+offset_right = 8.520264
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
 theme_override_constants/tab_separation = 8
 theme_override_font_sizes/font_size = 42
 tab_alignment = 1
-current_tab = 1
+current_tab = 2
 script = ExtResource("3_mroum")
 
 [node name="HoverAudioButton" type="AudioStreamPlayer" parent="PanelControl/TabContainer" unique_id=333168863]
@@ -91,7 +96,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="Resolution" type="Control" parent="PanelControl/TabContainer/Video/Control/VBoxContainer" unique_id=1894394930]
@@ -119,12 +124,14 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -294.8125
-offset_top = -32.0
-offset_right = -0.819458
-offset_bottom = 32.0
+offset_left = -234.99994
+offset_top = -28.528503
+offset_right = 58.993164
+offset_bottom = 35.471497
 grow_horizontal = 0
 grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+theme_override_font_sizes/font_size = 35
 alignment = 1
 selected = 1
 item_count = 3
@@ -168,6 +175,7 @@ grow_vertical = 2
 flat = true
 
 [node name="Gameplay" type="TabBar" parent="PanelControl/TabContainer" unique_id=28633339]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -189,7 +197,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="MouseSense" type="Control" parent="PanelControl/TabContainer/Gameplay/Control/VBoxContainer" unique_id=286791603]
@@ -289,7 +297,6 @@ text = "FPS Counter"
 label_settings = SubResource("LabelSettings_fxxad")
 
 [node name="Audio" type="TabBar" parent="PanelControl/TabContainer" unique_id=981927844]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -311,7 +318,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="Master" type="Control" parent="PanelControl/TabContainer/Audio/Control/VBoxContainer" unique_id=1404882178]
@@ -416,13 +423,14 @@ label_settings = SubResource("LabelSettings_fxxad")
 [node name="ExitButton" parent="." unique_id=2041638655 instance=ExtResource("4_2qubn")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.73800004
-anchor_top = 0.2
-anchor_right = 0.78000003
-anchor_bottom = 0.24900001
-offset_left = 0.039916992
-offset_right = -0.3441162
-offset_bottom = 0.24798584
+anchor_left = 0.70400006
+anchor_top = 0.19800001
+anchor_right = 0.74500006
+anchor_bottom = 0.24700001
+offset_left = -0.6800537
+offset_top = 0.1599884
+offset_right = 0.85583496
+offset_bottom = 0.4079895
 grow_horizontal = 0
 icon = ExtResource("3_2qubn")
 icon_alignment = 1
