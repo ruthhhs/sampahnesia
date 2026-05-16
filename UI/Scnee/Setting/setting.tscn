@@ -11,7 +11,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_fxxad"]
 font = ExtResource("2_o15vw")
-font_size = 24
+font_size = 23
 font_color = Color(0.29394552, 0.25869095, 0.19134012, 1)
 
 [node name="Setting" type="Control" unique_id=198789454]
@@ -78,8 +78,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 32.0
-offset_right = -32.0
+offset_left = 75.25598
+offset_right = -88.2561
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -91,6 +91,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 10
 alignment = 1
 
 [node name="Resolution" type="Control" parent="PanelControl/TabContainer/Video/Control/VBoxContainer" unique_id=1894394930]
@@ -100,12 +101,13 @@ mouse_filter = 2
 
 [node name="ResolutionLabel" type="Label" parent="PanelControl/TabContainer/Video/Control/VBoxContainer/Resolution" unique_id=214626460]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -17.5
-offset_right = 154.0
-offset_bottom = 17.5
+anchors_preset = -1
+anchor_top = -0.053000003
+anchor_right = 0.16100001
+anchor_bottom = 1.0530001
+offset_top = 3.5057054
+offset_right = -0.07701111
+offset_bottom = -3.5057106
 grow_vertical = 2
 text = "Resolution"
 label_settings = SubResource("LabelSettings_fxxad")
@@ -118,8 +120,9 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -294.8125
-offset_top = -15.5
-offset_bottom = 15.5
+offset_top = -32.0
+offset_right = -0.819458
+offset_bottom = 32.0
 grow_horizontal = 0
 grow_vertical = 2
 alignment = 1
@@ -137,6 +140,18 @@ custom_minimum_size = Vector2(0, 37.985)
 layout_mode = 2
 mouse_filter = 2
 
+[node name="FullscreenLabel" type="Label" parent="PanelControl/TabContainer/Video/Control/VBoxContainer/Fullscreen" unique_id=2121881884]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -21.000008
+offset_right = 154.0
+offset_bottom = 20.999992
+grow_vertical = 2
+text = "FullScreen"
+label_settings = SubResource("LabelSettings_fxxad")
+
 [node name="FullscreenButton" type="CheckButton" parent="PanelControl/TabContainer/Video/Control/VBoxContainer/Fullscreen" unique_id=1150508874]
 custom_minimum_size = Vector2(289.69, 0)
 layout_mode = 1
@@ -152,18 +167,6 @@ grow_horizontal = 0
 grow_vertical = 2
 flat = true
 
-[node name="FullscreenLabel" type="Label" parent="PanelControl/TabContainer/Video/Control/VBoxContainer/Fullscreen" unique_id=2121881884]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -17.5
-offset_right = 154.0
-offset_bottom = 17.5
-grow_vertical = 2
-text = "FullScreen"
-label_settings = SubResource("LabelSettings_fxxad")
-
 [node name="Gameplay" type="TabBar" parent="PanelControl/TabContainer" unique_id=28633339]
 layout_mode = 2
 metadata/_tab_index = 1
@@ -173,8 +176,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 32.0
-offset_right = -32.0
+offset_left = 75.256
+offset_right = -88.2561
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -186,6 +189,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 10
 alignment = 1
 
 [node name="MouseSense" type="Control" parent="PanelControl/TabContainer/Gameplay/Control/VBoxContainer" unique_id=286791603]
@@ -294,8 +298,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 32.0
-offset_right = -32.0
+offset_left = 75.256
+offset_right = -88.2561
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -307,6 +311,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 10
 alignment = 1
 
 [node name="Master" type="Control" parent="PanelControl/TabContainer/Audio/Control/VBoxContainer" unique_id=1404882178]
@@ -411,14 +416,13 @@ label_settings = SubResource("LabelSettings_fxxad")
 [node name="ExitButton" parent="." unique_id=2041638655 instance=ExtResource("4_2qubn")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.94400007
-anchor_top = 0.025
-anchor_right = 0.98600006
-anchor_bottom = 0.074
-offset_left = 0.5119629
-offset_top = -0.20000076
-offset_right = 0.12792969
-offset_bottom = 0.048000336
+anchor_left = 0.73800004
+anchor_top = 0.2
+anchor_right = 0.78000003
+anchor_bottom = 0.24900001
+offset_left = 0.039916992
+offset_right = -0.3441162
+offset_bottom = 0.24798584
 grow_horizontal = 0
 icon = ExtResource("3_2qubn")
 icon_alignment = 1

@@ -1,25 +1,10 @@
 [gd_scene format=3 uid="uid://di6pfrj7w1s7m"]
 
-[ext_resource type="FontFile" uid="uid://dvfnuih886qyx" path="res://UI/Font/Alan_Sans/AlanSans-VariableFont_wght.ttf" id="1_enw8j"]
 [ext_resource type="Script" uid="uid://br6ny0r5iuewx" path="res://UI/Scnee/MainMenu/Script/main_menu.gd" id="1_sast6"]
+[ext_resource type="Texture2D" uid="uid://csw1da6wmwiu5" path="res://Assets/Sprite/Logo/name-color.png" id="2_fxxad"]
 [ext_resource type="Theme" uid="uid://2vx27ttvak05" path="res://UI/Saves/CuteTheme.tres" id="2_wm3ow"]
 [ext_resource type="PackedScene" uid="uid://c2ele75e6i3pi" path="res://UI/Prefabs/Button/button.tscn" id="4_fxxad"]
 [ext_resource type="PackedScene" uid="uid://bylii8qiypgri" path="res://UI/Scnee/Setting/setting.tscn" id="4_my5f5"]
-
-[sub_resource type="FontVariation" id="FontVariation_tgfyh"]
-base_font = ExtResource("1_enw8j")
-variation_embolden = 1.26
-
-[sub_resource type="LabelSettings" id="LabelSettings_sast6"]
-font = SubResource("FontVariation_tgfyh")
-font_size = 56
-font_color = Color(0.33079734, 0.293574, 0.62742066, 1)
-stacked_outline_count = 1
-stacked_shadow_count = 1
-stacked_outline_0/size = 31
-stacked_outline_0/color = Color(0.8055399, 0.8070272, 0.95303863, 1)
-stacked_shadow_0/offset = Vector2(2, 3)
-stacked_shadow_0/outline_size = 50
 
 [node name="MainMenu" type="Control" unique_id=1789067984]
 layout_mode = 3
@@ -46,7 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.9019608, 0.81960785, 0.6666667, 1)
+color = Color(0.64605355, 0.89676243, 0.76018596, 1)
 
 [node name="Forground" type="Control" parent="." unique_id=219066575]
 layout_mode = 1
@@ -56,49 +41,56 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Forground" unique_id=2050214488]
+[node name="Title" type="TextureRect" parent="Forground" unique_id=1812560311]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.22700001
+anchor_top = 0.14
+anchor_right = 0.77300006
+anchor_bottom = 0.46400002
+offset_left = -0.83999634
+offset_top = -0.19999695
+offset_right = 450.83984
+offset_bottom = 149.87997
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("2_fxxad")
+
+[node name="ButtonList" type="VBoxContainer" parent="Forground" unique_id=1941885368]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -252.0
+offset_top = -17.0
+offset_right = 248.0
+offset_bottom = 213.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 24
-alignment = 1
-
-[node name="Title" type="Label" parent="Forground/VBoxContainer" unique_id=1490302003]
-layout_mode = 2
-text = "Sampahnesia"
-label_settings = SubResource("LabelSettings_sast6")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Forground/VBoxContainer" unique_id=1941885368]
-layout_mode = 2
 theme = ExtResource("2_wm3ow")
-theme_override_constants/separation = 7
+theme_override_constants/separation = 15
 alignment = 1
 
-[node name="Play" parent="Forground/VBoxContainer/VBoxContainer" unique_id=721622896 instance=ExtResource("4_fxxad")]
+[node name="Play" parent="Forground/ButtonList" unique_id=721622896 instance=ExtResource("4_fxxad")]
 layout_mode = 2
 text = "Play"
 
-[node name="Credits" parent="Forground/VBoxContainer/VBoxContainer" unique_id=1453007528 instance=ExtResource("4_fxxad")]
+[node name="Credits" parent="Forground/ButtonList" unique_id=1453007528 instance=ExtResource("4_fxxad")]
 visible = false
 layout_mode = 2
 text = "Credits
 "
 
-[node name="Setting" parent="Forground/VBoxContainer/VBoxContainer" unique_id=1360431569 instance=ExtResource("4_fxxad")]
+[node name="Setting" parent="Forground/ButtonList" unique_id=1360431569 instance=ExtResource("4_fxxad")]
 layout_mode = 2
-text = "Option
-"
+text = "Settings"
 
-[node name="Exit" parent="Forground/VBoxContainer/VBoxContainer" unique_id=2141875630 instance=ExtResource("4_fxxad")]
+[node name="Exit" parent="Forground/ButtonList" unique_id=2141875630 instance=ExtResource("4_fxxad")]
 layout_mode = 2
 text = "Exit"
 
@@ -106,7 +98,7 @@ text = "Exit"
 visible = false
 layout_mode = 1
 
-[connection signal="pressed" from="Forground/VBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Forground/VBoxContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="Forground/VBoxContainer/VBoxContainer/Setting" to="." method="_on_setting_pressed"]
-[connection signal="pressed" from="Forground/VBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Forground/ButtonList/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Forground/ButtonList/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Forground/ButtonList/Setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="Forground/ButtonList/Exit" to="." method="_on_exit_pressed"]

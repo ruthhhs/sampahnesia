@@ -18,7 +18,7 @@ func _ready() -> void:
 	%OutputTexture.texture = gambar_output
 	%InformationPanel.visible = false
 	%PriceLabel.text = str(price_bangunan)
-	%InformationPanel.position = Vector2(global_position.x-28,global_position.y-%InformationPanel.size.y)
+	%InformationPanel.position = Vector2(global_position.x-300.0/2,global_position.y-%InformationPanel.size.y)
 	if using_electricity:
 		%Adder.visible = true
 		%Electricity.visible = true
