@@ -1,25 +1,180 @@
-[gd_scene format=3 uid="uid://8kwlm8k4q1dc"]
+[gd_scene format=3 uid="uid://bymtlc7b21hrh"]
 
+[ext_resource type="FontVariation" uid="uid://cl1ghml6fsl2n" path="res://UI/Font/tress_font/UiFont.tres" id="1_6grck"]
 [ext_resource type="PackedScene" uid="uid://c2ele75e6i3pi" path="res://UI/Prefabs/Button/button.tscn" id="1_opva0"]
-[ext_resource type="Theme" uid="uid://2vx27ttvak05" path="res://UI/Saves/CuteTheme.tres" id="1_tsdq5"]
 [ext_resource type="Script" uid="uid://4jht0g5dx7jt" path="res://UI/Prefabs/BuildingSelectButton/Script/building_select_button.gd" id="2_hlkvj"]
+[ext_resource type="Texture2D" uid="uid://p7s7hjxbr8li" path="res://UI/Icon/PNG/White/1x/gear.png" id="2_ts0bk"]
 [ext_resource type="Texture2D" uid="uid://p2fspvx60tm7" path="res://UI/Icon/PNG/White/1x/target.png" id="4_hlkvj"]
 [ext_resource type="Texture2D" uid="uid://bu6s820tbj2kw" path="res://Assets/Sprite/Building Icon/lab.png" id="4_id56g"]
 [ext_resource type="FontFile" uid="uid://dvfnuih886qyx" path="res://UI/Font/Alan_Sans/AlanSans-VariableFont_wght.ttf" id="5_k3mkg"]
 [ext_resource type="Texture2D" uid="uid://cvdxntirjqdjt" path="res://UI/Icon/PNG/White/1x/cross.png" id="6_b78jc"]
 [ext_resource type="Texture2D" uid="uid://58tcg4hnt3yd" path="res://UI/Icon/PNG/White/1x/down.png" id="7_s06ny"]
-[ext_resource type="Texture2D" uid="uid://d2aej5p6vfhun" path="res://Assets/Sprite/ItemIcon/Sampah.png" id="9_y5hl5"]
+[ext_resource type="Texture2D" uid="uid://xhxf6ekr85ja" path="res://Assets/Sprite/ItemIcon/sampah.png" id="9_y5hl5"]
 [ext_resource type="Texture2D" uid="uid://cgvk1rmatgk81" path="res://UI/Icon/PNG/White/2x/arrowRight.png" id="10_030p2"]
 [ext_resource type="Texture2D" uid="uid://cwt5d6wqutbwe" path="res://UI/Icon/PNG/White/2x/plus.png" id="10_y5hl5"]
 [ext_resource type="Texture2D" uid="uid://cncj7wvh3dvoa" path="res://UI/Icon/SelfMade/lightning-01.png" id="11_6grck"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hlkvj"]
-bg_color = Color(0.49023414, 0.59082973, 0.68183565, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tu7m3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v8hku"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7rhpx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tu7m3"]
+bg_color = Color(0.4392157, 0.67058825, 0.54509807, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
+expand_margin_left = 8.0
+expand_margin_top = 3.0
+expand_margin_right = 8.0
+expand_margin_bottom = 3.0
+shadow_color = Color(0, 0, 0, 0.3764706)
+shadow_size = 1
 shadow_offset = Vector2(2.005, 3.29)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rhpx"]
+bg_color = Color(0.2509804, 0.25882354, 0.3647059, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.3764706)
+shadow_size = 1
+shadow_offset = Vector2(2.005, 3.29)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aw4ao"]
+bg_color = Color(0.50980395, 0.6313726, 0.5764706, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m3px7"]
+bg_color = Color(0.33333334, 0.34509805, 0.46666667, 0.21568628)
+border_width_top = 5
+border_width_bottom = 5
+border_color = Color(0.33361515, 0.34580213, 0.4661066, 0.216)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_csybf"]
+bg_color = Color(0.9353985, 0.89911836, 0.8927329, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+shadow_color = Color(0, 0, 0, 0.293)
+shadow_size = 5
+shadow_offset = Vector2(1.435, 2.235)
+anti_aliasing_size = 3.1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lyomr"]
+bg_color = Color(0.1389701, 0.31416827, 0.34834853, 1)
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vdtx7"]
+bg_color = Color(0.35220784, 0.63454723, 0.8121979, 1)
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
+
+[sub_resource type="FontVariation" id="FontVariation_v8hku"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8m5u0"]
+bg_color = Color(0.9989249, 0.96507186, 0.96185344, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 4
+shadow_offset = Vector2(2.95, 2.93)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8hku"]
+bg_color = Color(0.33333334, 0.34509805, 0.47058824, 0.99215686)
+border_width_left = 15
+border_width_right = 15
+border_color = Color(0.33333334, 0.34509805, 0.47058824, 0.99215686)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 4
+shadow_offset = Vector2(2.95, 2.93)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8m5u0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_827k6"]
+bg_color = Color(0.51151204, 0.63369673, 0.5752922, 1)
+border_width_left = 15
+border_width_right = 15
+border_color = Color(0.51151204, 0.63369673, 0.5752922, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 20
+expand_margin_top = 7.0
+shadow_size = 4
+shadow_offset = Vector2(2.95, 2.93)
+anti_aliasing = false
+
+[sub_resource type="Theme" id="Theme_rpn6q"]
+Button/font_sizes/font_size = 41
+Button/fonts/font = ExtResource("1_6grck")
+Button/styles/disabled = SubResource("StyleBoxEmpty_tu7m3")
+Button/styles/disabled_mirrored = SubResource("StyleBoxEmpty_v8hku")
+Button/styles/focus = SubResource("StyleBoxEmpty_7rhpx")
+Button/styles/hover = SubResource("StyleBoxFlat_tu7m3")
+Button/styles/hover_mirrored = SubResource("StyleBoxFlat_tu7m3")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_tu7m3")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_tu7m3")
+Button/styles/normal = SubResource("StyleBoxFlat_7rhpx")
+Button/styles/normal_mirrored = SubResource("StyleBoxFlat_7rhpx")
+Button/styles/pressed = SubResource("StyleBoxFlat_tu7m3")
+Button/styles/pressed_mirrored = SubResource("StyleBoxFlat_tu7m3")
+HSlider/icons/grabber = ExtResource("2_ts0bk")
+HSlider/icons/grabber_disabled = ExtResource("2_ts0bk")
+HSlider/icons/grabber_highlight = ExtResource("2_ts0bk")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_aw4ao")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_aw4ao")
+HSlider/styles/slider = SubResource("StyleBoxFlat_m3px7")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_csybf")
+ProgressBar/fonts/font = ExtResource("1_6grck")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_lyomr")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_vdtx7")
+TabBar/font_sizes/font_size = 16
+TabBar/fonts/font = SubResource("FontVariation_v8hku")
+TabContainer/font_sizes/font_size = 23
+TabContainer/fonts/font = ExtResource("1_6grck")
+TabContainer/styles/panel = SubResource("StyleBoxFlat_8m5u0")
+TabContainer/styles/tab_disabled = SubResource("StyleBoxFlat_v8hku")
+TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_8m5u0")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_v8hku")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_827k6")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_v8hku")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hlkvj"]
+bg_color = Color(0.4818, 0.63485664, 0.73, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.19607843)
+shadow_size = 2
+shadow_offset = Vector2(0, 2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3mkg"]
 bg_color = Color(0.4392157, 0.67058825, 0.54509807, 1)
@@ -37,21 +192,24 @@ variation_embolden = 0.95
 
 [sub_resource type="LabelSettings" id="LabelSettings_id56g"]
 font = SubResource("FontVariation_s06ny")
-font_size = 21
+font_size = 28
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_s06ny"]
 color = Color(0.9955804, 0.99558026, 0.99558026, 1)
-grow_begin = -3.0
-grow_end = -3.0
+grow_begin = -10.0
+grow_end = -10.0
+thickness = 4
 
 [sub_resource type="LabelSettings" id="LabelSettings_b78jc"]
 font = SubResource("FontVariation_s06ny")
-font_size = 15
+font_size = 20
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k3mkg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s06ny"]
 bg_color = Color(1, 1, 1, 1)
+border_color = Color(0.44313726, 0.6509804, 0.6784314, 1)
+border_blend = true
 corner_radius_top_left = 22
 corner_radius_top_right = 22
 corner_radius_bottom_right = 22
@@ -60,31 +218,21 @@ expand_margin_left = 5.0
 expand_margin_top = 5.0
 expand_margin_right = 5.0
 expand_margin_bottom = 5.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ts0bk"]
-bg_color = Color(4.437391, 4.437391, 4.437391, 1)
-draw_center = false
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-corner_radius_top_left = 22
-corner_radius_top_right = 22
-corner_radius_bottom_right = 22
-corner_radius_bottom_left = 22
+shadow_color = Color(0, 0, 0, 0.3137255)
+shadow_offset = Vector2(0, 2)
 
 [node name="BuildingSelectButton" type="Control" unique_id=1626912660]
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(300, 185)
 layout_mode = 3
-anchor_right = 0.067
-anchor_bottom = 0.119
-offset_right = -0.6399994
-offset_bottom = -0.5200043
+anchor_right = 0.156
+anchor_bottom = 0.171
+offset_right = 0.47998047
+offset_bottom = 0.31999207
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(64, 64)
+pivot_offset = Vector2(150, 92)
 mouse_filter = 2
-theme = ExtResource("1_tsdq5")
+theme = SubResource("Theme_rpn6q")
 script = ExtResource("2_hlkvj")
 
 [node name="Button" parent="." unique_id=1308777811 instance=ExtResource("1_opva0")]
@@ -109,6 +257,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 6
 
 [node name="BuildingTexture" type="TextureRect" parent="Button/VBoxContainer" unique_id=64621095]
 unique_name_in_owner = true
@@ -126,8 +275,9 @@ anchor_top = 0.702
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 8.0
-offset_top = 0.012001038
+offset_top = 3.7599945
 offset_right = -8.0
+offset_bottom = 3.7479935
 grow_horizontal = 2
 grow_vertical = 0
 text = "Name"
@@ -172,7 +322,7 @@ texture = ExtResource("6_b78jc")
 
 [node name="InformationPanel" type="Control" parent="." unique_id=1510255418]
 unique_name_in_owner = true
-show_behind_parent = true
+visible = false
 top_level = true
 z_index = 2
 layout_mode = 1
@@ -181,29 +331,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -988.0
-offset_top = -660.0
-offset_right = -803.99976
-offset_bottom = -564.0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = -760.00024
+offset_bottom = -481.3551
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 1)
 mouse_filter = 2
-
-[node name="TextureRect" type="TextureRect" parent="InformationPanel" unique_id=2066807541]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -30.500122
-offset_top = -24.0
-offset_right = 27.49987
-offset_bottom = 40.0
-grow_horizontal = 2
-grow_vertical = 0
-texture = ExtResource("7_s06ny")
 
 [node name="Panel" type="Panel" parent="InformationPanel" unique_id=821384870]
 layout_mode = 1
@@ -224,71 +358,81 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="InputOutput" type="HBoxContainer" parent="InformationPanel/Panel/VBoxContainer" unique_id=1240651869]
+[node name="InputOutput" type="VBoxContainer" parent="InformationPanel/Panel/VBoxContainer" unique_id=2042455698]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 1
 alignment = 1
 
-[node name="Panel" type="Panel" parent="InformationPanel/Panel/VBoxContainer/InputOutput" unique_id=1835153098]
+[node name="VBoxContainer" type="HBoxContainer" parent="InformationPanel/Panel/VBoxContainer/InputOutput" unique_id=1121456669]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_ts0bk")
+size_flags_vertical = 3
+theme_override_constants/separation = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="InformationPanel/Panel/VBoxContainer/InputOutput/Panel" unique_id=1884974921]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-
-[node name="InputTexture" type="TextureRect" parent="InformationPanel/Panel/VBoxContainer/InputOutput/Panel/VBoxContainer" unique_id=147151224]
+[node name="InputTexture" type="TextureRect" parent="InformationPanel/Panel/VBoxContainer/InputOutput/VBoxContainer" unique_id=147151224]
 unique_name_in_owner = true
+texture_filter = 4
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("9_y5hl5")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Adder" type="TextureRect" parent="InformationPanel/Panel/VBoxContainer/InputOutput/Panel/VBoxContainer" unique_id=462975769]
+[node name="Adder" type="TextureRect" parent="InformationPanel/Panel/VBoxContainer/InputOutput/VBoxContainer" unique_id=462975769]
 unique_name_in_owner = true
 modulate = Color(0.080783345, 0.080783345, 0.080783345, 1)
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.4
 texture = ExtResource("10_y5hl5")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Electricity" type="TextureRect" parent="InformationPanel/Panel/VBoxContainer/InputOutput/Panel/VBoxContainer" unique_id=640096603]
+[node name="Electricity" type="TextureRect" parent="InformationPanel/Panel/VBoxContainer/InputOutput/VBoxContainer" unique_id=640096603]
 unique_name_in_owner = true
 modulate = Color(1.5354265, 0.7980731, 3.538414e-06, 1)
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("11_6grck")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="InformationPanel/Panel/VBoxContainer/InputOutput" unique_id=78991409]
+[node name="Forwad2" type="TextureRect" parent="InformationPanel/Panel/VBoxContainer/InputOutput/VBoxContainer" unique_id=1209334168]
+modulate = Color(0.22670749, 0.22670749, 0.22670746, 1)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.95
+size_flags_vertical = 3
+texture = ExtResource("10_030p2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="OutputTexture" type="TextureRect" parent="InformationPanel/Panel/VBoxContainer/InputOutput/VBoxContainer" unique_id=185351244]
+unique_name_in_owner = true
+texture_filter = 4
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("9_y5hl5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="InformationPanel/Panel/VBoxContainer/InputOutput" unique_id=527519655]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+theme_override_constants/separation = 1
 
 [node name="Forwad" type="TextureRect" parent="InformationPanel/Panel/VBoxContainer/InputOutput/VBoxContainer2" unique_id=971725836]
 modulate = Color(0.22670749, 0.22670749, 0.22670746, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Forwad2" type="TextureRect" parent="InformationPanel/Panel/VBoxContainer/InputOutput/VBoxContainer2" unique_id=1209334168]
-modulate = Color(0.22670749, 0.22670749, 0.22670746, 1)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource("10_030p2")
 expand_mode = 1
 stretch_mode = 5
 
@@ -300,41 +444,40 @@ size_flags_vertical = 3
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Panel2" type="Panel" parent="InformationPanel/Panel/VBoxContainer/InputOutput" unique_id=1714648470]
+[node name="VBoxContainer3" type="VBoxContainer" parent="InformationPanel/Panel/VBoxContainer/InputOutput" unique_id=896585085]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_ts0bk")
+theme_override_constants/separation = 1
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="InformationPanel/Panel/VBoxContainer/InputOutput/Panel2" unique_id=896585085]
+[node name="OutputTexture2" type="TextureRect" parent="InformationPanel/Panel/VBoxContainer/InputOutput/VBoxContainer3" unique_id=1772116056]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 5
+
+[node name="OutputTexture3" type="TextureRect" parent="InformationPanel/Panel/VBoxContainer/InputOutput/VBoxContainer3" unique_id=607425504]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="InformationPanel" unique_id=2066807541]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -30.500122
+offset_top = -24.0
+offset_right = 27.49987
+offset_bottom = 40.0
 grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-
-[node name="OutputTexture2" type="TextureRect" parent="InformationPanel/Panel/VBoxContainer/InputOutput/Panel2/VBoxContainer3" unique_id=1772116056]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-expand_mode = 1
-stretch_mode = 5
-
-[node name="OutputTexture" type="TextureRect" parent="InformationPanel/Panel/VBoxContainer/InputOutput/Panel2/VBoxContainer3" unique_id=185351244]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("9_y5hl5")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="OutputTexture3" type="TextureRect" parent="InformationPanel/Panel/VBoxContainer/InputOutput/Panel2/VBoxContainer3" unique_id=607425504]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-expand_mode = 1
-stretch_mode = 5
+grow_vertical = 0
+texture = ExtResource("7_s06ny")
 
 [connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]

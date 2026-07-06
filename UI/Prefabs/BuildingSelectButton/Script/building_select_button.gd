@@ -1,6 +1,6 @@
 extends Control
 
-var offset_y: float = 30.0
+var offset_y: float = 150.0
 
 @export var nama_bangunan: String
 @export var gambar_bangunan: Texture2D
@@ -33,10 +33,9 @@ func _process(delta: float) -> void:
 
 func _on_button_mouse_entered() -> void:
 	%InformationPanel.visible = true
-	%InformationPanel.position = Vector2(global_position.x-28,global_position.y-%InformationPanel.size.y-offset_y)
+	%InformationPanel.position = Vector2(global_position.x+((size.x/2)-(%InformationPanel.size.x/2)),global_position.y-offset_y)
 func _on_button_mouse_exited() -> void:
 	%InformationPanel.visible = false
-	%InformationPanel.position = global_position
 
 func _on_button_pressed() -> void:
 	control_parent.id_input = id_building

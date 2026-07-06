@@ -1,6 +1,7 @@
 class_name Building
 extends Area3D
 var list_node_tersambung: Array[Area3D]
+@export var state_building: Node3D
 @export var output_texture: CompressedTexture2D
 @export var input_texture: Texture2D
 @export var parent_group: String
@@ -14,6 +15,19 @@ var list_node_tersambung: Array[Area3D]
 			
 		if is_get_money == true:
 			pass #menambahkan kondisi misal memberi animasi
+		if state_building != null:
+			var range_1:float = lerp(0,maximum_item_value,0.7)
+			var range_2:float = lerp(0,maximum_item_value,0.3)
+			if item_value >= range_1:
+				state_building.full()
+			elif item_value < range_1 and item_value >=range_2:
+				state_building.medium()
+			elif item_value < range_2:
+				
+				state_building.small()
+			elif item_value <= 0:
+				
+				state_building.empty()
 	get:
 		return item_value
 @export var auto_get_polute: bool = false

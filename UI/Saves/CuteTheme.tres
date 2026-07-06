@@ -86,8 +86,6 @@ corner_radius_bottom_left = 13
 bg_color = Color(0.9989249, 0.96507186, 0.96185344, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
 shadow_size = 4
 shadow_offset = Vector2(2.95, 2.93)
 
@@ -121,7 +119,7 @@ shadow_offset = Vector2(2.95, 2.93)
 anti_aliasing = false
 
 [resource]
-Button/font_sizes/font_size = 41
+Button/font_sizes/font_size = 36
 Button/fonts/font = ExtResource("1_tu7m3")
 Button/styles/disabled = SubResource("StyleBoxEmpty_tu7m3")
 Button/styles/disabled_mirrored = SubResource("StyleBoxEmpty_v8hku")
@@ -146,7 +144,8 @@ ProgressBar/styles/background = SubResource("StyleBoxFlat_lyomr")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_vdtx7")
 TabBar/font_sizes/font_size = 16
 TabBar/fonts/font = SubResource("FontVariation_v8hku")
-TabContainer/font_sizes/font_size = 23
+TabContainer/constants/tab_separation = 8
+TabContainer/font_sizes/font_size = 32
 TabContainer/fonts/font = ExtResource("1_tu7m3")
 TabContainer/styles/panel = SubResource("StyleBoxFlat_8m5u0")
 TabContainer/styles/tab_disabled = SubResource("StyleBoxFlat_v8hku")

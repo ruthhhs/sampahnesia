@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://copfgcif52xfj" path="res://Object/Prototype/Bangunan/Script/prototype_listrik.gd" id="1_mh0ut"]
 [ext_resource type="Texture2D" uid="uid://xhxf6ekr85ja" path="res://Assets/Sprite/ItemIcon/sampah.png" id="2_2awq0"]
-[ext_resource type="Texture2D" uid="uid://5dviajdpabf3" path="res://Assets/Sprite/ItemIcon/silicon-server.png" id="2_dau5f"]
+[ext_resource type="Script" uid="uid://bjfb1hgnf06oy" path="res://Object/Sampah/Script/SampahSwap.gd" id="3_2kmm8"]
+[ext_resource type="PackedScene" uid="uid://c4qobr2laks54" path="res://Assets/3DModel/Sampah/sampah.tscn" id="3_dau5f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4aoa"]
 albedo_color = Color(1, 0.150998, 0.34618, 1)
@@ -20,19 +21,20 @@ variation_embolden = 0.65
 font = SubResource("FontVariation_gayf8")
 font_size = 61
 
-[node name="BangunanSampah" type="Area3D" unique_id=1372270150 groups=["Objek", "listrik_kotor"]]
+[node name="BangunanSampah" type="Area3D" unique_id=1372270150 node_paths=PackedStringArray("state_building") groups=["Objek", "listrik_kotor"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 top_level = true
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_mh0ut")
-output_texture = ExtResource("2_dau5f")
+state_building = NodePath("SampahSwap")
 input_texture = ExtResource("2_2awq0")
 parent_group = "bangunan_sampah"
-target_group = Array[String](["bangunan_complete_1", "bangunan_complete_2", "Pertanian", "Pengolahan_kayu", "Peleburan_biji_plastik", "Biji_kaca"])
+target_group = Array[String](["bangunan_complete_1", "bangunan_complete_2", "Pertanian", "Pengolahan_kayu", "Peleburan_biji_plastik", "Biji_kaca", "bangunan_sampah"])
+maximum_item_value = 10
+item_value = 10
 auto_get_polute = true
 jumlah_polusi = 7
-is_self_added = true
 infinite_connection = true
 can_delete = false
 
@@ -58,6 +60,7 @@ debug_color = Color(13.609984, 13.18741, 13.891701, 1)
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=336094838]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.99628, 0)
+visible = false
 billboard = 1
 shaded = true
 texture = SubResource("ViewportTexture_pyg1e")
@@ -84,6 +87,12 @@ vertical_alignment = 1
 
 [node name="KumpulanRay" type="Node3D" parent="." unique_id=812763313]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+
+[node name="SampahSwap" type="Node3D" parent="." unique_id=416772995]
+script = ExtResource("3_2kmm8")
+
+[node name="Sampah" parent="SampahSwap" unique_id=286230767 instance=ExtResource("3_dau5f")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.17575324, 0)
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
