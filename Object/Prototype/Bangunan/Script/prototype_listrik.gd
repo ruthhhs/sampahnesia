@@ -65,8 +65,8 @@ var on_maintenance: bool = false:
 		if label_value_item != null and not is_self_added:
 			label_value_item.text = str(item_value, "/", maximum_item_value, " ")
 
-		if is_get_money == true:
-			pass
+		#if is_get_money == true:
+			#pass
 
 		if state_building != null:
 			var range_1: float = lerp(0, maximum_item_value, 0.7)

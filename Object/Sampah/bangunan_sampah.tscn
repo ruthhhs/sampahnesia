@@ -9,6 +9,7 @@
 [ext_resource type="FontVariation" uid="uid://cl1ghml6fsl2n" path="res://UI/Font/tress_font/UiFont.tres" id="5_7ama4"]
 [ext_resource type="Texture2D" uid="uid://cncj7wvh3dvoa" path="res://UI/Icon/SelfMade/lightning-01.png" id="6_fotrb"]
 [ext_resource type="Texture2D" uid="uid://d3g4r4hbpttlg" path="res://Assets/Sprite/ItemIcon/silicon-waffer.png" id="7_q6qh7"]
+[ext_resource type="Script" uid="uid://cmi4f5dabk2am" path="res://Object/Sampah/Script/timer_modal.gd" id="10_2ds5u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q4aoa"]
 size = Vector3(9.5, 6.5, 9.5)
@@ -352,6 +353,7 @@ size_flags_stretch_ratio = 1.5
 mouse_filter = 2
 
 [node name="KumpulanRay" type="Node3D" parent="." unique_id=812763313]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
 [node name="SampahSwap" type="Node3D" parent="." unique_id=416772995]
@@ -361,8 +363,12 @@ script = ExtResource("3_2kmm8")
 [node name="Sampah" parent="SampahSwap" unique_id=286230767 instance=ExtResource("3_dau5f")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.080728054, 0)
 
+[node name="TimerModal" type="Timer" parent="." unique_id=1683029900]
+script = ExtResource("10_2ds5u")
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="child_order_changed" from="KumpulanRay" to="SampahSwap" method="_on_kumpulan_ray_child_order_changed"]
