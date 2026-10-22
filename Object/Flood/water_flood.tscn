@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://diflyyf0o58p"]
+
+[ext_resource type="Script" uid="uid://cq0fo5for5yk0" path="res://Object/Flood/Script/water_flood.gd" id="1_unl5n"]
+[ext_resource type="Material" uid="uid://d4bugd82xbotc" path="res://Assets/Shaders/FloodWater.tres" id="2_5upxf"]
+
+[sub_resource type="Gradient" id="Gradient_b5hqc"]
+offsets = PackedFloat32Array(0.7630058, 1)
+colors = PackedColorArray(0.45628363, 0.9463635, 0.49051344, 1, 0.45490196, 0.94509804, 0.49019608, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q6qh7"]
+gradient = SubResource("Gradient_b5hqc")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.90000004, 0.1)
+metadata/_snap_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eq4fp"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = SubResource("GradientTexture2D_q6qh7")
+metallic = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_fyipr"]
+size = Vector2(8, 8)
+orientation = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3xd07"]
+height = 2.5977783
+radius = 3.605957
+
+[sub_resource type="QuadMesh" id="QuadMesh_3xd07"]
+size = Vector2(8, 8)
+orientation = 1
+
+[sub_resource type="Animation" id="Animation_1m5y7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.02, 0.02, 0.02)]
+}
+
+[sub_resource type="Animation" id="Animation_rwcqk"]
+resource_name = "flooded"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker3D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.02, 0.02, 0.02), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ansnq"]
+_data = {
+&"RESET": SubResource("Animation_1m5y7"),
+&"flooded": SubResource("Animation_rwcqk")
+}
+
+[node name="WaterFlood" type="Node3D" unique_id=1713133364]
+script = ExtResource("1_unl5n")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=73990442]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Marker3D" unique_id=1764901291]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.058301806, 0)
+material_override = SubResource("StandardMaterial3D_eq4fp")
+mesh = SubResource("QuadMesh_fyipr")
+skeleton = NodePath("../../..")
+
+[node name="WaterArea" type="Area3D" parent="Marker3D" unique_id=299561242 groups=["water"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Marker3D/WaterArea" unique_id=643742227]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79888916, 0)
+shape = SubResource("CylinderShape3D_3xd07")
+debug_color = Color(0, 0.790496, 0.6135409, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Marker3D" unique_id=1994905799]
+material_override = ExtResource("2_5upxf")
+mesh = SubResource("QuadMesh_3xd07")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1093896138]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_ansnq")
+
+[node name="TimerDisepear" type="Timer" parent="." unique_id=1272909403]
+wait_time = 5.0
+autostart = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="TimerDisepear" to="." method="_on_timer_disepear_timeout"]

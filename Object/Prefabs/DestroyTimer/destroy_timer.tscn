@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://cfv1brkw11543"]
+
+[ext_resource type="Theme" uid="uid://iix4fhw6mk68" path="res://UI/Saves/InGameTheme.tres" id="1_c6f84"]
+[ext_resource type="Script" uid="uid://covk3oua2dr3l" path="res://Object/Prefabs/DestroyTimer/Script/destroy_timer.gd" id="1_o57mo"]
+[ext_resource type="Texture2D" uid="uid://bqc4duendwpj" path="res://UI/Icon/PNG/White/1x/wrench.png" id="2_y4f6b"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_y8mmd"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3xd07"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o57mo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jq8tk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xssf"]
+bg_color = Color(0.31764707, 0.3019608, 0.38431373, 0.5882353)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.9222793, 0.91742265, 0.9420147, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+shadow_color = Color(0.0627451, 0.17254902, 0.19607843, 0.19607843)
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhfr4"]
+bg_color = Color(1, 0.37216312, 0.3566882, 1)
+border_width_bottom = 9
+border_color = Color(0.6880104, 0, 0.017871525, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+
+[node name="DestroyTimer" type="Node3D" unique_id=1794825240]
+script = ExtResource("1_o57mo")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1558123244]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+pixel_size = 0.0002
+billboard = 1
+no_depth_test = true
+fixed_size = true
+texture = SubResource("ViewportTexture_y8mmd")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=1342714483]
+transparent_bg = true
+
+[node name="Control" type="Control" parent="Sprite3D/SubViewport" unique_id=1374947307]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_c6f84")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sprite3D/SubViewport/Control" unique_id=919814721]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSeparator" type="HSeparator" parent="Sprite3D/SubViewport/Control/VBoxContainer" unique_id=2039985133]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_3xd07")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Sprite3D/SubViewport/Control/VBoxContainer" unique_id=458257984]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="VSeparator2" type="VSeparator" parent="Sprite3D/SubViewport/Control/VBoxContainer/HBoxContainer" unique_id=653725786]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_o57mo")
+
+[node name="TextureRect" type="TextureRect" parent="Sprite3D/SubViewport/Control/VBoxContainer/HBoxContainer" unique_id=1383354129]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_y4f6b")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VSeparator3" type="VSeparator" parent="Sprite3D/SubViewport/Control/VBoxContainer/HBoxContainer" unique_id=1105610602]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jq8tk")
+
+[node name="ProgressBar" type="ProgressBar" parent="Sprite3D/SubViewport/Control/VBoxContainer/HBoxContainer" unique_id=511772795]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 7.6
+theme_override_styles/background = SubResource("StyleBoxFlat_3xssf")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rhfr4")
+value = 10.0
+rounded = true
+show_percentage = false
+
+[node name="VSeparator" type="VSeparator" parent="Sprite3D/SubViewport/Control/VBoxContainer/HBoxContainer" unique_id=1156969671]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_o57mo")
+
+[node name="HSeparator2" type="HSeparator" parent="Sprite3D/SubViewport/Control/VBoxContainer" unique_id=1780291437]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_3xd07")
+
+[node name="RepairTimer" type="Timer" parent="." unique_id=1554961721]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="RepairTimer" to="." method="_on_repair_timer_timeout"]

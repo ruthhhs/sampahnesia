@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c41r0r241t5db"]
+
+[ext_resource type="ArrayMesh" uid="uid://cx7fwjrxxjdim" path="res://Assets/3DModel/Misc/Money/ModelMoney.tres" id="1_ijmxh"]
+
+[node name="Money" type="Node3D" unique_id=1171883986]
+
+[node name="Money" type="MeshInstance3D" parent="." unique_id=836320334]
+mesh = ExtResource("1_ijmxh")
+skeleton = NodePath("")

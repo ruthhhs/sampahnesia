@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b6aiwey0j4o87"]
+
+[ext_resource type="Texture2D" uid="uid://bgvlrnb64pegy" path="res://Assets/Sprite/ItemIcon/daging-potong.png" id="1_fqp11"]
+[ext_resource type="Script" uid="uid://cmqj8sqyo3ocf" path="res://Object/Prefabs/DestroyTimer/Minigame/Game3/Script/output_item.gd" id="1_s8wwl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3xd07"]
+radius = 24.65
+
+[node name="OutputItem" type="Marker2D" unique_id=77071652]
+script = ExtResource("1_s8wwl")
+
+[node name="OutputSprite" type="Sprite2D" parent="." unique_id=498240582]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("1_fqp11")
+
+[node name="AreaCatcher" type="Area2D" parent="." unique_id=47285944]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCatcher" unique_id=1820980768]
+shape = SubResource("CircleShape2D_3xd07")

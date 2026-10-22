@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://rr4pcwj1kxuv"]
+
+[ext_resource type="Script" uid="uid://ddqg1kfat3tcs" path="res://Object/Prefabs/DestroyTimer/Minigame/Game1/Script/minigame_repairement.gd" id="1_qgoql"]
+[ext_resource type="Texture2D" uid="uid://brpjn4lnf3itg" path="res://Assets/Sprite/BGMinigame/BG mini games/shop-outer.png" id="2_n062b"]
+[ext_resource type="Script" uid="uid://bd3ww85s6pojk" path="res://Object/Prefabs/DestroyTimer/Minigame/Game3/Script/game.gd" id="2_rwl3a"]
+[ext_resource type="Texture2D" uid="uid://ihmdtsany1xh" path="res://Assets/Sprite/BGMinigame/BG mini games/shop.png" id="3_0c0w5"]
+[ext_resource type="Script" uid="uid://dcm1htannwxyd" path="res://Object/Prefabs/DestroyTimer/Minigame/Game3/Script/playable_area.gd" id="3_56kv2"]
+[ext_resource type="Texture2D" uid="uid://bw1d1rvpcmbvo" path="res://Assets/Sprite/ItemIcon/daging-kaleng.png" id="4_0i421"]
+[ext_resource type="Texture2D" uid="uid://bgvlrnb64pegy" path="res://Assets/Sprite/ItemIcon/daging-potong.png" id="4_qk0fk"]
+[ext_resource type="Texture2D" uid="uid://bed5j6no8245y" path="res://Assets/Sprite/ItemIcon/kayu-kertas.png" id="5_qk0fk"]
+[ext_resource type="Texture2D" uid="uid://05by687cr48y" path="res://Assets/Sprite/ItemIcon/gandum.png" id="5_yiith"]
+[ext_resource type="Texture2D" uid="uid://dk4h8kwug8m07" path="res://Assets/Sprite/ItemIcon/kayu-buku.png" id="6_yiith"]
+[ext_resource type="Texture2D" uid="uid://cay2sh27xi5rf" path="res://Assets/Sprite/ItemIcon/kaca-gelas.png" id="10_j2qks"]
+[ext_resource type="Texture2D" uid="uid://x67a1p308ine" path="res://Assets/Sprite/ItemIcon/kaca-bohlam.png" id="11_sw6er"]
+[ext_resource type="Texture2D" uid="uid://reae5f710psa" path="res://Assets/Sprite/ItemIcon/kayu-furnitur.png" id="12_0c0w5"]
+[ext_resource type="Texture2D" uid="uid://pr5d8ddl78c1" path="res://Assets/Sprite/BGMinigame/BG mini games/shop-border.png" id="13_6ipxn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6guaq"]
+bg_color = Color(0.12591082, 0.12591085, 0.12591076, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fhyq"]
+
+[node name="Minigame3" type="Control" unique_id=780129293]
+layout_mode = 3
+anchor_left = 0.3
+anchor_top = 0.2
+anchor_right = 0.7
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qgoql")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1112286420]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6guaq")
+
+[node name="TextureRect2" type="TextureRect" parent="PanelContainer" unique_id=1663013782]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(1.38, 1.58)
+texture = ExtResource("2_n062b")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="PanelContainer" unique_id=1246052768]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.98, 0.975)
+texture = ExtResource("3_0c0w5")
+expand_mode = 1
+
+[node name="Game" type="Node2D" parent="PanelContainer" unique_id=460052964]
+script = ExtResource("2_rwl3a")
+texture_array = Array[CompressedTexture2D]([ExtResource("4_0i421"), ExtResource("4_qk0fk"), ExtResource("5_yiith"), ExtResource("6_yiith"), ExtResource("5_qk0fk"), ExtResource("10_j2qks"), ExtResource("11_sw6er"), ExtResource("12_0c0w5")])
+
+[node name="Output" type="Node2D" parent="PanelContainer/Game" unique_id=381295260]
+position = Vector2(384, 324)
+
+[node name="Marker2D2" type="Marker2D" parent="PanelContainer/Game/Output" unique_id=57886763]
+position = Vector2(-88, -196)
+
+[node name="Marker2D3" type="Marker2D" parent="PanelContainer/Game/Output" unique_id=56898040]
+position = Vector2(-256, -196)
+
+[node name="Marker2D4" type="Marker2D" parent="PanelContainer/Game/Output" unique_id=803518526]
+position = Vector2(258, -196)
+
+[node name="Marker2D5" type="Marker2D" parent="PanelContainer/Game/Output" unique_id=364246594]
+position = Vector2(93, -196)
+
+[node name="Marker2D6" type="Marker2D" parent="PanelContainer/Game/Output" unique_id=698849620]
+position = Vector2(-88, 5)
+
+[node name="Marker2D7" type="Marker2D" parent="PanelContainer/Game/Output" unique_id=2016573943]
+position = Vector2(-256, 5)
+
+[node name="Marker2D8" type="Marker2D" parent="PanelContainer/Game/Output" unique_id=377369668]
+position = Vector2(258, 5)
+
+[node name="Marker2D9" type="Marker2D" parent="PanelContainer/Game/Output" unique_id=594698607]
+position = Vector2(93, 5)
+
+[node name="Input" type="Node2D" parent="PanelContainer/Game" unique_id=138684689]
+position = Vector2(384, 324)
+
+[node name="Marker2D2" type="Marker2D" parent="PanelContainer/Game/Input" unique_id=1164646585]
+position = Vector2(-22, 168)
+
+[node name="Marker2D3" type="Marker2D" parent="PanelContainer/Game/Input" unique_id=1001141275]
+position = Vector2(-269, 204)
+
+[node name="Marker2D4" type="Marker2D" parent="PanelContainer/Game/Input" unique_id=2039122932]
+position = Vector2(63, 210)
+
+[node name="Marker2D5" type="Marker2D" parent="PanelContainer/Game/Input" unique_id=1817963553]
+position = Vector2(198, 167)
+
+[node name="Marker2D6" type="Marker2D" parent="PanelContainer/Game/Input" unique_id=1182077773]
+position = Vector2(-128, 223)
+
+[node name="Marker2D7" type="Marker2D" parent="PanelContainer/Game/Input" unique_id=171344088]
+position = Vector2(-173, 170)
+
+[node name="Marker2D8" type="Marker2D" parent="PanelContainer/Game/Input" unique_id=1814039823]
+position = Vector2(258, 223)
+
+[node name="Marker2D9" type="Marker2D" parent="PanelContainer/Game/Input" unique_id=894036913]
+position = Vector2(128, 223)
+
+[node name="PlayableArea" type="Area2D" parent="PanelContainer/Game" unique_id=882813128]
+script = ExtResource("3_56kv2")
+
+[node name="CollusionPlayableArea" type="CollisionShape2D" parent="PanelContainer/Game/PlayableArea" unique_id=402784692]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_6fhyq")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer" unique_id=40635622]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(1.38, 1.58)
+texture = ExtResource("13_6ipxn")
+expand_mode = 1

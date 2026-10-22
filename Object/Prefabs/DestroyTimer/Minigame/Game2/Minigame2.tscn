@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://bf7e70e52vl2d"]
+
+[ext_resource type="Script" uid="uid://ddqg1kfat3tcs" path="res://Object/Prefabs/DestroyTimer/Minigame/Game1/Script/minigame_repairement.gd" id="1_0knof"]
+[ext_resource type="Texture2D" uid="uid://b4b33jwnjbedi" path="res://Assets/Sprite/BGMinigame/BG mini games/keran 1.png" id="2_p8p67"]
+[ext_resource type="Script" uid="uid://b1ek7q3prlgei" path="res://Object/Prefabs/DestroyTimer/Minigame/Game2/Script/game.gd" id="2_pueui"]
+[ext_resource type="Texture2D" uid="uid://dtuut42q55d1q" path="res://Assets/Sprite/BGMinigame/BG mini games/keran-angkat 3.png" id="3_birk3"]
+[ext_resource type="Script" uid="uid://mfuncpucyy1c" path="res://Object/Prefabs/DestroyTimer/Minigame/Game2/Script/steering.gd" id="3_uar47"]
+[ext_resource type="Texture2D" uid="uid://dj7orw5bjtke3" path="res://Assets/Sprite/BGMinigame/BG mini games/keran-foreground 4.png" id="4_pnwu4"]
+[ext_resource type="Script" uid="uid://cy64wcc1nh5j1" path="res://Object/Prefabs/DestroyTimer/Minigame/Game2/Script/mouse_interact.gd" id="4_pueui"]
+[ext_resource type="Texture2D" uid="uid://b05uu2cuu4kcp" path="res://Assets/Sprite/BGMinigame/BG mini games/keran-air 5.png" id="6_o300j"]
+[ext_resource type="Texture2D" uid="uid://c2rmallr7d8nf" path="res://Assets/Sprite/BGMinigame/BG mini games/keran-border 6.png" id="7_7pj5r"]
+[ext_resource type="Texture2D" uid="uid://cwjp2wcidf3v5" path="res://Assets/Sprite/BGMinigame/BG mini games/keran-putar 2 center.png" id="10_ojv5f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_75kxg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6fhyq"]
+radius = 227.49506
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jq8tk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jq8tk"]
+bg_color = Color(0.12591082, 0.12591085, 0.12591076, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_size = 11
+shadow_offset = Vector2(1.995, 2.615)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fhyq"]
+bg_color = Color(0.31311974, 0.61371267, 0.9381638, 1)
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 1
+
+[node name="Minigame2" type="Control" unique_id=780129293]
+layout_mode = 3
+anchor_left = 0.3
+anchor_top = 0.2
+anchor_right = 0.7
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0knof")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1112286420]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_75kxg")
+
+[node name="Background" type="TextureRect" parent="PanelContainer" unique_id=1125874463]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(1.04, 1.045)
+texture = ExtResource("2_p8p67")
+
+[node name="Dam2" type="TextureRect" parent="PanelContainer" unique_id=1753065556]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(1.04, 1.045)
+texture = ExtResource("4_pnwu4")
+
+[node name="Border" type="TextureRect" parent="PanelContainer" unique_id=753110489]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(1.04, 1.045)
+texture = ExtResource("7_7pj5r")
+
+[node name="Dam" type="TextureRect" parent="PanelContainer" unique_id=1571800193]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(1.04, 1.045)
+texture = ExtResource("3_birk3")
+
+[node name="Flood" type="TextureRect" parent="PanelContainer" unique_id=2030939139]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(1.04, 1.045)
+texture = ExtResource("6_o300j")
+
+[node name="Game" type="Node2D" parent="PanelContainer" unique_id=832483724 node_paths=PackedStringArray("water_tank", "dam", "flood")]
+script = ExtResource("2_pueui")
+water_tank = NodePath("../UI/ProgressBar")
+dam = NodePath("../Dam")
+flood = NodePath("../Flood")
+
+[node name="Steering" type="Marker2D" parent="PanelContainer/Game" unique_id=4062493]
+position = Vector2(180, 324)
+script = ExtResource("3_uar47")
+
+[node name="Sprite2D" type="Sprite2D" parent="PanelContainer/Game/Steering" unique_id=855376905]
+scale = Vector2(1.048, 1.051)
+texture = ExtResource("10_ojv5f")
+
+[node name="Interact" type="Area2D" parent="PanelContainer/Game/Steering" unique_id=2125042491]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PanelContainer/Game/Steering/Interact" unique_id=859633145]
+shape = SubResource("CircleShape2D_6fhyq")
+
+[node name="MouseInteract" type="Marker2D" parent="PanelContainer/Game" unique_id=1595340510]
+top_level = true
+script = ExtResource("4_pueui")
+
+[node name="Area2D" type="Area2D" parent="PanelContainer/Game/MouseInteract" unique_id=2025179480]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PanelContainer/Game/MouseInteract/Area2D" unique_id=1559050585]
+shape = SubResource("CircleShape2D_jq8tk")
+
+[node name="Timer" type="Timer" parent="PanelContainer/Game" unique_id=783050096]
+wait_time = 0.1
+autostart = true
+
+[node name="UI" type="Control" parent="PanelContainer" unique_id=1945175037]
+visible = false
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/UI" unique_id=685999412]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.84200007
+anchor_top = 0.252
+anchor_right = 0.91700006
+anchor_bottom = 0.76100004
+offset_left = 0.18395996
+offset_top = -0.2559967
+offset_right = 0.083984375
+offset_bottom = 0.09197998
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_jq8tk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6fhyq")
+max_value = 142.165
+fill_mode = 3
+
+[connection signal="area_entered" from="PanelContainer/Game/Steering/Interact" to="PanelContainer/Game/Steering" method="_on_interact_area_entered"]
+[connection signal="area_exited" from="PanelContainer/Game/Steering/Interact" to="PanelContainer/Game/Steering" method="_on_interact_area_exited"]
+[connection signal="timeout" from="PanelContainer/Game/Timer" to="PanelContainer/Game" method="_on_timer_timeout"]

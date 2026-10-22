@@ -1,6 +1,5 @@
 extends RayCast3D
 
-
 var height_curve: float = 2.0
 var dragging_access: bool = false
 @export var target_send: Area3D = null

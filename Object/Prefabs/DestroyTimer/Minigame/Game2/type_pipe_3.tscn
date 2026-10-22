@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dwchqmk8bu8bn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwbtc"]
+size = Vector2(64, 16)
+
+[node name="TypePipe3" type="Node2D" unique_id=169070817]
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=665626752]
+polygon = PackedVector2Array(-32, -8, 32, -8, 32, 8, 8, 8, 8, 32, -8, 32, -8, 8, -32, 8)
+
+[node name="Input" type="Node2D" parent="." unique_id=1073508657]
+
+[node name="Area2D" type="Area2D" parent="Input" unique_id=1965562866]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Input/Area2D" unique_id=1809050146]
+shape = SubResource("RectangleShape2D_dwbtc")
+
+[node name="Output" type="Node2D" parent="." unique_id=1377968438]
+
+[node name="RayCast2D" type="RayCast2D" parent="Output" unique_id=998104264]
+position = Vector2(0, 16)
+target_position = Vector2(0, 72)
+collide_with_areas = true
+collide_with_bodies = false

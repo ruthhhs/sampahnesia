@@ -1,14 +1,19 @@
 [gd_scene format=3 uid="uid://c81m7b0uwqbat"]
 
 [ext_resource type="Script" uid="uid://copfgcif52xfj" path="res://Object/Prototype/Bangunan/Script/prototype_listrik.gd" id="1_oafxn"]
+[ext_resource type="Texture2D" uid="uid://cwqxnx6hv3wtx" path="res://UI/Icon/SelfMade/1000x1000lighting.png" id="2_8v5lf"]
+[ext_resource type="PackedScene" uid="uid://cvpo3pf3vrai3" path="res://Assets/3DModel/Listrik/PembangkitListrikTenagaSurya/pembangkit_listrik_tenaga_surya.tscn" id="2_ac8v3"]
+[ext_resource type="Texture2D" uid="uid://58tcg4hnt3yd" path="res://UI/Icon/PNG/White/1x/down.png" id="3_d6iio"]
+[ext_resource type="Texture2D" uid="uid://dy87b30l4je6h" path="res://UI/Icon/PNG/White/1x/warning.png" id="4_8v5lf"]
+[ext_resource type="FontVariation" uid="uid://cl1ghml6fsl2n" path="res://UI/Font/tress_font/UiFont.tres" id="5_57ihc"]
+[ext_resource type="Texture2D" uid="uid://cncj7wvh3dvoa" path="res://UI/Icon/SelfMade/lightning-01.png" id="6_53d25"]
+[ext_resource type="Texture2D" uid="uid://d3g4r4hbpttlg" path="res://Assets/Sprite/ItemIcon/silicon-waffer.png" id="7_ds6py"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4aoa"]
-albedo_color = Color(1, 0.150998, 0.34618, 1)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nfjok"]
+height = 3.375
+radius = 3.5
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_q4aoa"]
-size = Vector3(2.155, 1.4, 3.12)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_pyg1e"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_o00n3"]
 viewport_path = NodePath("Sprite3D/SubViewport")
 
 [sub_resource type="FontVariation" id="FontVariation_gayf8"]
@@ -18,50 +23,73 @@ variation_embolden = 0.65
 font = SubResource("FontVariation_gayf8")
 font_size = 61
 
-[node name="PLTS" type="Area3D" unique_id=1372270150 groups=["Objek", "listrik_kotor"]]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6iio"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 38
+corner_radius_top_right = 38
+corner_radius_bottom_right = 38
+corner_radius_bottom_left = 38
+
+[sub_resource type="LabelSettings" id="LabelSettings_8v5lf"]
+font = ExtResource("5_57ihc")
+font_size = 103
+
+[sub_resource type="LabelSettings" id="LabelSettings_57ihc"]
+font = ExtResource("5_57ihc")
+font_size = 78
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_53d25"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ds6py"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 38
+corner_radius_top_right = 38
+corner_radius_bottom_right = 38
+corner_radius_bottom_left = 38
+
+[node name="PLTS" type="Area3D" unique_id=1372270150 node_paths=PackedStringArray("popup_hover", "popup_warning", "image_input_value_item", "electrical_box_container", "label_value_item", "label_electricity_item", "popup_warning_value", "popup_warning_electricity") groups=["Objek", "listrik_kotor"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 top_level = true
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_oafxn")
+popup_hover = NodePath("Sprite3D/SubViewport/PopupHover")
+popup_warning = NodePath("Sprite3D/SubViewport/PopupWarning")
+image_input_value_item = NodePath("Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue/ImageInputValueItem")
+electrical_box_container = NodePath("Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/Electrical")
+label_value_item = NodePath("Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue/LabelValueItem")
+label_electricity_item = NodePath("Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/Electrical/LabelElectricityItem")
+popup_warning_value = NodePath("Sprite3D/SubViewport/PopupWarning/VBoxContainer/Panel/HBoxContainer/ImageInput")
+popup_warning_electricity = NodePath("Sprite3D/SubViewport/PopupWarning/VBoxContainer/Panel/HBoxContainer/Electricity")
+output_texture = ExtResource("2_8v5lf")
 parent_group = "bangunan"
 target_group = Array[String](["bangunan_complete_1", "bangunan_complete_2"])
-jumlah_polusi = 5
 is_self_added = true
-infinite_connection = true
 kapasitas_koneksi = 5
 is_electric_production = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=502502339]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.75, 0)
-visible = false
-size = Vector3(2, 1.5, 3)
-material = SubResource("StandardMaterial3D_q4aoa")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D" unique_id=206531875]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09372, -0.187134, 0)
-operation = 2
-size = Vector3(1, 1.37427, 1)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D" unique_id=154203082]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.743282, 0)
-size = Vector3(2.16, 0.13, 3.125)
+[node name="PembangkitListrikTenagaSurya" parent="." unique_id=1518848757 instance=ExtResource("2_ac8v3")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1864420134]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.75, 0)
-shape = SubResource("BoxShape3D_q4aoa")
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.059999943, 1.7375002, -0.077499986)
+shape = SubResource("CylinderShape3D_nfjok")
 debug_color = Color(0.6853361, 0.7355926, 1.1551381e-06, 1)
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=336094838]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.99628, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+pixel_size = 0.0002
 billboard = 1
-shaded = true
-texture = SubResource("ViewportTexture_pyg1e")
+no_depth_test = true
+fixed_size = true
+texture = SubResource("ViewportTexture_o00n3")
 
 [node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=609652335]
 transparent_bg = true
+size = Vector2i(512, 697)
 
 [node name="DebugLabel" type="Label" parent="Sprite3D/SubViewport" unique_id=525483381]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -78,9 +106,256 @@ label_settings = SubResource("LabelSettings_ikn0r")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="PopupHover" type="Control" parent="Sprite3D/SubViewport" unique_id=912091388]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sprite3D/SubViewport/PopupHover" unique_id=1780606617]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer" unique_id=853144264]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_d6iio")
+
+[node name="TextureRect" type="TextureRect" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel" unique_id=1546281457]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -68.205
+offset_right = 256.0
+offset_bottom = 102.795135
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+texture = ExtResource("3_d6iio")
+stretch_mode = 5
+
+[node name="Valie" type="VBoxContainer" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel" unique_id=2022882341]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemValue" type="HBoxContainer" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie" unique_id=1774064107]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="ImageInputValueItem" type="TextureRect" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue" unique_id=678189398]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue/ImageInputValueItem" unique_id=2001829378]
+modulate = Color(1.0480936, 0.6446457, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.481
+anchor_top = 0.537
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_8v5lf")
+stretch_mode = 5
+
+[node name="Equal" type="Label" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue" unique_id=1489199346]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "="
+label_settings = SubResource("LabelSettings_8v5lf")
+horizontal_alignment = 1
+
+[node name="LabelValueItem" type="Label" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue" unique_id=421405703]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "10"
+label_settings = SubResource("LabelSettings_57ihc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Electrical" type="HBoxContainer" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie" unique_id=2087474222]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="ImageElectricityItem" type="TextureRect" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/Electrical" unique_id=799827643]
+unique_name_in_owner = true
+modulate = Color(1.2450454, 0.85016793, 0.2001419, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_53d25")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/Electrical/ImageElectricityItem" unique_id=1748003111]
+modulate = Color(1.0480936, 0.6446457, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.481
+anchor_top = 0.537
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_8v5lf")
+stretch_mode = 5
+
+[node name="Equal2" type="Label" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/Electrical" unique_id=1297746957]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "="
+label_settings = SubResource("LabelSettings_8v5lf")
+horizontal_alignment = 1
+
+[node name="LabelElectricityItem" type="Label" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/Electrical" unique_id=139296318]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "101"
+label_settings = SubResource("LabelSettings_57ihc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer" unique_id=1150102399]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+mouse_filter = 2
+
+[node name="PopupWarning" type="Control" parent="Sprite3D/SubViewport" unique_id=2105613106]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sprite3D/SubViewport/PopupWarning" unique_id=586707923]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.894
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HSeparator" type="HSeparator" parent="Sprite3D/SubViewport/PopupWarning/VBoxContainer" unique_id=508794810]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_53d25")
+
+[node name="Panel" type="Panel" parent="Sprite3D/SubViewport/PopupWarning/VBoxContainer" unique_id=1561281823]
+layout_mode = 2
+size_flags_vertical = 7
+theme_override_styles/panel = SubResource("StyleBoxFlat_ds6py")
+
+[node name="TextureRect" type="TextureRect" parent="Sprite3D/SubViewport/PopupWarning/VBoxContainer/Panel" unique_id=111726091]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -68.205
+offset_right = 256.0
+offset_bottom = 102.795135
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+texture = ExtResource("3_d6iio")
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Sprite3D/SubViewport/PopupWarning/VBoxContainer/Panel" unique_id=1437612965]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ImageInput" type="TextureRect" parent="Sprite3D/SubViewport/PopupWarning/VBoxContainer/Panel/HBoxContainer" unique_id=1717140086]
+layout_mode = 2
+texture = ExtResource("7_ds6py")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Sprite3D/SubViewport/PopupWarning/VBoxContainer/Panel/HBoxContainer/ImageInput" unique_id=781895631]
+modulate = Color(1.0480936, 0.6446457, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.481
+anchor_top = 0.537
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_8v5lf")
+stretch_mode = 5
+
+[node name="Electricity" type="TextureRect" parent="Sprite3D/SubViewport/PopupWarning/VBoxContainer/Panel/HBoxContainer" unique_id=614004210]
+modulate = Color(1.2450454, 0.85016793, 0.2001419, 1)
+layout_mode = 2
+texture = ExtResource("6_53d25")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Sprite3D/SubViewport/PopupWarning/VBoxContainer/Panel/HBoxContainer/Electricity" unique_id=1275725572]
+modulate = Color(1.0480936, 0.6446457, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.481
+anchor_top = 0.537
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_8v5lf")
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="Sprite3D/SubViewport/PopupWarning/VBoxContainer" unique_id=285399883]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+mouse_filter = 2
+
 [node name="KumpulanRay" type="Node3D" parent="." unique_id=812763313]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

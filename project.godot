@@ -14,12 +14,17 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="From Waste to Worth"
+config/name="Sampahnesia"
+run/main_scene="uid://di6pfrj7w1s7m"
 config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/show_image=false
 boot_splash/stretch_mode=0
 boot_splash/use_filter=false
-config/icon="res://icon.svg"
+config/icon="uid://d1b788xkn7is"
+
+[audio]
+
+buses/default_bus_layout="uid://cajf1hchhjkec"
 
 [autoload]
 
@@ -42,6 +47,9 @@ window/stretch/aspect="expand"
 folder_colors={
 "res://Assets/": "purple",
 "res://Assets/3DModel/": "pink",
+"res://Assets/3DModel/Bangunan/": "red",
+"res://Assets/3DModel/Listrik/": "red",
+"res://Assets/3DModel/Toko/": "red",
 "res://Assets/Shaders/": "teal",
 "res://Assets/Sprite/": "yellow",
 "res://Controller/": "yellow",
@@ -49,6 +57,7 @@ folder_colors={
 "res://Level/": "teal",
 "res://Object/": "pink",
 "res://Object/Bangunan/": "red",
+"res://Object/Bangunan/Lamp/": "red",
 "res://Object/Pohon/": "red",
 "res://Object/Prefabs/": "blue",
 "res://Object/ProduksiListrik/": "red",
@@ -64,6 +73,7 @@ listrik_kotor=""
 raycaster=""
 Objek="Semuanya"
 tumbuhan=""
+water=""
 
 [input]
 

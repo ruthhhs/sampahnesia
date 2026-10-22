@@ -4,15 +4,18 @@
 [ext_resource type="PackedScene" uid="uid://c2ele75e6i3pi" path="res://UI/Prefabs/Button/button.tscn" id="1_opva0"]
 [ext_resource type="Script" uid="uid://4jht0g5dx7jt" path="res://UI/Prefabs/BuildingSelectButton/Script/building_select_button.gd" id="2_hlkvj"]
 [ext_resource type="Texture2D" uid="uid://p7s7hjxbr8li" path="res://UI/Icon/PNG/White/1x/gear.png" id="2_ts0bk"]
-[ext_resource type="Texture2D" uid="uid://p2fspvx60tm7" path="res://UI/Icon/PNG/White/1x/target.png" id="4_hlkvj"]
 [ext_resource type="Texture2D" uid="uid://bu6s820tbj2kw" path="res://Assets/Sprite/Building Icon/lab.png" id="4_id56g"]
-[ext_resource type="FontFile" uid="uid://dvfnuih886qyx" path="res://UI/Font/Alan_Sans/AlanSans-VariableFont_wght.ttf" id="5_k3mkg"]
+[ext_resource type="FontFile" uid="uid://1xvnrphaimbw" path="res://UI/Font/hey_comic/Hey Comic.ttf" id="6_54nts"]
 [ext_resource type="Texture2D" uid="uid://cvdxntirjqdjt" path="res://UI/Icon/PNG/White/1x/cross.png" id="6_b78jc"]
 [ext_resource type="Texture2D" uid="uid://58tcg4hnt3yd" path="res://UI/Icon/PNG/White/1x/down.png" id="7_s06ny"]
 [ext_resource type="Texture2D" uid="uid://xhxf6ekr85ja" path="res://Assets/Sprite/ItemIcon/sampah.png" id="9_y5hl5"]
 [ext_resource type="Texture2D" uid="uid://cgvk1rmatgk81" path="res://UI/Icon/PNG/White/2x/arrowRight.png" id="10_030p2"]
 [ext_resource type="Texture2D" uid="uid://cwt5d6wqutbwe" path="res://UI/Icon/PNG/White/2x/plus.png" id="10_y5hl5"]
 [ext_resource type="Texture2D" uid="uid://cncj7wvh3dvoa" path="res://UI/Icon/SelfMade/lightning-01.png" id="11_6grck"]
+[ext_resource type="Texture2D" uid="uid://dk4h8kwug8m07" path="res://Assets/Sprite/ItemIcon/kayu-buku.png" id="13_ts0bk"]
+[ext_resource type="Texture2D" uid="uid://bwcccg2c1perj" path="res://UI/Icon/SelfMade/bank-note-04.png" id="15_4c208"]
+[ext_resource type="Texture2D" uid="uid://1071awwbatby" path="res://UI/Icon/PNG/White/1x/bag-1.png" id="16_gejej"]
+[ext_resource type="Texture2D" uid="uid://qg55y3oecjm7" path="res://UI/Icon/PNG/White/1x/bag-2.png" id="17_re32g"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tu7m3"]
 
@@ -167,41 +170,38 @@ TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_827k6")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_v8hku")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hlkvj"]
-bg_color = Color(0.4818, 0.63485664, 0.73, 1)
+bg_color = Color(0.4495265, 0.66038847, 0.7205219, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
-shadow_color = Color(0, 0, 0, 0.19607843)
+shadow_color = Color(0.11372549, 0.18431373, 0.26666668, 0.5529412)
 shadow_size = 2
-shadow_offset = Vector2(0, 2)
+shadow_offset = Vector2(2, 3)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3mkg"]
-bg_color = Color(0.4392157, 0.67058825, 0.54509807, 1)
+bg_color = Color(0.42452237, 0.7394187, 0.39571285, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 expand_margin_top = 2.0
-shadow_color = Color(0, 0, 0, 0.3764706)
-shadow_offset = Vector2(2.005, 3.29)
-
-[sub_resource type="FontVariation" id="FontVariation_s06ny"]
-base_font = ExtResource("5_k3mkg")
-variation_embolden = 0.95
+shadow_color = Color(0.11372549, 0.18431373, 0.26666668, 0.3254902)
+shadow_size = 2
+shadow_offset = Vector2(2, 3)
 
 [sub_resource type="LabelSettings" id="LabelSettings_id56g"]
-font = SubResource("FontVariation_s06ny")
-font_size = 28
+font = ExtResource("6_54nts")
+font_size = 32
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_s06ny"]
-color = Color(0.9955804, 0.99558026, 0.99558026, 1)
+color = Color(0.99607843, 0.99607843, 0.99607843, 0.29411766)
 grow_begin = -10.0
 grow_end = -10.0
-thickness = 4
+thickness = 2
 
 [sub_resource type="LabelSettings" id="LabelSettings_b78jc"]
-font = SubResource("FontVariation_s06ny")
+font = ExtResource("6_54nts")
 font_size = 20
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k3mkg"]
@@ -218,8 +218,28 @@ expand_margin_left = 5.0
 expand_margin_top = 5.0
 expand_margin_right = 5.0
 expand_margin_bottom = 5.0
-shadow_color = Color(0, 0, 0, 0.3137255)
-shadow_offset = Vector2(0, 2)
+shadow_color = Color(0.11372549, 0.18431373, 0.26666668, 0.5529412)
+shadow_size = 2
+shadow_offset = Vector2(2, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6fhyq"]
+font = ExtResource("6_54nts")
+font_color = Color(0.018909952, 0.15313724, 0.2266987, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4v7s"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_54nts"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+color = Color(0.2930252, 0.70713615, 0.5389614, 0.38039216)
+thickness = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_jq8tk"]
+font = ExtResource("6_54nts")
+font_size = 20
+font_color = Color(0.32941177, 0.5686275, 0.15686275, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yf5fn"]
 
 [node name="BuildingSelectButton" type="Control" unique_id=1626912660]
 custom_minimum_size = Vector2(300, 185)
@@ -245,10 +265,16 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_hlkvj")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_hlkvj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_k3mkg")
 theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_k3mkg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_k3mkg")
 theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_k3mkg")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_k3mkg")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_k3mkg")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_k3mkg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_k3mkg")
+theme_override_styles/focus = SubResource("StyleBoxFlat_k3mkg")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Button" unique_id=1104994100]
 layout_mode = 1
@@ -286,7 +312,7 @@ horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="Button/VBoxContainer" unique_id=1597490012]
 layout_mode = 2
-theme_override_constants/separation = 1
+theme_override_constants/separation = -4
 theme_override_styles/separator = SubResource("StyleBoxLine_s06ny")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Button/VBoxContainer" unique_id=601751979]
@@ -295,7 +321,7 @@ alignment = 1
 
 [node name="MoneyIcon" type="TextureRect" parent="Button/VBoxContainer/HBoxContainer" unique_id=156683673]
 layout_mode = 2
-texture = ExtResource("4_hlkvj")
+texture = ExtResource("15_4c208")
 expand_mode = 3
 
 [node name="PriceLabel" type="Label" parent="Button/VBoxContainer/HBoxContainer" unique_id=2019573322]
@@ -320,6 +346,417 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_b78jc")
 
+[node name="InformationPanel2" type="Control" parent="Button" unique_id=1496718985]
+unique_name_in_owner = true
+z_index = 2
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = -0.99
+anchor_right = 0.5
+anchor_bottom = -0.99
+offset_left = -129.5
+offset_top = -108.32245
+offset_right = 129.5
+offset_bottom = 108.32245
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(129.5, 216.645)
+mouse_filter = 2
+
+[node name="arrow-shadow" type="TextureRect" parent="Button/InformationPanel2" unique_id=2136829481]
+modulate = Color(0.11372549, 0.18431373, 0.26666668, 0.5529412)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -26.5
+offset_top = -48.644897
+offset_right = 31.5
+offset_bottom = 15.355087
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1, 1.8399997)
+texture = ExtResource("7_s06ny")
+
+[node name="PanelForBuilding" type="Panel" parent="Button/InformationPanel2" unique_id=460093744]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s06ny")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Button/InformationPanel2/PanelForBuilding" unique_id=279216702]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.06177606
+anchor_top = 0.02769509
+anchor_right = 0.9266409
+anchor_bottom = 0.98779154
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="InputOutput" type="VBoxContainer" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer" unique_id=1616723198]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="Label" type="Label" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput" unique_id=1883078468]
+visible = false
+layout_mode = 2
+text = "Create"
+label_settings = SubResource("LabelSettings_6fhyq")
+
+[node name="Process" type="HBoxContainer" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput" unique_id=1854950945]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput/Process" unique_id=1183241816]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_g4v7s")
+
+[node name="InputTexture" type="TextureRect" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput/Process" unique_id=255233984]
+texture_filter = 4
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("9_y5hl5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Adder" type="TextureRect" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput/Process" unique_id=2104407959]
+modulate = Color(0.12941177, 0.16862746, 0.33333334, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+texture = ExtResource("10_y5hl5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Electricity" type="TextureRect" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput/Process" unique_id=1227665339]
+modulate = Color(1.5354265, 0.7980731, 3.538414e-06, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("11_6grck")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Forwad2" type="TextureRect" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput/Process" unique_id=1695375578]
+modulate = Color(0.1310749, 0.16848859, 0.3346219, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.7
+texture = ExtResource("10_030p2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="OutputTexture" type="TextureRect" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput/Process" unique_id=16089528]
+texture_filter = 4
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("13_ts0bk")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VSeparator" type="VSeparator" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput/Process" unique_id=1752666297]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_g4v7s")
+
+[node name="HSeparator" type="HSeparator" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput" unique_id=1312707230]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_54nts")
+
+[node name="Label2" type="Label" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput" unique_id=1692406630]
+visible = false
+layout_mode = 2
+text = "Sell"
+label_settings = SubResource("LabelSettings_6fhyq")
+
+[node name="GetSell" type="HBoxContainer" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput" unique_id=974416156]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 1
+
+[node name="VSeparator2" type="VSeparator" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput/GetSell" unique_id=206848720]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_g4v7s")
+
+[node name="OutputSell" type="TextureRect" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput/GetSell" unique_id=1909574390]
+texture_filter = 4
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("13_ts0bk")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Adder" type="TextureRect" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput/GetSell" unique_id=370088793]
+visible = false
+modulate = Color(0.12941177, 0.16862746, 0.33333334, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+texture = ExtResource("10_y5hl5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Forwad" type="TextureRect" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput/GetSell" unique_id=1537883183]
+modulate = Color(0.12941177, 0.16862746, 0.33333334, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+texture = ExtResource("10_030p2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput/GetSell" unique_id=298226307]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+offset_transform_scale = Vector2(0.705, 0.705)
+
+[node name="VSeparator" type="VSeparator" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput/GetSell/HBoxContainer" unique_id=1924342433]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_g4v7s")
+
+[node name="TextureRect" type="TextureRect" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput/GetSell/HBoxContainer" unique_id=1825972090]
+modulate = Color(0.37889776, 0.653676, 0.17960212, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("15_4c208")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Money" type="Label" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput/GetSell/HBoxContainer" unique_id=1973528195]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "10000"
+label_settings = SubResource("LabelSettings_jq8tk")
+
+[node name="VSeparator" type="VSeparator" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput/GetSell" unique_id=1994453641]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_g4v7s")
+
+[node name="HSeparator2" type="HSeparator" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput" unique_id=1981741252]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_54nts")
+
+[node name="AvilableStore" type="HBoxContainer" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput" unique_id=1114822758]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput/AvilableStore" unique_id=2037022420]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_g4v7s")
+
+[node name="Label3" type="Label" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput/AvilableStore" unique_id=1477427857]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Store Available:"
+label_settings = SubResource("LabelSettings_6fhyq")
+
+[node name="TokoLevel1" type="TextureRect" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput/AvilableStore" unique_id=440816849]
+texture_filter = 4
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("16_gejej")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TokoLevel2" type="TextureRect" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput/AvilableStore" unique_id=74676930]
+texture_filter = 4
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("17_re32g")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VSeparator" type="VSeparator" parent="Button/InformationPanel2/PanelForBuilding/VBoxContainer/InputOutput/AvilableStore" unique_id=1413763700]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_g4v7s")
+
+[node name="PanelElectricity" type="Panel" parent="Button/InformationPanel2" unique_id=1489757432]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.572
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.07910919
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s06ny")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Button/InformationPanel2/PanelElectricity" unique_id=1527671933]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03088803
+anchor_right = 0.95752895
+anchor_bottom = 0.9714512
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Button/InformationPanel2/PanelElectricity/VBoxContainer2" unique_id=126842216]
+layout_mode = 2
+text = "Create"
+label_settings = SubResource("LabelSettings_6fhyq")
+
+[node name="HSeparator2" type="HSeparator" parent="Button/InformationPanel2/PanelElectricity/VBoxContainer2" unique_id=683127662]
+visible = false
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_54nts")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Button/InformationPanel2/PanelElectricity/VBoxContainer2" unique_id=2110004076]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="Button/InformationPanel2/PanelElectricity/VBoxContainer2/VBoxContainer" unique_id=1926286413]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_yf5fn")
+
+[node name="ElectricityInputTexture" type="TextureRect" parent="Button/InformationPanel2/PanelElectricity/VBoxContainer2/VBoxContainer" unique_id=1770637486]
+texture_filter = 4
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("9_y5hl5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ForwadElectricity" type="TextureRect" parent="Button/InformationPanel2/PanelElectricity/VBoxContainer2/VBoxContainer" unique_id=860153594]
+modulate = Color(0.12941177, 0.16862746, 0.33333334, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+texture = ExtResource("10_030p2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ElectricityOutput" type="TextureRect" parent="Button/InformationPanel2/PanelElectricity/VBoxContainer2/VBoxContainer" unique_id=732627400]
+modulate = Color(1.5354265, 0.7980731, 3.538414e-06, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("11_6grck")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VSeparator" type="VSeparator" parent="Button/InformationPanel2/PanelElectricity/VBoxContainer2/VBoxContainer" unique_id=775350076]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_yf5fn")
+
+[node name="PanelStore" type="Panel" parent="Button/InformationPanel2" unique_id=1694407452]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.24700001
+anchor_top = 0.572
+anchor_right = 0.74100006
+anchor_bottom = 1.0250001
+offset_left = 0.026996613
+offset_top = 0.07910919
+offset_right = 0.08097839
+offset_bottom = -5.4161377
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s06ny")
+
+[node name="TokoAdded1" type="TextureRect" parent="Button/InformationPanel2/PanelStore" unique_id=1401478883]
+texture_filter = 4
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -23.5
+offset_right = 36.0
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("16_gejej")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TokoAdded2" type="TextureRect" parent="Button/InformationPanel2/PanelStore" unique_id=430266577]
+visible = false
+texture_filter = 4
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -23.5
+offset_right = 36.0
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("17_re32g")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="arrow" type="TextureRect" parent="Button/InformationPanel2" unique_id=528838080]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -30.5
+offset_top = -50.249893
+offset_right = 27.5
+offset_bottom = 13.750092
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1, 1.8399997)
+texture = ExtResource("7_s06ny")
+
 [node name="InformationPanel" type="Control" parent="." unique_id=1510255418]
 unique_name_in_owner = true
 visible = false
@@ -332,14 +769,32 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -960.0
-offset_top = -540.0
-offset_right = -760.00024
-offset_bottom = -481.3551
+offset_top = -810.0
+offset_right = -701.0
+offset_bottom = -593.3551
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Panel" type="Panel" parent="InformationPanel" unique_id=821384870]
+[node name="arrow-shadow" type="TextureRect" parent="InformationPanel" unique_id=2140230180]
+modulate = Color(0.11372549, 0.18431373, 0.26666668, 0.5529412)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -26.5
+offset_top = -48.644897
+offset_right = 31.5
+offset_bottom = 15.355087
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1, 1.8399997)
+texture = ExtResource("7_s06ny")
+
+[node name="PanelForBuilding" type="Panel" parent="InformationPanel" unique_id=821384870]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -349,28 +804,44 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_s06ny")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="InformationPanel/Panel" unique_id=825355299]
+[node name="VBoxContainer" type="VBoxContainer" parent="InformationPanel/PanelForBuilding" unique_id=825355299]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.06177606
+anchor_top = 0.02769509
+anchor_right = 0.9266409
+anchor_bottom = 0.98779154
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="InputOutput" type="VBoxContainer" parent="InformationPanel/Panel/VBoxContainer" unique_id=2042455698]
+[node name="InputOutput" type="VBoxContainer" parent="InformationPanel/PanelForBuilding/VBoxContainer" unique_id=2042455698]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 1
 alignment = 1
 
-[node name="VBoxContainer" type="HBoxContainer" parent="InformationPanel/Panel/VBoxContainer/InputOutput" unique_id=1121456669]
+[node name="Label" type="Label" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput" unique_id=887980932]
+visible = false
+layout_mode = 2
+text = "Create"
+label_settings = SubResource("LabelSettings_6fhyq")
+
+[node name="Process" type="HBoxContainer" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput" unique_id=1121456669]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
 theme_override_constants/separation = 1
+alignment = 1
 
-[node name="InputTexture" type="TextureRect" parent="InformationPanel/Panel/VBoxContainer/InputOutput/VBoxContainer" unique_id=147151224]
+[node name="VSeparator2" type="VSeparator" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput/Process" unique_id=1341372015]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_g4v7s")
+
+[node name="InputTexture" type="TextureRect" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput/Process" unique_id=147151224]
 unique_name_in_owner = true
 texture_filter = 4
 layout_mode = 2
@@ -380,9 +851,9 @@ texture = ExtResource("9_y5hl5")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Adder" type="TextureRect" parent="InformationPanel/Panel/VBoxContainer/InputOutput/VBoxContainer" unique_id=462975769]
+[node name="Adder" type="TextureRect" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput/Process" unique_id=462975769]
 unique_name_in_owner = true
-modulate = Color(0.080783345, 0.080783345, 0.080783345, 1)
+modulate = Color(0.12941177, 0.16862746, 0.33333334, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -391,7 +862,7 @@ texture = ExtResource("10_y5hl5")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Electricity" type="TextureRect" parent="InformationPanel/Panel/VBoxContainer/InputOutput/VBoxContainer" unique_id=640096603]
+[node name="Electricity" type="TextureRect" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput/Process" unique_id=640096603]
 unique_name_in_owner = true
 modulate = Color(1.5354265, 0.7980731, 3.538414e-06, 1)
 layout_mode = 2
@@ -401,16 +872,209 @@ texture = ExtResource("11_6grck")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Forwad2" type="TextureRect" parent="InformationPanel/Panel/VBoxContainer/InputOutput/VBoxContainer" unique_id=1209334168]
-modulate = Color(0.22670749, 0.22670749, 0.22670746, 1)
+[node name="Forwad2" type="TextureRect" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput/Process" unique_id=1209334168]
+unique_name_in_owner = true
+modulate = Color(0.1310749, 0.16848859, 0.3346219, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.7
 texture = ExtResource("10_030p2")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="OutputTexture" type="TextureRect" parent="InformationPanel/Panel/VBoxContainer/InputOutput/VBoxContainer" unique_id=185351244]
+[node name="OutputTexture" type="TextureRect" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput/Process" unique_id=185351244]
+unique_name_in_owner = true
+texture_filter = 4
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("13_ts0bk")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VSeparator" type="VSeparator" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput/Process" unique_id=487793760]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_g4v7s")
+
+[node name="HSeparator" type="HSeparator" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput" unique_id=1677201799]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_54nts")
+
+[node name="Label2" type="Label" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput" unique_id=691173682]
+visible = false
+layout_mode = 2
+text = "Sell"
+label_settings = SubResource("LabelSettings_6fhyq")
+
+[node name="GetSell" type="HBoxContainer" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput" unique_id=527519655]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 1
+
+[node name="VSeparator2" type="VSeparator" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput/GetSell" unique_id=1392005605]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_g4v7s")
+
+[node name="OutputSell" type="TextureRect" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput/GetSell" unique_id=209591595]
+unique_name_in_owner = true
+texture_filter = 4
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("13_ts0bk")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Adder" type="TextureRect" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput/GetSell" unique_id=1192203149]
+visible = false
+modulate = Color(0.12941177, 0.16862746, 0.33333334, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+texture = ExtResource("10_y5hl5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Forwad" type="TextureRect" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput/GetSell" unique_id=514757244]
+modulate = Color(0.12941177, 0.16862746, 0.33333334, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+texture = ExtResource("10_030p2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput/GetSell" unique_id=832914004]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+offset_transform_scale = Vector2(0.705, 0.705)
+
+[node name="VSeparator" type="VSeparator" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput/GetSell/HBoxContainer" unique_id=1867964647]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_g4v7s")
+
+[node name="TextureRect" type="TextureRect" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput/GetSell/HBoxContainer" unique_id=1821781672]
+modulate = Color(0.37889776, 0.653676, 0.17960212, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("15_4c208")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Money" type="Label" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput/GetSell/HBoxContainer" unique_id=1139739489]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "10000"
+label_settings = SubResource("LabelSettings_jq8tk")
+
+[node name="VSeparator" type="VSeparator" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput/GetSell" unique_id=728891236]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_g4v7s")
+
+[node name="HSeparator2" type="HSeparator" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput" unique_id=595170834]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_54nts")
+
+[node name="AvilableStore" type="HBoxContainer" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput" unique_id=648427216]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput/AvilableStore" unique_id=489535122]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_g4v7s")
+
+[node name="Label3" type="Label" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput/AvilableStore" unique_id=591129538]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Store Available:"
+label_settings = SubResource("LabelSettings_6fhyq")
+
+[node name="TokoLevel1" type="TextureRect" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput/AvilableStore" unique_id=877119280]
+unique_name_in_owner = true
+texture_filter = 4
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("16_gejej")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TokoLevel2" type="TextureRect" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput/AvilableStore" unique_id=1713977428]
+unique_name_in_owner = true
+texture_filter = 4
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("17_re32g")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VSeparator" type="VSeparator" parent="InformationPanel/PanelForBuilding/VBoxContainer/InputOutput/AvilableStore" unique_id=1615616936]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_g4v7s")
+
+[node name="PanelElectricity" type="Panel" parent="InformationPanel" unique_id=1125305036]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.572
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.07910919
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s06ny")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="InformationPanel/PanelElectricity" unique_id=1569076235]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03088803
+anchor_right = 0.95752895
+anchor_bottom = 0.9714512
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="InformationPanel/PanelElectricity/VBoxContainer2" unique_id=1275778161]
+layout_mode = 2
+text = "Create"
+label_settings = SubResource("LabelSettings_6fhyq")
+
+[node name="HSeparator2" type="HSeparator" parent="InformationPanel/PanelElectricity/VBoxContainer2" unique_id=2077705918]
+visible = false
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_54nts")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="InformationPanel/PanelElectricity/VBoxContainer2" unique_id=464971019]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="InformationPanel/PanelElectricity/VBoxContainer2/VBoxContainer" unique_id=840305871]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_yf5fn")
+
+[node name="ElectricityInputTexture" type="TextureRect" parent="InformationPanel/PanelElectricity/VBoxContainer2/VBoxContainer" unique_id=236713394]
 unique_name_in_owner = true
 texture_filter = 4
 layout_mode = 2
@@ -420,63 +1084,106 @@ texture = ExtResource("9_y5hl5")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="VBoxContainer2" type="HBoxContainer" parent="InformationPanel/Panel/VBoxContainer/InputOutput" unique_id=527519655]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.4
-theme_override_constants/separation = 1
-
-[node name="Forwad" type="TextureRect" parent="InformationPanel/Panel/VBoxContainer/InputOutput/VBoxContainer2" unique_id=971725836]
-modulate = Color(0.22670749, 0.22670749, 0.22670746, 1)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Forwad3" type="TextureRect" parent="InformationPanel/Panel/VBoxContainer/InputOutput/VBoxContainer2" unique_id=1144113670]
-modulate = Color(0.22670749, 0.22670749, 0.22670746, 1)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-expand_mode = 1
-stretch_mode = 5
-
-[node name="VBoxContainer3" type="VBoxContainer" parent="InformationPanel/Panel/VBoxContainer/InputOutput" unique_id=896585085]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 1
-
-[node name="OutputTexture2" type="TextureRect" parent="InformationPanel/Panel/VBoxContainer/InputOutput/VBoxContainer3" unique_id=1772116056]
+[node name="ForwadElectricity" type="TextureRect" parent="InformationPanel/PanelElectricity/VBoxContainer2/VBoxContainer" unique_id=347025942]
 unique_name_in_owner = true
+modulate = Color(0.12941177, 0.16862746, 0.33333334, 1)
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+texture = ExtResource("10_030p2")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="OutputTexture3" type="TextureRect" parent="InformationPanel/Panel/VBoxContainer/InputOutput/VBoxContainer3" unique_id=607425504]
+[node name="ElectricityOutput" type="TextureRect" parent="InformationPanel/PanelElectricity/VBoxContainer2/VBoxContainer" unique_id=1042523668]
+modulate = Color(1.5354265, 0.7980731, 3.538414e-06, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("11_6grck")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VSeparator" type="VSeparator" parent="InformationPanel/PanelElectricity/VBoxContainer2/VBoxContainer" unique_id=1164544309]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_yf5fn")
+
+[node name="PanelStore" type="Panel" parent="InformationPanel" unique_id=8248078]
 unique_name_in_owner = true
-layout_mode = 2
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.24700001
+anchor_top = 0.572
+anchor_right = 0.74100006
+anchor_bottom = 1.0250001
+offset_left = 0.026996613
+offset_top = 0.07910919
+offset_right = 0.08097839
+offset_bottom = -5.4161377
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s06ny")
+
+[node name="TokoAdded1" type="TextureRect" parent="InformationPanel/PanelStore" unique_id=1831655204]
+unique_name_in_owner = true
+texture_filter = 4
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -23.5
+offset_right = 36.0
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
+texture = ExtResource("16_gejej")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect" type="TextureRect" parent="InformationPanel" unique_id=2066807541]
+[node name="TokoAdded2" type="TextureRect" parent="InformationPanel/PanelStore" unique_id=1971614149]
+unique_name_in_owner = true
+visible = false
+texture_filter = 4
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -23.5
+offset_right = 36.0
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("17_re32g")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="arrow" type="TextureRect" parent="InformationPanel" unique_id=2066807541]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -30.500122
-offset_top = -24.0
-offset_right = 27.49987
-offset_bottom = 40.0
+offset_left = -30.5
+offset_top = -50.249893
+offset_right = 27.5
+offset_bottom = 13.750092
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(1, 1.8399997)
 texture = ExtResource("7_s06ny")
 
 [connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]

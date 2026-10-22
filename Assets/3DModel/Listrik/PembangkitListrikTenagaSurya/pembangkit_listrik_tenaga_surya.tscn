@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cvpo3pf3vrai3"]
+
+[ext_resource type="PackedScene" uid="uid://bn5fde2w1oelo" path="res://Assets/3DModel/Listrik/PembangkitListrikTenagaSurya/PembangkitListrikTenagaSurya.glb" id="1_012ob"]
+[ext_resource type="Material" uid="uid://bwwws2fdlcuyh" path="res://Assets/3DModel/UniversalMaterial.tres" id="2_sfivw"]
+
+[node name="PembangkitListrikTenagaSurya" unique_id=1518848757 instance=ExtResource("1_012ob")]
+
+[node name="PembangkitListrikTenagaSurya" parent="." index="0" unique_id=853114289]
+material_override = ExtResource("2_sfivw")

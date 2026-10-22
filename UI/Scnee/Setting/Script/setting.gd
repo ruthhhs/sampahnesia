@@ -1,9 +1,6 @@
 extends Control
 
-@onready var debugger_label: Label = $Debugger/Label
 
-func _process(_delta: float) -> void:
-	debugger_label.text = str(AudioServer.get_bus_volume_db(0)) 
 
 func _on_exit_button_pressed() -> void:
 	visible = false
@@ -48,9 +45,9 @@ func _on_audio_master_slider_value_changed(value: float) -> void:
 	GlobalSetting.master_value = value
 
 func _on_audio_sfx_slider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(1, value)
+	AudioServer.set_bus_volume_db(2, value)
 	GlobalSetting.sfx_value = value
 
 func _on_audio_music_slider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(2, value)
+	AudioServer.set_bus_volume_db(1, value)
 	GlobalSetting.music_value = value

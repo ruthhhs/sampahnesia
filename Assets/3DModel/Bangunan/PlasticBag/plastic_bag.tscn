@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://4vah3ae12v0x"]
+
+[ext_resource type="PackedScene" uid="uid://c107katlqhcmr" path="res://Assets/3DModel/Bangunan/PlasticBag/PlasticBag.glb" id="1_sdrgy"]
+[ext_resource type="Material" uid="uid://bwwws2fdlcuyh" path="res://Assets/3DModel/UniversalMaterial.tres" id="2_bhqb0"]
+
+[node name="PlasticBag" unique_id=1193196071 instance=ExtResource("1_sdrgy")]
+
+[node name="PlasticBag" parent="." index="0" unique_id=858331153]
+material_override = ExtResource("2_bhqb0")

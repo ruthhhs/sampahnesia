@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://n7sw8mlehvr2"]
+
+[ext_resource type="Script" uid="uid://bg36qunhb7phu" path="res://Object/Prefabs/DestroyParticle/Script/destroy_particle.gd" id="1_bkrxt"]
+[ext_resource type="AudioStream" uid="uid://bv8vdlle0ermr" path="res://Assets/Audio/DestroySound.wav" id="2_464fk"]
+
+[sub_resource type="Curve" id="Curve_xjuoe"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.8836566, 0.17605639), -3.087022, -3.087022, 0, 0, Vector2(0.9058173, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_fmwyi"]
+curve = SubResource("Curve_xjuoe")
+
+[sub_resource type="Curve" id="Curve_rdhc7"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3ft6u"]
+curve = SubResource("Curve_rdhc7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jq8tk"]
+emission_shape = 1
+emission_sphere_radius = 5.45
+direction = Vector3(0, 0, 0)
+spread = 180.0
+flatness = 1.0
+angular_velocity_min = -720.0
+angular_velocity_max = -720.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -2.2351742e-06
+radial_accel_max = 11.529998
+attractor_interaction_enabled = false
+scale_curve = SubResource("CurveTexture_fmwyi")
+scale_over_velocity_curve = SubResource("CurveTexture_3ft6u")
+
+[sub_resource type="Gradient" id="Gradient_ic2dv"]
+offsets = PackedFloat32Array(0, 0.70501477)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dwbtc"]
+gradient = SubResource("Gradient_ic2dv")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6fhyq"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.4390491, 0.43904912, 0.43904912, 1)
+albedo_texture = SubResource("GradientTexture2D_dwbtc")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_3xd07"]
+material = SubResource("StandardMaterial3D_6fhyq")
+size = Vector2(5, 5)
+
+[node name="DestroyParticle" type="Marker3D" unique_id=1381703792]
+script = ExtResource("1_bkrxt")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=402761080]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4793161, 0)
+emitting = false
+amount = 23
+one_shot = true
+speed_scale = 1.31
+explosiveness = 1.0
+trail_lifetime = 10.0
+process_material = SubResource("ParticleProcessMaterial_jq8tk")
+draw_pass_1 = SubResource("QuadMesh_3xd07")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=897938213]
+stream = ExtResource("2_464fk")
+bus = &"Effect"
+
+[connection signal="finished" from="GPUParticles3D" to="." method="_on_gpu_particles_3d_finished"]

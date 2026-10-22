@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://0esg2d8et2qh"]
+
+[ext_resource type="Script" uid="uid://b52wkajr0hslt" path="res://Object/Prefabs/DestroyTimer/Minigame/Game1/Script/input_marker.gd" id="1_gpyvp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ix38u"]
+radius = 34.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xd07"]
+size = Vector2(30, 32)
+
+[node name="InputMarker" type="Marker2D" unique_id=668598594]
+gizmo_extents = 67.0
+script = ExtResource("1_gpyvp")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1745443857]
+points = PackedVector2Array(0, 0, -117.68, 0)
+width = 32.005
+joint_mode = 2
+begin_cap_mode = 2
+
+[node name="LineInteract" type="Line2D" parent="." unique_id=131969587]
+unique_name_in_owner = true
+points = PackedVector2Array(0, 0, 0, 0)
+width = 32.005
+default_color = Color(0, 0.74530476, 0.42994443, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="InputArea" type="Area2D" parent="." unique_id=1641693951]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InputArea" unique_id=1960109024]
+shape = SubResource("CircleShape2D_ix38u")
+
+[node name="InteractArea" type="Area2D" parent="InputArea" unique_id=566347693]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="InputArea/InteractArea" unique_id=669580812]
+shape = SubResource("RectangleShape2D_3xd07")
+
+[connection signal="area_entered" from="InputArea/InteractArea" to="." method="_on_interact_area_area_entered"]

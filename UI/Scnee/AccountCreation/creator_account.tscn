@@ -1,0 +1,319 @@
+[gd_scene format=3 uid="uid://yspbosim0h8a"]
+
+[ext_resource type="Theme" uid="uid://2vx27ttvak05" path="res://UI/Saves/CuteTheme.tres" id="1_q7xqm"]
+[ext_resource type="Script" uid="uid://befcq8luwk3j1" path="res://UI/Scnee/AccountCreation/Script/creator_account.gd" id="2_ek7rn"]
+[ext_resource type="FontFile" uid="uid://dvfnuih886qyx" path="res://UI/Font/Alan_Sans/AlanSans-VariableFont_wght.ttf" id="2_yh85v"]
+[ext_resource type="PackedScene" uid="uid://c2ele75e6i3pi" path="res://UI/Prefabs/Button/button.tscn" id="3_ek7rn"]
+
+[sub_resource type="Gradient" id="Gradient_3xd07"]
+offsets = PackedFloat32Array(0.75232196, 0.9102167)
+colors = PackedColorArray(0.827451, 0.5921569, 0.32156864, 0, 0.628888, 0.43129718, 0.19859716, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jq8tk"]
+frequency = 0.0032
+fractal_type = 2
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3xd07"]
+noise = SubResource("FastNoiseLite_jq8tk")
+color_ramp = SubResource("Gradient_3xd07")
+
+[sub_resource type="Gradient" id="Gradient_w8ci0"]
+offsets = PackedFloat32Array(0.68111455, 0.95665634)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.16862746)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pchcu"]
+frequency = 0.0938
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7q445"]
+noise = SubResource("FastNoiseLite_pchcu")
+color_ramp = SubResource("Gradient_w8ci0")
+seamless = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yvsxq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3xd07"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t56o2"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_3xd07"]
+thickness = 8
+
+[sub_resource type="FontVariation" id="FontVariation_tgfyh"]
+base_font = ExtResource("2_yh85v")
+variation_embolden = 1.26
+
+[sub_resource type="LabelSettings" id="LabelSettings_w8ci0"]
+font = SubResource("FontVariation_tgfyh")
+font_size = 58
+shadow_size = 56
+shadow_offset = Vector2(4.495, 5.77)
+stacked_outline_count = 1
+stacked_outline_0/size = 31
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0f62"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dwbtc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h83rl"]
+
+[sub_resource type="Gradient" id="Gradient_dwbtc"]
+offsets = PackedFloat32Array(0.68111455, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.16862746)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6fhyq"]
+frequency = 0.0802
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jq8tk"]
+noise = SubResource("FastNoiseLite_6fhyq")
+color_ramp = SubResource("Gradient_dwbtc")
+
+[node name="CreatorAccount" type="Control" unique_id=325551015]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_q7xqm")
+script = ExtResource("2_ek7rn")
+
+[node name="Background" type="Control" parent="." unique_id=2036645240]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=935288555]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.93416804, 0.7120382, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background" unique_id=520635093]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="ColorRect2" type="ColorRect" parent="Background/VBoxContainer" unique_id=1566735833]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.827451, 0.5882353, 0.31764707, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Background/VBoxContainer/ColorRect2" unique_id=1859220431]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_3xd07")
+expand_mode = 1
+flip_h = true
+
+[node name="ColorRect3" type="ColorRect" parent="Background/VBoxContainer" unique_id=78775351]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.827451, 0.5882353, 0.31764707, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Background/VBoxContainer/ColorRect3" unique_id=1886021201]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_3xd07")
+expand_mode = 1
+flip_v = true
+
+[node name="ColorRect4" type="ColorRect" parent="Background/VBoxContainer" unique_id=1704261524]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.827451, 0.5882353, 0.31764707, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Background/VBoxContainer/ColorRect4" unique_id=452063608]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_3xd07")
+expand_mode = 1
+flip_h = true
+flip_v = true
+
+[node name="ColorRect5" type="ColorRect" parent="Background/VBoxContainer" unique_id=1904808898]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.827451, 0.5882353, 0.31764707, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Background/VBoxContainer/ColorRect5" unique_id=1735089142]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_3xd07")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Background" unique_id=628233538]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_7q445")
+expand_mode = 1
+
+[node name="Panel" type="Panel" parent="." unique_id=709566967]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -651.5
+offset_top = -314.5
+offset_right = 651.5
+offset_bottom = 314.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_yvsxq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=658731308]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSeparator2" type="VSeparator" parent="Panel/HBoxContainer" unique_id=1010996016]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_3xd07")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer" unique_id=1623433214]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 89.45
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="Panel/HBoxContainer/VBoxContainer" unique_id=1280619879]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.35
+theme_override_styles/separator = SubResource("StyleBoxEmpty_t56o2")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/HBoxContainer/VBoxContainer" unique_id=946876970]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.1
+theme_override_constants/separation = 31
+alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1051287331]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxLine_3xd07")
+
+[node name="Title" type="Label" parent="Panel/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=968724708]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Please enter an city name"
+label_settings = SubResource("LabelSettings_w8ci0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Panel/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=2093067344]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxLine_3xd07")
+
+[node name="HSeparator" type="HSeparator" parent="Panel/HBoxContainer/VBoxContainer" unique_id=1714025931]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_t56o2")
+
+[node name="LineEdit" type="LineEdit" parent="Panel/HBoxContainer/VBoxContainer" unique_id=1795495657]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_p0f62")
+text = "Sampahnesia"
+placeholder_text = "insert your city name"
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/VBoxContainer" unique_id=1466429626]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.6
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Panel/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1281458736]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_dwbtc")
+
+[node name="Button" parent="Panel/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1308777811 instance=ExtResource("3_ek7rn")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 48
+text = "Confirm"
+
+[node name="VSeparator2" type="VSeparator" parent="Panel/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=173320783]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_h83rl")
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/HBoxContainer/VBoxContainer" unique_id=482477854]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+theme_override_styles/separator = SubResource("StyleBoxEmpty_t56o2")
+
+[node name="VSeparator" type="VSeparator" parent="Panel/HBoxContainer" unique_id=1101549030]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_3xd07")
+
+[node name="TextureRect" type="TextureRect" parent="Panel" unique_id=91697519]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("NoiseTexture2D_jq8tk")
+expand_mode = 1
+
+[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -16,7 +16,7 @@ func search_match(tile: String)->void:
 	var result = json.parse(json_string)
 
 	if result != OK:
-		print("Error parsing:", json.get_error_message())
+		#print("Error parsing:", json.get_error_message())
 		return
 
 	var data = json.data
@@ -27,14 +27,14 @@ func search_match(tile: String)->void:
 	var isi_matrix_bawah: Array
 	if data.has(tile):
 		var matrix = data[tile]
-		print("Isi ",tile,": ")
+		#print("Isi ",tile,": ")
 		for i in matrix:
-			print(i[0])
-			print(i[2])
+			#print(i[0])
+			#print(i[2])
 			isi_matrix_kanan.append(int(i[0]))
 			isi_matrix_kiri.append(int(i[2]))
-		print(isi_matrix_kanan)
-		print(isi_matrix_kiri)
+		#print(isi_matrix_kanan)
+		#print(isi_matrix_kiri)
 		#
 		#print("\n")
 		#for i in data:
@@ -44,4 +44,5 @@ func search_match(tile: String)->void:
 				#print(int(j[2]))
 
 	else:
-		print("tile_34 tidak ditemukan")
+		pass
+		#print("tile_34 tidak ditemukan")

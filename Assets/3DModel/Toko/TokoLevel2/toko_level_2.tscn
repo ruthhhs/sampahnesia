@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cq00ela1gpt0q"]
+
+[ext_resource type="PackedScene" uid="uid://ku3bng083ank" path="res://Assets/3DModel/Toko/TokoLevel2/TokoLevel2.glb" id="1_tgub2"]
+[ext_resource type="Material" uid="uid://bwwws2fdlcuyh" path="res://Assets/3DModel/UniversalMaterial.tres" id="2_xg28u"]
+
+[node name="TokoLevel2" unique_id=1959574189 instance=ExtResource("1_tgub2")]
+
+[node name="TokoLevel2" parent="." index="0" unique_id=144071135]
+material_override = ExtResource("2_xg28u")

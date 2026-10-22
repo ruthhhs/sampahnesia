@@ -1,50 +1,519 @@
 [gd_scene format=3 uid="uid://b0w87frcj0os1"]
 
-[ext_resource type="Script" uid="uid://1yy72hn0aerw" path="res://Controller/CameraController/Script/camera_position.gd" id="1_hnn6p"]
-[ext_resource type="Script" uid="uid://mcnkdye25yox" path="res://Controller/CameraController/Script/mouse_follower_object.gd" id="2_eysth"]
+[ext_resource type="Script" uid="uid://d1ute8uvujpne" path="res://Controller/CameraController/Script/raining_particle.gd" id="2_dpmci"]
+[ext_resource type="Theme" uid="uid://882w67e4nihi" path="res://UI/Saves/SettingTheme.tres" id="3_0n7cy"]
+[ext_resource type="AudioStream" uid="uid://qvn8wgb1dndu" path="res://Assets/Audio/loop_rain.ogg" id="3_c86fb"]
 [ext_resource type="PackedScene" uid="uid://bymtlc7b21hrh" path="res://UI/Prefabs/BuildingSelectButton/building_select_button.tscn" id="3_m4pt6"]
+[ext_resource type="PackedScene" uid="uid://c2ele75e6i3pi" path="res://UI/Prefabs/Button/button.tscn" id="4_dn6ff"]
+[ext_resource type="Texture2D" uid="uid://cpo6j6qvxs46g" path="res://Assets/Sprite/Building Icon/Kebun.png" id="5_0n7cy"]
 [ext_resource type="Theme" uid="uid://2vx27ttvak05" path="res://UI/Saves/CuteTheme.tres" id="5_thpvx"]
-[ext_resource type="Texture2D" uid="uid://cpo6j6qvxs46g" path="res://Assets/Sprite/Building Icon/Kebun.png" id="6_dtmcr"]
-[ext_resource type="PackedScene" uid="uid://s13as1s14sv1" path="res://UI/Scnee/InGame/in_game_ui.tscn" id="7_7ftq8"]
+[ext_resource type="Texture2D" uid="uid://05by687cr48y" path="res://Assets/Sprite/ItemIcon/gandum.png" id="7_dtmcr"]
 [ext_resource type="Texture2D" uid="uid://xhxf6ekr85ja" path="res://Assets/Sprite/ItemIcon/sampah.png" id="7_thpvx"]
-[ext_resource type="Texture2D" uid="uid://p7s7hjxbr8li" path="res://UI/Icon/PNG/White/1x/gear.png" id="10_2ou1x"]
+[ext_resource type="Texture2D" uid="uid://ci0o2jwkqs3yt" path="res://Assets/Sprite/GemastikFinalBuildingIcon/Perternakan.png" id="8_dn6ff"]
+[ext_resource type="Texture2D" uid="uid://ysq0oe068i7i" path="res://Assets/Sprite/ItemIcon/daging.png" id="9_575nt"]
+[ext_resource type="Texture2D" uid="uid://c8gckg1m8mb3l" path="res://Assets/Sprite/GemastikFinalBuildingIcon/PerkebunanKayu.png" id="10_jjbiq"]
+[ext_resource type="Texture2D" uid="uid://d3lmg1cx3h68v" path="res://Assets/Sprite/ItemIcon/kayu-balok.png" id="11_sts0p"]
+[ext_resource type="Texture2D" uid="uid://devl5crnd2sak" path="res://Assets/Sprite/ItemIcon/plastik-bijih.png" id="12_0v7dh"]
+[ext_resource type="Texture2D" uid="uid://56nd3lujtdhh" path="res://Assets/Sprite/GemastikFinalBuildingIcon/PlasticBag.png" id="12_pq2iu"]
+[ext_resource type="Texture2D" uid="uid://bo5nqojid0vf3" path="res://Assets/Sprite/ItemIcon/plastik-bag.png" id="13_2adau"]
+[ext_resource type="Texture2D" uid="uid://bgvlrnb64pegy" path="res://Assets/Sprite/ItemIcon/daging-potong.png" id="14_bxl2n"]
+[ext_resource type="Texture2D" uid="uid://bed5j6no8245y" path="res://Assets/Sprite/ItemIcon/kayu-kertas.png" id="15_mf0yo"]
+[ext_resource type="Texture2D" uid="uid://dauq2pcpa65sl" path="res://Assets/Sprite/GemastikFinalBuildingIcon/Butcher.png" id="15_my0lq"]
+[ext_resource type="Texture2D" uid="uid://bw1d1rvpcmbvo" path="res://Assets/Sprite/ItemIcon/daging-kaleng.png" id="16_cm4jk"]
+[ext_resource type="Texture2D" uid="uid://26ra7xanmstd" path="res://Assets/Sprite/GemastikFinalBuildingIcon/Kertas.png" id="17_hg55f"]
+[ext_resource type="Texture2D" uid="uid://bp8x7wexpxg51" path="res://Assets/Sprite/ItemIcon/kaca-2.png" id="17_w8muh"]
+[ext_resource type="Texture2D" uid="uid://cay2sh27xi5rf" path="res://Assets/Sprite/ItemIcon/kaca-gelas.png" id="18_ouxue"]
+[ext_resource type="Texture2D" uid="uid://dk4h8kwug8m07" path="res://Assets/Sprite/ItemIcon/kayu-buku.png" id="19_fiqb6"]
+[ext_resource type="Texture2D" uid="uid://blfje748vap0s" path="res://Assets/Sprite/GemastikFinalBuildingIcon/BijiPlastik.png" id="19_osy3a"]
+[ext_resource type="Texture2D" uid="uid://duoatcev5ji3l" path="res://Assets/Sprite/GemastikFinalBuildingIcon/Pengalengan.png" id="20_75n1n"]
+[ext_resource type="Texture2D" uid="uid://6ifxj3sqx88h" path="res://Assets/Sprite/ItemIcon/plastik-furnitur.png" id="20_ahsau"]
+[ext_resource type="Texture2D" uid="uid://reae5f710psa" path="res://Assets/Sprite/ItemIcon/kayu-furnitur.png" id="22_og327"]
+[ext_resource type="Texture2D" uid="uid://cmj3jx5ja7205" path="res://Assets/Sprite/GemastikFinalBuildingIcon/GlassCup.png" id="22_qd056"]
+[ext_resource type="Texture2D" uid="uid://bgbcdynu0lqhw" path="res://Assets/Sprite/ItemIcon/kaca-bulb.png" id="24_corc0"]
+[ext_resource type="Texture2D" uid="uid://b4wcvpr44cvdk" path="res://Assets/Sprite/ItemIcon/plastik-pvc.png" id="25_c1wjk"]
+[ext_resource type="Texture2D" uid="uid://c8tremltaqtdu" path="res://Assets/Sprite/GemastikFinalBuildingIcon/Buku.png" id="25_xe555"]
+[ext_resource type="Texture2D" uid="uid://x67a1p308ine" path="res://Assets/Sprite/ItemIcon/kaca-bohlam.png" id="26_b8385"]
+[ext_resource type="Texture2D" uid="uid://lmvrr6e4o48h" path="res://Assets/Sprite/GemastikFinalBuildingIcon/PlasticFurnitur.png" id="27_r70c0"]
+[ext_resource type="Texture2D" uid="uid://d3g4r4hbpttlg" path="res://Assets/Sprite/ItemIcon/silicon-waffer.png" id="27_y3cpd"]
+[ext_resource type="Texture2D" uid="uid://dhhig7u10g8xj" path="res://Assets/Sprite/ItemIcon/silicon-computer.png" id="28_x4mfq"]
+[ext_resource type="Texture2D" uid="uid://5dviajdpabf3" path="res://Assets/Sprite/ItemIcon/silicon-server.png" id="29_64axa"]
+[ext_resource type="Texture2D" uid="uid://cjhfpqhin74yq" path="res://Assets/Sprite/GemastikFinalBuildingIcon/Furnitur.png" id="29_hpebi"]
+[ext_resource type="Texture2D" uid="uid://bj1pkolsi0oyq" path="res://Assets/Sprite/GemastikFinalBuildingIcon/BijiKaca.png" id="31_26gev"]
+[ext_resource type="Texture2D" uid="uid://cqsivcagkbl5u" path="res://Assets/Sprite/GemastikFinalBuildingIcon/GlassBulb.png" id="32_dk1yu"]
+[ext_resource type="Texture2D" uid="uid://3ae46iam8rfm" path="res://Assets/Sprite/GemastikFinalBuildingIcon/Paralon.png" id="34_0n7cy"]
+[ext_resource type="Texture2D" uid="uid://gxcr1ba7inv5" path="res://Assets/Sprite/GemastikFinalBuildingIcon/Lamp.png" id="36_84f65"]
+[ext_resource type="Texture2D" uid="uid://dca2qkoej7q87" path="res://Assets/Sprite/GemastikFinalBuildingIcon/Silicon.png" id="38_kohko"]
+[ext_resource type="Texture2D" uid="uid://cmsixsmhxop3x" path="res://Assets/Sprite/GemastikFinalBuildingIcon/Processor.png" id="40_ca4gg"]
+[ext_resource type="Texture2D" uid="uid://c5ig83c2t1ik" path="res://Assets/Sprite/ItemIcon/dilicon-processor.png" id="40_osy3a"]
+[ext_resource type="Texture2D" uid="uid://2hd0d812c7pq" path="res://Assets/Sprite/GemastikFinalBuildingIcon/Computer.png" id="42_41bsf"]
+[ext_resource type="Texture2D" uid="uid://caeahortiu1k4" path="res://Assets/Sprite/GemastikFinalBuildingIcon/SuperComputer.png" id="44_ijmff"]
+[ext_resource type="Texture2D" uid="uid://buve1bmqlwvw6" path="res://Assets/Sprite/GemastikFinalBuildingIcon/PembangkitListrikTenagaSampah.png" id="45_my0lq"]
+[ext_resource type="Texture2D" uid="uid://dr4mnsfgmn6r5" path="res://Assets/Sprite/GemastikFinalBuildingIcon/PembangkitListrikTenagaAngin.png" id="46_hg55f"]
+[ext_resource type="Texture2D" uid="uid://bmwhlmetxda8k" path="res://Assets/Sprite/GemastikFinalBuildingIcon/PembangkitListrikTenagaSurya.png" id="46_jjbiq"]
+[ext_resource type="PackedScene" uid="uid://diyrkqpmnn4gx" path="res://UI/Scnee/Pause/pause.tscn" id="47_4yxc1"]
+[ext_resource type="Texture2D" uid="uid://besoe54bvc2un" path="res://Assets/Sprite/GemastikFinalBuildingIcon/TokoTipe1.png" id="48_osy3a"]
+[ext_resource type="Texture2D" uid="uid://dkm178yd77xdk" path="res://Assets/Sprite/GemastikFinalBuildingIcon/TokoTipe2.png" id="49_75n1n"]
+[ext_resource type="Texture2D" uid="uid://bk0xadafvfgmo" path="res://Assets/Sprite/Building Icon/Tumbuhan.png" id="50_qd056"]
+[ext_resource type="Texture2D" uid="uid://bwcccg2c1perj" path="res://UI/Icon/SelfMade/bank-note-04.png" id="51_qd056"]
+[ext_resource type="FontFile" uid="uid://1xvnrphaimbw" path="res://UI/Font/hey_comic/Hey Comic.ttf" id="52_84f65"]
+[ext_resource type="FontVariation" uid="uid://cl1ghml6fsl2n" path="res://UI/Font/tress_font/UiFont.tres" id="52_xe555"]
+[ext_resource type="Texture2D" uid="uid://crb4an8tmfuci" path="res://UI/Icon/PNG/White/1x/barsHorizontal.png" id="55_kohko"]
+[ext_resource type="Texture2D" uid="uid://qbpuiqgjuvxa" path="res://UI/Item/kalender-no-text.png" id="56_ca4gg"]
+[ext_resource type="AudioStream" uid="uid://bj80ewkapbadj" path="res://UI/UIFX/kenney_interface-sounds/Audio/select_005.ogg" id="57_r70c0"]
+[ext_resource type="AudioStream" uid="uid://cjqovssdfypl0" path="res://UI/UIFX/kenney_interface-sounds/Audio/select_003.ogg" id="58_hpebi"]
+[ext_resource type="FontFile" uid="uid://b6gndoa3gdmhn" path="res://UI/Font/super_hockey/Super Hockey.ttf" id="58_l5jbk"]
+[ext_resource type="Script" uid="uid://mcnkdye25yox" path="res://Controller/CameraController/Script/mouse_follower_object.gd" id="59_0n7cy"]
+[ext_resource type="FontFile" uid="uid://dkpcaehkmid4a" path="res://UI/Font/hey_comic/Hey Comic.otf" id="59_ijmff"]
+[ext_resource type="Script" uid="uid://1yy72hn0aerw" path="res://Controller/CameraController/Script/camera_position.gd" id="60_84f65"]
+[ext_resource type="Texture2D" uid="uid://d4cf55oxflvdl" path="res://UI/Icon/Keyboard & Mouse/Double/mouse_left.png" id="60_jdguq"]
+[ext_resource type="Texture2D" uid="uid://dcqu10tm7l2o5" path="res://UI/Icon/Keyboard & Mouse/Double/mouse_right.png" id="61_dpmci"]
+[ext_resource type="Texture2D" uid="uid://c1opnovcu6fgc" path="res://UI/Icon/Keyboard & Mouse/Double/mouse_scroll.png" id="62_c86fb"]
+[ext_resource type="AudioStream" uid="uid://bdoywicygjqbl" path="res://UI/UIFX/kenney_interface-sounds/Audio/switch_006.ogg" id="63_84f65"]
+[ext_resource type="AudioStream" uid="uid://cdf7ix6556xk8" path="res://Assets/Music/WhatsApp Audio 2026-08-14 at 12.57.16.mp3" id="64_kohko"]
+[ext_resource type="Script" uid="uid://d1xeymny1apg7" path="res://Controller/CameraController/Script/mode.gd" id="65_dg3oh"]
+[ext_resource type="Texture2D" uid="uid://bmvpl273fmewb" path="res://Assets/Sprite/kenney_pattern-pack/Selecting.png" id="65_jdguq"]
+[ext_resource type="Texture2D" uid="uid://cfpox3mropgnf" path="res://UI/Icon/PNG/White/2x/upLeft.png" id="65_ykp4m"]
+[ext_resource type="Texture2D" uid="uid://b2ts7tuk36num" path="res://UI/Icon/PNG/White/2x/hammer.png" id="67_dg3oh"]
+[ext_resource type="Texture2D" uid="uid://rw1y812r0mg" path="res://UI/Icon/PNG/White/2x/trashcanOpen.png" id="67_hsyvo"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d2yk3"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ijmff"]
+emission_shape_scale = Vector3(10.48, -0.18, 10.48)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 20.599997
+linear_accel_max = 44.219997
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_575nt"]
+[sub_resource type="Gradient" id="Gradient_xex1j"]
+offsets = PackedFloat32Array(0.020710059, 0.9053255, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.2784314, 1, 1, 1, 0)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rq3ip"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jdguq"]
+gradient = SubResource("Gradient_xex1j")
+fill_to = Vector2(0, 1)
+metadata/_snap_enabled = true
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sts0p"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kt1fb"]
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture2D_jdguq")
+billboard_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_dpmci"]
+material = SubResource("StandardMaterial3D_kt1fb")
+size = Vector2(0.02, 1)
+
+[sub_resource type="Animation" id="Animation_qhx0f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RainSound:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-33.761]
+}
+
+[sub_resource type="Animation" id="Animation_3o3u8"]
+resource_name = "is_rain"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RainSound:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-33.761, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ykp4m"]
+resource_name = "is_rain_backward"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RainSound:volume_db")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -33.761]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dg3oh"]
+_data = {
+&"RESET": SubResource("Animation_qhx0f"),
+&"is_rain": SubResource("Animation_3o3u8"),
+&"is_rain_backward": SubResource("Animation_ykp4m")
+}
+
+[sub_resource type="Gradient" id="Gradient_jdguq"]
+offsets = PackedFloat32Array(0.6084656, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.22352941)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3xd07"]
+gradient = SubResource("Gradient_jdguq")
+fill = 1
+fill_from = Vector2(0.5, 0.8)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_fbp5b"]
+offsets = PackedFloat32Array(0.44751382, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.27058825)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_41bsf"]
+gradient = SubResource("Gradient_fbp5b")
+fill = 1
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ijmff"]
+bg_color = Color(0.8976904, 0.96362656, 0.91422164, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_detail = 1
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jdguq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpmci"]
+bg_color = Color(0.27058825, 0.41568628, 0.26666668, 0.50980395)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.44344428, 0.424259, 0.5186617, 1)
+border_blend = true
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+shadow_color = Color(0.0627451, 0.17254902, 0.19607843, 0.19607843)
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c86fb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qhx0f"]
+font = ExtResource("52_84f65")
+font_size = 24
+shadow_color = Color(0.08235294, 0.10980392, 0.23529412, 0.6666667)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3o3u8"]
 bg_color = Color(0.8980392, 0.9647059, 0.9137255, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.44344428, 0.424259, 0.5186617, 1)
+border_blend = true
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-shadow_color = Color(0, 0, 0, 0.4509804)
+shadow_color = Color(0.112904854, 0.18525437, 0.26791888, 0.5529412)
 shadow_size = 2
-shadow_offset = Vector2(1, 2)
+shadow_offset = Vector2(2, 3)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3xd07"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ykp4m"]
 
-[sub_resource type="Gradient" id="Gradient_eysth"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0.509615, 0.586538, 0.6282051, 0.974359)
-colors = PackedColorArray(0, 0, 0, 0, 0.96327204, 0.90862226, 0.8872742, 1, 0, 0, 0, 0, 0.7176471, 0.7176471, 0.7176471, 0)
+[sub_resource type="LabelSettings" id="LabelSettings_dg3oh"]
+font = ExtResource("52_84f65")
+font_size = 24
+font_color = Color(0.27802855, 0.4834717, 0.13080367, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ejtff"]
-gradient = SubResource("Gradient_eysth")
-width = 1080
-height = 1080
-fill = 2
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0.7, 0.4)
-metadata/_snap_enabled = true
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hsyvo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhujx"]
+bg_color = Color(0.42452237, 0.7394187, 0.39571285, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.40756798, 0.67658496, 0.35115036, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+shadow_color = Color(0.112904854, 0.18525437, 0.26791888, 0.5529412)
+shadow_size = 1
+shadow_offset = Vector2(2, 3)
+
+[sub_resource type="Animation" id="Animation_osy3a"]
+resource_name = "BuildingModeDisable"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%TabContainer:anchor_top")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.73300004, 0.712, 0.95]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%TabContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mode:anchor_bottom")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.7, 0.65, 0.95]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mode:anchor_top")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.65, 0.6, 0.9]
+}
+
+[sub_resource type="Animation" id="Animation_75n1n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%TabContainer:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.73300004]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%TabContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mode:anchor_bottom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.95]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mode:anchor_top")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_75n1n"]
+_data = {
+&"BuildingModeDisable": SubResource("Animation_osy3a"),
+&"RESET": SubResource("Animation_75n1n")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ftrdj"]
+bg_color = Color(0.8980392, 0.9647059, 0.9137255, 0.6666667)
+corner_radius_bottom_right = 32
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_color = Color(0.0627451, 0.17254902, 0.19607843, 0.19607843)
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8jbnc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iifq8"]
+font = ExtResource("52_84f65")
+font_color = Color(0.08627451, 0.2509804, 0.43529412, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_50xed"]
+font = ExtResource("58_l5jbk")
+font_size = 62
+font_color = Color(0.79178613, 0.89741856, 0.9527858, 1)
+outline_size = 16
+outline_color = Color(0.1328631, 0.39387158, 0.45220333, 1)
+shadow_size = 16
+shadow_color = Color(0.08235294, 0.10980392, 0.23529412, 0.54509807)
+shadow_offset = Vector2(-6, 4)
+stacked_outline_count = 1
+stacked_outline_0/size = 12
+stacked_outline_0/color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m5h88"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a5m24"]
+font = ExtResource("58_l5jbk")
+font_size = 36
+font_color = Color(1, 0.99607843, 0.9764706, 1)
+shadow_size = 2
+shadow_color = Color(0.08235294, 0.10980392, 0.23529412, 0.54509807)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_338d5"]
+font = ExtResource("52_84f65")
+font_size = 20
+shadow_color = Color(0.0627451, 0.17254902, 0.19607843, 0.19607843)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v1usf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2y0k"]
+bg_color = Color(0.79435885, 0.8207159, 0.8116473, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_1r03i"]
+font = ExtResource("52_84f65")
+font_size = 24
+font_color = Color(0.27802855, 0.4834717, 0.13080367, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eegns"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3o3u8"]
+font = ExtResource("59_ijmff")
+font_size = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hsyvo"]
+bg_color = Color(0.36078432, 0.5058824, 0.6784314, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 0.3764706)
+shadow_size = 1
+shadow_offset = Vector2(2.005, 3.29)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iifq8"]
+bg_color = Color(0.4392157, 0.67058825, 0.54509807, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 1
+expand_margin_left = 8.0
+expand_margin_top = 3.0
+expand_margin_right = 8.0
+expand_margin_bottom = 3.0
+shadow_color = Color(0, 0, 0, 0.3764706)
+shadow_size = 1
+shadow_offset = Vector2(2.005, 3.29)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dg3oh"]
+bg_color = Color(0.36078432, 0.5058824, 0.6784314, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 0.3764706)
+shadow_size = 1
+shadow_offset = Vector2(2.005, 3.29)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50xed"]
+bg_color = Color(0.4392157, 0.67058825, 0.54509807, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 1
+expand_margin_left = 8.0
+expand_margin_top = 3.0
+expand_margin_right = 8.0
+expand_margin_bottom = 3.0
+shadow_color = Color(0, 0, 0, 0.3764706)
+shadow_size = 1
+shadow_offset = Vector2(2.005, 3.29)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h0xcf"]
+bg_color = Color(0.36078432, 0.5058824, 0.6784314, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 0.3764706)
+shadow_size = 1
+shadow_offset = Vector2(2.005, 3.29)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5h88"]
+bg_color = Color(1, 0.3676984, 0.32215777, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 1
+expand_margin_left = 8.0
+expand_margin_top = 3.0
+expand_margin_right = 8.0
+expand_margin_bottom = 3.0
+shadow_color = Color(0, 0, 0, 0.3764706)
+shadow_size = 1
+shadow_offset = Vector2(2.005, 3.29)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c8m7d"]
 transparency = 1
 shading_mode = 0
-albedo_texture = SubResource("GradientTexture2D_ejtff")
+albedo_texture = ExtResource("65_jdguq")
 
 [sub_resource type="QuadMesh" id="QuadMesh_b2g4k"]
 material = SubResource("StandardMaterial3D_c8m7d")
@@ -53,7 +522,7 @@ material = SubResource("StandardMaterial3D_c8m7d")
 size = Vector3(2.155, 1.4, 2.155)
 
 [node name="CameraPosition" type="Node3D" unique_id=508572600]
-script = ExtResource("1_hnn6p")
+script = ExtResource("60_84f65")
 
 [node name="CameraRotationX" type="Node3D" parent="." unique_id=1260349627]
 
@@ -61,7 +530,32 @@ script = ExtResource("1_hnn6p")
 transform = Transform3D(1, 0, 0, 0, 0.6401099, 0.76828367, 0, -0.76828367, 0.6401099, 0, 19, 23.5)
 
 [node name="Camera3D" type="Camera3D" parent="CameraRotationX/CameraZoomPivot" unique_id=1719253986]
-transform = Transform3D(0.99999964, 0, 0, 0, 1.0000002, 0, 0, 0, 0.99999994, 0, 0, 33.325)
+transform = Transform3D(0.99999964, 0, 0, 0, 1.0000002, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="RainingParticle" type="GPUParticles3D" parent="CameraRotationX/CameraZoomPivot/Camera3D" unique_id=1460324122]
+transform = Transform3D(1, 0, 0, 0, 0.64010984, -0.7682834, 0, 0.7682834, 0.64010984, 0, 0.13137722, 0.33275604)
+emitting = false
+amount = 50
+sub_emitter = NodePath(".")
+lifetime = 0.48
+use_fixed_seed = true
+seed = 2270960386
+fixed_fps = 10
+process_material = SubResource("ParticleProcessMaterial_ijmff")
+draw_pass_1 = SubResource("QuadMesh_dpmci")
+script = ExtResource("2_dpmci")
+
+[node name="RainingTime" type="Timer" parent="CameraRotationX/CameraZoomPivot/Camera3D/RainingParticle" unique_id=1947414239]
+unique_name_in_owner = true
+wait_time = 10.0
+
+[node name="RainSound" type="AudioStreamPlayer3D" parent="CameraRotationX/CameraZoomPivot/Camera3D/RainingParticle" unique_id=59103583]
+stream = ExtResource("3_c86fb")
+volume_db = -33.761
+bus = &"Effect"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CameraRotationX/CameraZoomPivot/Camera3D/RainingParticle" unique_id=2010047978]
+libraries/ = SubResource("AnimationLibrary_dg3oh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=592404322]
 
@@ -75,878 +569,1011 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 theme = ExtResource("5_thpvx")
+metadata/_edit_lock_ = true
 
-[node name="RemoveButton" type="CheckButton" parent="CanvasLayer/GameUIBuilder" unique_id=331302855]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.846
-anchor_top = 0.726
-anchor_right = 0.929
-anchor_bottom = 0.772
-offset_left = -0.32006836
-offset_top = -8.080017
-offset_right = 8.319946
-offset_bottom = 0.23999023
-grow_horizontal = 0
-text = "delete"
-alignment = 1
-
-[node name="CityStatsLeft" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder" unique_id=706085584]
-layout_mode = 0
-offset_left = 50.0
-offset_top = 25.0
-offset_right = 600.0
-offset_bottom = 139.0
-theme_override_constants/separation = 20
-
-[node name="Year" type="Panel" parent="CanvasLayer/GameUIBuilder/CityStatsLeft" unique_id=1733380841]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.27
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameUIBuilder/CityStatsLeft" unique_id=1625292757]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 10
-
-[node name="break" type="HSeparator" parent="CanvasLayer/GameUIBuilder/CityStatsLeft/VBoxContainer" unique_id=755996461]
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxEmpty_d2yk3")
-
-[node name="CityName" type="Label" parent="CanvasLayer/GameUIBuilder/CityStatsLeft/VBoxContainer" unique_id=116678219]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Nama Kota"
-vertical_alignment = 1
-
-[node name="Months" type="ProgressBar" parent="CanvasLayer/GameUIBuilder/CityStatsLeft/VBoxContainer" unique_id=2107344492]
-layout_mode = 2
-size_flags_vertical = 3
-max_value = 12.0
-show_percentage = false
-
-[node name="Label" type="Label" parent="CanvasLayer/GameUIBuilder/CityStatsLeft/VBoxContainer/Months" unique_id=800702971]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GameUIBuilder" unique_id=1357470940]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "22"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = SubResource("GradientTexture2D_3xd07")
 
-[node name="break2" type="HSeparator" parent="CanvasLayer/GameUIBuilder/CityStatsLeft/VBoxContainer" unique_id=465217020]
-visible = false
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxEmpty_575nt")
-
-[node name="CityStatsRight" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder" unique_id=415872721]
+[node name="BG-vignette" type="TextureRect" parent="CanvasLayer/GameUIBuilder" unique_id=1639789123]
+editor_description = "Jangan Diubah Namanya"
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.59900004
-anchor_top = 0.044000003
-anchor_right = 0.97300005
-anchor_bottom = 0.089
-offset_left = -0.080078125
-offset_top = -12.520004
-offset_right = -0.16015625
-offset_bottom = -0.12000275
-theme_override_constants/separation = 15
+anchor_top = 0.59074074
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_41bsf")
+metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameUIBuilder/CityStatsRight" unique_id=2139619619]
+[node name="DebugPosition" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder" unique_id=720340760]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = 0.148
+anchor_right = 0.312
+anchor_bottom = 0.193
+offset_top = 0.16000366
+offset_right = 0.95996094
+offset_bottom = -8.440002
+
+[node name="MousePositionLabel" type="Label" parent="CanvasLayer/GameUIBuilder/DebugPosition" unique_id=728233152]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.12
+text = "Target Position:"
+
+[node name="ValuePositionDebug" type="Label" parent="CanvasLayer/GameUIBuilder/DebugPosition" unique_id=602476649]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "10.10"
+
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer/GameUIBuilder" unique_id=946181876]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.067
+anchor_top = 0.73300004
+anchor_right = 0.933
+anchor_bottom = 1.0
+offset_left = -0.6399994
+offset_top = -6.0
+offset_right = 0.6398926
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_0n7cy")
+theme_override_constants/side_margin = 16
+theme_override_constants/tab_separation = -52
+theme_override_font_sizes/font_size = 32
+theme_override_styles/panel = SubResource("StyleBoxFlat_ijmff")
+accessibility_region = true
+tab_alignment = 1
+current_tab = 0
+
+[node name="Produksi" type="TabBar" parent="CanvasLayer/GameUIBuilder/TabContainer" unique_id=1836447822]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/GameUIBuilder/TabContainer/Produksi" unique_id=1410882293]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.093
+anchor_right = 0.98600006
+anchor_bottom = 0.96800005
+offset_left = 0.711998
+offset_top = -1.9480057
+offset_right = 1.2958984
+offset_bottom = -0.09602356
+grow_horizontal = 2
+grow_vertical = 2
+draw_focus_border = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameUIBuilder/TabContainer/Produksi/ScrollContainer" unique_id=1617406565]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder/TabContainer/Produksi/ScrollContainer/VBoxContainer" unique_id=1279676010]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 7
+
+[node name="Pertanian" parent="CanvasLayer/GameUIBuilder/TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1626912660 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+nama_bangunan = "Pertanian"
+harga_beli_item = 33
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("5_0n7cy")
+gambar_input = ExtResource("7_thpvx")
+gambar_output = ExtResource("7_dtmcr")
+is_building = true
+is_selling_building = true
+
+[node name="Peternakan" parent="CanvasLayer/GameUIBuilder/TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1845096876 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 1
+nama_bangunan = "Perternakan"
+price_bangunan = 1500
+harga_beli_item = 50
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("8_dn6ff")
+gambar_input = ExtResource("7_dtmcr")
+gambar_output = ExtResource("9_575nt")
+is_building = true
+is_selling_building = true
+
+[node name="PengolahanKayu" parent="CanvasLayer/GameUIBuilder/TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1173602536 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 2
+nama_bangunan = "Perkebunan Kayu"
+price_bangunan = 1500
+harga_beli_item = 50
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("10_jjbiq")
+gambar_input = ExtResource("7_dtmcr")
+gambar_output = ExtResource("11_sts0p")
+is_building = true
+is_selling_building = true
+
+[node name="PlasticBag" parent="CanvasLayer/GameUIBuilder/TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1621488473 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 3
+nama_bangunan = "Kantong Plastik"
+price_bangunan = 1600
+harga_beli_item = 53
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("12_pq2iu")
+gambar_input = ExtResource("12_0v7dh")
+gambar_output = ExtResource("13_2adau")
+is_building = true
+is_selling_building = true
+is_building_need_electric = true
+
+[node name="Butcher" parent="CanvasLayer/GameUIBuilder/TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1278405948 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 4
+nama_bangunan = "Daging"
+price_bangunan = 1700
+harga_beli_item = 56
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("15_my0lq")
+gambar_input = ExtResource("9_575nt")
+gambar_output = ExtResource("14_bxl2n")
+is_building = true
+is_selling_building = true
+is_building_need_electric = true
+
+[node name="Kertas" parent="CanvasLayer/GameUIBuilder/TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1036833639 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 5
+nama_bangunan = "Kertas"
+price_bangunan = 1700
+harga_beli_item = 56
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("17_hg55f")
+gambar_input = ExtResource("11_sts0p")
+gambar_output = ExtResource("15_mf0yo")
+is_building = true
+is_selling_building = true
+is_building_need_electric = true
+
+[node name="Peleburan_biji_plastik" parent="CanvasLayer/GameUIBuilder/TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1940093469 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 6
+nama_bangunan = "Pengolahan Plastik"
+price_bangunan = 2000
+harga_beli_item = 66
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("19_osy3a")
+gambar_input = ExtResource("7_thpvx")
+gambar_output = ExtResource("12_0v7dh")
+is_building = true
+is_selling_building = true
+is_building_need_electric = true
+
+[node name="Pengalengan" parent="CanvasLayer/GameUIBuilder/TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1938445242 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 7
+nama_bangunan = "Pengalengan"
+price_bangunan = 2000
+harga_beli_item = 66
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("20_75n1n")
+gambar_input = ExtResource("14_bxl2n")
+gambar_output = ExtResource("16_cm4jk")
+is_building = true
+is_selling_building = true
+is_building_need_electric = true
+
+[node name="Glass_cup" parent="CanvasLayer/GameUIBuilder/TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=707770617 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 8
+nama_bangunan = "Pabrik Gelas"
+price_bangunan = 2000
+harga_beli_item = 66
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("22_qd056")
+gambar_input = ExtResource("17_w8muh")
+gambar_output = ExtResource("18_ouxue")
+is_building = true
+is_selling_building = true
+is_building_need_electric = true
+
+[node name="Buku" parent="CanvasLayer/GameUIBuilder/TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=2082104538 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 9
+nama_bangunan = "Percetakan Buku"
+price_bangunan = 2200
+harga_beli_item = 73
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("25_xe555")
+gambar_input = ExtResource("15_mf0yo")
+gambar_output = ExtResource("19_fiqb6")
+is_building = true
+is_selling_building = true
+is_building_need_electric = true
+
+[node name="Plastik_furnitur" parent="CanvasLayer/GameUIBuilder/TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=432185409 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 10
+nama_bangunan = "Furnitur Plastik"
+price_bangunan = 2300
+harga_beli_item = 76
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("27_r70c0")
+gambar_input = ExtResource("12_0v7dh")
+gambar_output = ExtResource("20_ahsau")
+is_building = true
+is_selling_building = true
+is_building_need_electric = true
+
+[node name="Furnitur" parent="CanvasLayer/GameUIBuilder/TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=2013743642 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 11
+nama_bangunan = "Furnitur Kayu"
+price_bangunan = 2500
+harga_beli_item = 83
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("29_hpebi")
+gambar_input = ExtResource("11_sts0p")
+gambar_output = ExtResource("22_og327")
+is_building = true
+is_selling_building = true
+is_building_need_electric = true
+
+[node name="Biji_kaca" parent="CanvasLayer/GameUIBuilder/TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=944086546 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 12
+nama_bangunan = "Pengolahan Kaca"
+price_bangunan = 2500
+harga_beli_item = 83
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("31_26gev")
+gambar_input = ExtResource("7_thpvx")
+gambar_output = ExtResource("17_w8muh")
+is_building = true
+is_selling_building = true
+is_building_need_electric = true
+
+[node name="Glass_bulb" parent="CanvasLayer/GameUIBuilder/TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1001530624 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 13
+nama_bangunan = "Pabrik Bohlam"
+price_bangunan = 2700
+harga_beli_item = 90
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("32_dk1yu")
+gambar_input = ExtResource("17_w8muh")
+gambar_output = ExtResource("24_corc0")
+is_building = true
+is_selling_building = true
+is_building_need_electric = true
+
+[node name="Paralon_pvc" parent="CanvasLayer/GameUIBuilder/TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1334908674 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 14
+nama_bangunan = "Pabrik PVC"
+price_bangunan = 3000
+harga_beli_item = 100
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("34_0n7cy")
+gambar_input = ExtResource("12_0v7dh")
+gambar_output = ExtResource("25_c1wjk")
+is_building = true
+is_selling_building = true
+is_building_need_electric = true
+
+[node name="Lamp" parent="CanvasLayer/GameUIBuilder/TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=610763944 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 15
+nama_bangunan = "Pabrik Lampu"
+price_bangunan = 3000
+harga_beli_item = 100
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("36_84f65")
+gambar_input = ExtResource("24_corc0")
+gambar_output = ExtResource("26_b8385")
+is_building = true
+is_selling_building = true
+is_building_need_electric = true
+
+[node name="Silicon" parent="CanvasLayer/GameUIBuilder/TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=60917643 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 16
+nama_bangunan = "Pabrik Silicon"
+price_bangunan = 4700
+harga_beli_item = 156
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("38_kohko")
+gambar_input = ExtResource("17_w8muh")
+gambar_output = ExtResource("27_y3cpd")
+is_building = true
+is_selling_building = true
+is_building_need_electric = true
+
+[node name="Processor" parent="CanvasLayer/GameUIBuilder/TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=249803284 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 17
+nama_bangunan = "Processor"
+price_bangunan = 6000
+harga_beli_item = 200
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("40_ca4gg")
+gambar_input = ExtResource("27_y3cpd")
+gambar_output = ExtResource("40_osy3a")
+is_building = true
+is_selling_building = true
+is_building_need_electric = true
+
+[node name="Computer" parent="CanvasLayer/GameUIBuilder/TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=769768624 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 18
+nama_bangunan = "Komputer"
+price_bangunan = 8000
+harga_beli_item = 266
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("42_41bsf")
+gambar_input = ExtResource("40_osy3a")
+gambar_output = ExtResource("28_x4mfq")
+is_building = true
+is_selling_building = true
+is_building_need_electric = true
+
+[node name="Super_computer" parent="CanvasLayer/GameUIBuilder/TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1909638964 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 19
+nama_bangunan = "Super Komputer"
+price_bangunan = 10000
+harga_beli_item = 333
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("44_ijmff")
+gambar_input = ExtResource("28_x4mfq")
+gambar_output = ExtResource("29_64axa")
+is_building = true
+is_selling_building = true
+is_building_need_electric = true
+
+[node name="Energi" type="TabBar" parent="CanvasLayer/GameUIBuilder/TabContainer" unique_id=1932583132]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/GameUIBuilder/TabContainer/Energi" unique_id=1957888490]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.093
+anchor_right = 0.98600006
+anchor_bottom = 0.96800005
+offset_left = 0.711998
+offset_top = 0.02898407
+offset_right = 1.2958984
+offset_bottom = -0.09602356
+grow_horizontal = 2
+grow_vertical = 2
+draw_focus_border = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameUIBuilder/TabContainer/Energi/ScrollContainer" unique_id=767657662]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder/TabContainer/Energi/ScrollContainer/VBoxContainer" unique_id=2076132906]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 7
+
+[node name="BuildingSelectButton0" parent="CanvasLayer/GameUIBuilder/TabContainer/Energi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=685840398 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 20
+nama_bangunan = "PLT-Sampah"
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("45_my0lq")
+gambar_input = ExtResource("7_thpvx")
+is_generator_electric = true
+is_generator_need_source = true
+
+[node name="BuildingSelectButton1" parent="CanvasLayer/GameUIBuilder/TabContainer/Energi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=121216572 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 22
+nama_bangunan = "PLT-Angin"
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("46_hg55f")
+is_generator_electric = true
+
+[node name="BuildingSelectButton2" parent="CanvasLayer/GameUIBuilder/TabContainer/Energi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1807760756 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 21
+nama_bangunan = "PLT-Surya"
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("46_jjbiq")
+is_generator_electric = true
+
+[node name="Toko" type="TabBar" parent="CanvasLayer/GameUIBuilder/TabContainer" unique_id=774974239]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/GameUIBuilder/TabContainer/Toko" unique_id=1813161283]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.093
+anchor_right = 0.98600006
+anchor_bottom = 0.96800005
+offset_left = 0.711998
+offset_top = 0.02898407
+offset_right = 1.2958984
+offset_bottom = -0.09602356
+grow_horizontal = 2
+grow_vertical = 2
+draw_focus_border = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameUIBuilder/TabContainer/Toko/ScrollContainer" unique_id=936755353]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder/TabContainer/Toko/ScrollContainer/VBoxContainer" unique_id=2017223059]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 7
+
+[node name="BuildingSelectButton0" parent="CanvasLayer/GameUIBuilder/TabContainer/Toko/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1756684143 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 24
+nama_bangunan = "Toko Kecil"
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("48_osy3a")
+is_store = true
+
+[node name="BuildingSelectButton1" parent="CanvasLayer/GameUIBuilder/TabContainer/Toko/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=467820419 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 25
+nama_bangunan = "Toko Besar"
+price_bangunan = 3000
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+gambar_bangunan = ExtResource("49_75n1n")
+is_store = true
+is_level_2 = true
+
+[node name="Tumbuhan" type="TabBar" parent="CanvasLayer/GameUIBuilder/TabContainer" unique_id=1312501925]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/GameUIBuilder/TabContainer/Tumbuhan" unique_id=1002302665]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.093
+anchor_right = 0.98600006
+anchor_bottom = 0.96800005
+offset_left = 0.711998
+offset_top = 0.02898407
+offset_right = 1.2958984
+offset_bottom = -0.09602356
+grow_horizontal = 2
+grow_vertical = 2
+draw_focus_border = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameUIBuilder/TabContainer/Tumbuhan/ScrollContainer" unique_id=915865078]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder/TabContainer/Tumbuhan/ScrollContainer/VBoxContainer" unique_id=1898474765]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 7
+
+[node name="BuildingSelectButton0" parent="CanvasLayer/GameUIBuilder/TabContainer/Tumbuhan/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1253627944 node_paths=PackedStringArray("control_parent") instance=ExtResource("3_m4pt6")]
+layout_mode = 2
+id_building = 26
+nama_bangunan = "Pohon"
+price_bangunan = 500
+control_parent = NodePath("../../../../../../../../MouseFollowerObject")
+hoverd_disabled = true
+gambar_bangunan = ExtResource("50_qd056")
+
+[node name="CityStatsRight" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder" unique_id=265976461]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5989583
+anchor_top = 0.032407407
+anchor_right = 0.97291666
+anchor_bottom = 0.08888889
+theme_override_constants/separation = 15
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameUIBuilder/CityStatsRight" unique_id=1190866821]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="break" type="HSeparator" parent="CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer" unique_id=1220403482]
+[node name="break" type="HSeparator" parent="CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer" unique_id=399796338]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.25
-theme_override_styles/separator = SubResource("StyleBoxEmpty_rq3ip")
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jdguq")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer" unique_id=770709147]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer" unique_id=568526122]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 13
 
-[node name="Panel2" type="Panel" parent="CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer/HBoxContainer" unique_id=951731109]
+[node name="PollutionBar" type="ProgressBar" parent="CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer/HBoxContainer" unique_id=489984996]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_sts0p")
+size_flags_vertical = 1
+theme = ExtResource("5_thpvx")
+theme_override_styles/background = SubResource("StyleBoxFlat_dpmci")
+value = 51.67
+rounded = true
+show_percentage = false
 
-[node name="Panel" type="Panel" parent="CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer/HBoxContainer" unique_id=1139355459]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer/HBoxContainer/PollutionBar" unique_id=686707157]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSeparator2" type="VSeparator" parent="CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer/HBoxContainer/PollutionBar/HBoxContainer" unique_id=1875960506]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_sts0p")
+size_flags_stretch_ratio = 0.05
+theme_override_styles/separator = SubResource("StyleBoxEmpty_c86fb")
 
-[node name="break2" type="HSeparator" parent="CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer" unique_id=906549032]
+[node name="LabelBersih" type="Label" parent="CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer/HBoxContainer/PollutionBar/HBoxContainer" unique_id=113589074]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Bersih"
+label_settings = SubResource("LabelSettings_qhx0f")
+
+[node name="LabelKotor" type="Label" parent="CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer/HBoxContainer/PollutionBar/HBoxContainer" unique_id=1355462512]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Kotor"
+label_settings = SubResource("LabelSettings_qhx0f")
+horizontal_alignment = 2
+
+[node name="VSeparator" type="VSeparator" parent="CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer/HBoxContainer/PollutionBar/HBoxContainer" unique_id=2103645564]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+theme_override_styles/separator = SubResource("StyleBoxEmpty_c86fb")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer/HBoxContainer" unique_id=1525371044]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.55
+theme_override_styles/panel = SubResource("StyleBoxFlat_3o3u8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer/HBoxContainer/Panel" unique_id=1331116335]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSeparator" type="VSeparator" parent="CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer/HBoxContainer/Panel/HBoxContainer" unique_id=1496761830]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ykp4m")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer/HBoxContainer/Panel/HBoxContainer" unique_id=1351181488]
+modulate = Color(0.3286017, 0.5674246, 0.15630212, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_qd056")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MoneyLabel" type="Label" parent="CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer/HBoxContainer/Panel/HBoxContainer" unique_id=887691356]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.1
+text = "10000"
+label_settings = SubResource("LabelSettings_dg3oh")
+
+[node name="break2" type="HSeparator" parent="CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer" unique_id=703898247]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
-theme_override_styles/separator = SubResource("StyleBoxEmpty_rq3ip")
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jdguq")
 
-[node name="Settings" type="Button" parent="CanvasLayer/GameUIBuilder/CityStatsRight" unique_id=329971006]
+[node name="VSeparator" type="VSeparator" parent="CanvasLayer/GameUIBuilder/CityStatsRight" unique_id=1011571416]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_hsyvo")
+
+[node name="Button" parent="CanvasLayer/GameUIBuilder/CityStatsRight" unique_id=1308777811 instance=ExtResource("4_dn6ff")]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.09
-icon = ExtResource("10_2ou1x")
+size_flags_stretch_ratio = 0.1
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uhujx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uhujx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_uhujx")
+icon = ExtResource("55_kohko")
+icon_alignment = 1
+
+[node name="UIAnimation" type="AnimationPlayer" parent="CanvasLayer/GameUIBuilder" unique_id=549589526]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_75n1n")
+
+[node name="Calendar" type="Panel" parent="CanvasLayer/GameUIBuilder" unique_id=295722085]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0026041667
+anchor_top = 0.0046296297
+anchor_right = 0.3875
+anchor_bottom = 0.11111111
+theme_override_styles/panel = SubResource("StyleBoxFlat_ftrdj")
+metadata/_edit_use_anchors_ = true
+
+[node name="Year" type="Panel" parent="CanvasLayer/GameUIBuilder/Calendar" unique_id=1826783273]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.31601125
+anchor_bottom = 1.6
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.27
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8jbnc")
+metadata/_edit_use_anchors_ = true
+
+[node name="Kalender" type="TextureRect" parent="CanvasLayer/GameUIBuilder/Calendar/Year" unique_id=870646952]
+layout_mode = 0
+offset_left = 38.0
+offset_right = 238.0
+offset_bottom = 200.0
+rotation = -0.08726646
+texture = ExtResource("56_ca4gg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameUIBuilder/Calendar/Year" unique_id=1730097886]
+layout_mode = 1
+offset_top = 10.0
+offset_right = 279.0
+offset_bottom = 206.0
+rotation = -0.06981317
+theme_override_constants/separation = -12
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/GameUIBuilder/Calendar/Year/VBoxContainer" unique_id=767122471]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.13725491, 0.3137255, 0.34901962, 1)
+theme_override_fonts/font = ExtResource("52_xe555")
+theme_override_font_sizes/font_size = 16
+text = "Tahun ke-"
+label_settings = SubResource("LabelSettings_iifq8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YearLabel" type="Label" parent="CanvasLayer/GameUIBuilder/Calendar/Year/VBoxContainer" unique_id=1420901203]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.13725491, 0.3137255, 0.34901962, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("58_l5jbk")
+theme_override_font_sizes/font_size = 52
+text = "1"
+label_settings = SubResource("LabelSettings_50xed")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameUIBuilder/Calendar" unique_id=978433052]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.30852503
+anchor_right = 0.9662921
+anchor_bottom = 0.9652174
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="break" type="HSeparator" parent="CanvasLayer/GameUIBuilder/Calendar/VBoxContainer" unique_id=1343931307]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_m5h88")
+
+[node name="CityName" type="Label" parent="CanvasLayer/GameUIBuilder/Calendar/VBoxContainer" unique_id=900664668]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Progres tahun ini"
+label_settings = SubResource("LabelSettings_a5m24")
+vertical_alignment = 1
+
+[node name="break3" type="HSeparator" parent="CanvasLayer/GameUIBuilder/Calendar/VBoxContainer" unique_id=755964459]
+layout_mode = 2
+theme_override_constants/separation = 4
+theme_override_styles/separator = SubResource("StyleBoxEmpty_m5h88")
+
+[node name="Days" type="ProgressBar" parent="CanvasLayer/GameUIBuilder/Calendar/VBoxContainer" unique_id=1798216343]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.32
+max_value = 30.0
+step = 1.0
+value = 10.0
+rounded = true
+show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder/Calendar/VBoxContainer/Days" unique_id=91156031]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Month" type="Label" parent="CanvasLayer/GameUIBuilder/Calendar/VBoxContainer/Days/HBoxContainer" unique_id=401322326]
+layout_mode = 2
+text = "Bulan ke-"
+label_settings = SubResource("LabelSettings_338d5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ValueMonth" type="Label" parent="CanvasLayer/GameUIBuilder/Calendar/VBoxContainer/Days/HBoxContainer" unique_id=1415418787]
+unique_name_in_owner = true
+layout_mode = 2
+text = "5"
+label_settings = SubResource("LabelSettings_338d5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="break2" type="HSeparator" parent="CanvasLayer/GameUIBuilder/Calendar/VBoxContainer" unique_id=196452657]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_v1usf")
+
+[node name="HAPUS AJA GA SIH" type="Panel" parent="CanvasLayer/GameUIBuilder/Calendar/VBoxContainer" unique_id=616619690]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_f2y0k")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder/Calendar/VBoxContainer/HAPUS AJA GA SIH" unique_id=915854427]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GameUIBuilder/Calendar/VBoxContainer/HAPUS AJA GA SIH/HBoxContainer" unique_id=905455120]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_qd056")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MoneyLabel" type="Label" parent="CanvasLayer/GameUIBuilder/Calendar/VBoxContainer/HAPUS AJA GA SIH/HBoxContainer" unique_id=1355515567]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.1
+text = "10000"
+label_settings = SubResource("LabelSettings_1r03i")
+
+[node name="HAPUS AJA GA SIH" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder/Calendar" unique_id=809544289]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="VSeparator" type="VSeparator" parent="CanvasLayer/GameUIBuilder/Calendar/HAPUS AJA GA SIH" unique_id=2118329636]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_eegns")
+
+[node name="TimerWatch" type="Timer" parent="CanvasLayer/GameUIBuilder/Calendar" unique_id=663298573]
+wait_time = 0.1
+autostart = true
+
+[node name="MouseTutorial" type="VBoxContainer" parent="CanvasLayer/GameUIBuilder" unique_id=340776659]
+visible = false
+modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.022000002
+anchor_top = 0.17500001
+anchor_right = 0.178
+anchor_bottom = 0.344
+offset_left = -0.24000168
+offset_top = -1.5258789e-05
+offset_right = 0.23999023
+offset_bottom = -0.52001953
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder/MouseTutorial" unique_id=1583229762]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/GameUIBuilder/MouseTutorial/HBoxContainer" unique_id=1943752172]
+layout_mode = 2
+text = "Memilih / Menyambung"
+label_settings = SubResource("LabelSettings_3o3u8")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GameUIBuilder/MouseTutorial/HBoxContainer" unique_id=92072441]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("60_jdguq")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder/MouseTutorial" unique_id=1340829971]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/GameUIBuilder/MouseTutorial/HBoxContainer2" unique_id=1838849138]
+layout_mode = 2
+text = "Bangun / Hancur"
+label_settings = SubResource("LabelSettings_3o3u8")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GameUIBuilder/MouseTutorial/HBoxContainer2" unique_id=1148473206]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("61_dpmci")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder/MouseTutorial" unique_id=882600253]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/GameUIBuilder/MouseTutorial/HBoxContainer3" unique_id=1991077732]
+layout_mode = 2
+text = "Dekat / Jauh"
+label_settings = SubResource("LabelSettings_3o3u8")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GameUIBuilder/MouseTutorial/HBoxContainer3" unique_id=259345108]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("62_c86fb")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Mode" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder" unique_id=67925656]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.9
+anchor_right = 0.7
+anchor_bottom = 0.95
+offset_left = 0.67993164
+offset_right = -0.6798096
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(2001.3201, 228)
+theme_override_constants/separation = 55
+script = ExtResource("65_dg3oh")
+
+[node name="BuildMode" parent="CanvasLayer/GameUIBuilder/Mode" unique_id=2056958084 instance=ExtResource("4_dn6ff")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/icon_normal_color = Color(0.66656864, 0.6665687, 0.66656864, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_hsyvo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iifq8")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_iifq8")
+icon = ExtResource("67_dg3oh")
 icon_alignment = 1
 expand_icon = true
 
-[node name="TabContainerses" type="TabContainer" parent="CanvasLayer/GameUIBuilder" unique_id=714701262]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.067
-anchor_top = 0.711
-anchor_right = 0.933
-anchor_bottom = 0.99300003
-offset_left = -0.6399994
-offset_top = 24.119995
-offset_right = 0.6398926
-offset_bottom = 7.5599365
-current_tab = 0
-
-[node name="Produksi" type="TabBar" parent="CanvasLayer/GameUIBuilder/TabContainerses" unique_id=1836447822]
-layout_mode = 2
-metadata/_tab_index = 0
-
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/GameUIBuilder/TabContainerses/Produksi" unique_id=1410882293]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.017
-anchor_top = 0.093
-anchor_right = 0.98600006
-anchor_bottom = 0.96800005
-offset_left = 0.711998
-offset_top = 0.02898407
-offset_right = 1.2958984
-offset_bottom = -0.09602356
-grow_horizontal = 2
-grow_vertical = 2
-draw_focus_border = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameUIBuilder/TabContainerses/Produksi/ScrollContainer" unique_id=1617406565]
+[node name="SelectMode" parent="CanvasLayer/GameUIBuilder/Mode" unique_id=1916206109 instance=ExtResource("4_dn6ff")]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
+theme_override_colors/icon_normal_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_dg3oh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_50xed")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_50xed")
+disabled = true
+icon = ExtResource("65_ykp4m")
+icon_alignment = 1
+expand_icon = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder/TabContainerses/Produksi/ScrollContainer/VBoxContainer" unique_id=1279676010]
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 7
-
-[node name="BuildingSelectButton0" parent="CanvasLayer/GameUIBuilder/TabContainerses/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1626912660 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton1" parent="CanvasLayer/GameUIBuilder/TabContainerses/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1845096876 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton2" parent="CanvasLayer/GameUIBuilder/TabContainerses/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1173602536 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton3" parent="CanvasLayer/GameUIBuilder/TabContainerses/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1621488473 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton4" parent="CanvasLayer/GameUIBuilder/TabContainerses/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1278405948 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton5" parent="CanvasLayer/GameUIBuilder/TabContainerses/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1036833639 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton6" parent="CanvasLayer/GameUIBuilder/TabContainerses/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1940093469 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton7" parent="CanvasLayer/GameUIBuilder/TabContainerses/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1938445242 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton8" parent="CanvasLayer/GameUIBuilder/TabContainerses/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=707770617 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton9" parent="CanvasLayer/GameUIBuilder/TabContainerses/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=2082104538 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton10" parent="CanvasLayer/GameUIBuilder/TabContainerses/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=432185409 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton11" parent="CanvasLayer/GameUIBuilder/TabContainerses/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=2013743642 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton12" parent="CanvasLayer/GameUIBuilder/TabContainerses/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=944086546 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton13" parent="CanvasLayer/GameUIBuilder/TabContainerses/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1001530624 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton14" parent="CanvasLayer/GameUIBuilder/TabContainerses/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1334908674 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton15" parent="CanvasLayer/GameUIBuilder/TabContainerses/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=610763944 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton16" parent="CanvasLayer/GameUIBuilder/TabContainerses/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=60917643 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton17" parent="CanvasLayer/GameUIBuilder/TabContainerses/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=249803284 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton18" parent="CanvasLayer/GameUIBuilder/TabContainerses/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=769768624 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton19" parent="CanvasLayer/GameUIBuilder/TabContainerses/Produksi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1909638964 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="HSeparator" type="HSeparator" parent="CanvasLayer/GameUIBuilder/TabContainerses/Produksi/ScrollContainer/VBoxContainer" unique_id=2025142181]
+[node name="DeleteMode" parent="CanvasLayer/GameUIBuilder/Mode" unique_id=220459223 instance=ExtResource("4_dn6ff")]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 20
-theme_override_styles/separator = SubResource("StyleBoxEmpty_3xd07")
-
-[node name="Energi" type="TabBar" parent="CanvasLayer/GameUIBuilder/TabContainerses" unique_id=1932583132]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 1
-
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/GameUIBuilder/TabContainerses/Energi" unique_id=1957888490]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.017
-anchor_top = 0.093
-anchor_right = 0.98600006
-anchor_bottom = 0.96800005
-offset_left = 0.711998
-offset_top = 0.02898407
-offset_right = 1.2958984
-offset_bottom = -0.09602356
-grow_horizontal = 2
-grow_vertical = 2
-draw_focus_border = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameUIBuilder/TabContainerses/Energi/ScrollContainer" unique_id=767657662]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder/TabContainerses/Energi/ScrollContainer/VBoxContainer" unique_id=2076132906]
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 7
-
-[node name="BuildingSelectButton0" parent="CanvasLayer/GameUIBuilder/TabContainerses/Energi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=685840398 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton1" parent="CanvasLayer/GameUIBuilder/TabContainerses/Energi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=121216572 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton2" parent="CanvasLayer/GameUIBuilder/TabContainerses/Energi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1807760756 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton3" parent="CanvasLayer/GameUIBuilder/TabContainerses/Energi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=596999039 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton4" parent="CanvasLayer/GameUIBuilder/TabContainerses/Energi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=738340873 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton5" parent="CanvasLayer/GameUIBuilder/TabContainerses/Energi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1186289026 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton6" parent="CanvasLayer/GameUIBuilder/TabContainerses/Energi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1001478133 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton7" parent="CanvasLayer/GameUIBuilder/TabContainerses/Energi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1135210212 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton8" parent="CanvasLayer/GameUIBuilder/TabContainerses/Energi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1396161891 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton9" parent="CanvasLayer/GameUIBuilder/TabContainerses/Energi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=698500982 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton10" parent="CanvasLayer/GameUIBuilder/TabContainerses/Energi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1528947929 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton11" parent="CanvasLayer/GameUIBuilder/TabContainerses/Energi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1543126030 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton12" parent="CanvasLayer/GameUIBuilder/TabContainerses/Energi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1653609986 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton13" parent="CanvasLayer/GameUIBuilder/TabContainerses/Energi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1835206793 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton14" parent="CanvasLayer/GameUIBuilder/TabContainerses/Energi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=40021795 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton15" parent="CanvasLayer/GameUIBuilder/TabContainerses/Energi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=482490089 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton16" parent="CanvasLayer/GameUIBuilder/TabContainerses/Energi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1753987538 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton17" parent="CanvasLayer/GameUIBuilder/TabContainerses/Energi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1695305501 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton18" parent="CanvasLayer/GameUIBuilder/TabContainerses/Energi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=933989109 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton19" parent="CanvasLayer/GameUIBuilder/TabContainerses/Energi/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=2040698089 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="HSeparator" type="HSeparator" parent="CanvasLayer/GameUIBuilder/TabContainerses/Energi/ScrollContainer/VBoxContainer" unique_id=1107275931]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 20
-theme_override_styles/separator = SubResource("StyleBoxEmpty_3xd07")
-
-[node name="Toko" type="TabBar" parent="CanvasLayer/GameUIBuilder/TabContainerses" unique_id=774974239]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/GameUIBuilder/TabContainerses/Toko" unique_id=1813161283]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.017
-anchor_top = 0.093
-anchor_right = 0.98600006
-anchor_bottom = 0.96800005
-offset_left = 0.711998
-offset_top = 0.02898407
-offset_right = 1.2958984
-offset_bottom = -0.09602356
-grow_horizontal = 2
-grow_vertical = 2
-draw_focus_border = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameUIBuilder/TabContainerses/Toko/ScrollContainer" unique_id=936755353]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder/TabContainerses/Toko/ScrollContainer/VBoxContainer" unique_id=2017223059]
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 7
-
-[node name="BuildingSelectButton0" parent="CanvasLayer/GameUIBuilder/TabContainerses/Toko/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1756684143 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton1" parent="CanvasLayer/GameUIBuilder/TabContainerses/Toko/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=467820419 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton2" parent="CanvasLayer/GameUIBuilder/TabContainerses/Toko/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1455769332 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton3" parent="CanvasLayer/GameUIBuilder/TabContainerses/Toko/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=721413584 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton4" parent="CanvasLayer/GameUIBuilder/TabContainerses/Toko/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1569336787 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton5" parent="CanvasLayer/GameUIBuilder/TabContainerses/Toko/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1598208850 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton6" parent="CanvasLayer/GameUIBuilder/TabContainerses/Toko/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1665302169 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton7" parent="CanvasLayer/GameUIBuilder/TabContainerses/Toko/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1839406433 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton8" parent="CanvasLayer/GameUIBuilder/TabContainerses/Toko/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=373096134 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton9" parent="CanvasLayer/GameUIBuilder/TabContainerses/Toko/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1477830270 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton10" parent="CanvasLayer/GameUIBuilder/TabContainerses/Toko/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=192309830 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton11" parent="CanvasLayer/GameUIBuilder/TabContainerses/Toko/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=822144292 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton12" parent="CanvasLayer/GameUIBuilder/TabContainerses/Toko/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1012256043 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton13" parent="CanvasLayer/GameUIBuilder/TabContainerses/Toko/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=581099007 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton14" parent="CanvasLayer/GameUIBuilder/TabContainerses/Toko/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=30215969 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton15" parent="CanvasLayer/GameUIBuilder/TabContainerses/Toko/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=527690512 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton16" parent="CanvasLayer/GameUIBuilder/TabContainerses/Toko/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1928366551 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton17" parent="CanvasLayer/GameUIBuilder/TabContainerses/Toko/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=507995191 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton18" parent="CanvasLayer/GameUIBuilder/TabContainerses/Toko/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=202513240 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton19" parent="CanvasLayer/GameUIBuilder/TabContainerses/Toko/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=815151262 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="HSeparator" type="HSeparator" parent="CanvasLayer/GameUIBuilder/TabContainerses/Toko/ScrollContainer/VBoxContainer" unique_id=1064365886]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 20
-theme_override_styles/separator = SubResource("StyleBoxEmpty_3xd07")
-
-[node name="Tumbuhan" type="TabBar" parent="CanvasLayer/GameUIBuilder/TabContainerses" unique_id=1312501925]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 3
-
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/GameUIBuilder/TabContainerses/Tumbuhan" unique_id=1002302665]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.017
-anchor_top = 0.093
-anchor_right = 0.98600006
-anchor_bottom = 0.96800005
-offset_left = 0.711998
-offset_top = 0.02898407
-offset_right = 1.2958984
-offset_bottom = -0.09602356
-grow_horizontal = 2
-grow_vertical = 2
-draw_focus_border = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameUIBuilder/TabContainerses/Tumbuhan/ScrollContainer" unique_id=915865078]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder/TabContainerses/Tumbuhan/ScrollContainer/VBoxContainer" unique_id=1898474765]
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 7
-
-[node name="BuildingSelectButton0" parent="CanvasLayer/GameUIBuilder/TabContainerses/Tumbuhan/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1253627944 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton1" parent="CanvasLayer/GameUIBuilder/TabContainerses/Tumbuhan/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1636960010 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton2" parent="CanvasLayer/GameUIBuilder/TabContainerses/Tumbuhan/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=370325151 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton3" parent="CanvasLayer/GameUIBuilder/TabContainerses/Tumbuhan/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1316869514 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton4" parent="CanvasLayer/GameUIBuilder/TabContainerses/Tumbuhan/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1025787031 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton5" parent="CanvasLayer/GameUIBuilder/TabContainerses/Tumbuhan/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=390607804 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton6" parent="CanvasLayer/GameUIBuilder/TabContainerses/Tumbuhan/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=298441473 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton7" parent="CanvasLayer/GameUIBuilder/TabContainerses/Tumbuhan/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=2005945941 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton8" parent="CanvasLayer/GameUIBuilder/TabContainerses/Tumbuhan/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=139306665 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton9" parent="CanvasLayer/GameUIBuilder/TabContainerses/Tumbuhan/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=902673849 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton10" parent="CanvasLayer/GameUIBuilder/TabContainerses/Tumbuhan/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1033217157 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton11" parent="CanvasLayer/GameUIBuilder/TabContainerses/Tumbuhan/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=361344503 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton12" parent="CanvasLayer/GameUIBuilder/TabContainerses/Tumbuhan/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=2087256146 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton13" parent="CanvasLayer/GameUIBuilder/TabContainerses/Tumbuhan/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1860132260 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton14" parent="CanvasLayer/GameUIBuilder/TabContainerses/Tumbuhan/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1360812085 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton15" parent="CanvasLayer/GameUIBuilder/TabContainerses/Tumbuhan/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1738838559 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton16" parent="CanvasLayer/GameUIBuilder/TabContainerses/Tumbuhan/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=680599610 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton17" parent="CanvasLayer/GameUIBuilder/TabContainerses/Tumbuhan/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1004021571 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton18" parent="CanvasLayer/GameUIBuilder/TabContainerses/Tumbuhan/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1573157185 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="BuildingSelectButton19" parent="CanvasLayer/GameUIBuilder/TabContainerses/Tumbuhan/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=790218190 instance=ExtResource("3_m4pt6")]
-layout_mode = 2
-nama_bangunan = "Pertanian"
-gambar_bangunan = ExtResource("6_dtmcr")
-gambar_input = ExtResource("7_thpvx")
-gambar_output = ExtResource("7_thpvx")
-
-[node name="HSeparator" type="HSeparator" parent="CanvasLayer/GameUIBuilder/TabContainerses/Tumbuhan/ScrollContainer/VBoxContainer" unique_id=522699819]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 20
-theme_override_styles/separator = SubResource("StyleBoxEmpty_3xd07")
-
-[node name="InGameUi" parent="CanvasLayer" unique_id=1953453358 instance=ExtResource("7_7ftq8")]
+theme_override_colors/icon_normal_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_h0xcf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m5h88")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_m5h88")
+icon = ExtResource("67_hsyvo")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Pause" parent="CanvasLayer" unique_id=1940487218 instance=ExtResource("47_4yxc1")]
 unique_name_in_owner = true
 visible = false
 
 [node name="MouseFollowerObject" type="Marker3D" parent="." unique_id=943857534]
-script = ExtResource("2_eysth")
+script = ExtResource("59_0n7cy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MouseFollowerObject" unique_id=2019744671]
 unique_name_in_owner = true
-transform = Transform3D(4.589, 0.00012869154, 5.625286e-12, 0, -2.0059157e-07, 4.589, 0.00012869154, -4.589, -2.0059157e-07, 3, 0.0247344, -3)
+transform = Transform3D(0.00012849097, -4.5890007, -2.005916e-07, 0, -2.005916e-07, 4.5890007, -4.5890007, -0.00012849097, -5.616519e-12, 3, 0.0247344, -3)
 mesh = SubResource("QuadMesh_b2g4k")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="MouseFollowerObject" unique_id=1280652472]
 unique_name_in_owner = true
-transform = Transform3D(-0.00012875769, 4.589, 2.0059157e-07, 0, -2.0059157e-07, 4.589, 4.589, 0.00012875769, 5.628177e-12, 3, 0.0247344, 3)
+transform = Transform3D(4.585554, 0.0059556975, -0.17772947, 0.17782918, -0.14911088, 4.583129, 0.000173093, -4.5865736, -0.14922968, 3, 0.0247344, 3)
 mesh = SubResource("QuadMesh_b2g4k")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="MouseFollowerObject" unique_id=1813842881]
 unique_name_in_owner = true
-transform = Transform3D(-4.589, -0.00012870296, -5.6257854e-12, 0, -2.0059157e-07, 4.589, -0.00012870296, 4.589, 2.0059157e-07, -2.9999998, 0.0247344, 3)
+transform = Transform3D(-0.0001285024, 4.5890007, 2.005916e-07, 0, -2.005916e-07, 4.5890007, 4.5890007, 0.0001285024, 5.617019e-12, -2.9999998, 0.0247344, 3)
 mesh = SubResource("QuadMesh_b2g4k")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="MouseFollowerObject" unique_id=740809109]
 unique_name_in_owner = true
-transform = Transform3D(0.00012835649, -4.589, -2.0059157e-07, 0, -2.0059157e-07, 4.589, -4.589, -0.00012835649, -5.610641e-12, -3.0000002, 0.0247344, -3)
+transform = Transform3D(-4.5890007, -0.00012815591, -5.601874e-12, -4.9754035e-19, -2.005916e-07, 4.5890007, -0.00012815591, 4.5890007, 2.005916e-07, -3.0000002, 0.0247344, -3)
 mesh = SubResource("QuadMesh_b2g4k")
 
-[node name="CollidingCheckers" type="Area3D" parent="MouseFollowerObject" unique_id=518951340]
+[node name="CollidingCheckers" type="Area3D" parent="MouseFollowerObject" unique_id=518951340 groups=["collision_checkers"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MouseFollowerObject/CollidingCheckers" unique_id=1745972516]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 0, 0.75, 0)
 shape = SubResource("BoxShape3D_eysth")
 
-[connection signal="mouse_entered" from="CanvasLayer/GameUIBuilder/TabContainerses" to="." method="_on_tab_containerses_mouse_entered"]
+[node name="HoverAudio" type="AudioStreamPlayer" parent="MouseFollowerObject" unique_id=634626429]
+unique_name_in_owner = true
+stream = ExtResource("63_84f65")
+bus = &"Effect"
+
+[node name="BuildAudio" type="AudioStreamPlayer" parent="." unique_id=78582240]
+unique_name_in_owner = true
+stream = ExtResource("57_r70c0")
+bus = &"Music"
+
+[node name="DeleteAudio" type="AudioStreamPlayer" parent="." unique_id=754859861]
+unique_name_in_owner = true
+stream = ExtResource("58_hpebi")
+bus = &"Effect"
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1687449726]
+stream = ExtResource("64_kohko")
+volume_db = -9.853
+autoplay = true
+bus = &"Music"
+
+[connection signal="timeout" from="CameraRotationX/CameraZoomPivot/Camera3D/RainingParticle/RainingTime" to="CameraRotationX/CameraZoomPivot/Camera3D/RainingParticle" method="_on_raining_time_timeout"]
+[connection signal="animation_finished" from="CameraRotationX/CameraZoomPivot/Camera3D/RainingParticle/AnimationPlayer" to="CameraRotationX/CameraZoomPivot/Camera3D/RainingParticle" method="_on_animation_player_animation_finished"]
+[connection signal="tab_changed" from="CanvasLayer/GameUIBuilder/TabContainer" to="MouseFollowerObject" method="_on_tab_container_tab_changed"]
+[connection signal="pressed" from="CanvasLayer/GameUIBuilder/CityStatsRight/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="CanvasLayer/GameUIBuilder/Calendar/TimerWatch" to="." method="_on_timer_watch_timeout"]
+[connection signal="pressed" from="CanvasLayer/GameUIBuilder/Mode/BuildMode" to="CanvasLayer/GameUIBuilder/Mode" method="_on_build_mode_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameUIBuilder/Mode/SelectMode" to="CanvasLayer/GameUIBuilder/Mode" method="_on_select_mode_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameUIBuilder/Mode/DeleteMode" to="CanvasLayer/GameUIBuilder/Mode" method="_on_delete_mode_pressed"]
+[connection signal="visibility_changed" from="CanvasLayer/Pause" to="." method="_on_pause_visibility_changed"]
 [connection signal="body_exited" from="MouseFollowerObject/CollidingCheckers" to="." method="_on_colliding_checkers_body_exited"]
 [connection signal="body_exited" from="MouseFollowerObject/CollidingCheckers" to="MouseFollowerObject" method="_on_colliding_checkers_body_exited"]

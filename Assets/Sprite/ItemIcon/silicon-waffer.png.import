@@ -3,22 +3,23 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3g4r4hbpttlg"
-path="res://.godot/imported/silicon-waffer.png-0bc6fd8db5d915e7526056e914f55f18.ctex"
+path.s3tc="res://.godot/imported/silicon-waffer.png-0bc6fd8db5d915e7526056e914f55f18.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Sprite/ItemIcon/silicon-waffer.png"
-dest_files=["res://.godot/imported/silicon-waffer.png-0bc6fd8db5d915e7526056e914f55f18.ctex"]
+dest_files=["res://.godot/imported/silicon-waffer.png-0bc6fd8db5d915e7526056e914f55f18.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
-compress/uastc_level=0
+compress/uastc_level=3
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0

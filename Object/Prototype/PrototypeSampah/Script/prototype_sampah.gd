@@ -26,4 +26,4 @@ func _on_input_event(_camera: Node, event: InputEvent, _event_position: Vector3,
 				else:
 					kumpulan_ray.get_child(kumpulan_ray.get_child_count() - 1).dragging_access = true
 			
-			print(kumpulan_ray.get_child_count())
+			#print(kumpulan_ray.get_child_count())

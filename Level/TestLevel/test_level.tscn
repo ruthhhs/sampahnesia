@@ -73,13 +73,6 @@ vertical_alignment = 1
 [node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Bangunan" unique_id=1649213550]
 
 [node name="BangunanSampah" parent="Bangunan" unique_id=1372270150 instance=ExtResource("3_dn1u6")]
-maximum_item_value = 200
-item_value = 200
-
-[node name="BangunanSampah2" parent="Bangunan" unique_id=349967807 instance=ExtResource("3_dn1u6")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -50.256756, 0, 0)
-maximum_item_value = 200
-item_value = 200
 
 [node name="Nature" type="Node3D" parent="." unique_id=207224477]
 unique_name_in_owner = true

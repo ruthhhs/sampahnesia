@@ -1,12 +1,20 @@
 [gd_scene format=3 uid="uid://bbgtidxvgshom"]
 
 [ext_resource type="Script" uid="uid://copfgcif52xfj" path="res://Object/Prototype/Bangunan/Script/prototype_listrik.gd" id="1_lr5vt"]
+[ext_resource type="PackedScene" uid="uid://cq00ela1gpt0q" path="res://Assets/3DModel/Toko/TokoLevel2/toko_level_2.tscn" id="2_3rv5t"]
+[ext_resource type="Texture2D" uid="uid://qg55y3oecjm7" path="res://UI/Icon/PNG/White/1x/bag-2.png" id="3_3qlnk"]
+[ext_resource type="Texture2D" uid="uid://58tcg4hnt3yd" path="res://UI/Icon/PNG/White/1x/down.png" id="3_vbqs8"]
+[ext_resource type="Texture2D" uid="uid://d3g4r4hbpttlg" path="res://Assets/Sprite/ItemIcon/silicon-waffer.png" id="4_3qlnk"]
+[ext_resource type="Texture2D" uid="uid://dy87b30l4je6h" path="res://UI/Icon/PNG/White/1x/warning.png" id="5_rteno"]
+[ext_resource type="FontVariation" uid="uid://cl1ghml6fsl2n" path="res://UI/Font/tress_font/UiFont.tres" id="6_cemxh"]
+[ext_resource type="Texture2D" uid="uid://cncj7wvh3dvoa" path="res://UI/Icon/SelfMade/lightning-01.png" id="7_us5bx"]
+[ext_resource type="ArrayMesh" uid="uid://cx7fwjrxxjdim" path="res://Assets/3DModel/Misc/Money/ModelMoney.tres" id="9_rteno"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4aoa"]
 albedo_color = Color(1, 0.150998, 0.34618, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q4aoa"]
-size = Vector3(2.155, 1.4, 3.12)
+size = Vector3(2.5, 2.5, 3)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_pyg1e"]
 viewport_path = NodePath("Sprite3D/SubViewport")
@@ -18,17 +26,49 @@ variation_embolden = 0.65
 font = SubResource("FontVariation_gayf8")
 font_size = 61
 
-[node name="BangunanCompleteToko1" type="Area3D" unique_id=1372270150 groups=["Objek", "listrik_kotor"]]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rteno"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 38
+corner_radius_top_right = 38
+corner_radius_bottom_right = 38
+corner_radius_bottom_left = 38
+
+[sub_resource type="LabelSettings" id="LabelSettings_cemxh"]
+font = ExtResource("6_cemxh")
+font_size = 103
+
+[sub_resource type="LabelSettings" id="LabelSettings_us5bx"]
+font = ExtResource("6_cemxh")
+font_size = 78
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m2vgy"]
+
+[sub_resource type="Curve" id="Curve_cemxh"]
+_data = [Vector2(1e-05, 0), 0.0, 0.0, 0, 0, Vector2(0.28522336, 0.5545454), -5.7086105, -5.7086105, 0, 0, Vector2(0.5601375, 0.7272726), 0.0, 0.0, 0, 0, Vector2(0.85567015, 0.74137926), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_6fhyq"]
+curve = SubResource("Curve_cemxh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_us5bx"]
+emission_shape = 3
+emission_box_extents = Vector3(2, 1, 2)
+gravity = Vector3(0, 40, 0)
+scale_curve = SubResource("CurveTexture_6fhyq")
+
+[node name="TokoBesar" type="Area3D" unique_id=1372270150 node_paths=PackedStringArray("popup_hover", "particle_trigger") groups=["Objek", "listrik_kotor"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 top_level = true
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_lr5vt")
-parent_group = "bangunan_complete_toko_1"
+popup_hover = NodePath("Sprite3D/SubViewport/PopupHover")
+parent_group = "bangunan_complete_toko_2"
+particle_trigger = NodePath("GPUParticles3D")
 is_get_money = true
-price_amount_target_group = Array[int]([5, 10])
-that_can_sell = Array[String](["bangunan_complete_1", "bangunan_complete_2"])
-icon_target_group = Array[CompressedTexture2D]([null, null])
+
+[node name="TokoLevel2" parent="." unique_id=1959574189 instance=ExtResource("2_3rv5t")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=502502339]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.75, 0)
@@ -46,20 +86,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.743282, 0)
 size = Vector3(2.16, 0.13, 3.125)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1864420134]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.75, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.3, 0)
 shape = SubResource("BoxShape3D_q4aoa")
 debug_color = Color(1, 0.50188255, 0.70976156, 1)
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=336094838]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.99628, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+pixel_size = 0.0002
 billboard = 1
-shaded = true
+no_depth_test = true
+fixed_size = true
 texture = SubResource("ViewportTexture_pyg1e")
 
 [node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=609652335]
 transparent_bg = true
+size = Vector2i(512, 697)
 
 [node name="DebugLabel" type="Label" parent="Sprite3D/SubViewport" unique_id=525483381]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -76,9 +120,277 @@ label_settings = SubResource("LabelSettings_ikn0r")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="PopupHover" type="Control" parent="Sprite3D/SubViewport" unique_id=2016706225]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sprite3D/SubViewport/PopupHover" unique_id=2128332693]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer" unique_id=586825869]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_rteno")
+
+[node name="TextureRect2" type="TextureRect" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel" unique_id=952735376]
+modulate = Color(9.7924, 9.7924, 9.7924, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_3qlnk")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel" unique_id=1715550914]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -68.205
+offset_right = 256.0
+offset_bottom = 102.795135
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+texture = ExtResource("3_vbqs8")
+stretch_mode = 5
+
+[node name="Valie" type="VBoxContainer" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel" unique_id=2061011370]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemValue" type="HBoxContainer" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie" unique_id=673457804]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="ImageInputValueItem" type="TextureRect" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue" unique_id=344590510]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_3qlnk")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue/ImageInputValueItem" unique_id=267591903]
+modulate = Color(1.0480936, 0.6446457, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.481
+anchor_top = 0.537
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_rteno")
+stretch_mode = 5
+
+[node name="Equal" type="Label" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue" unique_id=1369718915]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "="
+label_settings = SubResource("LabelSettings_cemxh")
+horizontal_alignment = 1
+
+[node name="LabelValueItem" type="Label" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue" unique_id=1045215606]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "10"
+label_settings = SubResource("LabelSettings_us5bx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Electrical" type="HBoxContainer" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie" unique_id=1694597667]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="ImageElectricityItem" type="TextureRect" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/Electrical" unique_id=988384094]
+unique_name_in_owner = true
+modulate = Color(1.2450454, 0.85016793, 0.2001419, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("7_us5bx")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/Electrical/ImageElectricityItem" unique_id=655741886]
+modulate = Color(1.0480936, 0.6446457, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.481
+anchor_top = 0.537
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_rteno")
+stretch_mode = 5
+
+[node name="Equal2" type="Label" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/Electrical" unique_id=13348124]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "="
+label_settings = SubResource("LabelSettings_cemxh")
+horizontal_alignment = 1
+
+[node name="LabelElectricityItem" type="Label" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/Electrical" unique_id=1355293410]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "101"
+label_settings = SubResource("LabelSettings_us5bx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer" unique_id=849311765]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+mouse_filter = 2
+
+[node name="PopupWarning" type="Control" parent="Sprite3D/SubViewport" unique_id=1279591359]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sprite3D/SubViewport/PopupWarning" unique_id=2096873224]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.894
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HSeparator" type="HSeparator" parent="Sprite3D/SubViewport/PopupWarning/VBoxContainer" unique_id=605836884]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_m2vgy")
+
+[node name="Panel" type="Panel" parent="Sprite3D/SubViewport/PopupWarning/VBoxContainer" unique_id=860141048]
+layout_mode = 2
+size_flags_vertical = 7
+theme_override_styles/panel = SubResource("StyleBoxFlat_rteno")
+
+[node name="TextureRect" type="TextureRect" parent="Sprite3D/SubViewport/PopupWarning/VBoxContainer/Panel" unique_id=1093025850]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -68.205
+offset_right = 256.0
+offset_bottom = 102.795135
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+texture = ExtResource("3_vbqs8")
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Sprite3D/SubViewport/PopupWarning/VBoxContainer/Panel" unique_id=507737141]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ImageInput" type="TextureRect" parent="Sprite3D/SubViewport/PopupWarning/VBoxContainer/Panel/HBoxContainer" unique_id=1905003279]
+layout_mode = 2
+texture = ExtResource("4_3qlnk")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Sprite3D/SubViewport/PopupWarning/VBoxContainer/Panel/HBoxContainer/ImageInput" unique_id=1640608794]
+modulate = Color(1.0480936, 0.6446457, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.481
+anchor_top = 0.537
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_rteno")
+stretch_mode = 5
+
+[node name="Electricity" type="TextureRect" parent="Sprite3D/SubViewport/PopupWarning/VBoxContainer/Panel/HBoxContainer" unique_id=1884018415]
+modulate = Color(1.2450454, 0.85016793, 0.2001419, 1)
+layout_mode = 2
+texture = ExtResource("7_us5bx")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Sprite3D/SubViewport/PopupWarning/VBoxContainer/Panel/HBoxContainer/Electricity" unique_id=1597107669]
+modulate = Color(1.0480936, 0.6446457, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.481
+anchor_top = 0.537
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_rteno")
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="Sprite3D/SubViewport/PopupWarning/VBoxContainer" unique_id=14632589]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+mouse_filter = 2
+
 [node name="KumpulanRay" type="Node3D" parent="." unique_id=812763313]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=899105840]
+transform = Transform3D(0.7071067, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, 0.7071067, 0, 1.5, 0)
+emitting = false
+amount = 1
+lifetime = 0.5
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_us5bx")
+draw_pass_1 = ExtResource("9_rteno")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

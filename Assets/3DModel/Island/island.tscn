@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://esnnm6pxv6oj" path="res://Assets/3DModel/Island/Island_TextureMasice_1.png" id="1_4ph4t"]
 [ext_resource type="Material" uid="uid://t6tfvghdei5s" path="res://Assets/3DModel/Island/grass.tres" id="2_stjoi"]
-[ext_resource type="Material" uid="uid://bwwws2fdlcuyh" path="res://Assets/3DModel/Island/UniversalMaterial.tres" id="3_ugd7w"]
+[ext_resource type="Material" uid="uid://bwwws2fdlcuyh" path="res://Assets/3DModel/UniversalMaterial.tres" id="3_ugd7w"]
 [ext_resource type="Material" uid="uid://m32qkx47btxm" path="res://Assets/3DModel/Island/Edge.tres" id="4_vyr0o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3p0fd"]

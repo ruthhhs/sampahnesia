@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://cptmtw8ju0pbe"]
+
+[ext_resource type="Script" uid="uid://so8weoxwhhj1" path="res://Object/Prefabs/DestroyTimer/Minigame/Game2/Script/pipe.gd" id="1_6qec7"]
+
+[sub_resource type="Gradient" id="Gradient_l4gs3"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.09322034, 0.9322034)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y8mmd"]
+gradient = SubResource("Gradient_l4gs3")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jq8tk"]
+size = Vector2(8, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fhyq"]
+size = Vector2(8, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwbtc"]
+size = Vector2(64, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qec7"]
+size = Vector2(8, 16)
+
+[node name="Pipe" type="Marker2D" unique_id=267231391]
+script = ExtResource("1_6qec7")
+
+[node name="RotationButton" type="Button" parent="." unique_id=1112903915]
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+flat = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1370388840]
+position = Vector2(-1.4305115e-06, 1.4305115e-06)
+scale = Vector2(1, 1.0000001)
+texture = SubResource("GradientTexture2D_y8mmd")
+
+[node name="TypePipe1" type="Node2D" parent="." unique_id=1027870419]
+
+[node name="Polygon2D" type="Polygon2D" parent="TypePipe1" unique_id=1534354340]
+polygon = PackedVector2Array(-32, -8, 32, -8, 32, 8, -32, 8)
+
+[node name="Input" type="Node2D" parent="TypePipe1" unique_id=268673932]
+
+[node name="Area2D" type="Area2D" parent="TypePipe1/Input" unique_id=1661547627]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TypePipe1/Input/Area2D" unique_id=909061883]
+position = Vector2(-28, 0)
+shape = SubResource("RectangleShape2D_jq8tk")
+
+[node name="Output" type="Node2D" parent="TypePipe1" unique_id=415299384]
+
+[node name="RayCast2D" type="RayCast2D" parent="TypePipe1/Output" unique_id=516966026]
+position = Vector2(24, 0)
+target_position = Vector2(64, 0)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="TypePipe2" type="Node2D" parent="." unique_id=1919100302]
+
+[node name="Polygon2D" type="Polygon2D" parent="TypePipe2" unique_id=264317045]
+polygon = PackedVector2Array(-32, -8, 8, -8, 8, 32, -8, 32, -8, 8, -32, 8)
+
+[node name="Input" type="Node2D" parent="TypePipe2" unique_id=463536109]
+
+[node name="Area2D" type="Area2D" parent="TypePipe2/Input" unique_id=280658634]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TypePipe2/Input/Area2D" unique_id=1884235176]
+position = Vector2(-28, 0)
+shape = SubResource("RectangleShape2D_6fhyq")
+
+[node name="Output" type="Node2D" parent="TypePipe2" unique_id=155932861]
+
+[node name="RayCast2D" type="RayCast2D" parent="TypePipe2/Output" unique_id=794750383]
+position = Vector2(0, 24)
+target_position = Vector2(0, 64)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="TypePipe3" type="Node2D" parent="." unique_id=169070817]
+
+[node name="Polygon2D" type="Polygon2D" parent="TypePipe3" unique_id=665626752]
+polygon = PackedVector2Array(-32, -8, 32, -8, 32, 8, 8, 8, 8, 32, -8, 32, -8, 8, -32, 8)
+
+[node name="Input" type="Node2D" parent="TypePipe3" unique_id=1073508657]
+
+[node name="Area2D" type="Area2D" parent="TypePipe3/Input" unique_id=1965562866]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TypePipe3/Input/Area2D" unique_id=1809050146]
+shape = SubResource("RectangleShape2D_dwbtc")
+
+[node name="Output" type="Node2D" parent="TypePipe3" unique_id=1377968438]
+
+[node name="RayCast2D" type="RayCast2D" parent="TypePipe3/Output" unique_id=998104264]
+position = Vector2(0, 16)
+target_position = Vector2(0, 72)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="TypePipe4" type="Node2D" parent="." unique_id=207938217]
+
+[node name="Polygon2D" type="Polygon2D" parent="TypePipe4" unique_id=628933930]
+polygon = PackedVector2Array(32, -8, -8, -8, -8, 32, 8, 32, 8, 8, 32, 8)
+
+[node name="Input" type="Node2D" parent="TypePipe4" unique_id=1093741744]
+
+[node name="Area2D" type="Area2D" parent="TypePipe4/Input" unique_id=1021536812]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TypePipe4/Input/Area2D" unique_id=1684967870]
+position = Vector2(28, 0)
+shape = SubResource("RectangleShape2D_6qec7")
+
+[node name="Output" type="Node2D" parent="TypePipe4" unique_id=1821312951]
+
+[node name="RayCast2D" type="RayCast2D" parent="TypePipe4/Output" unique_id=1325773363]
+position = Vector2(0, 24)
+target_position = Vector2(0, 64)
+collide_with_areas = true
+collide_with_bodies = false
+
+[connection signal="pressed" from="RotationButton" to="." method="_on_rotation_button_pressed"]

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bcbgwvg052ant"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3xd07"]
+radius = 24.65
+
+[node name="OutputMarker" type="Marker2D" unique_id=77071652]
+
+[node name="Line2D" type="Line2D" parent="." unique_id=792700147]
+points = PackedVector2Array(0, 0, 117, 0)
+width = 32.005
+default_color = Color(0, 0.74530476, 0.42994443, 1)
+joint_mode = 2
+begin_cap_mode = 2
+
+[node name="AreaCatcher" type="Area2D" parent="." unique_id=47285944]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCatcher" unique_id=1820980768]
+shape = SubResource("CircleShape2D_3xd07")

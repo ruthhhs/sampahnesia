@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://d0dpi5g36tj8b"]
+
+[ext_resource type="PackedScene" uid="uid://cbhgheykqydv3" path="res://Assets/3DModel/Bangunan/SuperComputer/SuperComputer.glb" id="1_4w64b"]
+[ext_resource type="Material" uid="uid://bwwws2fdlcuyh" path="res://Assets/3DModel/UniversalMaterial.tres" id="2_pnnnf"]
+
+[node name="SuperComputer" unique_id=954712634 instance=ExtResource("1_4w64b")]
+
+[node name="SuperComputer" parent="." index="0" unique_id=1436418593]
+material_override = ExtResource("2_pnnnf")

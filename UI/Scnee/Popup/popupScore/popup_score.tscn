@@ -1,9 +1,132 @@
 [gd_scene format=3 uid="uid://be85xptnf22qr"]
 
 [ext_resource type="Theme" uid="uid://2vx27ttvak05" path="res://UI/Saves/CuteTheme.tres" id="1_l0q45"]
+[ext_resource type="Theme" uid="uid://iix4fhw6mk68" path="res://UI/Saves/InGameTheme.tres" id="1_xx01j"]
 [ext_resource type="Script" uid="uid://coc0db4pn8xpu" path="res://UI/Scnee/Popup/popupScore/Script/popup_score.gd" id="2_ihjnv"]
-[ext_resource type="Texture2D" uid="uid://2tcj7qa0lm48" path="res://UI/Icon/PNG/White/1x/medal2.png" id="3_jhvf7"]
+[ext_resource type="Texture2D" uid="uid://day0iw17baifx" path="res://Assets/Sprite/kenney_pattern-pack/PNG/Double/pattern_02.png" id="3_ghyc1"]
+[ext_resource type="FontFile" uid="uid://1xvnrphaimbw" path="res://UI/Font/hey_comic/Hey Comic.ttf" id="3_xx01j"]
+[ext_resource type="Texture2D" uid="uid://xhxf6ekr85ja" path="res://Assets/Sprite/ItemIcon/sampah.png" id="4_2ugnp"]
 [ext_resource type="PackedScene" uid="uid://c2ele75e6i3pi" path="res://UI/Prefabs/Button/button.tscn" id="4_xx01j"]
+[ext_resource type="Texture2D" uid="uid://cwt5d6wqutbwe" path="res://UI/Icon/PNG/White/2x/plus.png" id="5_ghyc1"]
+[ext_resource type="Texture2D" uid="uid://cncj7wvh3dvoa" path="res://UI/Icon/SelfMade/lightning-01.png" id="6_vnj6k"]
+[ext_resource type="Texture2D" uid="uid://cgvk1rmatgk81" path="res://UI/Icon/PNG/White/2x/arrowRight.png" id="7_3jifq"]
+[ext_resource type="Texture2D" uid="uid://dk4h8kwug8m07" path="res://Assets/Sprite/ItemIcon/kayu-buku.png" id="8_1t0qm"]
+[ext_resource type="Texture2D" uid="uid://bwcccg2c1perj" path="res://UI/Icon/SelfMade/bank-note-04.png" id="10_ygjp5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xx01j"]
+font = ExtResource("3_xx01j")
+font_size = 37
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7xxrx"]
+font = ExtResource("3_xx01j")
+font_size = 23
+font_color = Color(0, 0, 0, 0.6509804)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4typt"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ov71d"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+color = Color(0.2930252, 0.70713615, 0.5389614, 0.38039216)
+thickness = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_xrvok"]
+font = ExtResource("3_xx01j")
+font_size = 28
+font_color = Color(0, 0, 0, 0.6509804)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1c3p"]
+bg_color = Color(0.27058825, 0.41568628, 0.26666668, 0.50980395)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.44344428, 0.424259, 0.5186617, 1)
+border_blend = true
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+shadow_color = Color(0.0627451, 0.17254902, 0.19607843, 0.19607843)
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_08eqv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tvgxv"]
+font = ExtResource("3_xx01j")
+font_size = 24
+shadow_color = Color(0.08235294, 0.10980392, 0.23529412, 0.6666667)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ql6fq"]
+bg_color = Color(0.8980392, 0.9647059, 0.9137255, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.44344428, 0.424259, 0.5186617, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.112904854, 0.18525437, 0.26791888, 0.5529412)
+shadow_size = 2
+shadow_offset = Vector2(2, 3)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4j72y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dmqms"]
+font = ExtResource("3_xx01j")
+font_size = 24
+font_color = Color(0.27802855, 0.4834717, 0.13080367, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3xd07"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2ugnp"]
+font = ExtResource("3_xx01j")
+font_size = 44
+
+[sub_resource type="Animation" id="Animation_o1yf2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_etejb"]
+resource_name = "Transition"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.03333334, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.13319641, 0.13319641, 0.13319638, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ugnp"]
+_data = {
+&"RESET": SubResource("Animation_o1yf2"),
+&"Transition": SubResource("Animation_etejb")
+}
 
 [node name="PopupScore" type="Control" unique_id=2005831508]
 layout_mode = 3
@@ -12,8 +135,28 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_l0q45")
+theme = ExtResource("1_xx01j")
 script = ExtResource("2_ihjnv")
+next_level = "res://UI/Scnee/MainMenu/main_menu.tscn"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2006616800]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8980392, 0.9647059, 0.9137255, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=950143281]
+modulate = Color(1, 1, 1, 0.12156863)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ghyc1")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=943686467]
 layout_mode = 1
@@ -22,10 +165,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -90.25
-offset_top = -65.00012
-offset_right = 90.25
-offset_bottom = 65.00012
+offset_left = -259.0
+offset_top = -259.0
+offset_right = 259.0
+offset_bottom = 259.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -34,48 +177,249 @@ layout_mode = 2
 theme_override_constants/separation = 13
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer" unique_id=671269316]
-visible = false
-layout_mode = 2
-stretch_mode = 3
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1207381487]
-layout_mode = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer2" unique_id=412999836]
-modulate = Color(1.3497951, 0.8473316, 0, 1)
-layout_mode = 2
-texture = ExtResource("3_jhvf7")
-
-[node name="TextureRect2" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer2" unique_id=1877757168]
-modulate = Color(1.3497951, 0.8473316, 0, 1)
-layout_mode = 2
-texture = ExtResource("3_jhvf7")
-
-[node name="TextureRect3" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer2" unique_id=1405686029]
-modulate = Color(1.3497951, 0.8473316, 0, 1)
-layout_mode = 2
-texture = ExtResource("3_jhvf7")
-
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=100843466]
 layout_mode = 2
+text = "Masa Jabatanmu Sudah Habis"
+label_settings = SubResource("LabelSettings_xx01j")
 horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1136252326]
+layout_mode = 2
+text = "Berikut adalah hasil yang kamu kerjakan dalam 5 tahun teraakhir"
+label_settings = SubResource("LabelSettings_7xxrx")
+horizontal_alignment = 1
+
+[node name="Process" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1696944162]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/VBoxContainer/Process" unique_id=156901286]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4typt")
+
+[node name="InputTexture" type="TextureRect" parent="PanelContainer/VBoxContainer/Process" unique_id=1932933885]
+unique_name_in_owner = true
+texture_filter = 4
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("4_2ugnp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Adder" type="TextureRect" parent="PanelContainer/VBoxContainer/Process" unique_id=967448207]
+unique_name_in_owner = true
+modulate = Color(0.12941177, 0.16862746, 0.33333334, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+texture = ExtResource("5_ghyc1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Electricity" type="TextureRect" parent="PanelContainer/VBoxContainer/Process" unique_id=1633903934]
+unique_name_in_owner = true
+modulate = Color(1.5354265, 0.7980731, 3.538414e-06, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("6_vnj6k")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Forwad2" type="TextureRect" parent="PanelContainer/VBoxContainer/Process" unique_id=2127137601]
+unique_name_in_owner = true
+modulate = Color(0.1310749, 0.16848859, 0.3346219, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.7
+texture = ExtResource("7_3jifq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="OutputTexture" type="TextureRect" parent="PanelContainer/VBoxContainer/Process" unique_id=1987074610]
+unique_name_in_owner = true
+texture_filter = 4
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("8_1t0qm")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/VBoxContainer/Process" unique_id=459716757]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4typt")
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer" unique_id=113479696]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_ov71d")
+
+[node name="Label4" type="Label" parent="PanelContainer/VBoxContainer" unique_id=987508756]
+layout_mode = 2
+text = "Udara"
+label_settings = SubResource("LabelSettings_xrvok")
+
+[node name="PollutionBar" type="ProgressBar" parent="PanelContainer/VBoxContainer" unique_id=74382538]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_l0q45")
+theme_override_styles/background = SubResource("StyleBoxFlat_v1c3p")
+value = 2.0
+rounded = true
+show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/PollutionBar" unique_id=524066938]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/VBoxContainer/PollutionBar/HBoxContainer" unique_id=1944589889]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+theme_override_styles/separator = SubResource("StyleBoxEmpty_08eqv")
+
+[node name="LabelBersih" type="Label" parent="PanelContainer/VBoxContainer/PollutionBar/HBoxContainer" unique_id=824782512]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Bersih"
+label_settings = SubResource("LabelSettings_tvgxv")
+
+[node name="LabelKotor" type="Label" parent="PanelContainer/VBoxContainer/PollutionBar/HBoxContainer" unique_id=1297568796]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Kotor"
+label_settings = SubResource("LabelSettings_tvgxv")
+horizontal_alignment = 2
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/VBoxContainer/PollutionBar/HBoxContainer" unique_id=1710019986]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+theme_override_styles/separator = SubResource("StyleBoxEmpty_08eqv")
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/VBoxContainer" unique_id=814622177]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_ov71d")
+
+[node name="Label5" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1930750105]
+layout_mode = 2
+text = "Keuangan"
+label_settings = SubResource("LabelSettings_xrvok")
+
+[node name="Panel" type="Panel" parent="PanelContainer/VBoxContainer" unique_id=1339161595]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.85
+theme_override_styles/panel = SubResource("StyleBoxFlat_ql6fq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Panel" unique_id=1190128912]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/VBoxContainer/Panel/HBoxContainer" unique_id=1726929830]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4j72y")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/Panel/HBoxContainer" unique_id=576462152]
+modulate = Color(0.3286017, 0.5674246, 0.15630212, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("10_ygjp5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MoneyLabel" type="Label" parent="PanelContainer/VBoxContainer/Panel/HBoxContainer" unique_id=344304704]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.1
+text = "10000"
+label_settings = SubResource("LabelSettings_dmqms")
+
+[node name="HSeparator3" type="HSeparator" parent="PanelContainer/VBoxContainer" unique_id=1959083990]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.55
+theme_override_styles/separator = SubResource("StyleBoxEmpty_3xd07")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=620442857]
 layout_mode = 2
 alignment = 1
 
 [node name="Retry" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1878221556 instance=ExtResource("4_xx01j")]
+visible = false
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Retry"
 
 [node name="Next" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1968236852 instance=ExtResource("4_xx01j")]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "Next"
+size_flags_horizontal = 3
+text = "Kembali Ke Menu Awal"
+
+[node name="Control" type="Control" parent="." unique_id=308339320]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1541831445]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Label" type="Label" parent="Control" unique_id=1230373174]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.947
+anchor_right = 0.109000005
+anchor_bottom = 1.0
+offset_top = 34.23999
+offset_right = -126.280014
+grow_vertical = 0
+text = "Memuat ..."
+label_settings = SubResource("LabelSettings_2ugnp")
+
+[node name="Fade" type="AnimationPlayer" parent="." unique_id=1710222868]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_2ugnp")
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Next" to="." method="_on_next_pressed"]
+[connection signal="animation_finished" from="Fade" to="." method="_on_fade_animation_finished"]

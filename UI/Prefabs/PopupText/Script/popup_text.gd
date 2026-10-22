@@ -10,8 +10,9 @@ func _ready() -> void:
 	pivot_offset = size/2
 	position.y = $Control.global_position.y
 	position.x = $Control.global_position.x-(size.x/2)+20
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	position.y -= speed_move
 
+@warning_ignore("unused_parameter")
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	queue_free()

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://d2d7gnwidcyia"]
 
-[ext_resource type="Theme" uid="uid://2vx27ttvak05" path="res://UI/Saves/CuteTheme.tres" id="1_nybbc"]
-[ext_resource type="Script" uid="uid://b3t7vnaf0js18" path="res://UI/Scnee/Popup/PopupTutorial/Script/popup_tutorial.gd" id="2_vfwcg"]
-[ext_resource type="Texture2D" uid="uid://djksmvfmfkhkt" path="res://UI/Icon/PNG/White/1x/power.png" id="3_nybbc"]
+[ext_resource type="Theme" uid="uid://2vx27ttvak05" path="res://UI/UI/Saves/CuteTheme.tres" id="1_nybbc"]
+[ext_resource type="Script" uid="uid://b3t7vnaf0js18" path="res://UI/UI/Scnee/Popup/PopupTutorial/Script/popup_tutorial.gd" id="2_vfwcg"]
+[ext_resource type="Texture2D" uid="uid://djksmvfmfkhkt" path="res://UI/UI/Icon/PNG/White/1x/power.png" id="3_nybbc"]
 
 [node name="PopupTutorial" type="Control" unique_id=1038716591]
 layout_mode = 3

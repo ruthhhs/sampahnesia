@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d4bugd82xbotc"]
+
+[sub_resource type="Gradient" id="Gradient_84nqe"]
+offsets = PackedFloat32Array(0.3, 1)
+colors = PackedColorArray(0.2065695, 0.4916702, 0.7665631, 1, 0.20784314, 0.49019608, 0.7647059, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fotrb"]
+gradient = SubResource("Gradient_84nqe")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = SubResource("GradientTexture2D_fotrb")
+roughness = 0.16

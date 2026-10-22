@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://eph56s1qkgw"]
+[gd_scene format=3 uid="uid://eph56s1qkgw"]
 
 [ext_resource type="Script" uid="uid://c0kihtyvlm5sk" path="res://UI/Prefabs/TabBar/Script/tab_bar.gd" id="1_ifmwu"]
 [ext_resource type="AudioStream" uid="uid://cvkkefvi3yf2x" path="res://UI/UIFX/kenney_interface-sounds/Audio/click_001.ogg" id="2_ktn6n"]

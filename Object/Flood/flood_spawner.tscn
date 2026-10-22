@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dywt2wt5enhbl"]
+
+[ext_resource type="Script" uid="uid://cc2hwt8a37skk" path="res://Object/Flood/Script/flood_spawner.gd" id="1_31dnn"]
+
+[node name="FloodSpawner" type="Node3D" unique_id=6240050]
+script = ExtResource("1_31dnn")
+
+[node name="RayCastUpRight" type="RayCast3D" parent="." unique_id=799184668]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.311, 1, -0.291)
+target_position = Vector3(0, -10, 0)
+
+[node name="RayCastDownRight" type="RayCast3D" parent="." unique_id=28213975]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.311, 1, 0.185)
+target_position = Vector3(0, -10, 0)
+
+[node name="RayCastUpLeft" type="RayCast3D" parent="." unique_id=1798270213]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.339, 1, -0.335)
+target_position = Vector3(0, -10, 0)
+
+[node name="RayCastDownLeft" type="RayCast3D" parent="." unique_id=2036846437]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.339, 1, 0.323)
+target_position = Vector3(0, -10, 0)
+
+[node name="Flood" type="Node3D" parent="." unique_id=103764000]
+unique_name_in_owner = true
+
+[node name="Timer" type="Timer" parent="." unique_id=367835983]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

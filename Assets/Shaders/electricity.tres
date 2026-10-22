@@ -1,0 +1,23 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://csij5xj75gtrf"]
+
+[sub_resource type="Gradient" id="Gradient_fnwhq"]
+resource_local_to_scene = true
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.7)
+colors = PackedColorArray(0.95939153, 0.8796671, 0, 1, 0, 0, 0, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wa8rp"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_fnwhq")
+fill_to = Vector2(0, 1)
+
+[resource]
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture2D_wa8rp")
+uv1_scale = Vector3(9.13, 9.13, 9.13)
+uv1_offset = Vector3(8.8, 0, 0)
+uv1_triplanar = true
+billboard_keep_scale = true
+grow = true

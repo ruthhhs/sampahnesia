@@ -1,0 +1,212 @@
+[gd_scene format=3 uid="uid://c6agp4mo5walu"]
+
+[ext_resource type="Theme" uid="uid://iix4fhw6mk68" path="res://UI/Saves/InGameTheme.tres" id="1_h3ng3"]
+[ext_resource type="PackedScene" uid="uid://c2ele75e6i3pi" path="res://UI/Prefabs/Button/button.tscn" id="1_x625a"]
+[ext_resource type="Script" uid="uid://dqg5nikm1kn3w" path="res://UI/Scnee/PopupBuyRepair/Script/popup_buy_repair.gd" id="2_d3hm5"]
+[ext_resource type="FontVariation" uid="uid://cl1ghml6fsl2n" path="res://UI/Font/tress_font/UiFont.tres" id="2_o82n8"]
+
+[sub_resource type="Animation" id="Animation_o82n8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_072ro"]
+resource_name = "close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer:offset_transform_position_ratio")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -0.175), Vector2(0, 0.92)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_d3hm5"]
+resource_name = "show"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer:offset_transform_position_ratio")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0.92), Vector2(0, -0.175), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_072ro"]
+_data = {
+&"RESET": SubResource("Animation_o82n8"),
+&"close": SubResource("Animation_072ro"),
+&"show": SubResource("Animation_d3hm5")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d3hm5"]
+bg_color = Color(0.30089614, 0.2174691, 0.21026078, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+shadow_color = Color(0, 0, 0, 0.293)
+shadow_size = 5
+shadow_offset = Vector2(1.435, 2.235)
+anti_aliasing_size = 3.1
+
+[sub_resource type="LabelSettings" id="LabelSettings_jq8tk"]
+font = ExtResource("2_o82n8")
+font_size = 28
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3xd07"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_072ro"]
+bg_color = Color(0.8434808, 0.2408737, 0.3355424, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.112904854, 0.18525437, 0.26791888, 0.5529412)
+shadow_size = 1
+shadow_offset = Vector2(2, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xqsy"]
+bg_color = Color(0.23457947, 0.5753368, 0.33797, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.112904854, 0.18525437, 0.26791888, 0.5529412)
+shadow_size = 1
+shadow_offset = Vector2(2, 3)
+
+[node name="PopupBuyRepair" type="Control" unique_id=936804223]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_h3ng3")
+script = ExtResource("2_d3hm5")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1669911532]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.34300002
+anchor_top = 0.381
+anchor_right = 0.657
+anchor_bottom = 0.619
+offset_left = 0.9399414
+offset_top = -0.480011
+offset_right = -0.9400635
+offset_bottom = 0.47998047
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+
+[node name="PopupAnim" type="AnimationPlayer" parent="PanelContainer" unique_id=1544796247]
+unique_name_in_owner = true
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_072ro")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=123739984]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer" unique_id=830440334]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d3hm5")
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/PanelContainer" unique_id=1622970232]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Perbaikan Bangunan"
+label_settings = SubResource("LabelSettings_jq8tk")
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer" unique_id=1459664357]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_3xd07")
+
+[node name="IsiText" type="RichTextLabel" parent="PanelContainer/VBoxContainer" unique_id=329179301]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.25
+text = "Perbaikan bangunan membutuhkan $30. Apakah kamu setuju dengan tawaran ini?"
+fit_content = true
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=2128254388]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 52
+
+[node name="TidakSetuju" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1308777811 instance=ExtResource("1_x625a")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_072ro")
+text = "Tidak"
+
+[node name="Setuju" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=49835165 instance=ExtResource("1_x625a")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_0xqsy")
+text = "Setuju"
+
+[connection signal="animation_finished" from="PanelContainer/PopupAnim" to="." method="_on_popup_anim_animation_finished"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/TidakSetuju" to="." method="_on_tidak_setuju_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Setuju" to="." method="_on_setuju_pressed"]

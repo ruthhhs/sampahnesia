@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c3q6iymaw1i53"]
+
+[ext_resource type="PackedScene" uid="uid://c3kj5qco0eygx" path="res://Assets/3DModel/Bangunan/Processor/Processor.glb" id="1_dct0m"]
+[ext_resource type="Material" uid="uid://bwwws2fdlcuyh" path="res://Assets/3DModel/UniversalMaterial.tres" id="2_g1rn4"]
+
+[node name="Processor" unique_id=712578308 instance=ExtResource("1_dct0m")]
+
+[node name="Processor" parent="." index="0" unique_id=1383374700]
+material_override = ExtResource("2_g1rn4")

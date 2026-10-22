@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://y1at5j4wj0uq"]
+
+[ext_resource type="Script" uid="uid://dlah7s0cp0hvl" path="res://Object/Prefabs/DestroyTimer/Minigame/Game4/Script/panel_siding.gd" id="1_3ywke"]
+[ext_resource type="AudioStream" uid="uid://d0lpix8y7b5r" path="res://UI/UIFX/kenney_interface-sounds/Audio/question_003.ogg" id="2_cmut0"]
+
+[node name="PanelSiding" type="ProgressBar" unique_id=1399951292]
+offset_right = 245.0
+offset_bottom = 234.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 30.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("1_3ywke")
+
+[node name="InteractValue" type="VSlider" parent="." unique_id=1774768193]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=765976586]
+visible = false
+
+[node name="EfekAudio" type="AudioStreamPlayer" parent="." unique_id=1733029146]
+stream = ExtResource("2_cmut0")
+volume_db = -13.012
+bus = &"Effect"
+
+[connection signal="drag_ended" from="InteractValue" to="." method="_on_interact_value_drag_ended"]
+[connection signal="value_changed" from="InteractValue" to="." method="_on_interact_value_value_changed"]
