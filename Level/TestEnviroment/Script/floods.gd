@@ -11,7 +11,6 @@ var flood_start: bool = false:
 				%FloodTimer.start()
 			else:
 				%FloodTimer.stop()
-			
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var flood_spawner = preload("res://Object/Flood/flood_spawner.tscn")
 # Called when the node enters the scene tree for the first time.
@@ -26,6 +25,7 @@ func spawn_flood()-> void:
 func _is_raining(value: bool)-> void:
 	#%FloodTimer.start()
 	flood_start = value
+	%FloodTimer.wait_time = get_parent().flooding_wait_time
 func _on_flood_timer_timeout() -> void:
 	spawn_flood()
 	if flood_start == true:

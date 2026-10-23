@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cxotyiwkfsxg"]
+
+[ext_resource type="Script" uid="uid://becnmyeg01mc8" path="res://Object/Sampah/Script/sampah_added.gd" id="1_37oc6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3xd07"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3xd07"]
+size = Vector3(11, 4, 11)
+
+[node name="Sampah_added" type="Node3D" unique_id=447221677 node_paths=PackedStringArray("target_spawn")]
+script = ExtResource("1_37oc6")
+target_spawn = NodePath("")
+antrian_sampah = 10
+
+[node name="Raycaster" type="Node3D" parent="." unique_id=989397480]
+
+[node name="RayCast3D" type="RayCast3D" parent="Raycaster" unique_id=973057324]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, -6)
+target_position = Vector3(0, -10, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Raycaster/RayCast3D" unique_id=844576930]
+mesh = SubResource("BoxMesh_3xd07")
+
+[node name="RayCast3D2" type="RayCast3D" parent="Raycaster" unique_id=1424315810]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 1, -6)
+target_position = Vector3(0, -10, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Raycaster/RayCast3D2" unique_id=1678718565]
+mesh = SubResource("BoxMesh_3xd07")
+
+[node name="RayCast3D3" type="RayCast3D" parent="Raycaster" unique_id=205143217]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 6)
+target_position = Vector3(0, -10, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Raycaster/RayCast3D3" unique_id=719842508]
+mesh = SubResource("BoxMesh_3xd07")
+
+[node name="RayCast3D4" type="RayCast3D" parent="Raycaster" unique_id=2058753514]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 1, 6)
+target_position = Vector3(0, -10, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Raycaster/RayCast3D4" unique_id=343569733]
+mesh = SubResource("BoxMesh_3xd07")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1122924818]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=759281350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_3xd07")
+debug_color = Color(0, 9.751348, 11.334774, 1)
+
+[node name="Start" type="Timer" parent="." unique_id=1492278520]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="timeout" from="Start" to="." method="_on_start_timeout"]

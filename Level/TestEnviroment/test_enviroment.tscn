@@ -34,13 +34,14 @@ glow_enabled = true
 glow_normalized = true
 glow_strength = 1.6
 glow_bloom = 0.45
+fog_enabled = true
 fog_light_color = Color(0.34674418, 0.41128507, 0.3798067, 1)
 fog_light_energy = 0.81
 fog_sun_scatter = 0.34
 fog_height = 1024.0
 fog_depth_curve = 0.23325814
 fog_depth_begin = 155.5
-fog_depth_end = 155.5
+fog_depth_end = 4000.0
 volumetric_fog_emission_energy = 6.5
 volumetric_fog_gi_inject = 16.0
 volumetric_fog_anisotropy = 0.9
@@ -51,8 +52,10 @@ adjustment_contrast = 1.25
 adjustment_saturation = 0.72
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_v8hku"]
+dof_blur_far_enabled = true
 dof_blur_far_distance = 181.51
 dof_blur_far_transition = 91.02
+dof_blur_near_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8xky"]
 shading_mode = 0
@@ -179,15 +182,16 @@ mesh = SubResource("QuadMesh_x37m3")
 
 [node name="BangunanSampah" parent="Sampah" unique_id=912230902 instance=ExtResource("5_wn7b4")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 67.662796, 0, 9.405319)
-slow_down_speed_expedition = null
-is_self_added = null
-kapasitas_koneksi = null
-is_get_money = null
-can_sell = null
-price = null
-is_electric_production = null
-is_electric_usage = null
-electric_item = null
+slow_down_speed_expedition = 0
+is_self_added = false
+kapasitas_koneksi = 2
+is_get_money = false
+can_sell = false
+maintenance_activity_id = 2
+price = 0
+is_electric_production = false
+is_electric_usage = false
+electric_item = 0
 
 [node name="Bangunan" type="Node3D" parent="." unique_id=616396326]
 unique_name_in_owner = true
@@ -488,7 +492,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -211.05495, 0, -155.32071)
 [node name="Sampah_added" type="Node3D" parent="." unique_id=1765756609 node_paths=PackedStringArray("target_spawn")]
 script = ExtResource("11_eq4fp")
 target_spawn = NodePath("../Sampah")
-antrian_sampah = 10
+antrian_sampah = 3
 
 [node name="Raycaster" type="Node3D" parent="Sampah_added" unique_id=80819525]
 
@@ -497,6 +501,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, -6)
 target_position = Vector3(0, -10, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Sampah_added/Raycaster/RayCast3D" unique_id=421368460]
+visible = false
 mesh = SubResource("BoxMesh_3xd07")
 
 [node name="RayCast3D2" type="RayCast3D" parent="Sampah_added/Raycaster" unique_id=604023495]
@@ -504,6 +509,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 1, -6)
 target_position = Vector3(0, -10, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Sampah_added/Raycaster/RayCast3D2" unique_id=131290018]
+visible = false
 mesh = SubResource("BoxMesh_3xd07")
 
 [node name="RayCast3D3" type="RayCast3D" parent="Sampah_added/Raycaster" unique_id=1930294979]
@@ -511,6 +517,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 6)
 target_position = Vector3(0, -10, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Sampah_added/Raycaster/RayCast3D3" unique_id=226939402]
+visible = false
 mesh = SubResource("BoxMesh_3xd07")
 
 [node name="RayCast3D4" type="RayCast3D" parent="Sampah_added/Raycaster" unique_id=5877343]
@@ -518,6 +525,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 1, 6)
 target_position = Vector3(0, -10, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Sampah_added/Raycaster/RayCast3D4" unique_id=1315166650]
+visible = false
 mesh = SubResource("BoxMesh_3xd07")
 
 [node name="Area3D" type="Area3D" parent="Sampah_added" unique_id=1131682749]
@@ -543,6 +551,7 @@ editor_description = "Harus ada di posisi paling bawah"
 [connection signal="child_exiting_tree" from="Nature" to="." method="_on_nature_child_exiting_tree"]
 [connection signal="timeout" from="Floods/FloodTimer" to="Floods" method="_on_flood_timer_timeout"]
 [connection signal="area_entered" from="Sampah_added/Area3D" to="Sampah_added" method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Sampah_added/Area3D" to="Sampah_added" method="_on_area_3d_area_exited"]
 [connection signal="timeout" from="Sampah_added/Start" to="Sampah_added" method="_on_start_timeout"]
 
 [editable path="CameraPosition"]

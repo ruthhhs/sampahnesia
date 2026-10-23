@@ -63,10 +63,20 @@ input_texture = ExtResource("2_2awq0")
 parent_group = "bangunan_sampah"
 target_group = Array[String](["bangunan_complete_1", "bangunan_complete_2", "Pertanian", "Peleburan_biji_plastik", "Biji_kaca", "bangunan_sampah", "PembangkitListrikTenagaSampah"])
 maximum_item_value = 100
-jumlah_polusi = 20
+slow_down_speed_expedition = null
+jumlah_polusi = 50
 auto_get_polute = true
 item_value = 5
+is_self_added = null
 infinite_connection = true
+kapasitas_koneksi = null
+is_get_money = null
+can_sell = null
+maintenance_activity_id = null
+price = null
+is_electric_production = null
+is_electric_usage = null
+electric_item = null
 can_delete = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1864420134]

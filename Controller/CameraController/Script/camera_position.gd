@@ -1,7 +1,8 @@
 extends Node3D
-var rng: RandomNumberGenerator = RandomNumberGenerator.new()
+
+@export_group("stat awal")
 @export var starter_money: int = 7000
-@onready var year_start: int = 0:
+@export var year_start: int = 0:
 	set(value):
 		if year_start != value:
 			year_start = value
@@ -13,25 +14,33 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 						Global.currently_are_raining = true
 					1:
 						Global.currently_are_raining = true
-	#set(value):
-		#if currently_are_delete != value:
-			#currently_are_delete = value
-@onready var month: int = 0
+@export var month: int = 0:
+	set(value):
+		if month != value:
+			month = value
+			send_month.emit(month)
+@export var durasi_jabatan: int = 5
+@export_group("Controller")
+@export var zoom_speed: float = 2.0
+@export var min_zoom: float = -50.0
+@export var max_zoom: float = 100.0
+@export var max_range_move: Vector3 = Vector3(100,0,100)
 
-@onready var durasi_jabatan: int = 5
 @onready var rotation_x: Node3D = $CameraRotationX
 @onready var zoom_pivot: Camera3D = $CameraRotationX/CameraZoomPivot/Camera3D
 @onready var camera: Camera3D = $CameraRotationX/CameraZoomPivot/Camera3D
 @onready var mouse_follower_object: Marker3D = $MouseFollowerObject
-@export var max_range_move: Vector3 = Vector3(100,0,100)
+
+signal send_month(month:int)
+
+var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var can_scroll: bool = true
 var can_move: bool = true
 var move_speed: float = 0.6
 var move_target: Vector3
-@export var zoom_speed: float = 2.0
 var zoom_target: float
-@export var min_zoom: float = -50.0
-@export var max_zoom: float = 100.0
+
+
 var edge_size: float = 5.0
 var scroll_speed: float = 0.6
 var jarak: int = 1000

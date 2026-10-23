@@ -7,13 +7,19 @@ func _ready() -> void:
 	#Global.delete_change.connect(_on_delete_change)
 func _is_raining(value: bool)-> void:
 	emitting = value
+	if value == true:
+		emitting = true
+		$RainSound.playing = true
+		$AnimationPlayer.play("is_rain")
+	else:
+		emitting = false
+		$AnimationPlayer.play("is_rain_backward")
 	%RainingTime.start()
-	$RainSound.playing = true
-	$AnimationPlayer.play("is_rain")
+
 
 
 func _on_raining_time_timeout() -> void:
-	$AnimationPlayer.play("is_rain_backward")
+	#$AnimationPlayer.play("is_rain_backward")
 	Global.currently_are_raining = false
 
 

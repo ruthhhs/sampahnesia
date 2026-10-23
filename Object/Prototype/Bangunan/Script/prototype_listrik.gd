@@ -26,7 +26,7 @@ var on_maintenance: bool = false:
 @export var is_sampah: bool = false
 @export_group("Popup")
 @export var popup_hover: Control
-@export var popup_warning: Control
+#@export var popup_warning: Control
 @export var image_input_value_item: TextureRect
 @export var electrical_box_container: HBoxContainer
 @export var label_value_item: Label
@@ -139,8 +139,8 @@ var on_maintenance: bool = false:
 func update_warning_visibility() -> void:
 	if is_electric_production:
 		is_electric_usage = false
-	if popup_warning == null:
-		return
+	#if popup_warning == null:
+		#return
 
 	var needs_warning: bool = false
 
@@ -151,9 +151,11 @@ func update_warning_visibility() -> void:
 		needs_warning = true
 
 	if popup_hover != null and popup_hover.visible:
-		popup_warning.visible = false
+		pass
+		#popup_warning.visible = false
 	else:
-		popup_warning.visible = needs_warning
+		pass
+		#popup_warning.visible = needs_warning
 # ==========================================
 
 func _see_on_inspect(is_inspecting: bool) -> void:
