@@ -497,6 +497,7 @@ transform = Transform3D(-7.9336175e-08, 0, 1.815, 0, 1.0003179, 0, -1.815, 0, -7
 
 [node name="Circle_002" type="MeshInstance3D" parent="." unique_id=481236344]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 0.87226725, 0, -1, 0, 1.3113416e-07, 1.2346925, 0, -2.7170377)
+visible = false
 mesh = SubResource("ArrayMesh_5bckw")
 skeleton = NodePath("")
 
@@ -519,16 +520,19 @@ skeleton = NodePath("")
 
 [node name="Cliff_008" type="MeshInstance3D" parent="." unique_id=2069416953]
 transform = Transform3D(-0.006847167, 0.009993404, 0.00059170474, -0.00226553, -0.00064276345, -0.009108947, -0.009715116, -0.0068934113, 0.0017071428, -10.620499, 1.7481382, 1.7299973)
+visible = false
 mesh = SubResource("ArrayMesh_x7h24")
 skeleton = NodePath("")
 
 [node name="Plane_008" type="MeshInstance3D" parent="." unique_id=422372239]
 transform = Transform3D(2.6124617e-05, 0, 346.03104, 0, 346.031, 0, -346.03104, 0, 2.6124617e-05, 1.2346925, -7.8484855, -2.7170377)
+visible = false
 mesh = SubResource("ArrayMesh_dpqrg")
 skeleton = NodePath("")
 
 [node name="WaterRipple" type="MeshInstance3D" parent="." unique_id=813033796]
 transform = Transform3D(2.2085103e-05, 0, 292.52606, 0, 292.52606, 0, -292.52606, 0, 2.2085103e-05, 1.2346925, -4.66717, -2.7170377)
+visible = false
 material_override = SubResource("StandardMaterial3D_cdwd0")
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_lwqng")
@@ -551,24 +555,29 @@ mesh = SubResource("PlaneMesh_mawn5")
 
 [node name="Water4" type="MeshInstance3D" parent="." unique_id=228586678]
 transform = Transform3D(1, 0, 0, 0, 0.7080467, 0, 0, 0, 1, 0, -5.0445714, 0)
+visible = false
 mesh = SubResource("PlaneMesh_mawn5")
 
 [node name="Water5" type="MeshInstance3D" parent="." unique_id=964382033]
 transform = Transform3D(-4.3711392e-08, 0, 1, 0, 0.7080467, 0, -1, 0, -4.3711392e-08, 0, -4.184432, 0)
+visible = false
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_sheyt")
 
 [node name="Cloud" type="MeshInstance3D" parent="." unique_id=2119793523]
 transform = Transform3D(1, 0, 3.5527137e-15, 0, 0.34433714, 0, -3.5527137e-15, 0, 1, 5.1947174, 47.650608, -4.936386)
+visible = false
 mesh = SubResource("QuadMesh_kt1fb")
 
 [node name="Cloud2" type="MeshInstance3D" parent="." unique_id=2093772335]
 transform = Transform3D(1, 0, 3.5527137e-15, 0, 0.34433714, 0, -3.5527137e-15, 0, 1, 5.1947174, 46.490646, -4.936386)
+visible = false
 cast_shadow = 0
 mesh = SubResource("QuadMesh_kt1fb")
 
 [node name="Cloud3" type="MeshInstance3D" parent="." unique_id=963906208]
 transform = Transform3D(1, 0, 3.5527137e-15, 0, 0.34433714, 0, -3.5527137e-15, 0, 1, 5.1947174, 45.20462, -4.936386)
+visible = false
 mesh = SubResource("QuadMesh_kt1fb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1583746533]

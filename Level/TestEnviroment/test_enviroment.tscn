@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dkc5nfhpbpae1" path="res://Level/TestEnviroment/Script/floods.gd" id="10_eq4fp"]
 [ext_resource type="FontFile" uid="uid://dkpcaehkmid4a" path="res://UI/Font/hey_comic/Hey Comic.otf" id="10_xex1j"]
 [ext_resource type="Texture2D" uid="uid://d4cf55oxflvdl" path="res://UI/Icon/Keyboard & Mouse/Double/mouse_left.png" id="11_5bckw"]
+[ext_resource type="Script" uid="uid://becnmyeg01mc8" path="res://Object/Sampah/Script/sampah_added.gd" id="11_eq4fp"]
 [ext_resource type="Texture2D" uid="uid://dcqu10tm7l2o5" path="res://UI/Icon/Keyboard & Mouse/Double/mouse_right.png" id="12_kt1fb"]
 [ext_resource type="Texture2D" uid="uid://c1opnovcu6fgc" path="res://UI/Icon/Keyboard & Mouse/Double/mouse_scroll.png" id="13_dpqrg"]
 
@@ -50,7 +51,6 @@ adjustment_contrast = 1.25
 adjustment_saturation = 0.72
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_v8hku"]
-dof_blur_far_enabled = true
 dof_blur_far_distance = 181.51
 dof_blur_far_transition = 91.02
 
@@ -179,174 +179,6 @@ mesh = SubResource("QuadMesh_x37m3")
 
 [node name="BangunanSampah" parent="Sampah" unique_id=912230902 instance=ExtResource("5_wn7b4")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 67.662796, 0, 9.405319)
-slow_down_speed_expedition = null
-is_self_added = null
-kapasitas_koneksi = null
-is_get_money = null
-can_sell = null
-price = null
-is_electric_production = null
-is_electric_usage = null
-electric_item = null
-
-[node name="BangunanSampah2" parent="Sampah" unique_id=1413943418 instance=ExtResource("5_wn7b4")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.6430664, 0, -86.60741)
-slow_down_speed_expedition = null
-is_self_added = null
-kapasitas_koneksi = null
-is_get_money = null
-can_sell = null
-price = null
-is_electric_production = null
-is_electric_usage = null
-electric_item = null
-
-[node name="BangunanSampah3" parent="Sampah" unique_id=915817571 instance=ExtResource("5_wn7b4")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -150.51619, 0, -44.195435)
-slow_down_speed_expedition = null
-is_self_added = null
-kapasitas_koneksi = null
-is_get_money = null
-can_sell = null
-price = null
-is_electric_production = null
-is_electric_usage = null
-electric_item = null
-
-[node name="BangunanSampah4" parent="Sampah" unique_id=1568155375 instance=ExtResource("5_wn7b4")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 147.7135, 0, -110.678116)
-slow_down_speed_expedition = null
-is_self_added = null
-kapasitas_koneksi = null
-is_get_money = null
-can_sell = null
-price = null
-is_electric_production = null
-is_electric_usage = null
-electric_item = null
-
-[node name="BangunanSampah5" parent="Sampah" unique_id=616346336 instance=ExtResource("5_wn7b4")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -139.24365, 0, -141.73701)
-slow_down_speed_expedition = null
-is_self_added = null
-kapasitas_koneksi = null
-is_get_money = null
-can_sell = null
-price = null
-is_electric_production = null
-is_electric_usage = null
-electric_item = null
-
-[node name="BangunanSampah6" parent="Sampah" unique_id=1939987008 instance=ExtResource("5_wn7b4")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -161.52502, 0, 79.72641)
-slow_down_speed_expedition = null
-is_self_added = null
-kapasitas_koneksi = null
-is_get_money = null
-can_sell = null
-price = null
-is_electric_production = null
-is_electric_usage = null
-electric_item = null
-
-[node name="BangunanSampah7" parent="Sampah" unique_id=1540849587 instance=ExtResource("5_wn7b4")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -191.90872, 0, 24.360554)
-slow_down_speed_expedition = null
-is_self_added = null
-kapasitas_koneksi = null
-is_get_money = null
-can_sell = null
-price = null
-is_electric_production = null
-is_electric_usage = null
-electric_item = null
-
-[node name="BangunanSampah8" parent="Sampah" unique_id=135185773 instance=ExtResource("5_wn7b4")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -86.57856, 0, 114.16124)
-slow_down_speed_expedition = null
-is_self_added = null
-kapasitas_koneksi = null
-is_get_money = null
-can_sell = null
-price = null
-is_electric_production = null
-is_electric_usage = null
-electric_item = null
-
-[node name="BangunanSampah9" parent="Sampah" unique_id=967090266 instance=ExtResource("5_wn7b4")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 44.40896, 0, 122.938736)
-slow_down_speed_expedition = null
-is_self_added = null
-kapasitas_koneksi = null
-is_get_money = null
-can_sell = null
-price = null
-is_electric_production = null
-is_electric_usage = null
-electric_item = null
-
-[node name="BangunanSampah15" parent="Sampah" unique_id=1948943005 instance=ExtResource("5_wn7b4")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 87.92886, 0, 166.52127)
-slow_down_speed_expedition = null
-is_self_added = null
-kapasitas_koneksi = null
-is_get_money = null
-can_sell = null
-price = null
-is_electric_production = null
-is_electric_usage = null
-electric_item = null
-
-[node name="BangunanSampah10" parent="Sampah" unique_id=2007421097 instance=ExtResource("5_wn7b4")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 109.22749, 0, 83.10234)
-slow_down_speed_expedition = null
-is_self_added = null
-kapasitas_koneksi = null
-is_get_money = null
-can_sell = null
-price = null
-is_electric_production = null
-is_electric_usage = null
-electric_item = null
-
-[node name="BangunanSampah11" parent="Sampah" unique_id=1754086792 instance=ExtResource("5_wn7b4")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 151.76466, 0, -26.95417)
-slow_down_speed_expedition = null
-is_self_added = null
-kapasitas_koneksi = null
-is_get_money = null
-can_sell = null
-price = null
-is_electric_production = null
-is_electric_usage = null
-electric_item = null
-
-[node name="BangunanSampah12" parent="Sampah" unique_id=1354568894 instance=ExtResource("5_wn7b4")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 65.33996, 0, -141.06186)
-slow_down_speed_expedition = null
-is_self_added = null
-kapasitas_koneksi = null
-is_get_money = null
-can_sell = null
-price = null
-is_electric_production = null
-is_electric_usage = null
-electric_item = null
-
-[node name="BangunanSampah13" parent="Sampah" unique_id=2022059798 instance=ExtResource("5_wn7b4")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -56.870033, 0, -128.23318)
-slow_down_speed_expedition = null
-is_self_added = null
-kapasitas_koneksi = null
-is_get_money = null
-can_sell = null
-price = null
-is_electric_production = null
-is_electric_usage = null
-electric_item = null
-
-[node name="BangunanSampah14" parent="Sampah" unique_id=1781301201 instance=ExtResource("5_wn7b4")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -91.59586, 0, -8.028427)
 slow_down_speed_expedition = null
 is_self_added = null
 kapasitas_koneksi = null
@@ -653,7 +485,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 204.2492, 0, 157.79007)
 [node name="MinimumPos" type="Marker3D" parent="." unique_id=220109956]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -211.05495, 0, -155.32071)
 
-[node name="Sampah_added" type="Node3D" parent="." unique_id=1765756609]
+[node name="Sampah_added" type="Node3D" parent="." unique_id=1765756609 node_paths=PackedStringArray("target_spawn")]
+script = ExtResource("11_eq4fp")
+target_spawn = NodePath("../Sampah")
+antrian_sampah = 10
 
 [node name="Raycaster" type="Node3D" parent="Sampah_added" unique_id=80819525]
 
@@ -692,6 +527,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_3xd07")
 debug_color = Color(0, 9.751348, 11.334774, 1)
 
+[node name="Start" type="Timer" parent="Sampah_added" unique_id=1066065078]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
 [node name="MaintenancePopup" type="CanvasLayer" parent="." unique_id=166408701]
 editor_description = "Harus ada di posisi paling bawah"
 
@@ -702,5 +542,7 @@ editor_description = "Harus ada di posisi paling bawah"
 [connection signal="child_entered_tree" from="Nature" to="." method="_on_nature_child_entered_tree"]
 [connection signal="child_exiting_tree" from="Nature" to="." method="_on_nature_child_exiting_tree"]
 [connection signal="timeout" from="Floods/FloodTimer" to="Floods" method="_on_flood_timer_timeout"]
+[connection signal="area_entered" from="Sampah_added/Area3D" to="Sampah_added" method="_on_area_3d_area_entered"]
+[connection signal="timeout" from="Sampah_added/Start" to="Sampah_added" method="_on_start_timeout"]
 
 [editable path="CameraPosition"]

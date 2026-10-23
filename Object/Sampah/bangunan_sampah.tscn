@@ -50,7 +50,6 @@ corner_radius_bottom_left = 38
 
 [node name="BangunanSampah" type="Area3D" unique_id=1372270150 node_paths=PackedStringArray("popup_hover", "image_input_value_item", "label_value_item", "state_building") groups=["Objek", "listrik_kotor"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
-top_level = true
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_mh0ut")
@@ -363,6 +362,8 @@ script = ExtResource("3_2kmm8")
 [node name="Sampah" parent="SampahSwap" unique_id=286230767 instance=ExtResource("3_dau5f")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.080728054, 0)
 
+[node name="TimerDelete" type="Timer" parent="SampahSwap" unique_id=811346521]
+
 [node name="TimerModal" type="Timer" parent="." unique_id=1683029900]
 wait_time = 0.5
 autostart = true
@@ -373,5 +374,5 @@ script = ExtResource("10_2ds5u")
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="child_order_changed" from="KumpulanRay" to="SampahSwap" method="_on_kumpulan_ray_child_order_changed"]
+[connection signal="timeout" from="SampahSwap/TimerDelete" to="SampahSwap" method="_on_timer_delete_timeout"]
 [connection signal="timeout" from="TimerModal" to="TimerModal" method="_on_timeout"]

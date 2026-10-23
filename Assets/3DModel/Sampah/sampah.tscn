@@ -147,7 +147,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
-tracks/0/loop_wrap = false
+tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
@@ -206,12 +206,13 @@ skeleton = NodePath("")
 
 [node name="SampahKecil" type="MeshInstance3D" parent="." unique_id=566147754]
 transform = Transform3D(1.7138842, 0, 0, 0, 2.7546663, 0, 0, 0, 2.1423552, -7.6293945e-06, -0.14161229, 0)
+visible = false
 material_override = ExtResource("1_wo04b")
 mesh = SubResource("ArrayMesh_a5qtw")
 skeleton = NodePath("")
 
-[node name="TempatSampah3" type="MeshInstance3D" parent="SampahKecil" unique_id=1051652064]
-transform = Transform3D(2.2859998, 0, 0, 0, 1.4169999, 0, 0, 0, 1.8289999, 4.451522e-06, 0, 0)
+[node name="TempatSampah3" type="MeshInstance3D" parent="." unique_id=1051652064]
+transform = Transform3D(3.917939, 0, 0, 0, 3.903362, 0, 0, 0, 3.9183674, -1.364242e-12, -0.14161229, 0)
 material_override = ExtResource("1_wo04b")
 mesh = SubResource("ArrayMesh_nytah")
 skeleton = NodePath("")
