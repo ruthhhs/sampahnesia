@@ -3,7 +3,8 @@ extends Control
 @export var play_address: String 
 @export var credits_address: String
 @onready var setting: Control = $Setting
-
+func _ready() -> void:
+	Global.reset_game_data()
 func _on_play_pressed() -> void:
 	#print("bisa")
 	Transition.change_scnee("res://UI/Scnee/Cutscnee/cutscene.tscn")

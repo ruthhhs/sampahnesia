@@ -17,3 +17,12 @@ func _on_setting_visibility_changed() -> void:
 		$BG.visible = false
 	else:
 		$BG.visible = true
+
+func _on_archivement_pressed() -> void:
+	$ArchivementList.visible = true
+
+func _on_archivement_list_visibility_changed() -> void:
+	if $ArchivementList.visible == true:
+		$BG.visible = false
+	else:
+		$BG.visible = true

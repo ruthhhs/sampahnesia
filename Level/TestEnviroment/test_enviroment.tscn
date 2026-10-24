@@ -77,7 +77,7 @@ size = Vector3(11, 4, 11)
 
 [node name="TestEnviroment" type="Node3D" unique_id=147036054 node_paths=PackedStringArray("pollution_bar")]
 script = ExtResource("1_fyipr")
-udara_pohon = 10
+udara_pohon = 5
 pollution_bar = NodePath("CameraPosition/CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer/HBoxContainer/PollutionBar")
 
 [node name="CameraPosition" parent="." unique_id=508572600 instance=ExtResource("9_eq4fp")]

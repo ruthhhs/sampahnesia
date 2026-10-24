@@ -87,6 +87,7 @@ func update_polution_bar() -> void:
 		target_fog_density = max_fog_density * 0.0
 		jumlah_sampah_terpanggil = 0
 		flooding_wait_time = 8.0
+		Archivement.validate_archivement(11)
 	elif fog_dense_value < max_fog_density * 0.4:
 		# Cerah
 		target_fog_density = max_fog_density * 0.2

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bhsqvhbx44x7s"]
+
+[ext_resource type="Script" uid="uid://bgrvih7s4xh0n" path="res://UI/Prefabs/MarkingArchivement/script/marking_archivement.gd" id="1_bh8ws"]
+
+[sub_resource type="Gradient" id="Gradient_qqcms"]
+offsets = PackedFloat32Array(0.20184697, 0.26781002)
+colors = PackedColorArray(1, 0.0965857, 0.08218192, 1, 1, 0.09533328, 0.07999998, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bhunq"]
+gradient = SubResource("Gradient_qqcms")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+metadata/_snap_enabled = true
+
+[node name="MarkingArchivement" type="TextureRect" unique_id=1122414790]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_bhunq")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("1_bh8ws")

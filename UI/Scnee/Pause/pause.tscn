@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://diyrkqpmnn4gx"]
 
-[ext_resource type="Theme" uid="uid://2vx27ttvak05" path="res://UI/Saves/InGameTheme.tres" id="1_nm23j"]
+[ext_resource type="Theme" uid="uid://2vx27ttvak05" path="res://UI/Saves/CuteTheme.tres" id="1_nm23j"]
 [ext_resource type="Script" uid="uid://dks6kylywdd3k" path="res://UI/Scnee/Pause/Script/pause.gd" id="2_srmgu"]
 [ext_resource type="Texture2D" uid="uid://cclq2hwdgil7j" path="res://UI/Logo/paused-simple.png" id="3_nm23j"]
 [ext_resource type="PackedScene" uid="uid://bylii8qiypgri" path="res://UI/Scnee/Setting/setting.tscn" id="4_fbp5b"]
 [ext_resource type="PackedScene" uid="uid://c2ele75e6i3pi" path="res://UI/Prefabs/Button/button.tscn" id="4_nm23j"]
 [ext_resource type="Theme" uid="uid://0yw7y7dxu0ae" path="res://UI/Saves/MenuTheme.tres" id="5_nm23j"]
+[ext_resource type="PackedScene" uid="uid://bhsqvhbx44x7s" path="res://UI/Prefabs/MarkingArchivement/marking_archivement.tscn" id="6_pax85"]
+[ext_resource type="PackedScene" uid="uid://cyvjciywinlrd" path="res://UI/Scnee/ArchivementList/archivement_list.tscn" id="7_hqu3k"]
 
 [sub_resource type="Gradient" id="Gradient_fbp5b"]
 offsets = PackedFloat32Array(0.10526316, 1)
@@ -74,6 +76,20 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
 theme_override_constants/separation = 8
 
+[node name="Archivement" parent="ForeGround/VBoxContainer/ButtonList" unique_id=1308777811 instance=ExtResource("4_nm23j")]
+layout_mode = 2
+theme = ExtResource("5_nm23j")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 56
+text = "Archivement"
+
+[node name="MarkingArchivement" parent="ForeGround/VBoxContainer/ButtonList/Archivement" unique_id=1122414790 instance=ExtResource("6_pax85")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74500006
+offset_left = -0.22003174
+
 [node name="Resume" parent="ForeGround/VBoxContainer/ButtonList" unique_id=12335792 instance=ExtResource("4_nm23j")]
 layout_mode = 2
 theme = ExtResource("5_nm23j")
@@ -106,7 +122,12 @@ text = "Main Menu"
 visible = false
 layout_mode = 1
 
+[node name="ArchivementList" parent="." unique_id=1232510835 instance=ExtResource("7_hqu3k")]
+visible = false
+layout_mode = 1
+
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="ForeGround/VBoxContainer/ButtonList/Archivement" to="." method="_on_archivement_pressed"]
 [connection signal="pressed" from="ForeGround/VBoxContainer/ButtonList/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="ForeGround/VBoxContainer/ButtonList/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="ForeGround/VBoxContainer/ButtonList/Setting" to="." method="_on_setting_pressed"]

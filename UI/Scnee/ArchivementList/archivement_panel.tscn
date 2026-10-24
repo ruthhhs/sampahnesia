@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://b7lw3d163mbvn"]
+
+[ext_resource type="Script" uid="uid://dlxgewg34584r" path="res://UI/Scnee/ArchivementList/Script/archivement_panel.gd" id="1_4brof"]
+[ext_resource type="Texture2D" uid="uid://6khphgkhv81a" path="res://UI/Icon/PNG/White/2x/star.png" id="1_agmiq"]
+[ext_resource type="FontFile" uid="uid://b6gndoa3gdmhn" path="res://UI/Font/super_hockey/Super Hockey.ttf" id="2_4brof"]
+[ext_resource type="FontFile" uid="uid://1xvnrphaimbw" path="res://UI/Font/hey_comic/Hey Comic.ttf" id="3_gcbnm"]
+[ext_resource type="PackedScene" uid="uid://c2ele75e6i3pi" path="res://UI/Prefabs/Button/button.tscn" id="4_62j8c"]
+[ext_resource type="Texture2D" uid="uid://bwcccg2c1perj" path="res://UI/Icon/SelfMade/bank-note-04.png" id="5_tx0b2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixbng"]
+bg_color = Color(0.42720875, 0.65549976, 0.49413824, 1)
+corner_radius_top_left = 24
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 0.2901961)
+shadow_size = 9
+shadow_offset = Vector2(0, 3.36)
+anti_aliasing = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_bhunq"]
+font = ExtResource("2_4brof")
+font_size = 27
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ruh1p"]
+
+[sub_resource type="FontVariation" id="FontVariation_sn0t7"]
+base_font = ExtResource("2_4brof")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1v2ek"]
+bg_color = Color(0.8780674, 0.5641958, 5.7756904e-07, 1)
+border_color = Color(0.8784314, 0.5647059, 0, 1)
+corner_radius_top_left = 10
+corner_detail = 1
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_color = Color(0, 0, 0, 0.23137255)
+shadow_size = 6
+shadow_offset = Vector2(1.2, 1.65)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4brof"]
+bg_color = Color(0.7565129, 0.678893, 0, 1)
+border_color = Color(0.8784314, 0.5647059, 0, 1)
+corner_radius_top_left = 10
+corner_detail = 1
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_color = Color(0, 0, 0, 0.23137255)
+shadow_size = 6
+shadow_offset = Vector2(1.2, 1.65)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gcbnm"]
+bg_color = Color(1, 0.13396788, 0.2792705, 1)
+border_color = Color(0.8784314, 0.5647059, 0, 1)
+corner_radius_top_left = 10
+corner_detail = 1
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_color = Color(0, 0, 0, 0.23137255)
+shadow_size = 6
+shadow_offset = Vector2(1.2, 1.65)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_riqys"]
+
+[node name="ArchivementPanel" type="PanelContainer" unique_id=1188441822]
+custom_minimum_size = Vector2(0, 70.745)
+offset_right = 807.0
+offset_bottom = 70.745
+theme_override_styles/panel = SubResource("StyleBoxFlat_ixbng")
+script = ExtResource("1_4brof")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1421576669]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=185263845]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.35
+texture = ExtResource("1_agmiq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=983539877]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1783830648]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1863737331]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.35
+
+[node name="Title" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2039156772]
+layout_mode = 2
+text = "Awal Peradaban"
+label_settings = SubResource("LabelSettings_bhunq")
+
+[node name="Desc" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=375147592]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("3_gcbnm")
+theme_override_font_sizes/normal_font_size = 19
+text = "Membangun 1 Bangunan Produksi"
+scroll_active = false
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=651074940]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.05
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer2" unique_id=155613933]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ruh1p")
+
+[node name="TambahDuit" parent="HBoxContainer/VBoxContainer2" unique_id=1308777811 instance=ExtResource("4_62j8c")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.65
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_sn0t7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1v2ek")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_1v2ek")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1v2ek")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_1v2ek")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4brof")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_4brof")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_4brof")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_4brof")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_gcbnm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_gcbnm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_gcbnm")
+text = "+ 1000"
+icon = ExtResource("5_tx0b2")
+text_overrun_behavior = 5
+expand_icon = true
+
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/VBoxContainer2" unique_id=1277835833]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ruh1p")
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer" unique_id=775749673]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_riqys")
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/TambahDuit" to="." method="_on_tambah_duit_pressed"]

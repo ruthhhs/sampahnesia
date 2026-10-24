@@ -65,6 +65,7 @@
 [ext_resource type="FontFile" uid="uid://b6gndoa3gdmhn" path="res://UI/Font/super_hockey/Super Hockey.ttf" id="58_l5jbk"]
 [ext_resource type="Script" uid="uid://mcnkdye25yox" path="res://Controller/CameraController/Script/mouse_follower_object.gd" id="59_0n7cy"]
 [ext_resource type="FontFile" uid="uid://dkpcaehkmid4a" path="res://UI/Font/hey_comic/Hey Comic.otf" id="59_ijmff"]
+[ext_resource type="PackedScene" uid="uid://bhsqvhbx44x7s" path="res://UI/Prefabs/MarkingArchivement/marking_archivement.tscn" id="59_v5oob"]
 [ext_resource type="Script" uid="uid://1yy72hn0aerw" path="res://Controller/CameraController/Script/camera_position.gd" id="60_84f65"]
 [ext_resource type="Texture2D" uid="uid://d4cf55oxflvdl" path="res://UI/Icon/Keyboard & Mouse/Double/mouse_left.png" id="60_jdguq"]
 [ext_resource type="Texture2D" uid="uid://dcqu10tm7l2o5" path="res://UI/Icon/Keyboard & Mouse/Double/mouse_right.png" id="61_dpmci"]
@@ -77,7 +78,6 @@
 [ext_resource type="Texture2D" uid="uid://b2ts7tuk36num" path="res://UI/Icon/PNG/White/2x/hammer.png" id="67_dg3oh"]
 [ext_resource type="Texture2D" uid="uid://rw1y812r0mg" path="res://UI/Icon/PNG/White/2x/trashcanOpen.png" id="67_hsyvo"]
 [ext_resource type="Script" uid="uid://6inmxhh3gu1t" path="res://Controller/CameraController/Script/archivements.gd" id="69_uhujx"]
-[ext_resource type="PackedScene" uid="uid://vmokyn1yvv68" path="res://Controller/CameraController/archivement.tscn" id="70_h0xcf"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ijmff"]
 emission_shape_scale = Vector3(10.48, -0.18, 10.48)
@@ -1252,6 +1252,19 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_uhujx")
 icon = ExtResource("55_kohko")
 icon_alignment = 1
 
+[node name="MarkingArchivement" parent="CanvasLayer/GameUIBuilder/CityStatsRight/Button" unique_id=1122414790 instance=ExtResource("59_v5oob")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.60700005
+anchor_top = 0.52500004
+anchor_right = 1.049
+offset_left = -0.027889252
+offset_top = -0.025001526
+offset_right = 0.011360168
+offset_bottom = -2.0
+grow_horizontal = 2
+
 [node name="UIAnimation" type="AnimationPlayer" parent="CanvasLayer/GameUIBuilder" unique_id=549589526]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_75n1n")
@@ -1518,9 +1531,6 @@ script = ExtResource("69_uhujx")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="Archivement" parent="CanvasLayer/GameUIBuilder/Archivements/VBoxArchivement" unique_id=820076031 instance=ExtResource("70_h0xcf")]
-layout_mode = 2
 
 [node name="Pause" parent="CanvasLayer" unique_id=1940487218 instance=ExtResource("47_4yxc1")]
 unique_name_in_owner = true

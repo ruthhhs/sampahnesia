@@ -18,7 +18,10 @@ var task_archivement: Array[String] = [
 	"Membangun 5 pembangkit listrik", "Membangun 15 bangunan Produksi", "Membangun 10 pembangkit listrik",
 	"Mengalami Banjir", "Memperbaiki Bangunan", "Udara Bersih Total"
 ]
-
+var claimed_archivement: Array[bool] = [
+	false, false, false, false, false, false,
+	false, false, false, false, false, false
+]
 var status_archivement: Array[bool] = [
 	false, false, false, false, false, false,
 	false, false, false, false, false, false
@@ -45,3 +48,12 @@ func validate_archivement(uid_archivement: int) -> void:
 				title_archivement[uid_archivement], 
 				reward_archivement[uid_archivement]
 			)
+func reset_archivement() -> void:
+	# Mengubah seluruh isi array menjadi false
+	status_archivement.fill(false)
+	claimed_archivement.fill(false)
+	
+	# Emit signal notification untuk memperbarui UI jika sedang terbuka
+	for i in range(status_archivement.size()):
+		if has_signal("achievement_status_changed"):
+			achievement_status_changed.emit(i, false)
