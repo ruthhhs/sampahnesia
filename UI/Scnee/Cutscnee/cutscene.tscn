@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b7m63245nyjtm"]
 
-[ext_resource type="Theme" uid="uid://2vx27ttvak05" path="res://UI/Saves/CuteTheme.tres" id="1_2qkfs"]
+[ext_resource type="Theme" uid="uid://2vx27ttvak05" path="res://UI/Saves/InGameTheme.tres" id="1_2qkfs"]
 [ext_resource type="Script" uid="uid://bvvtq1vrdg82s" path="res://UI/Scnee/Cutscnee/Script/cutscene.gd" id="2_06nkh"]
 [ext_resource type="Texture2D" uid="uid://b1mopfnbchp11" path="res://UI/Karakter/bg-sementara.jpeg" id="3_7leer"]
 [ext_resource type="PackedScene" uid="uid://c2ele75e6i3pi" path="res://UI/Prefabs/Button/button.tscn" id="4_o63le"]
@@ -403,10 +403,6 @@ _data = {
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
 bg_color = Color(1, 1, 1, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_06nkh"]
-font = ExtResource("10_x2cmh")
-font_size = 44
-
 [node name="Cutscene" type="Control" unique_id=62314611]
 layout_mode = 3
 anchors_preset = 15
@@ -586,8 +582,9 @@ grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
 
-[node name="skip" parent="." unique_id=1563555818 instance=ExtResource("4_o63le")]
+[node name="skip-btn" parent="." unique_id=1563555818 instance=ExtResource("4_o63le")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -603,8 +600,9 @@ icon = ExtResource("6_mnpqi")
 flat = true
 script = null
 
-[node name="next" type="Button" parent="." unique_id=1037644574]
+[node name="next-btn" type="Button" parent="." unique_id=1037644574]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -621,20 +619,6 @@ theme = ExtResource("5_1sd6a")
 text = "Ketuk untuk melanjutkan ..."
 flat = true
 
-[node name="Label" type="Label" parent="." unique_id=1445643674]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.947
-anchor_right = 0.109000005
-anchor_bottom = 1.0
-offset_top = 34.23999
-offset_right = -126.280014
-grow_vertical = 0
-text = "Memuat ..."
-label_settings = SubResource("LabelSettings_06nkh")
-
 [connection signal="timeout" from="TypingTimer" to="." method="_on_typing_timer_timeout"]
-[connection signal="pressed" from="skip" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="next" to="." method="_on_next_btn_pressed"]
+[connection signal="pressed" from="skip-btn" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="next-btn" to="." method="_on_next_btn_pressed"]

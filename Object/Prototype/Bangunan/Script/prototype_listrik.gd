@@ -139,16 +139,14 @@ var on_maintenance: bool = false:
 func update_warning_visibility() -> void:
 	if is_electric_production:
 		is_electric_usage = false
-	#if popup_warning == null:
-		#return
 
-	var needs_warning: bool = false
+	var _needs_warning: bool = false
 
 	if popup_warning_value != null and popup_warning_value.visible:
-		needs_warning = true
+		_needs_warning = true
 
 	if popup_warning_electricity != null and popup_warning_electricity.visible:
-		needs_warning = true
+		_needs_warning = true
 
 	if popup_hover != null and popup_hover.visible:
 		pass

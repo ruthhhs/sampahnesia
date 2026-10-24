@@ -10,7 +10,8 @@ var is_transitioning: bool = true
 func _ready() -> void:
 	$AnimationPlayer.play("fade-in")
 	await $AnimationPlayer.animation_finished
-
+	%"skip-btn".show()
+	%"next-btn".show()
 	start_cutscene()
 	
 func start_cutscene() -> void:
@@ -99,10 +100,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	selesai()
 	
 func selesai() -> void:
-	%skip.visible= false
-	%next.visible = false#%"skip-btn".visible = false
-	#$next_btn.visible = false
-	%Label.visible = true
+	%"skip-btn".hide()
+	%next_btn.hide()
 	$TypingSFX.stop()
 	is_transitioning = true
 	$AnimationPlayer.play("fade-out")

@@ -1,6 +1,5 @@
-[gd_scene format=4 uid="uid://deybxhne58cai"]
+[gd_scene format=4 uid="uid://canmyrgi2kpty"]
 
-[ext_resource type="Script" uid="uid://cwwo64gxvwyw1" path="res://Level/TestEnviroment/Script/test_enviroment.gd" id="1_3r7jh"]
 [ext_resource type="PackedScene" uid="uid://ckbqjucdjdbjr" path="res://Level/TestEnviroment/Asset/Grass/grass.tscn" id="2_cfjem"]
 [ext_resource type="Texture2D" uid="uid://esnnm6pxv6oj" path="res://Assets/3DModel/Island/Island_TextureMasice_1.png" id="3_bi4e2"]
 [ext_resource type="Material" uid="uid://t6tfvghdei5s" path="res://Assets/3DModel/Island/grass.tres" id="4_f7qof"]
@@ -524,7 +523,6 @@ font = SubResource("FontVariation_dn1u6")
 font_size = 20
 
 [node name="bgmenu" type="Node3D" unique_id=147036054]
-script = ExtResource("1_3r7jh")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=187556191]
 transform = Transform3D(0.94969916, -0.21655683, 0.22621803, 0, 0.72236365, 0.69151336, -0.31316364, -0.65672964, 0.6860282, -37.85263, 36.73567, 23.16593)
@@ -648,22 +646,22 @@ transform = Transform3D(1.52, 0, 0, 0, 1.52, 0, 0, 0, 1.52, -10.000422, 0.220809
 transform = Transform3D(0.95547426, 0, 0.2950744, 0, 1, 0, -0.2950744, 0, 0.95547426, -65.885925, 3.8146973e-06, -10.69952)
 
 [node name="Sampah2" parent="Bangunan" unique_id=1455322522 instance=ExtResource("15_w5bv1")]
-transform = Transform3D(0.56512344, 0, 0.25502056, 0, 0.62000006, 0, -0.25502056, 0, 0.56512344, -59.716076, 3.8146973e-06, -13.329973)
+transform = Transform3D(0.9114894, 0, 0.4113235, 0, 1, 0, -0.4113235, 0, 0.9114894, -59.716076, 3.8146973e-06, -13.329973)
 
 [node name="Sampah3" parent="Bangunan" unique_id=2104343528 instance=ExtResource("15_w5bv1")]
-transform = Transform3D(0.97529614, 0, -0.22090173, 0, 1, 0, 0.22090173, 0, 0.97529614, -92.68124, 0, 17.486183)
+transform = Transform3D(0.9752961, 0, -0.22090171, 0, 1, 0, 0.22090171, 0, 0.9752961, -92.68124, 0, 17.486183)
 
 [node name="Sampah4" parent="Bangunan" unique_id=1591542250 instance=ExtResource("15_w5bv1")]
-transform = Transform3D(1.0107522, 0, 0.19819178, 0, 1.03, 0, -0.19819178, 0, 1.0107522, -0.639, 0, -71.659)
+transform = Transform3D(0.9813128, 0, 0.1924192, 0, 1, 0, -0.1924192, 0, 0.9813128, -0.639, 0, -71.659)
 
 [node name="Sampah5" parent="Bangunan" unique_id=866156864 instance=ExtResource("15_w5bv1")]
-transform = Transform3D(0.6091233, 0, -0.29085016, 0, 0.675, 0, 0.29085016, 0, 0.6091233, -87.21621, 0, 21.278551)
+transform = Transform3D(0.90240484, 0, -0.43088916, 0, 1, 0, 0.43088916, 0, 0.90240484, -87.21621, 0, 21.278551)
 
 [node name="Sampah6" parent="Bangunan" unique_id=941614582 instance=ExtResource("15_w5bv1")]
-transform = Transform3D(0.7849279, 0, -0.6195875, 0, 1, 0, 0.6195875, 0, 0.7849279, 2.6520233, 3.8146973e-06, -32.526054)
+transform = Transform3D(0.7849277, 0, -0.61958736, 0, 1, 0, 0.61958736, 0, 0.7849277, 2.6520233, 3.8146973e-06, -32.526054)
 
 [node name="Sampah7" parent="Bangunan" unique_id=349331309 instance=ExtResource("15_w5bv1")]
-transform = Transform3D(0.1370117, 0, -0.57387084, 0, 0.59, 0, 0.57387084, 0, 0.1370117, 24.886406, 7.6293945e-06, -56.413506)
+transform = Transform3D(0.23222324, 0, -0.9726625, 0, 1, 0, 0.9726625, 0, 0.23222324, 24.886406, 7.6293945e-06, -56.413506)
 
 [node name="Nature" type="Node3D" parent="." unique_id=1983850636]
 unique_name_in_owner = true
