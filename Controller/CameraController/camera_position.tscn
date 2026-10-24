@@ -59,6 +59,7 @@
 [ext_resource type="FontVariation" uid="uid://cl1ghml6fsl2n" path="res://UI/Font/tress_font/UiFont.tres" id="52_xe555"]
 [ext_resource type="Texture2D" uid="uid://crb4an8tmfuci" path="res://UI/Icon/PNG/White/1x/barsHorizontal.png" id="55_kohko"]
 [ext_resource type="Texture2D" uid="uid://qbpuiqgjuvxa" path="res://UI/Item/kalender-no-text.png" id="56_ca4gg"]
+[ext_resource type="Script" uid="uid://yq6xjpaga8iy" path="res://Controller/CameraController/Script/money_rect.gd" id="56_h0xcf"]
 [ext_resource type="AudioStream" uid="uid://bj80ewkapbadj" path="res://UI/UIFX/kenney_interface-sounds/Audio/select_005.ogg" id="57_r70c0"]
 [ext_resource type="AudioStream" uid="uid://cjqovssdfypl0" path="res://UI/UIFX/kenney_interface-sounds/Audio/select_003.ogg" id="58_hpebi"]
 [ext_resource type="FontFile" uid="uid://b6gndoa3gdmhn" path="res://UI/Font/super_hockey/Super Hockey.ttf" id="58_l5jbk"]
@@ -75,6 +76,8 @@
 [ext_resource type="Texture2D" uid="uid://cfpox3mropgnf" path="res://UI/Icon/PNG/White/2x/upLeft.png" id="65_ykp4m"]
 [ext_resource type="Texture2D" uid="uid://b2ts7tuk36num" path="res://UI/Icon/PNG/White/2x/hammer.png" id="67_dg3oh"]
 [ext_resource type="Texture2D" uid="uid://rw1y812r0mg" path="res://UI/Icon/PNG/White/2x/trashcanOpen.png" id="67_hsyvo"]
+[ext_resource type="Script" uid="uid://6inmxhh3gu1t" path="res://Controller/CameraController/Script/archivements.gd" id="69_uhujx"]
+[ext_resource type="PackedScene" uid="uid://vmokyn1yvv68" path="res://Controller/CameraController/archivement.tscn" id="70_h0xcf"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ijmff"]
 emission_shape_scale = Vector3(10.48, -0.18, 10.48)
@@ -231,6 +234,44 @@ shadow_size = 2
 shadow_offset = Vector2(2, 3)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ykp4m"]
+
+[sub_resource type="Animation" id="Animation_h0xcf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v5oob"]
+resource_name = "money"
+length = 0.05
+step = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.024, 0.05),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.53, 1.53), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vrspy"]
+_data = {
+&"RESET": SubResource("Animation_h0xcf"),
+&"money": SubResource("Animation_v5oob")
+}
 
 [sub_resource type="LabelSettings" id="LabelSettings_dg3oh"]
 font = ExtResource("52_84f65")
@@ -510,6 +551,7 @@ size = Vector3(2.155, 1.4, 2.155)
 
 [node name="CameraPosition" type="Node3D" unique_id=508572600]
 script = ExtResource("60_84f65")
+starter_money = 3000
 
 [node name="CameraRotationX" type="Node3D" parent="." unique_id=1260349627]
 
@@ -1161,6 +1203,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+offset_transform_enabled = true
 
 [node name="VSeparator" type="VSeparator" parent="CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer/HBoxContainer/Panel/HBoxContainer" unique_id=1496761830]
 layout_mode = 2
@@ -1168,13 +1211,18 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 theme_override_styles/separator = SubResource("StyleBoxEmpty_ykp4m")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer/HBoxContainer/Panel/HBoxContainer" unique_id=1351181488]
+[node name="MoneyRect" type="TextureRect" parent="CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer/HBoxContainer/Panel/HBoxContainer" unique_id=1351181488]
 modulate = Color(0.3286017, 0.5674246, 0.15630212, 1)
 layout_mode = 2
 size_flags_horizontal = 3
+offset_transform_enabled = true
 texture = ExtResource("51_qd056")
 expand_mode = 1
 stretch_mode = 5
+script = ExtResource("56_h0xcf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer/HBoxContainer/Panel/HBoxContainer/MoneyRect" unique_id=1182670568]
+libraries/ = SubResource("AnimationLibrary_vrspy")
 
 [node name="MoneyLabel" type="Label" parent="CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer/HBoxContainer/Panel/HBoxContainer" unique_id=887691356]
 unique_name_in_owner = true
@@ -1453,6 +1501,26 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_m5h88")
 icon = ExtResource("67_hsyvo")
 icon_alignment = 1
 expand_icon = true
+
+[node name="Archivements" type="ScrollContainer" parent="CanvasLayer/GameUIBuilder" unique_id=1990418275]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.82900006
+anchor_top = 0.119
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.3199463
+offset_top = -0.5200043
+grow_horizontal = 0
+script = ExtResource("69_uhujx")
+
+[node name="VBoxArchivement" type="VBoxContainer" parent="CanvasLayer/GameUIBuilder/Archivements" unique_id=1869299420]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Archivement" parent="CanvasLayer/GameUIBuilder/Archivements/VBoxArchivement" unique_id=820076031 instance=ExtResource("70_h0xcf")]
+layout_mode = 2
 
 [node name="Pause" parent="CanvasLayer" unique_id=1940487218 instance=ExtResource("47_4yxc1")]
 unique_name_in_owner = true

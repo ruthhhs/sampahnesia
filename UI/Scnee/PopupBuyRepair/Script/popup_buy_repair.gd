@@ -37,12 +37,10 @@ func _on_setuju_pressed() -> void:
 func _on_popup_anim_animation_finished(anim_name: StringName) -> void:
 	if anim_name != "close":
 		return
-
 	if is_on_payment and is_instance_valid(destroy_timer_node_insert):
 		var path_minigame: String = str("res://Object/Prefabs/DestroyTimer/Minigame/Game", id_minigame, "/Minigame", id_minigame, ".tscn")
 		var minigame = load(path_minigame)
 		var minigame_instance = minigame.instantiate()
-
 		# KONEKSI UTAMA: kirim referensi timer ke minigame SEBELUM add_child
 		if "destroy_timer_node_insert" in minigame_instance:
 			minigame_instance.destroy_timer_node_insert = destroy_timer_node_insert
@@ -51,5 +49,7 @@ func _on_popup_anim_animation_finished(anim_name: StringName) -> void:
 
 		destroy_timer_node_insert.repair_in_progress = true
 		get_tree().root.add_child(minigame_instance)
+		Archivement.validate_archivement(10)
+		
 
 	queue_free()

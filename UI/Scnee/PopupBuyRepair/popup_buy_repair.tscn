@@ -96,7 +96,7 @@ _data = {
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d3hm5"]
-bg_color = Color(0.30089614, 0.2174691, 0.21026078, 1)
+bg_color = Color(0.44583124, 0.7297151, 0.7617949, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 expand_margin_left = 10.0

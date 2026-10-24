@@ -31,6 +31,7 @@ buses/default_bus_layout="uid://cajf1hchhjkec"
 Global="*res://Global/Global.gd"
 Transition="*uid://v6lwltobyo8l"
 GlobalSetting="*uid://babmumepvtik1"
+Archivement="*uid://btmppbp0bx3xp"
 
 [display]
 

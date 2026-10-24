@@ -4,11 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://cgf3b7qcm2pmw" path="res://Level/TestEnviroment/island.tscn" id="2_b5hqc"]
 [ext_resource type="PackedScene" uid="uid://2pnxabj0s8eb" path="res://Object/Sampah/bangunan_sampah.tscn" id="5_wn7b4"]
 [ext_resource type="PackedScene" uid="uid://b0w87frcj0os1" path="res://Controller/CameraController/camera_position.tscn" id="9_eq4fp"]
+[ext_resource type="Script" uid="uid://cm2v6weldkdww" path="res://Level/TestEnviroment/Script/bangunan.gd" id="9_fyipr"]
 [ext_resource type="PackedScene" uid="uid://r13bmnl33nei" path="res://Object/Pohon/pohon.tscn" id="10_b5hqc"]
 [ext_resource type="Script" uid="uid://dkc5nfhpbpae1" path="res://Level/TestEnviroment/Script/floods.gd" id="10_eq4fp"]
+[ext_resource type="Script" uid="uid://c2cbr2cjdkx8a" path="res://Level/TestEnviroment/Script/nature.gd" id="10_o00n3"]
 [ext_resource type="FontFile" uid="uid://dkpcaehkmid4a" path="res://UI/Font/hey_comic/Hey Comic.otf" id="10_xex1j"]
 [ext_resource type="Texture2D" uid="uid://d4cf55oxflvdl" path="res://UI/Icon/Keyboard & Mouse/Double/mouse_left.png" id="11_5bckw"]
 [ext_resource type="Script" uid="uid://becnmyeg01mc8" path="res://Object/Sampah/Script/sampah_added.gd" id="11_eq4fp"]
+[ext_resource type="Script" uid="uid://c53885myrho1h" path="res://Level/TestEnviroment/Script/listrik.gd" id="12_jdmvx"]
 [ext_resource type="Texture2D" uid="uid://dcqu10tm7l2o5" path="res://UI/Icon/Keyboard & Mouse/Double/mouse_right.png" id="12_kt1fb"]
 [ext_resource type="Texture2D" uid="uid://c1opnovcu6fgc" path="res://UI/Icon/Keyboard & Mouse/Double/mouse_scroll.png" id="13_dpqrg"]
 
@@ -23,12 +26,12 @@ ground_bottom_color = Color(0.3254902, 0.79607844, 1, 1)
 ground_horizon_color = Color(1.184752, 1.3693259, 1.4385966, 1)
 energy_multiplier = 0.6
 
-[sub_resource type="Sky" id="Sky_fyipr"]
+[sub_resource type="Sky" id="Sky_o00n3"]
 sky_material = SubResource("ProceduralSkyMaterial_eq4fp")
 
 [sub_resource type="Environment" id="Environment_o00n3"]
 background_mode = 2
-sky = SubResource("Sky_fyipr")
+sky = SubResource("Sky_o00n3")
 tonemap_mode = 2
 glow_enabled = true
 glow_normalized = true
@@ -74,7 +77,7 @@ size = Vector3(11, 4, 11)
 
 [node name="TestEnviroment" type="Node3D" unique_id=147036054 node_paths=PackedStringArray("pollution_bar")]
 script = ExtResource("1_fyipr")
-udara_pohon = 5
+udara_pohon = 10
 pollution_bar = NodePath("CameraPosition/CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer/HBoxContainer/PollutionBar")
 
 [node name="CameraPosition" parent="." unique_id=508572600 instance=ExtResource("9_eq4fp")]
@@ -195,287 +198,292 @@ electric_item = 0
 
 [node name="Bangunan" type="Node3D" parent="." unique_id=616396326]
 unique_name_in_owner = true
+script = ExtResource("9_fyipr")
 
 [node name="Nature" type="Node3D" parent="." unique_id=1983850636]
 unique_name_in_owner = true
+script = ExtResource("10_o00n3")
 
-[node name="Pohon2" parent="Nature" unique_id=137371564 instance=ExtResource("10_b5hqc")]
+[node name="StarterNature" type="Node3D" parent="." unique_id=163858390]
+
+[node name="Pohon2" parent="StarterNature" unique_id=137371564 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.005066, 0, -48.7451)
 
-[node name="Pohon4" parent="Nature" unique_id=2046109367 instance=ExtResource("10_b5hqc")]
+[node name="Pohon4" parent="StarterNature" unique_id=2046109367 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.85504, 0, -61.91844)
 
-[node name="Pohon5" parent="Nature" unique_id=426704507 instance=ExtResource("10_b5hqc")]
+[node name="Pohon5" parent="StarterNature" unique_id=426704507 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.3478, 0, -86.30394)
 
-[node name="Pohon6" parent="Nature" unique_id=238258956 instance=ExtResource("10_b5hqc")]
+[node name="Pohon6" parent="StarterNature" unique_id=238258956 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.95797, 0, -50.244537)
 
-[node name="Pohon7" parent="Nature" unique_id=1296808977 instance=ExtResource("10_b5hqc")]
+[node name="Pohon7" parent="StarterNature" unique_id=1296808977 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.99435, 0, -93.936615)
 
-[node name="Pohon8" parent="Nature" unique_id=634719204 instance=ExtResource("10_b5hqc")]
+[node name="Pohon8" parent="StarterNature" unique_id=634719204 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.619774, 0, -135.25412)
 
-[node name="Pohon9" parent="Nature" unique_id=1465888051 instance=ExtResource("10_b5hqc")]
+[node name="Pohon9" parent="StarterNature" unique_id=1465888051 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -163.00739, 0, -101.53523)
 
-[node name="Pohon10" parent="Nature" unique_id=1839543532 instance=ExtResource("10_b5hqc")]
+[node name="Pohon10" parent="StarterNature" unique_id=1839543532 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -171.0809, 0, -147.12697)
 
-[node name="Pohon11" parent="Nature" unique_id=1293903430 instance=ExtResource("10_b5hqc")]
+[node name="Pohon11" parent="StarterNature" unique_id=1293903430 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -152.08435, 0, -172.77231)
 
-[node name="Pohon12" parent="Nature" unique_id=1688517024 instance=ExtResource("10_b5hqc")]
+[node name="Pohon12" parent="StarterNature" unique_id=1688517024 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.556595, 0, -143.80257)
 
-[node name="Pohon13" parent="Nature" unique_id=934955492 instance=ExtResource("10_b5hqc")]
+[node name="Pohon13" parent="StarterNature" unique_id=934955492 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4866943, 0, -130.50497)
 
-[node name="Pohon14" parent="Nature" unique_id=1308535480 instance=ExtResource("10_b5hqc")]
+[node name="Pohon14" parent="StarterNature" unique_id=1308535480 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.483215, 0, -151.40118)
 
-[node name="Pohon15" parent="Nature" unique_id=418448217 instance=ExtResource("10_b5hqc")]
+[node name="Pohon15" parent="StarterNature" unique_id=418448217 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.56979, 0, -161.8493)
 
-[node name="Pohon16" parent="Nature" unique_id=2137641773 instance=ExtResource("10_b5hqc")]
+[node name="Pohon16" parent="StarterNature" unique_id=2137641773 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.16153, 0, -152.82593)
 
-[node name="Pohon17" parent="Nature" unique_id=12193571 instance=ExtResource("10_b5hqc")]
+[node name="Pohon17" parent="StarterNature" unique_id=12193571 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.894196, 0, -123.38128)
 
-[node name="Pohon18" parent="Nature" unique_id=473068511 instance=ExtResource("10_b5hqc")]
+[node name="Pohon18" parent="StarterNature" unique_id=473068511 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 137.13815, 0, -82.5387)
 
-[node name="Pohon19" parent="Nature" unique_id=1008905070 instance=ExtResource("10_b5hqc")]
+[node name="Pohon19" parent="StarterNature" unique_id=1008905070 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 184.62955, 0, -102.96)
 
-[node name="Pohon20" parent="Nature" unique_id=1815934264 instance=ExtResource("10_b5hqc")]
+[node name="Pohon20" parent="StarterNature" unique_id=1815934264 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 187.479, 0, -135.25414)
 
-[node name="Pohon23" parent="Nature" unique_id=741781357 instance=ExtResource("10_b5hqc")]
+[node name="Pohon23" parent="StarterNature" unique_id=741781357 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.894165, 0, 25.741638)
 
-[node name="Pohon24" parent="Nature" unique_id=901127746 instance=ExtResource("10_b5hqc")]
+[node name="Pohon24" parent="StarterNature" unique_id=901127746 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156.60962, 0, 22.417229)
 
-[node name="Pohon25" parent="Nature" unique_id=1182155094 instance=ExtResource("10_b5hqc")]
+[node name="Pohon25" parent="StarterNature" unique_id=1182155094 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152.81027, 0, 49.96223)
 
-[node name="Pohon26" parent="Nature" unique_id=1437111028 instance=ExtResource("10_b5hqc")]
+[node name="Pohon26" parent="StarterNature" unique_id=1437111028 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118.14157, 0, -2.7531967)
 
-[node name="Pohon27" parent="Nature" unique_id=687932133 instance=ExtResource("10_b5hqc")]
+[node name="Pohon27" parent="StarterNature" unique_id=687932133 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.954666, 0, 67.53405)
 
-[node name="Pohon30" parent="Nature" unique_id=983703355 instance=ExtResource("10_b5hqc")]
+[node name="Pohon30" parent="StarterNature" unique_id=983703355 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98.89405, 0, 48.537468)
 
-[node name="Pohon31" parent="Nature" unique_id=2077698088 instance=ExtResource("10_b5hqc")]
+[node name="Pohon31" parent="StarterNature" unique_id=2077698088 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.53595, 0, 23.841953)
 
-[node name="Pohon32" parent="Nature" unique_id=1897654078 instance=ExtResource("10_b5hqc")]
+[node name="Pohon32" parent="StarterNature" unique_id=1897654078 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.68992, 0, -20.799946)
 
-[node name="Pohon33" parent="Nature" unique_id=2092374582 instance=ExtResource("10_b5hqc")]
+[node name="Pohon33" parent="StarterNature" unique_id=2092374582 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.43905, 0, 106.002045)
 
-[node name="Pohon34" parent="Nature" unique_id=872070950 instance=ExtResource("10_b5hqc")]
+[node name="Pohon34" parent="StarterNature" unique_id=872070950 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.730507, 0, 124.52368)
 
-[node name="Pohon36" parent="Nature" unique_id=1738878692 instance=ExtResource("10_b5hqc")]
+[node name="Pohon36" parent="StarterNature" unique_id=1738878692 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1856, 0, 107.42677)
 
-[node name="Pohon37" parent="Nature" unique_id=358638386 instance=ExtResource("10_b5hqc")]
+[node name="Pohon37" parent="StarterNature" unique_id=358638386 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0852585, 0, 140.67075)
 
-[node name="Pohon38" parent="Nature" unique_id=494507680 instance=ExtResource("10_b5hqc")]
+[node name="Pohon38" parent="StarterNature" unique_id=494507680 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.7938, 0, 134.49686)
 
-[node name="Pohon39" parent="Nature" unique_id=1517218891 instance=ExtResource("10_b5hqc")]
+[node name="Pohon39" parent="StarterNature" unique_id=1517218891 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141.88724, 0, 99.35324)
 
-[node name="Pohon40" parent="Nature" unique_id=1029401105 instance=ExtResource("10_b5hqc")]
+[node name="Pohon40" parent="StarterNature" unique_id=1029401105 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141.88724, 0, 99.35324)
 
-[node name="Pohon41" parent="Nature" unique_id=1541333413 instance=ExtResource("10_b5hqc")]
+[node name="Pohon41" parent="StarterNature" unique_id=1541333413 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -135.87381, 0, 125.945816)
 
-[node name="Pohon42" parent="Nature" unique_id=977573212 instance=ExtResource("10_b5hqc")]
+[node name="Pohon42" parent="StarterNature" unique_id=977573212 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -197.91562, 0, 81.299255)
 
-[node name="Pohon43" parent="Nature" unique_id=2104301577 instance=ExtResource("10_b5hqc")]
+[node name="Pohon43" parent="StarterNature" unique_id=2104301577 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -156.18001, 0, 52.179855)
 
-[node name="Pohon44" parent="Nature" unique_id=1630283118 instance=ExtResource("10_b5hqc")]
+[node name="Pohon44" parent="StarterNature" unique_id=1630283118 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169.63942, 0, -6.0117493)
 
-[node name="Pohon45" parent="Nature" unique_id=669360785 instance=ExtResource("10_b5hqc")]
+[node name="Pohon45" parent="StarterNature" unique_id=669360785 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.902893, 0, 31.668732)
 
-[node name="Pohon46" parent="Nature" unique_id=1763230761 instance=ExtResource("10_b5hqc")]
+[node name="Pohon46" parent="StarterNature" unique_id=1763230761 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.851345, 0, 15.28125)
 
-[node name="Pohon47" parent="Nature" unique_id=297526527 instance=ExtResource("10_b5hqc")]
+[node name="Pohon47" parent="StarterNature" unique_id=297526527 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.895065, 0, -87.29776)
 
-[node name="Pohon3" parent="Nature" unique_id=1196553219 instance=ExtResource("10_b5hqc")]
+[node name="Pohon3" parent="StarterNature" unique_id=1196553219 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.54126, 0, -63.55025)
 
-[node name="Pohon48" parent="Nature" unique_id=1168784377 instance=ExtResource("10_b5hqc")]
+[node name="Pohon48" parent="StarterNature" unique_id=1168784377 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.151543, 0, 0.5767212)
 
-[node name="Pohon49" parent="Nature" unique_id=824882149 instance=ExtResource("10_b5hqc")]
+[node name="Pohon49" parent="StarterNature" unique_id=824882149 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.808807, 0, -36.98212)
 
-[node name="Pohon50" parent="Nature" unique_id=1372653113 instance=ExtResource("10_b5hqc")]
+[node name="Pohon50" parent="StarterNature" unique_id=1372653113 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.162262, 0, -44.614796)
 
-[node name="Pohon51" parent="Nature" unique_id=2057506089 instance=ExtResource("10_b5hqc")]
+[node name="Pohon51" parent="StarterNature" unique_id=2057506089 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.615349, 0, -14.228432)
 
-[node name="Pohon52" parent="Nature" unique_id=135681802 instance=ExtResource("10_b5hqc")]
+[node name="Pohon52" parent="StarterNature" unique_id=135681802 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -113.4629, 0, -88.73474)
 
-[node name="Pohon78" parent="Nature" unique_id=1328192186 instance=ExtResource("10_b5hqc")]
+[node name="Pohon78" parent="StarterNature" unique_id=1328192186 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.005066, 0, -27.019503)
 
-[node name="Pohon79" parent="Nature" unique_id=774595343 instance=ExtResource("10_b5hqc")]
+[node name="Pohon79" parent="StarterNature" unique_id=774595343 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.3478, 0, -64.57835)
 
-[node name="Pohon80" parent="Nature" unique_id=528153200 instance=ExtResource("10_b5hqc")]
+[node name="Pohon80" parent="StarterNature" unique_id=528153200 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.99435, 0, -72.21102)
 
-[node name="Pohon81" parent="Nature" unique_id=1149361510 instance=ExtResource("10_b5hqc")]
+[node name="Pohon81" parent="StarterNature" unique_id=1149361510 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.54126, 0, -41.824654)
 
-[node name="Pohon82" parent="Nature" unique_id=1333986858 instance=ExtResource("10_b5hqc")]
+[node name="Pohon82" parent="StarterNature" unique_id=1333986858 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -113.4629, 0, -67.00915)
 
-[node name="Pohon84" parent="Nature" unique_id=555354730 instance=ExtResource("10_b5hqc")]
+[node name="Pohon84" parent="StarterNature" unique_id=555354730 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.09674, 0, -64.57835)
 
-[node name="Pohon85" parent="Nature" unique_id=1992340598 instance=ExtResource("10_b5hqc")]
+[node name="Pohon85" parent="StarterNature" unique_id=1992340598 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.4502, 0, -72.21102)
 
-[node name="Pohon87" parent="Nature" unique_id=956505478 instance=ExtResource("10_b5hqc")]
+[node name="Pohon87" parent="StarterNature" unique_id=956505478 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.98165, 0, -67.00915)
 
-[node name="Pohon53" parent="Nature" unique_id=1904121707 instance=ExtResource("10_b5hqc")]
+[node name="Pohon53" parent="StarterNature" unique_id=1904121707 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -107.80563, 0, -126.29358)
 
-[node name="Pohon54" parent="Nature" unique_id=801544070 instance=ExtResource("10_b5hqc")]
+[node name="Pohon54" parent="StarterNature" unique_id=801544070 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -151.45218, 0, -133.92625)
 
-[node name="Pohon55" parent="Nature" unique_id=249276058 instance=ExtResource("10_b5hqc")]
+[node name="Pohon55" parent="StarterNature" unique_id=249276058 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -133.99908, 0, -103.539894)
 
-[node name="Pohon56" parent="Nature" unique_id=524174956 instance=ExtResource("10_b5hqc")]
+[node name="Pohon56" parent="StarterNature" unique_id=524174956 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117.30425, 0, 59.637512)
 
-[node name="Pohon57" parent="Nature" unique_id=2094811075 instance=ExtResource("10_b5hqc")]
+[node name="Pohon57" parent="StarterNature" unique_id=2094811075 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -111.64699, 0, 22.078674)
 
-[node name="Pohon58" parent="Nature" unique_id=704051960 instance=ExtResource("10_b5hqc")]
+[node name="Pohon58" parent="StarterNature" unique_id=704051960 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -155.29353, 0, 14.445999)
 
-[node name="Pohon59" parent="Nature" unique_id=1926877785 instance=ExtResource("10_b5hqc")]
+[node name="Pohon59" parent="StarterNature" unique_id=1926877785 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -137.84044, 0, 44.83236)
 
-[node name="Pohon35" parent="Nature" unique_id=1213034380 instance=ExtResource("10_b5hqc")]
+[node name="Pohon35" parent="StarterNature" unique_id=1213034380 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.53595, 0, 72.34195)
 
-[node name="Pohon64" parent="Nature" unique_id=538612759 instance=ExtResource("10_b5hqc")]
+[node name="Pohon64" parent="StarterNature" unique_id=538612759 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.180008, 0, 100.679855)
 
-[node name="Pohon69" parent="Nature" unique_id=1568876149 instance=ExtResource("10_b5hqc")]
+[node name="Pohon69" parent="StarterNature" unique_id=1568876149 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.63942, 0, 42.48825)
 
-[node name="Pohon72" parent="Nature" unique_id=1870283593 instance=ExtResource("10_b5hqc")]
+[node name="Pohon72" parent="StarterNature" unique_id=1870283593 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.293533, 0, 62.946)
 
-[node name="Pohon75" parent="Nature" unique_id=575382153 instance=ExtResource("10_b5hqc")]
+[node name="Pohon75" parent="StarterNature" unique_id=575382153 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.840439, 0, 93.33236)
 
-[node name="Pohon68" parent="Nature" unique_id=708036933 instance=ExtResource("10_b5hqc")]
+[node name="Pohon68" parent="StarterNature" unique_id=708036933 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.94871, 0, 23.841953)
 
-[node name="Pohon70" parent="Nature" unique_id=1882437043 instance=ExtResource("10_b5hqc")]
+[node name="Pohon70" parent="StarterNature" unique_id=1882437043 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.059746, 0, 22.078674)
 
-[node name="Pohon71" parent="Nature" unique_id=83412576 instance=ExtResource("10_b5hqc")]
+[node name="Pohon71" parent="StarterNature" unique_id=83412576 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.70629, 0, 14.445999)
 
-[node name="Pohon73" parent="Nature" unique_id=48613704 instance=ExtResource("10_b5hqc")]
+[node name="Pohon73" parent="StarterNature" unique_id=48613704 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.35143, 0, 107.346115)
 
-[node name="Pohon74" parent="Nature" unique_id=1318719830 instance=ExtResource("10_b5hqc")]
+[node name="Pohon74" parent="StarterNature" unique_id=1318719830 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.11973, 0, 143.14168)
 
-[node name="Pohon76" parent="Nature" unique_id=72344696 instance=ExtResource("10_b5hqc")]
+[node name="Pohon76" parent="StarterNature" unique_id=72344696 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.10901, 0, 97.950165)
 
-[node name="Pohon77" parent="Nature" unique_id=595132916 instance=ExtResource("10_b5hqc")]
+[node name="Pohon77" parent="StarterNature" unique_id=595132916 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.65592, 0, 128.33652)
 
-[node name="Pohon60" parent="Nature" unique_id=218046469 instance=ExtResource("10_b5hqc")]
+[node name="Pohon60" parent="StarterNature" unique_id=218046469 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.675606, 0, 92.28902)
 
-[node name="Pohon61" parent="Nature" unique_id=1101681550 instance=ExtResource("10_b5hqc")]
+[node name="Pohon61" parent="StarterNature" unique_id=1101681550 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.33287, 0, 54.730183)
 
-[node name="Pohon62" parent="Nature" unique_id=993540323 instance=ExtResource("10_b5hqc")]
+[node name="Pohon62" parent="StarterNature" unique_id=993540323 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.686325, 0, 47.097507)
 
-[node name="Pohon63" parent="Nature" unique_id=899319461 instance=ExtResource("10_b5hqc")]
+[node name="Pohon63" parent="StarterNature" unique_id=899319461 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.13942, 0, 77.48387)
 
-[node name="Pohon28" parent="Nature" unique_id=1531388434 instance=ExtResource("10_b5hqc")]
+[node name="Pohon28" parent="StarterNature" unique_id=1531388434 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.454666, 0, 67.53405)
 
-[node name="Pohon83" parent="Nature" unique_id=147444383 instance=ExtResource("10_b5hqc")]
+[node name="Pohon83" parent="StarterNature" unique_id=147444383 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.83287, 0, 54.730183)
 
-[node name="Pohon86" parent="Nature" unique_id=1352602513 instance=ExtResource("10_b5hqc")]
+[node name="Pohon86" parent="StarterNature" unique_id=1352602513 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.813675, 0, 47.097507)
 
-[node name="Pohon88" parent="Nature" unique_id=1725294465 instance=ExtResource("10_b5hqc")]
+[node name="Pohon88" parent="StarterNature" unique_id=1725294465 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6394196, 0, 77.48387)
 
-[node name="Pohon29" parent="Nature" unique_id=1576752956 instance=ExtResource("10_b5hqc")]
+[node name="Pohon29" parent="StarterNature" unique_id=1576752956 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.454666, 0, 53.53405)
 
-[node name="Pohon89" parent="Nature" unique_id=1156597538 instance=ExtResource("10_b5hqc")]
+[node name="Pohon89" parent="StarterNature" unique_id=1156597538 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.83287, 0, 40.730183)
 
-[node name="Pohon90" parent="Nature" unique_id=470765981 instance=ExtResource("10_b5hqc")]
+[node name="Pohon90" parent="StarterNature" unique_id=470765981 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.186325, 0, 33.097507)
 
-[node name="Pohon91" parent="Nature" unique_id=2060487456 instance=ExtResource("10_b5hqc")]
+[node name="Pohon91" parent="StarterNature" unique_id=2060487456 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.63942, 0, 63.48387)
 
-[node name="Pohon92" parent="Nature" unique_id=1133829728 instance=ExtResource("10_b5hqc")]
+[node name="Pohon92" parent="StarterNature" unique_id=1133829728 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.954666, 0, 156.03406)
 
-[node name="Pohon93" parent="Nature" unique_id=205307952 instance=ExtResource("10_b5hqc")]
+[node name="Pohon93" parent="StarterNature" unique_id=205307952 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.33287, 0, 143.23018)
 
-[node name="Pohon94" parent="Nature" unique_id=804797619 instance=ExtResource("10_b5hqc")]
+[node name="Pohon94" parent="StarterNature" unique_id=804797619 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.686325, 0, 135.5975)
 
-[node name="Pohon95" parent="Nature" unique_id=1967938982 instance=ExtResource("10_b5hqc")]
+[node name="Pohon95" parent="StarterNature" unique_id=1967938982 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.13942, 0, 165.98387)
 
-[node name="Pohon65" parent="Nature" unique_id=672426849 instance=ExtResource("10_b5hqc")]
+[node name="Pohon65" parent="StarterNature" unique_id=672426849 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.468765, 0, -81.63785)
 
-[node name="Pohon66" parent="Nature" unique_id=1422539137 instance=ExtResource("10_b5hqc")]
+[node name="Pohon66" parent="StarterNature" unique_id=1422539137 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.82222, 0, -89.27052)
 
-[node name="Pohon67" parent="Nature" unique_id=325320541 instance=ExtResource("10_b5hqc")]
+[node name="Pohon67" parent="StarterNature" unique_id=325320541 instance=ExtResource("10_b5hqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.275314, 0, -58.884155)
 
 [node name="Listrik" type="Node3D" parent="." unique_id=731133364]
+script = ExtResource("12_jdmvx")
 
 [node name="Floods" type="Node3D" parent="." unique_id=126481449]
 script = ExtResource("10_eq4fp")
@@ -546,9 +554,13 @@ editor_description = "Harus ada di posisi paling bawah"
 [connection signal="child_entered_tree" from="Sampah" to="." method="_on_sampah_child_entered_tree"]
 [connection signal="child_exiting_tree" from="Sampah" to="." method="_on_sampah_child_exiting_tree"]
 [connection signal="child_entered_tree" from="Bangunan" to="." method="_on_bangunan_child_entered_tree"]
+[connection signal="child_entered_tree" from="Bangunan" to="Bangunan" method="_on_child_entered_tree"]
 [connection signal="child_exiting_tree" from="Bangunan" to="." method="_on_bangunan_child_exiting_tree"]
 [connection signal="child_entered_tree" from="Nature" to="." method="_on_nature_child_entered_tree"]
+[connection signal="child_entered_tree" from="Nature" to="Nature" method="_on_child_entered_tree"]
 [connection signal="child_exiting_tree" from="Nature" to="." method="_on_nature_child_exiting_tree"]
+[connection signal="child_exiting_tree" from="StarterNature" to="." method="_on_starter_nature_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Listrik" to="Listrik" method="_on_child_entered_tree"]
 [connection signal="timeout" from="Floods/FloodTimer" to="Floods" method="_on_flood_timer_timeout"]
 [connection signal="area_entered" from="Sampah_added/Area3D" to="Sampah_added" method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Sampah_added/Area3D" to="Sampah_added" method="_on_area_3d_area_exited"]

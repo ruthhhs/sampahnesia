@@ -6,8 +6,7 @@ extends Control
 
 func _on_play_pressed() -> void:
 	#print("bisa")
-	%Label.visible = true
-	%Fade.play("Transition")
+	Transition.change_scnee("res://UI/Scnee/Cutscnee/cutscene.tscn")
 	#get_tree().change_scene_to_file(play_address)
 	
 func _on_credits_pressed() -> void:
@@ -21,8 +20,3 @@ func _on_setting_pressed() -> void:
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
-
-
-func _on_fade_animation_finished(_anim_name: StringName) -> void:
-	
-	Transition.change_scnee("res://UI/Scnee/Cutscnee/cutscene.tscn")

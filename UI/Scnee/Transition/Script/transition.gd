@@ -7,6 +7,6 @@ func change_scnee(target: String)-> void:
 	if target != null:
 			
 		$AnimationPlayer.play("Transition")
-		#$AnimationPlayer.animation_finished
+		await $AnimationPlayer.animation_finished
 		get_tree().change_scene_to_file(target)
 		$AnimationPlayer.play_backwards("Transition")

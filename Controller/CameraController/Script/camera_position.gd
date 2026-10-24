@@ -59,9 +59,7 @@ func _ready() -> void:
 	%CityName.text = Global.name_city
 	%YearLabel.text = str(year_start)
 	%ValueMonth.text = str(month)
-func _input(event: InputEvent) -> void:
-
-		
+func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		if %Pause.visible == true:
 			

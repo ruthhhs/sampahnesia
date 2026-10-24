@@ -13,6 +13,7 @@ func _ready() -> void:
 	$Island/AnimationPlayer.play("scneery")
 	$CameraPosition.send_month.connect(adding_sampah)
 	update_polution_bar()
+	Global.stat_oxigen += udara_pohon * $StarterNature.get_child_count()
 
 func adding_sampah(_month: int) -> void:
 	# 1. Hitung berapa banyak sampah yang saat ini aktif di dalam game (berdasarkan target_spawn)
@@ -45,6 +46,9 @@ func _on_nature_child_exiting_tree(_node: Node) -> void:
 	Global.stat_oxigen -= udara_pohon
 	update_polution_bar()
 
+func _on_starter_nature_child_exiting_tree(_node: Node) -> void:
+	Global.stat_oxigen -= udara_pohon
+	update_polution_bar()	
 func _on_bangunan_child_entered_tree(node: Node) -> void:
 	Global.stat_polution += node.jumlah_polusi
 	update_polution_bar()
@@ -60,6 +64,9 @@ func _on_sampah_child_entered_tree(node: Node) -> void:
 func _on_sampah_child_exiting_tree(node: Node) -> void:
 	Global.stat_polution -= node.jumlah_polusi
 	update_polution_bar()
+
+
+
 
 func update_polution_bar() -> void:
 	if not is_inside_tree() or pollution_bar == null:

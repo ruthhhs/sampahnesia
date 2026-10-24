@@ -29,7 +29,16 @@ var currently_are_raining: bool = false:
 			
 			currently_are_raining = value
 			is_raining.emit(currently_are_raining)
-var stat_money: int= 8500
+signal money_change(new_value: int)
+var stat_money: int= 3000:
+	set(value):
+		if stat_money != value:
+			stat_money = value
+			money_change.emit(stat_money)
+			if stat_money >= 5000:
+				Archivement.validate_archivement(3)
+			if stat_money >= 10000:
+				Archivement.validate_archivement(4)
 var stat_polution: int = 1
 var stat_oxigen: int = 1
 
