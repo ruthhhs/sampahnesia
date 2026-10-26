@@ -167,6 +167,11 @@ func _on_timer_watch_timeout() -> void:
 		year_start += 1
 		%YearLabel.text = str(year_start)
 	if year_start >= durasi_jabatan:
-		Transition.oksigen = Global.stat_oxigen
-		Transition.karbon_dioksida = Global.stat_polution
-		Transition.change_scnee("res://UI/Scnee/Popup/popupScore/popup_score.tscn")
+		%EndAnim.play("GameOver")
+		#Transition.oksigen = Global.stat_oxigen
+		#Transition.karbon_dioksida = Global.stat_polution
+		#Transition.change_scnee("res://UI/Scnee/Popup/popupScore/popup_score.tscn")
+
+
+func _on_end_anim_animation_finished(_anim_name: StringName) -> void:
+	Transition.change_scnee("res://UI/Scnee/Cutscnee/ending.tscn")

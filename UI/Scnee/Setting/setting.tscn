@@ -98,7 +98,7 @@ theme = ExtResource("1_w60py")
 theme_override_constants/side_margin = 16
 theme_override_constants/tab_separation = -52
 theme_override_font_sizes/font_size = 42
-current_tab = 1
+current_tab = 0
 script = ExtResource("3_mroum")
 
 [node name="HoverAudioButton" type="AudioStreamPlayer" parent="PanelControl/TabContainer" unique_id=333168863]
@@ -109,13 +109,12 @@ bus = &"Effect"
 stream = ExtResource("5_h0kkp")
 bus = &"Effect"
 
-[node name="Video" type="TabBar" parent="PanelControl/TabContainer" unique_id=633491251]
-visible = false
+[node name="Graphics" type="TabBar" parent="PanelControl/TabContainer" unique_id=633491251]
 layout_mode = 2
 mouse_filter = 2
 metadata/_tab_index = 0
 
-[node name="Control" type="Control" parent="PanelControl/TabContainer/Video" unique_id=264556979]
+[node name="Control" type="Control" parent="PanelControl/TabContainer/Graphics" unique_id=264556979]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -126,7 +125,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelControl/TabContainer/Video/Control" unique_id=929903358]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelControl/TabContainer/Graphics/Control" unique_id=929903358]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -134,12 +133,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VSeparator" type="VSeparator" parent="PanelControl/TabContainer/Video/Control/HBoxContainer" unique_id=1393922205]
+[node name="VSeparator" type="VSeparator" parent="PanelControl/TabContainer/Graphics/Control/HBoxContainer" unique_id=1393922205]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelControl/TabContainer/Video/Control/HBoxContainer" unique_id=642200498]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelControl/TabContainer/Graphics/Control/HBoxContainer" unique_id=642200498]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.0
@@ -147,12 +146,12 @@ theme = ExtResource("1_mnh5i")
 theme_override_constants/separation = 48
 alignment = 1
 
-[node name="Resolution" type="Control" parent="PanelControl/TabContainer/Video/Control/HBoxContainer/VBoxContainer" unique_id=1894394930]
+[node name="Resolution" type="Control" parent="PanelControl/TabContainer/Graphics/Control/HBoxContainer/VBoxContainer" unique_id=1894394930]
 custom_minimum_size = Vector2(0, 37.985)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Resolution" type="Label" parent="PanelControl/TabContainer/Video/Control/HBoxContainer/VBoxContainer/Resolution" unique_id=634062184]
+[node name="Resolution" type="Label" parent="PanelControl/TabContainer/Graphics/Control/HBoxContainer/VBoxContainer/Resolution" unique_id=634062184]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -164,7 +163,7 @@ grow_vertical = 2
 text = "Resolution"
 label_settings = SubResource("LabelSettings_fxxad")
 
-[node name="ResolutionOption" type="OptionButton" parent="PanelControl/TabContainer/Video/Control/HBoxContainer/VBoxContainer/Resolution" unique_id=1063695788]
+[node name="ResolutionOption" type="OptionButton" parent="PanelControl/TabContainer/Graphics/Control/HBoxContainer/VBoxContainer/Resolution" unique_id=1063695788]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -187,12 +186,12 @@ popup/item_1/id = 1
 popup/item_2/text = "800 x 450"
 popup/item_2/id = 2
 
-[node name="Fullscreen" type="Control" parent="PanelControl/TabContainer/Video/Control/HBoxContainer/VBoxContainer" unique_id=835631239]
+[node name="Fullscreen" type="Control" parent="PanelControl/TabContainer/Graphics/Control/HBoxContainer/VBoxContainer" unique_id=835631239]
 custom_minimum_size = Vector2(0, 37.985)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="FullscreenButton" type="CheckButton" parent="PanelControl/TabContainer/Video/Control/HBoxContainer/VBoxContainer/Fullscreen" unique_id=1150508874]
+[node name="FullscreenButton" type="CheckButton" parent="PanelControl/TabContainer/Graphics/Control/HBoxContainer/VBoxContainer/Fullscreen" unique_id=1150508874]
 custom_minimum_size = Vector2(289.69, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -203,7 +202,7 @@ grow_vertical = 2
 flat = true
 alignment = 1
 
-[node name="FullscreenLabel" type="Label" parent="PanelControl/TabContainer/Video/Control/HBoxContainer/VBoxContainer/Fullscreen" unique_id=2121881884]
+[node name="FullscreenLabel" type="Label" parent="PanelControl/TabContainer/Graphics/Control/HBoxContainer/VBoxContainer/Fullscreen" unique_id=2121881884]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -215,12 +214,42 @@ grow_vertical = 2
 text = "FullScreen"
 label_settings = SubResource("LabelSettings_fxxad")
 
-[node name="VSeparator2" type="VSeparator" parent="PanelControl/TabContainer/Video/Control/HBoxContainer" unique_id=807320949]
+[node name="Tutorial" type="Control" parent="PanelControl/TabContainer/Graphics/Control/HBoxContainer/VBoxContainer" unique_id=2045451927]
+visible = false
+custom_minimum_size = Vector2(0, 37.985)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Tutorial_button" type="CheckButton" parent="PanelControl/TabContainer/Graphics/Control/HBoxContainer/VBoxContainer/Tutorial" unique_id=1520137338]
+custom_minimum_size = Vector2(289.69, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+alignment = 1
+
+[node name="FullscreenLabel" type="Label" parent="PanelControl/TabContainer/Graphics/Control/HBoxContainer/VBoxContainer/Tutorial" unique_id=1213961996]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -17.5
+offset_right = 154.0
+offset_bottom = 17.5
+grow_vertical = 2
+text = "Tutorial"
+label_settings = SubResource("LabelSettings_fxxad")
+
+[node name="VSeparator2" type="VSeparator" parent="PanelControl/TabContainer/Graphics/Control/HBoxContainer" unique_id=807320949]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Audio" type="TabBar" parent="PanelControl/TabContainer" unique_id=981927844]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -387,8 +416,9 @@ metadata/_edit_use_anchors_ = true
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="tab_clicked" from="PanelControl/TabContainer" to="PanelControl/TabContainer" method="_on_tab_clicked"]
 [connection signal="tab_hovered" from="PanelControl/TabContainer" to="PanelControl/TabContainer" method="_on_tab_hovered"]
-[connection signal="item_selected" from="PanelControl/TabContainer/Video/Control/HBoxContainer/VBoxContainer/Resolution/ResolutionOption" to="." method="_on_resolution_option_item_selected"]
-[connection signal="toggled" from="PanelControl/TabContainer/Video/Control/HBoxContainer/VBoxContainer/Fullscreen/FullscreenButton" to="." method="_on_fullscreen_button_toggled"]
+[connection signal="item_selected" from="PanelControl/TabContainer/Graphics/Control/HBoxContainer/VBoxContainer/Resolution/ResolutionOption" to="." method="_on_resolution_option_item_selected"]
+[connection signal="toggled" from="PanelControl/TabContainer/Graphics/Control/HBoxContainer/VBoxContainer/Fullscreen/FullscreenButton" to="." method="_on_fullscreen_button_toggled"]
+[connection signal="toggled" from="PanelControl/TabContainer/Graphics/Control/HBoxContainer/VBoxContainer/Tutorial/Tutorial_button" to="." method="_on_tutorial_button_toggled"]
 [connection signal="value_changed" from="PanelControl/TabContainer/Audio/Control/HBoxContainer/VBoxContainer2/Master/AudioMasterSlider" to="." method="_on_audio_master_slider_value_changed"]
 [connection signal="value_changed" from="PanelControl/TabContainer/Audio/Control/HBoxContainer/VBoxContainer2/SFX/AudioSFXSlider" to="." method="_on_audio_sfx_slider_value_changed"]
 [connection signal="value_changed" from="PanelControl/TabContainer/Audio/Control/HBoxContainer/VBoxContainer2/Music/AudioMusicSlider" to="." method="_on_audio_music_slider_value_changed"]

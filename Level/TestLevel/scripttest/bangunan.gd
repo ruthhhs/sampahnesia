@@ -5,7 +5,7 @@ func _input(_event: InputEvent) -> void:
 	$BangunanLabel.text = "bangunan: " + str(get_child_count()-1)
 
 func _on_child_entered_tree(_node: Node) -> void:
-	var total_pollution: int
+	var total_pollution: int = 0
 	for i in get_children():
 		if i.get_class() == "Area3D":
 			total_pollution += i.jumlah_polusi

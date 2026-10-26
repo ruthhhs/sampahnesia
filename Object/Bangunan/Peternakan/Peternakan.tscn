@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://copfgcif52xfj" path="res://Object/Prototype/Bangunan/Script/prototype_listrik.gd" id="1_pe5vq"]
 [ext_resource type="PackedScene" uid="uid://riknipcet7wf" path="res://Assets/3DModel/Bangunan/Peternakan/peternakan.tscn" id="2_ei4xj"]
+[ext_resource type="PackedScene" uid="uid://b368u4y7laqgy" path="res://Object/Prefabs/StarterAnim/starter_anim.tscn" id="2_mmgpu"]
 [ext_resource type="Texture2D" uid="uid://58tcg4hnt3yd" path="res://UI/Icon/PNG/White/1x/down.png" id="3_f0l82"]
 [ext_resource type="Texture2D" uid="uid://d3g4r4hbpttlg" path="res://Assets/Sprite/ItemIcon/silicon-waffer.png" id="4_mmgpu"]
 [ext_resource type="Texture2D" uid="uid://dy87b30l4je6h" path="res://UI/Icon/PNG/White/1x/warning.png" id="5_3is5o"]
@@ -60,7 +61,9 @@ kapasitas_koneksi = 3
 can_sell = true
 is_electric_usage = true
 
-[node name="Peternakan" parent="." unique_id=1492353449 instance=ExtResource("2_ei4xj")]
+[node name="StarterAnim" parent="." unique_id=223462457 instance=ExtResource("2_mmgpu")]
+
+[node name="Peternakan" parent="StarterAnim" unique_id=1492353449 instance=ExtResource("2_ei4xj")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5763052, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1864420134]

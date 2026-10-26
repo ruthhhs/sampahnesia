@@ -142,12 +142,6 @@ alignment = 1
 layout_mode = 2
 text = "Play"
 
-[node name="Credits" parent="Forground/VBoxContainer/HBoxContainer/ButtonList" unique_id=1453007528 instance=ExtResource("4_fxxad")]
-visible = false
-layout_mode = 2
-text = "Credits
-"
-
 [node name="Setting" parent="Forground/VBoxContainer/HBoxContainer/ButtonList" unique_id=1360431569 instance=ExtResource("4_fxxad")]
 layout_mode = 2
 text = "Setting"
@@ -174,7 +168,6 @@ size = Vector2i(1920, 1080)
 camera_attributes = SubResource("CameraAttributesPractical_3okgq")
 
 [connection signal="pressed" from="Forground/VBoxContainer/HBoxContainer/ButtonList/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Forground/VBoxContainer/HBoxContainer/ButtonList/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Forground/VBoxContainer/HBoxContainer/ButtonList/Setting" to="." method="_on_setting_pressed"]
 [connection signal="pressed" from="Forground/VBoxContainer/HBoxContainer/ButtonList/Exit" to="." method="_on_exit_pressed"]
 

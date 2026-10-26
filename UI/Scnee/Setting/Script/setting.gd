@@ -51,3 +51,8 @@ func _on_audio_sfx_slider_value_changed(value: float) -> void:
 func _on_audio_music_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(1, value)
 	GlobalSetting.music_value = value
+
+
+func _on_tutorial_button_toggled(toggled_on: bool) -> void:
+	Global.is_on_tutorial = toggled_on
+	

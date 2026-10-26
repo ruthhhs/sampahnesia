@@ -17,19 +17,7 @@ var is_delivering: bool = false # Tambahan variabel state baru
 				Global.first_perternakan_input = true
 			elif  get_parent().get_parent().building_category == 4:
 				Global.first_toko_input = true
-			#match get_parent().get_parent().building_category:
-				#"SAMPAH":
-					#print("sampah")
-					##Global.first_sampah_input = true
-				#"PERTANIAN":
-					#print("pertanian")
-					##Global.first_pertanian_input = true
-				#"PETERNAKAN":
-					#print("perternakan")
-					##Global.first_perternakan_input = true
-				#"TOKO":
-					#print("toko")
-					##Global.first_toko_input = true
+
 @export var enable_mesh: MeshInstance3D
 @export var disable_mesh: MeshInstance3D
 @export var interact_line: Area3D
@@ -120,53 +108,55 @@ func _input(_event: InputEvent) -> void:
 				queue_free()
 
 func _process(delta: float) -> void:
-	if target_send == null:
-		return
+	if Global.on_pause == false:
+			
+		if target_send == null:
+			return
+			
+		var is_target_full: bool = false
 		
-	var is_target_full: bool = false
-	
-	# 1. Cek apakah kapasitas target penuh
-	if the_parent.is_electric_production:
-		is_target_full = (target_send.electric_item >= target_send.maximum_electric_item)
-	else:
-		is_target_full = (target_send.item_value >= target_send.maximum_item_value)
-
-	# 2. Jika paket sedang stanby (belum berangkat)
-	if not is_delivering:
-		var can_start_delivery: bool = false
-		
-		# Cek ketersediaan resource di pengirim
+		# 1. Cek apakah kapasitas target penuh
 		if the_parent.is_electric_production:
-			can_start_delivery = (the_parent.is_self_added or the_parent.item_value > 0)
+			is_target_full = (target_send.electric_item >= target_send.maximum_electric_item)
 		else:
-			if the_parent.is_electric_usage:
-				can_start_delivery = (the_parent.item_value > 0 and the_parent.electric_item > 0)
-			else:
-				can_start_delivery = (the_parent.item_value > 0)
-		
-		# BERANGKAT! Kurangi resource di awal keberangkatan
-		if can_start_delivery and not is_target_full:
-			is_delivering = true
-			
-			if the_parent.is_electric_production == false:
-				the_parent.item_value -= value_recive
-				if the_parent.shorcut_electric_usage == true:
-					the_parent.electric_item -= value_recive
-			else:
-				if the_parent.is_self_added == false:
-					the_parent.item_value = max(0, the_parent.item_value - value_recive)
-				the_parent.electric_item = max(0, the_parent.electric_item - value_recive)
+			is_target_full = (target_send.item_value >= target_send.maximum_item_value)
 
-	# 3. Eksekusi pergerakan di jalan
-	if is_delivering:
-		sprite_3d.visible = true
-		#if speed_applier > 1:
+		# 2. Jika paket sedang stanby (belum berangkat)
+		if not is_delivering:
+			var can_start_delivery: bool = false
 			
-		%Ekspedisi.progress += speed_applier * delta
-	else:
-		# Menunggu resource atau target full
-		sprite_3d.visible = false
-		%Ekspedisi.progress = 0
+			# Cek ketersediaan resource di pengirim
+			if the_parent.is_electric_production:
+				can_start_delivery = (the_parent.is_self_added or the_parent.item_value > 0)
+			else:
+				if the_parent.is_electric_usage:
+					can_start_delivery = (the_parent.item_value > 0 and the_parent.electric_item > 0)
+				else:
+					can_start_delivery = (the_parent.item_value > 0)
+			
+			# BERANGKAT! Kurangi resource di awal keberangkatan
+			if can_start_delivery and not is_target_full:
+				is_delivering = true
+				
+				if the_parent.is_electric_production == false:
+					the_parent.item_value -= value_recive
+					if the_parent.shorcut_electric_usage == true:
+						the_parent.electric_item -= value_recive
+				else:
+					if the_parent.is_self_added == false:
+						the_parent.item_value = max(0, the_parent.item_value - value_recive)
+					the_parent.electric_item = max(0, the_parent.electric_item - value_recive)
+
+		# 3. Eksekusi pergerakan di jalan
+		if is_delivering:
+			sprite_3d.visible = true
+			#if speed_applier > 1:
+				
+			%Ekspedisi.progress += speed_applier * delta
+		else:
+			# Menunggu resource atau target full
+			sprite_3d.visible = false
+			%Ekspedisi.progress = 0
 
 func _delete_connection() -> void:
 	if my_parent != null:
@@ -204,6 +194,7 @@ func _on_area_selected_area_entered(area: Area3D) -> void:
 func _on_interact_to_line_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed: 
 		if Global.currently_are_delete == true:
+			Global.first_destroy_raycster = true
 			_delete_connection()
 
 func _on_interact_to_line_area_entered(area: Area3D) -> void:

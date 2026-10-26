@@ -2,7 +2,9 @@ extends Node
 
 var name_city: String = "sampahnesia"
 var mouse_pos: Vector3
-
+var ending_id: int = 0
+var on_tutorial: bool = true
+var on_pause: bool = false
 # Signal untuk memberitahu sistem lain jika state tutorial berubah
 signal tutorial_state_changed(is_active: bool)
 
@@ -67,6 +69,10 @@ signal first_toko_signal(new_value: bool)
 signal first_nebang_signal(new_value: bool)
 signal first_nanem_signal(new_value: bool)
 signal first_sampah_double_linked_signal(new_value: bool)
+signal first_bangunan_double_linked_signal(new_value: bool)
+signal first_bangunan_double_input_signal(new_value: bool)
+signal first_destroy_raycast_signal(new_value: bool)
+signal first_building_damage_signal(new_value: bool)
 var first_sampah_input: bool = false:
 	set(value):
 		if first_sampah_input != value:
@@ -98,12 +104,35 @@ var first_nanem_pohon: bool = false:
 			first_nanem_pohon = value
 			first_nanem_signal.emit(first_nanem_pohon)
 
-var first_sampah_double_linked = false:
-		set(value):
-			if first_sampah_double_linked != value:
-				first_sampah_double_linked = value
-				first_sampah_double_linked_signal.emit(first_sampah_double_linked)
-				
+var first_sampah_double_linked: bool = false:
+	set(value):
+		if first_sampah_double_linked != value:
+			first_sampah_double_linked = value
+			first_sampah_double_linked_signal.emit(first_sampah_double_linked)
+var first_bangunan_double_linked: bool = false: #not yet implement
+	set(value):
+		if first_bangunan_double_linked != value:
+			first_bangunan_double_linked = value
+			first_bangunan_double_linked_signal.emit(first_bangunan_double_linked)
+			
+var first_bangunan_double_input: bool = false: #not yet implement
+	set(value):
+		if first_bangunan_double_input != value:
+			first_bangunan_double_input = value
+			first_bangunan_double_input_signal.emit(first_bangunan_double_input)
+
+var first_destroy_raycster: bool = false: #not yet implement
+	set(value):
+		if first_destroy_raycster != value:
+			first_destroy_raycster = value
+			first_destroy_raycast_signal.emit(first_destroy_raycster)
+var first_building_damage: bool = false:
+	set (value):
+		if first_building_damage != value:
+			first_building_damage = value
+			first_building_damage_signal.emit(first_building_damage)
+
+
 # --- FUNGSI MANAJEMEN TUTORIAL ---
 func register_tutorial(tutorial_node: Node) -> void:
 	if is_instance_valid(active_tutorial_instance) and active_tutorial_instance != tutorial_node:
@@ -129,9 +158,9 @@ func reset_game_data() -> void:
 	
 	if is_instance_valid(active_tutorial_instance):
 		active_tutorial_instance.queue_free()
-	
+	ending_id = 0
 	active_tutorial_instance = null
-	is_on_tutorial = false
+	is_on_tutorial = true
 	
 	currently_are_inspecting = false
 	currently_are_selecting = false
@@ -151,5 +180,9 @@ func reset_game_data() -> void:
 	first_nebang_pohon = false
 	first_nanem_pohon = false
 	first_sampah_double_linked = false
+	first_bangunan_double_linked = false
+	first_bangunan_double_input = false
+	first_destroy_raycster = false
+	first_building_damage = false
 	if Archivement.has_method("reset_archivement"):
 		Archivement.reset_archivement()

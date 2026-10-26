@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://d24atgy8r3jg6"]
 
 [ext_resource type="Script" uid="uid://copfgcif52xfj" path="res://Object/Prototype/Bangunan/Script/prototype_listrik.gd" id="1_aui2c"]
+[ext_resource type="Texture2D" uid="uid://cwqxnx6hv3wtx" path="res://UI/Icon/SelfMade/1000x1000lighting.png" id="2_b6a5h"]
 [ext_resource type="PackedScene" uid="uid://ccctcsy4m4scb" path="res://Assets/3DModel/Listrik/PembangkitListrikTenagaAngin/pembangkit_listrik_tenaga_angin.tscn" id="2_c2mmu"]
+[ext_resource type="PackedScene" uid="uid://b368u4y7laqgy" path="res://Object/Prefabs/StarterAnim/starter_anim.tscn" id="2_lb511"]
 [ext_resource type="Texture2D" uid="uid://58tcg4hnt3yd" path="res://UI/Icon/PNG/White/1x/down.png" id="3_1lavo"]
 [ext_resource type="Texture2D" uid="uid://dy87b30l4je6h" path="res://UI/Icon/PNG/White/1x/warning.png" id="4_lb511"]
 [ext_resource type="FontVariation" uid="uid://cl1ghml6fsl2n" path="res://UI/Font/tress_font/UiFont.tres" id="5_b6a5h"]
@@ -46,28 +48,30 @@ corner_radius_top_right = 38
 corner_radius_bottom_right = 38
 corner_radius_bottom_left = 38
 
-[node name="PLTA" type="Area3D" unique_id=1372270150 node_paths=PackedStringArray("popup_hover", "popup_warning", "image_input_value_item", "electrical_box_container", "label_value_item", "label_electricity_item", "popup_warning_value", "popup_warning_electricity") groups=["Objek", "listrik_kotor"]]
+[node name="PLTA" type="Area3D" unique_id=1372270150 node_paths=PackedStringArray("popup_hover", "image_input_value_item", "electrical_box_container", "label_value_item", "label_electricity_item", "popup_warning_value", "popup_warning_electricity") groups=["Objek", "listrik_kotor"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 top_level = true
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_aui2c")
-jumlah_polusi = 5
 popup_hover = NodePath("Sprite3D/SubViewport/PopupHover")
-popup_warning = NodePath("Sprite3D/SubViewport/PopupWarning")
 image_input_value_item = NodePath("Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue/ImageInputValueItem")
 electrical_box_container = NodePath("Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/Electrical")
 label_value_item = NodePath("Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue/LabelValueItem")
 label_electricity_item = NodePath("Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/Electrical/LabelElectricityItem")
 popup_warning_value = NodePath("Sprite3D/SubViewport/PopupWarning/VBoxContainer/Panel/HBoxContainer/ImageInput")
 popup_warning_electricity = NodePath("Sprite3D/SubViewport/PopupWarning/VBoxContainer/Panel/HBoxContainer/Electricity")
+output_texture = ExtResource("2_b6a5h")
 parent_group = "bangunan"
 target_group = Array[String](["bangunan_complete_1", "bangunan_complete_2"])
+jumlah_polusi = 5
 is_self_added = true
 kapasitas_koneksi = 5
 is_electric_production = true
 
-[node name="PembangkitListrikTenagaAngin" parent="." unique_id=1644654778 instance=ExtResource("2_c2mmu")]
+[node name="StarterAnim" parent="." unique_id=223462457 instance=ExtResource("2_lb511")]
+
+[node name="PembangkitListrikTenagaAngin" parent="StarterAnim" unique_id=1644654778 instance=ExtResource("2_c2mmu")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1864420134]

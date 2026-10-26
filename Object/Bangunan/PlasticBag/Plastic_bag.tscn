@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://copfgcif52xfj" path="res://Object/Prototype/Bangunan/Script/prototype_listrik.gd" id="1_v3aw1"]
 [ext_resource type="PackedScene" uid="uid://4vah3ae12v0x" path="res://Assets/3DModel/Bangunan/PlasticBag/plastic_bag.tscn" id="2_31rf5"]
+[ext_resource type="PackedScene" uid="uid://b368u4y7laqgy" path="res://Object/Prefabs/StarterAnim/starter_anim.tscn" id="2_hkhl3"]
 [ext_resource type="Texture2D" uid="uid://58tcg4hnt3yd" path="res://UI/Icon/PNG/White/1x/down.png" id="3_weh5t"]
 [ext_resource type="Texture2D" uid="uid://d3g4r4hbpttlg" path="res://Assets/Sprite/ItemIcon/silicon-waffer.png" id="4_hkhl3"]
 [ext_resource type="Texture2D" uid="uid://dy87b30l4je6h" path="res://UI/Icon/PNG/White/1x/warning.png" id="5_5xip1"]
@@ -38,14 +39,13 @@ font_size = 78
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rtpij"]
 
-[node name="PlasticBag" type="Area3D" unique_id=1372270150 node_paths=PackedStringArray("popup_hover", "popup_warning", "image_input_value_item", "electrical_box_container", "label_value_item", "label_electricity_item", "popup_warning_value", "popup_warning_electricity") groups=["Objek", "listrik_kotor"]]
+[node name="PlasticBag" type="Area3D" unique_id=1372270150 node_paths=PackedStringArray("popup_hover", "image_input_value_item", "electrical_box_container", "label_value_item", "label_electricity_item", "popup_warning_value", "popup_warning_electricity") groups=["Objek", "listrik_kotor"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 top_level = true
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_v3aw1")
 popup_hover = NodePath("Sprite3D/SubViewport/PopupHover")
-popup_warning = NodePath("Sprite3D/SubViewport/PopupWarning")
 image_input_value_item = NodePath("Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue/ImageInputValueItem")
 electrical_box_container = NodePath("Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/Electrical")
 label_value_item = NodePath("Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue/LabelValueItem")
@@ -58,7 +58,9 @@ jumlah_polusi = 1
 kapasitas_koneksi = 3
 can_sell = true
 
-[node name="PlasticBag" parent="." unique_id=1193196071 instance=ExtResource("2_31rf5")]
+[node name="StarterAnim" parent="." unique_id=223462457 instance=ExtResource("2_hkhl3")]
+
+[node name="PlasticBag" parent="StarterAnim" unique_id=1193196071 instance=ExtResource("2_31rf5")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0.5)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1864420134]

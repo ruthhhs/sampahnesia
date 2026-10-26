@@ -2,7 +2,14 @@ class_name Building
 extends Area3D
 var destroy_timer_access: Node3D
 var infinity_symbol: String = "∞"
-var list_node_tersambung: Array[Area3D]
+var list_node_tersambung: Array[Area3D]:
+	set(value):
+		
+		if list_node_tersambung != value:
+			list_node_tersambung = value
+			if list_node_tersambung.size() >= 2:
+				Global.first_bangunan_double_input = true
+		
 var simpan_harga_bangunan: int
 var standard_speed: int = 25
 var new_speed: int
@@ -208,6 +215,8 @@ func add_raycast() -> void:
 		raycaster_instanciate.global_position = kumpulan_ray.global_position
 		raycaster_instanciate.dragging_access = true
 		raycaster_instanciate.my_parent = self
+		if is_sampah == false and kumpulan_ray.get_child_count() > 1:
+			Global.first_bangunan_double_linked = true
 
 func _reset_drag_multiple(node: Area3D) -> void:
 	for child in kumpulan_ray.get_children():
@@ -289,11 +298,11 @@ func _on_input_event(_camera: Node, event: InputEvent, _event_position: Vector3,
 
 func _on_mouse_entered() -> void:
 	if can_delete == true and Global.currently_are_delete:
-		get_child(0).get_child(0).material_overlay = waiting_for_delete
+		get_child(0).get_child(1).get_child(0).material_overlay = waiting_for_delete
 
 func _on_mouse_exited() -> void:
 	if can_delete == true:
-		get_child(0).get_child(0).material_overlay = null
+		get_child(0).get_child(1).get_child(0).material_overlay = null
 
 func _on_area_entered(area: Area3D) -> void:
 	if area.is_in_group("water") and on_maintenance == false:
@@ -302,6 +311,7 @@ func _on_area_entered(area: Area3D) -> void:
 			destroy_timer_access = destroy_timer_instance
 			add_child(destroy_timer_instance)
 			on_maintenance = true
+			Global.first_building_damage = true
 	if area.is_in_group("collision_checkers") and Global.currently_are_inspecting:
 		if popup_hover != null:
 			popup_hover.visible = true

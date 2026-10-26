@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://copfgcif52xfj" path="res://Object/Prototype/Bangunan/Script/prototype_listrik.gd" id="1_lr5vt"]
 [ext_resource type="PackedScene" uid="uid://cq00ela1gpt0q" path="res://Assets/3DModel/Toko/TokoLevel2/toko_level_2.tscn" id="2_3rv5t"]
+[ext_resource type="PackedScene" uid="uid://b368u4y7laqgy" path="res://Object/Prefabs/StarterAnim/starter_anim.tscn" id="2_cemxh"]
 [ext_resource type="Texture2D" uid="uid://qg55y3oecjm7" path="res://UI/Icon/PNG/White/1x/bag-2.png" id="3_3qlnk"]
 [ext_resource type="Texture2D" uid="uid://58tcg4hnt3yd" path="res://UI/Icon/PNG/White/1x/down.png" id="3_vbqs8"]
 [ext_resource type="Texture2D" uid="uid://d3g4r4hbpttlg" path="res://Assets/Sprite/ItemIcon/silicon-waffer.png" id="4_3qlnk"]
@@ -67,7 +68,9 @@ parent_group = "bangunan_complete_toko_2"
 particle_trigger = NodePath("GPUParticles3D")
 is_get_money = true
 
-[node name="TokoLevel2" parent="." unique_id=1959574189 instance=ExtResource("2_3rv5t")]
+[node name="StarterAnim" parent="." unique_id=223462457 instance=ExtResource("2_cemxh")]
+
+[node name="TokoLevel2" parent="StarterAnim" unique_id=1959574189 instance=ExtResource("2_3rv5t")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=502502339]

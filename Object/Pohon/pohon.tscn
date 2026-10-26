@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://6thbcq0vdpbm" path="res://Object/Pohon/script/pohon.gd" id="1_lrtq3"]
 [ext_resource type="PackedScene" uid="uid://bt7cwi81tt10y" path="res://Assets/3DModel/Pohon/Pohon.tscn" id="2_aki4d"]
+[ext_resource type="PackedScene" uid="uid://b368u4y7laqgy" path="res://Object/Prefabs/StarterAnim/starter_anim.tscn" id="2_hwnee"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5pjkx"]
 size = Vector3(6.5, 6, 7.5)
@@ -9,7 +10,9 @@ size = Vector3(6.5, 6, 7.5)
 [node name="Pohon" type="Area3D" unique_id=2046109367 groups=["Objek", "tumbuhan"]]
 script = ExtResource("1_lrtq3")
 
-[node name="Pohon" parent="." unique_id=464169348 instance=ExtResource("2_aki4d")]
+[node name="StarterAnim" parent="." unique_id=223462457 instance=ExtResource("2_hwnee")]
+
+[node name="Pohon" parent="StarterAnim" unique_id=464169348 instance=ExtResource("2_aki4d")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1027856785 groups=["Objek"]]

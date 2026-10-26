@@ -115,7 +115,7 @@ func _on_typing_timer_timeout():
 func _on_button_pressed() -> void:
 	selesai()
 
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	selesai()
 	
 func selesai() -> void:

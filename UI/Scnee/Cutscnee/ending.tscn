@@ -405,6 +405,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_7dgkw")
 script = ExtResource("2_ewcns")
+main_menu = "res://UI/Scnee/MainMenu/main_menu.tscn"
 ending_condition = 2
 
 [node name="BG-dialog" type="TextureRect" parent="." unique_id=1426126478]

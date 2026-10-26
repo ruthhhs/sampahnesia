@@ -1,12 +1,14 @@
 extends Control
+
 @export var dialog: Array[String]
 @export var highlight_target: Array[Control]
 @export var seconds_per_char: float = 0.03
 @export var delay_after_text: float = 1.5
 
-@onready var dialog_label: Label = $Tutorial/PanelDialog/DialogLabel
+# Ubah nodepath & tipe variabel ke RichTextLabel
+@onready var dialog_label: RichTextLabel = $Tutorial/PanelDialog/DialogLabel
 @onready var start_conversation: AnimationPlayer = $Tutorial/Sekertaris/conversation
-@onready var highlight_panel := preload("res://Object/Prefabs/tutorial/highlight.tscn")
+@onready var highlight_panel: PackedScene = preload("res://Object/Prefabs/tutorial/highlight.tscn")
 @onready var typing_sfx: AudioStreamPlayer = $TypingSFX # Node suara ketikan
 
 var current_dialog: int = 0
@@ -17,10 +19,15 @@ var text_tween: Tween
 func _ready() -> void:
 	# Memastikan UI selalu berada di depan layar dan memenuhi screen
 	set_anchors_preset(Control.PRESET_FULL_RECT)
+	
+	# Aktifkan BBCode secara terprogram untuk mendukung formatting teks ([b], [color], dll)
+	if is_instance_valid(dialog_label):
+		dialog_label.bbcode_enabled = true
 
 
 func start_show_dialog() -> void:
 	if current_dialog == 0:
+		
 		var was_already_on_tutorial := Global.is_on_tutorial
 		Global.register_tutorial(self)
 
@@ -36,32 +43,41 @@ func start_show_dialog() -> void:
 		active_highlight.queue_free()
 
 	if current_dialog < dialog.size():
+		print("dialog: ", dialog[current_dialog])
 		var text_to_show := dialog[current_dialog]
 		if is_instance_valid(dialog_label):
+			# Pada RichTextLabel, gunakan text atau text = text_to_show jika bbcode aktif
 			dialog_label.text = text_to_show
 			_reveal_text_dynamic(text_to_show)
 
-		# Pengecekan keamanan ekstra untuk highlight target
+		# Pengecekan keamanan untuk highlight target & highlight_panel
 		if current_dialog < highlight_target.size():
 			var target = highlight_target[current_dialog]
 			if is_instance_valid(target):
-				active_highlight = highlight_panel.instantiate()
-				target.add_child(active_highlight)
+				if highlight_panel != null:
+					active_highlight = highlight_panel.instantiate()
+					target.add_child(active_highlight)
+				else:
+					push_error("Tutorial Panel Error: highlight_panel gagal di-load!")
 
 		current_dialog += 1
 	else:
 		_finish_tutorial()
 
 
-func _reveal_text_dynamic(text: String) -> void:
+func _reveal_text_dynamic(_text: String) -> void:
 	if text_tween and text_tween.is_running():
 		text_tween.kill()
 
 	if not is_instance_valid(dialog_label):
 		return
 
+	# Reset animasi ketik RichTextLabel ke 0
 	dialog_label.visible_ratio = 0.0
-	var duration: float = text.length() * seconds_per_char
+	
+	# Untuk RichTextLabel, hitung panjang teks bersih (tanpa tag BBCode) agar durasi animasi pas
+	var clean_text_length: int = dialog_label.get_parsed_text().length()
+	var duration: float = clean_text_length * seconds_per_char
 
 	if is_instance_valid(typing_sfx) and typing_sfx.stream:
 		typing_sfx.play()
@@ -104,5 +120,8 @@ func _force_delete() -> void:
 
 
 func _on_visibility_changed() -> void:
-	if visible:
+	#if Global.is_on_tutorial == true:
+	if visible :
+		if not is_node_ready():
+			await ready
 		start_show_dialog()

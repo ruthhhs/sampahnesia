@@ -9,9 +9,12 @@ func _on_main_menu_pressed() -> void:
 	Transition.change_scnee("res://UI/Scnee/MainMenu/main_menu.tscn")
 func _on_visibility_changed() -> void:
 	if visible == true:
+		Global.on_pause = true
 		mouse_filter = Control.MOUSE_FILTER_STOP
 	else:
+		Global.on_pause = false
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
+		
 func _on_setting_visibility_changed() -> void:
 	if $Setting.visible == true:
 		$BG.visible = false

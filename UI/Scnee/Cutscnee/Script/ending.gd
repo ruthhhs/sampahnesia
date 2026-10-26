@@ -1,6 +1,6 @@
 extends Control
 
-@export var level_1: String # Bisa diganti ke Main Menu atau Credits
+@export var main_menu: String # Bisa diganti ke Main Menu atau Credits
 
 # Dictionary untuk menampung array dialog & speaker berdasarkan kondisi
 # Atau kamu bisa pakai enum/export terpisah
@@ -46,6 +46,7 @@ var is_transitioning: bool = true
 
 # MULAI #
 func _ready() -> void:
+	ending_condition = Global.ending_id
 	# 1. Tentukan data mana yang dipakai berdasarkan pilihan di Inspector atau Global
 	setup_ending_data()
 	
@@ -128,5 +129,6 @@ func selesai() -> void:
 	is_transitioning = true
 	$TypingSFX.stop()
 	$AnimationPlayer.play("fade-out")
+	Global.on_tutorial = false
 	await $AnimationPlayer.animation_finished
-	Transition.change_scnee(level_1)
+	Transition.change_scnee(main_menu)

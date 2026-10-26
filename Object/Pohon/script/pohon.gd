@@ -13,8 +13,8 @@ func _on_input_event(camera: Node, event: InputEvent, event_position: Vector3, n
 
 func _on_mouse_entered() -> void:
 	if Global.currently_are_delete == true:
-		get_child(0).get_child(0).material_overlay = waiting_for_delete
+		get_child(0).get_child(1).get_child(0).material_overlay = waiting_for_delete
 
 func _on_mouse_exited() -> void:
 	if Global.currently_are_delete == true:
-		get_child(0).get_child(0).material_overlay = null
+		get_child(0).get_child(1).get_child(0).material_overlay = null

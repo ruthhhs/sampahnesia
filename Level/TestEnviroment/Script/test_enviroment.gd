@@ -4,8 +4,9 @@ var flooding_wait_time: float = 10.0
 var jumlah_sampah_terpanggil: int = 0
 var maximum_sampah: int = 15
 var nilai_pohon_default: int
+@onready var pollution_bar: ProgressBar = $CameraPosition/CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer/HBoxContainer/PollutionBar
 @export var udara_pohon: int = 2
-@export var pollution_bar: ProgressBar 
+
 
 # Asumsi node Sampah_added ada di dalam scene utama sebagai child node
 @onready var sampah_added_node = $Sampah_added 
@@ -99,26 +100,31 @@ func update_polution_bar() -> void:
 		jumlah_sampah_terpanggil = 0
 		flooding_wait_time = 8.0
 		Archivement.validate_archivement(11)
+		Global.ending_id = 0
 	elif fog_dense_value < max_fog_density * 0.4:
 		# Cerah
 		target_fog_density = max_fog_density * 0.2
 		jumlah_sampah_terpanggil = 1
 		flooding_wait_time = 5.0
+		Global.ending_id = 0
 	elif fog_dense_value < max_fog_density * 0.6:
 		# Sedang
 		target_fog_density = max_fog_density * 0.6
 		jumlah_sampah_terpanggil = 3
 		flooding_wait_time = 2.0
+		Global.ending_id = 1
 	elif fog_dense_value < max_fog_density * 0.8:
 		# Buruk
 		target_fog_density = max_fog_density * 0.8
 		jumlah_sampah_terpanggil = 4
 		flooding_wait_time = 1.0
+		Global.ending_id = 2
 	elif fog_dense_value <= max_fog_density * 1.0:
 		# Sangat buruk
 		target_fog_density = max_fog_density * 1.0
 		jumlah_sampah_terpanggil = 5
 		flooding_wait_time = 0.5
+		Global.ending_id = 2
 	else:
 		#print("Nilai di luar jangkauan:", fog_dense_value)
 		return
