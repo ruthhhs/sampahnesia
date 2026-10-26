@@ -1,0 +1,548 @@
+[gd_scene format=3 uid="uid://blfjj0522rx34"]
+
+[ext_resource type="Theme" uid="uid://2vx27ttvak05" path="res://UI/Saves/CuteTheme.tres" id="1_7dgkw"]
+[ext_resource type="Script" uid="uid://c34pr61dd710k" path="res://UI/Scnee/Cutscnee/Script/ending.gd" id="2_ewcns"]
+[ext_resource type="Texture2D" uid="uid://b1mopfnbchp11" path="res://UI/Karakter/bg-sementara.jpeg" id="3_je5hv"]
+[ext_resource type="Texture2D" uid="uid://c3uxb4j8n2b24" path="res://UI/Karakter/walikota.png" id="4_hxctr"]
+[ext_resource type="Texture2D" uid="uid://bv6elth034iv6" path="res://UI/Karakter/sekretaris.png" id="5_3241g"]
+[ext_resource type="FontFile" uid="uid://b6gndoa3gdmhn" path="res://UI/Font/super_hockey/Super Hockey.ttf" id="6_vjllq"]
+[ext_resource type="FontFile" uid="uid://1xvnrphaimbw" path="res://UI/Font/hey_comic/Hey Comic.ttf" id="7_1eu66"]
+[ext_resource type="AudioStream" uid="uid://bcriaa26fxcb8" path="res://UI/UIFX/soundreality-keyboard-typing-sfx-525007.mp3" id="8_e2wmg"]
+
+[sub_resource type="Gradient" id="Gradient_6sk4h"]
+offsets = PackedFloat32Array(0.44751382, 1)
+colors = PackedColorArray(0, 0, 0, 0.20392157, 0, 0, 0, 0.5529412)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wcug8"]
+gradient = SubResource("Gradient_6sk4h")
+fill = 1
+fill_from = Vector2(0.7, 0.90000004)
+fill_to = Vector2(0.4, 0.4)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_3r2jp"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.12, 0.88)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 25
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4qfwh"]
+gradient = SubResource("Gradient_3r2jp")
+width = 720
+height = 720
+fill_from = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3va01"]
+bg_color = Color(0.88667405, 0.96733063, 0.96289843, 0.78431374)
+border_color = Color(0.9447108, 0.9807208, 0.95298475, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.11372549, 0.18431373, 0.26666668, 0.5529412)
+shadow_size = 2
+shadow_offset = Vector2(2, 3)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
+bg_color = Color(0.27450982, 0.30588236, 0.47843137, 1)
+skew = Vector2(-0.3, 0)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.11372549, 0.18431373, 0.26666668, 0.5529412)
+shadow_size = 2
+shadow_offset = Vector2(2, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font = ExtResource("6_vjllq")
+font_size = 56
+
+[sub_resource type="Animation" id="Animation_a4lfp"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogControl/walikota:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DialogControl/walikota:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.8, 0.8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DialogControl/walikota:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1071.0001, 150.00002)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DialogControl/sekretaris:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DialogControl/sekretaris:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.8, 0.8)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DialogControl/sekretaris:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, 152)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Dialog:visible_ratio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BLACK:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_06nkh"]
+resource_name = "fade-in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BLACK:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7leer"]
+resource_name = "fade-out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BLACK:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_i45wn"]
+resource_name = "sekretaris_speak"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogControl/walikota:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.7058824, 0.7058824, 0.7058824, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DialogControl/walikota:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(0.7, 0.7)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DialogControl/walikota:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.10000001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1071.0001, 150.00002), Vector2(1117, 250)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DialogControl/sekretaris:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.7058824, 0.7058824, 0.7058824, 1), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DialogControl/sekretaris:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.099999994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.7, 0.7), Vector2(0.8, 0.8)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DialogControl/sekretaris:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.099999994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(44, 252), Vector2(16, 152)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Dialog:visible_ratio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_3iyxo"]
+resource_name = "typing"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialog:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_dlaue"]
+resource_name = "walikota_speak"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogControl/walikota:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.7058824, 0.7058824, 0.7058824, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DialogControl/walikota:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.7, 0.7), Vector2(0.8, 0.8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DialogControl/walikota:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1117, 250), Vector2(1071.0001, 150.00002)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DialogControl/sekretaris:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.7058824, 0.7058824, 0.7058824, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DialogControl/sekretaris:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.10000001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(0.7, 0.7)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DialogControl/sekretaris:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.10000001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(16, 152), Vector2(44, 252)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Dialog:visible_ratio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_js3wu"]
+_data = {
+&"RESET": SubResource("Animation_a4lfp"),
+&"fade-in": SubResource("Animation_06nkh"),
+&"fade-out": SubResource("Animation_7leer"),
+&"sekretaris_speak": SubResource("Animation_i45wn"),
+&"typing": SubResource("Animation_3iyxo"),
+&"walikota_speak": SubResource("Animation_dlaue")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Cutscene" type="Control" unique_id=62314611]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7dgkw")
+script = ExtResource("2_ewcns")
+ending_condition = 2
+
+[node name="BG-dialog" type="TextureRect" parent="." unique_id=1426126478]
+unique_name_in_owner = true
+modulate = Color(0.7058824, 0.7058824, 0.7058824, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_je5hv")
+expand_mode = 2
+
+[node name="BG-vignett-dia" type="TextureRect" parent="." unique_id=1059154775]
+unique_name_in_owner = true
+editor_description = "Jangan Diubah Namanya"
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_wcug8")
+
+[node name="AspectRatio" type="TextureRect" parent="." unique_id=1914812451]
+modulate = Color(0.10424367, 0.16342995, 0.2541601, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_4qfwh")
+expand_mode = 1
+
+[node name="DialogControl" type="Control" parent="." unique_id=1963886541]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="walikota" type="TextureRect" parent="DialogControl" unique_id=825064771]
+layout_mode = 0
+offset_left = 1071.0001
+offset_top = 150.00002
+offset_right = 2071.0005
+offset_bottom = 1150.001
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_hxctr")
+
+[node name="sekretaris" type="TextureRect" parent="DialogControl" unique_id=1265655913]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 152.0
+offset_right = 1016.0
+offset_bottom = 1152.0002
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_3241g")
+
+[node name="BoxDialog" type="Panel" parent="DialogControl" unique_id=1145305299]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -890.0
+offset_top = -320.0
+offset_right = 890.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3va01")
+
+[node name="BoxNama" type="Panel" parent="DialogControl/BoxDialog" unique_id=1332504445]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.037078653
+anchor_top = -0.176
+anchor_right = 0.38483146
+anchor_bottom = 0.148
+theme_override_styles/panel = SubResource("StyleBoxFlat_yf5fn")
+metadata/_edit_use_anchors_ = true
+
+[node name="Nama" type="Label" parent="DialogControl/BoxDialog/BoxNama" unique_id=1926047910]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09693055
+anchor_top = 0.07407385
+anchor_right = 0.32310176
+anchor_bottom = 0.92592573
+offset_right = 1.5258789e-05
+text = "Nama"
+label_settings = SubResource("LabelSettings_g4v7s")
+metadata/_edit_use_anchors_ = true
+
+[node name="Dialog" type="RichTextLabel" parent="." unique_id=485918614]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.08177083
+anchor_top = 0.7648148
+anchor_right = 0.92864585
+anchor_bottom = 0.9203704
+theme_override_colors/default_color = Color(0.27450982, 0.30588236, 0.47843137, 1)
+theme_override_fonts/normal_font = ExtResource("7_1eu66")
+theme_override_font_sizes/normal_font_size = 32
+text = "Blabla bla blabla"
+visible_characters = 0
+visible_ratio = 0.0
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=97007505]
+libraries/ = SubResource("AnimationLibrary_js3wu")
+
+[node name="TypingSFX" type="AudioStreamPlayer" parent="." unique_id=361818725]
+stream = ExtResource("8_e2wmg")
+volume_db = -20.0
+
+[node name="TypingTimer" type="Timer" parent="." unique_id=1103026069]
+wait_time = 2.0
+one_shot = true
+
+[node name="BLACK" type="Panel" parent="." unique_id=1433374598]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
+
+[connection signal="timeout" from="TypingTimer" to="." method="_on_typing_timer_timeout"]
