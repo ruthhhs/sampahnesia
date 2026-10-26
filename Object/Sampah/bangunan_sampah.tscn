@@ -9,6 +9,7 @@
 [ext_resource type="FontVariation" uid="uid://cl1ghml6fsl2n" path="res://UI/Font/tress_font/UiFont.tres" id="5_7ama4"]
 [ext_resource type="Texture2D" uid="uid://cncj7wvh3dvoa" path="res://UI/Icon/SelfMade/lightning-01.png" id="6_fotrb"]
 [ext_resource type="Texture2D" uid="uid://d3g4r4hbpttlg" path="res://Assets/Sprite/ItemIcon/silicon-waffer.png" id="7_q6qh7"]
+[ext_resource type="Script" uid="uid://c1c5onpeebwl6" path="res://Object/Sampah/Script/kumpulan_ray.gd" id="8_7ama4"]
 [ext_resource type="Script" uid="uid://cmi4f5dabk2am" path="res://Object/Sampah/Script/timer_modal.gd" id="10_2ds5u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q4aoa"]
@@ -54,6 +55,7 @@ collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_mh0ut")
 is_sampah = true
+building_category = 1
 popup_hover = NodePath("Sprite3D/SubViewport/PopupHover")
 image_input_value_item = NodePath("Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue/ImageInputValueItem")
 label_value_item = NodePath("Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue/LabelValueItem")
@@ -63,20 +65,10 @@ input_texture = ExtResource("2_2awq0")
 parent_group = "bangunan_sampah"
 target_group = Array[String](["bangunan_complete_1", "bangunan_complete_2", "Pertanian", "Peleburan_biji_plastik", "Biji_kaca", "bangunan_sampah", "PembangkitListrikTenagaSampah"])
 maximum_item_value = 100
-slow_down_speed_expedition = null
 jumlah_polusi = 50
 auto_get_polute = true
 item_value = 5
-is_self_added = null
 infinite_connection = true
-kapasitas_koneksi = null
-is_get_money = null
-can_sell = null
-maintenance_activity_id = null
-price = null
-is_electric_production = null
-is_electric_usage = null
-electric_item = null
 can_delete = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1864420134]
@@ -364,6 +356,7 @@ mouse_filter = 2
 [node name="KumpulanRay" type="Node3D" parent="." unique_id=812763313]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+script = ExtResource("8_7ama4")
 
 [node name="SampahSwap" type="Node3D" parent="." unique_id=416772995]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05922985, 0)
@@ -384,5 +377,6 @@ script = ExtResource("10_2ds5u")
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="child_entered_tree" from="KumpulanRay" to="KumpulanRay" method="_on_child_entered_tree"]
 [connection signal="timeout" from="SampahSwap/TimerDelete" to="SampahSwap" method="_on_timer_delete_timeout"]
 [connection signal="timeout" from="TimerModal" to="TimerModal" method="_on_timeout"]

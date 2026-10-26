@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-
+@export var tutorial: Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
@@ -20,6 +20,9 @@ func _on_select_mode_pressed() -> void:
 	$DeleteMode.disabled = false
 
 func _on_build_mode_pressed() -> void:
+	if tutorial != null:
+		tutorial.visible = true
+		print(tutorial.visible)
 	Global.currently_are_inspecting = false
 	Global.currently_are_selecting = true
 	Global.currently_are_delete = false

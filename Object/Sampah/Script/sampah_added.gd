@@ -65,7 +65,7 @@ func mulai_proses_spawn() -> void:
 	while antrian_sampah > 0:
 		# Pengecekan ganda: Jika kapasitas maksimum sudah tercapai di tengah jalan, hentikan proses spawn
 		if get_jumlah_sampah_aktif() >= kapasitasi_maksimum_sampah:
-			print("Kapasitas maksimum sampah tercapai! Spawn dihentikan.")
+			#print("Kapasitas maksimum sampah tercapai! Spawn dihentikan.")
 			antrian_sampah = 0 # Kosongkan sisa antrian
 			break
 
@@ -79,12 +79,12 @@ func mulai_proses_spawn() -> void:
 			# instans_sampah.scale = Vector3(1, 1, 1) # Uncomment jika ukuran masih bermasalah
 			
 		antrian_sampah -= 1
-		print("Sisa antrian sampah: ", antrian_sampah, " | Total sampah aktif: ", get_jumlah_sampah_aktif())
+		#print("Sisa antrian sampah: ", antrian_sampah, " | Total sampah aktif: ", get_jumlah_sampah_aktif())
 		
 		await get_tree().create_timer(0.1).timeout
 
 	sedang_spawn = false
-	print("Proses spawn selesai.")
+	#print("Proses spawn selesai.")
 
 func cari_posisi_valid() -> void:
 	var posisi_valid: bool = false

@@ -3,6 +3,7 @@ var flooding_wait_time: float = 10.0
 
 var jumlah_sampah_terpanggil: int = 0
 var maximum_sampah: int = 15
+var nilai_pohon_default: int
 @export var udara_pohon: int = 2
 @export var pollution_bar: ProgressBar 
 
@@ -10,6 +11,11 @@ var maximum_sampah: int = 15
 @onready var sampah_added_node = $Sampah_added 
 
 func _ready() -> void:
+	nilai_pohon_default = $StarterNature.get_child_count()
+	var mouse_object_follower: Marker3D = $CameraPosition/MouseFollowerObject
+	mouse_object_follower.bangunan = $Bangunan
+	mouse_object_follower.listrik = $Listrik
+	mouse_object_follower.tumbuhan = $Nature
 	$Island/AnimationPlayer.play("scneery")
 	$CameraPosition.send_month.connect(adding_sampah)
 	update_polution_bar()
@@ -25,7 +31,7 @@ func adding_sampah(_month: int) -> void:
 	var sisa_kuota = maximum_sampah - sampah_aktif
 	
 	if sisa_kuota <= 0:
-		print("Kapasitas sampah sudah penuh (15/15). Tidak ada sampah baru yang di-spawn bulan ini.")
+		#print("Kapasitas sampah sudah penuh (15/15). Tidak ada sampah baru yang di-spawn bulan ini.")
 		return
 
 	# 3. Batasi jumlah sampah yang akan dimasukkan ke antrian agar tidak melebihi sisa kuota
@@ -34,9 +40,10 @@ func adding_sampah(_month: int) -> void:
 	# 4. Masukkan ke antrian Sampah_added jika ada jumlah yang valid
 	if sampah_tambah > 0:
 		sampah_added_node.antrian_sampah = sampah_tambah
-		print("Bulan berganti. Menambahkan antrian sampah sebanyak: ", sampah_tambah, " (Total aktif: ", sampah_aktif, ")")
+		#print("Bulan berganti. Menambahkan antrian sampah sebanyak: ", sampah_tambah, " (Total aktif: ", sampah_aktif, ")")
 	else:
-		print("Tingkat polusi rendah, tidak ada sampah baru bulan ini.")
+		pass
+		#print("Tingkat polusi rendah, tidak ada sampah baru bulan ini.")
 
 func _on_nature_child_entered_tree(_node: Node) -> void:
 	Global.stat_oxigen += udara_pohon
@@ -44,11 +51,15 @@ func _on_nature_child_entered_tree(_node: Node) -> void:
 
 func _on_nature_child_exiting_tree(_node: Node) -> void:
 	Global.stat_oxigen -= udara_pohon
+
 	update_polution_bar()
 
 func _on_starter_nature_child_exiting_tree(_node: Node) -> void:
 	Global.stat_oxigen -= udara_pohon
+	if nilai_pohon_default - $StarterNature.get_child_count() >= 2:
+		Global.first_nebang_pohon = true
 	update_polution_bar()	
+	
 func _on_bangunan_child_entered_tree(node: Node) -> void:
 	Global.stat_polution += node.jumlah_polusi
 	update_polution_bar()
@@ -109,7 +120,7 @@ func update_polution_bar() -> void:
 		jumlah_sampah_terpanggil = 5
 		flooding_wait_time = 0.5
 	else:
-		print("Nilai di luar jangkauan:", fog_dense_value)
+		#print("Nilai di luar jangkauan:", fog_dense_value)
 		return
 
 	# --- MEMBUAT TRANSISI HALUS MENGGUNAKAN TWEEN ---

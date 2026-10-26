@@ -1,6 +1,5 @@
 class_name Building
 extends Area3D
-
 var destroy_timer_access: Node3D
 var infinity_symbol: String = "∞"
 var list_node_tersambung: Array[Area3D]
@@ -24,6 +23,16 @@ var on_maintenance: bool = false:
 
 @export_group("Type")
 @export var is_sampah: bool = false
+enum BuildingCategory {
+	ELSE,
+	SAMPAH,
+	PERTANIAN,
+	PETERNAKAN,
+	TOKO
+}
+
+@export var building_category: BuildingCategory = BuildingCategory.ELSE
+
 @export_group("Popup")
 @export var popup_hover: Control
 #@export var popup_warning: Control
@@ -129,7 +138,7 @@ var on_maintenance: bool = false:
 @onready var destroy_timer = preload("res://Object/Prefabs/DestroyTimer/destroy_timer.tscn")
 @onready var maintenance_popup = preload("res://UI/Scnee/PopupBuyRepair/popup_buy_repair.tscn")
 @onready var kumpulan_ray: Node3D = $KumpulanRay
-@onready var debug_label: Label = $Sprite3D/SubViewport/DebugLabel
+#@onready var debug_label: Label = $Sprite3D/SubViewport/DebugLabel
 @onready var sprite_3d: Sprite3D = $Sprite3D
 
 

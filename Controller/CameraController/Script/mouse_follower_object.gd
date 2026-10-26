@@ -1,7 +1,7 @@
 extends Marker3D
 
 @onready var overlapping_area_3d: Area3D = $CollidingCheckers
-
+@export var tutorial: Control
 @export var bangunan: Node3D
 @export var listrik: Node3D
 @export var tumbuhan: Node3D
@@ -54,12 +54,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	# 1. Pastikan aksi build ditekan, tempat valid, tidak sedang _is_spawning, 
 	# dan yang paling penting: Global.currently_are_selecting harus bernilai TRUE.
 	if event.is_action_pressed("mouse_build") and can_place and not _is_spawning:
-		
+		if tutorial != null:
+			tutorial.visible = true
 		# JIKA SEDANG TIDAK SELECTING, MAKA BATALKAN (RETURN)
 		if not Global.currently_are_selecting:
 			return
 			
-		print("Selecting: ", Global.currently_are_inspecting, "| Building: ", Global.currently_are_selecting, "| Deleting: ", Global.currently_are_delete)
+		#print("Selecting: ", Global.currently_are_inspecting, "| Building: ", Global.currently_are_selecting, "| Deleting: ", Global.currently_are_delete)
 		
 		if not Global.currently_are_delete:
 			if overlapping_area_3d.get_overlapping_areas().is_empty():

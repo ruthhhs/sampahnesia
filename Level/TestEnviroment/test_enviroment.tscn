@@ -8,16 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://r13bmnl33nei" path="res://Object/Pohon/pohon.tscn" id="10_b5hqc"]
 [ext_resource type="Script" uid="uid://dkc5nfhpbpae1" path="res://Level/TestEnviroment/Script/floods.gd" id="10_eq4fp"]
 [ext_resource type="Script" uid="uid://c2cbr2cjdkx8a" path="res://Level/TestEnviroment/Script/nature.gd" id="10_o00n3"]
-[ext_resource type="FontFile" uid="uid://dkpcaehkmid4a" path="res://UI/Font/hey_comic/Hey Comic.otf" id="10_xex1j"]
-[ext_resource type="Texture2D" uid="uid://d4cf55oxflvdl" path="res://UI/Icon/Keyboard & Mouse/Double/mouse_left.png" id="11_5bckw"]
 [ext_resource type="Script" uid="uid://becnmyeg01mc8" path="res://Object/Sampah/Script/sampah_added.gd" id="11_eq4fp"]
 [ext_resource type="Script" uid="uid://c53885myrho1h" path="res://Level/TestEnviroment/Script/listrik.gd" id="12_jdmvx"]
-[ext_resource type="Texture2D" uid="uid://dcqu10tm7l2o5" path="res://UI/Icon/Keyboard & Mouse/Double/mouse_right.png" id="12_kt1fb"]
-[ext_resource type="Texture2D" uid="uid://c1opnovcu6fgc" path="res://UI/Icon/Keyboard & Mouse/Double/mouse_scroll.png" id="13_dpqrg"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_3xd07"]
-font = ExtResource("10_xex1j")
-font_size = 22
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eq4fp"]
 sky_top_color = Color(0.30565304, 0.5733604, 0.6465221, 1)
@@ -75,89 +67,9 @@ size = Vector3(0.5, 0.5, 0.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_3xd07"]
 size = Vector3(11, 4, 11)
 
-[node name="TestEnviroment" type="Node3D" unique_id=147036054 node_paths=PackedStringArray("pollution_bar")]
+[node name="TestEnviroment" type="Node3D" unique_id=147036054]
 script = ExtResource("1_fyipr")
 udara_pohon = 5
-pollution_bar = NodePath("CameraPosition/CanvasLayer/GameUIBuilder/CityStatsRight/VBoxContainer/HBoxContainer/PollutionBar")
-
-[node name="CameraPosition" parent="." unique_id=508572600 instance=ExtResource("9_eq4fp")]
-
-[node name="Camera3D" parent="CameraPosition/CameraRotationX/CameraZoomPivot" parent_id_path=PackedInt32Array(508572600, 1668261267) index="0" unique_id=1719253986]
-transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 33.325)
-
-[node name="RainingParticle" parent="CameraPosition/CameraRotationX/CameraZoomPivot/Camera3D" index="0" unique_id=1460324122]
-seed = 3768405765
-
-[node name="MouseTutorial2" type="VBoxContainer" parent="CameraPosition/CanvasLayer/GameUIBuilder" parent_id_path=PackedInt32Array(508572600, 2145974824) index="7" unique_id=380952517]
-visible = false
-modulate = Color(1, 1, 1, 0.78431374)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.022000002
-anchor_top = 0.17500001
-anchor_right = 0.178
-anchor_bottom = 0.344
-offset_left = -0.24000168
-offset_top = -1.5258789e-05
-offset_right = 0.23999023
-offset_bottom = -0.52001953
-grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CameraPosition/CanvasLayer/GameUIBuilder/MouseTutorial2" unique_id=1145072573]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="CameraPosition/CanvasLayer/GameUIBuilder/MouseTutorial2/HBoxContainer" unique_id=836003529]
-layout_mode = 2
-text = "Memilih / Menyambung"
-label_settings = SubResource("LabelSettings_3xd07")
-
-[node name="TextureRect" type="TextureRect" parent="CameraPosition/CanvasLayer/GameUIBuilder/MouseTutorial2/HBoxContainer" unique_id=1325137157]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("11_5bckw")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="CameraPosition/CanvasLayer/GameUIBuilder/MouseTutorial2" unique_id=106885696]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="CameraPosition/CanvasLayer/GameUIBuilder/MouseTutorial2/HBoxContainer2" unique_id=2119786292]
-layout_mode = 2
-text = "Bangun / Hancur"
-label_settings = SubResource("LabelSettings_3xd07")
-
-[node name="TextureRect" type="TextureRect" parent="CameraPosition/CanvasLayer/GameUIBuilder/MouseTutorial2/HBoxContainer2" unique_id=816291593]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("12_kt1fb")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="CameraPosition/CanvasLayer/GameUIBuilder/MouseTutorial2" unique_id=935384648]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="CameraPosition/CanvasLayer/GameUIBuilder/MouseTutorial2/HBoxContainer3" unique_id=999754799]
-layout_mode = 2
-text = "Dekat / Jauh"
-label_settings = SubResource("LabelSettings_3xd07")
-
-[node name="TextureRect" type="TextureRect" parent="CameraPosition/CanvasLayer/GameUIBuilder/MouseTutorial2/HBoxContainer3" unique_id=1356292833]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("13_dpqrg")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="Mode" parent="CameraPosition/CanvasLayer/GameUIBuilder" parent_id_path=PackedInt32Array(508572600, 2145974824) index="9" unique_id=67925656]
-theme_override_constants/separation = 26
-
-[node name="MouseFollowerObject" parent="CameraPosition" index="2" unique_id=943857534 node_paths=PackedStringArray("bangunan", "listrik", "tumbuhan")]
-bangunan = NodePath("../../Bangunan")
-listrik = NodePath("../../Listrik")
-tumbuhan = NodePath("../../Nature")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1276303847]
 unique_name_in_owner = true
@@ -173,6 +85,8 @@ directional_shadow_blend_splits = true
 directional_shadow_max_distance = 419.7
 directional_shadow_pancake_size = 1024.0
 
+[node name="CameraPosition" parent="." unique_id=508572600 instance=ExtResource("9_eq4fp")]
+
 [node name="Island" parent="." unique_id=651829938 instance=ExtResource("2_b5hqc")]
 transform = Transform3D(-7.9336175e-08, 0, 1.815, 0, 1.0003179, 0, -1.815, 0, -7.9336175e-08, 0, 0.4432261, 0)
 
@@ -185,16 +99,6 @@ mesh = SubResource("QuadMesh_x37m3")
 
 [node name="BangunanSampah" parent="Sampah" unique_id=912230902 instance=ExtResource("5_wn7b4")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 67.662796, 0, 9.405319)
-slow_down_speed_expedition = 0
-is_self_added = false
-kapasitas_koneksi = 2
-is_get_money = false
-can_sell = false
-maintenance_activity_id = 2
-price = 0
-is_electric_production = false
-is_electric_usage = false
-electric_item = 0
 
 [node name="Bangunan" type="Node3D" parent="." unique_id=616396326]
 unique_name_in_owner = true
@@ -500,7 +404,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -211.05495, 0, -155.32071)
 [node name="Sampah_added" type="Node3D" parent="." unique_id=1765756609 node_paths=PackedStringArray("target_spawn")]
 script = ExtResource("11_eq4fp")
 target_spawn = NodePath("../Sampah")
-antrian_sampah = 3
+antrian_sampah = 6
 
 [node name="Raycaster" type="Node3D" parent="Sampah_added" unique_id=80819525]
 
@@ -565,5 +469,3 @@ editor_description = "Harus ada di posisi paling bawah"
 [connection signal="area_entered" from="Sampah_added/Area3D" to="Sampah_added" method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Sampah_added/Area3D" to="Sampah_added" method="_on_area_3d_area_exited"]
 [connection signal="timeout" from="Sampah_added/Start" to="Sampah_added" method="_on_start_timeout"]
-
-[editable path="CameraPosition"]

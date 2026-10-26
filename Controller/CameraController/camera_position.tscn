@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c2ele75e6i3pi" path="res://UI/Prefabs/Button/button.tscn" id="4_dn6ff"]
 [ext_resource type="Texture2D" uid="uid://cpo6j6qvxs46g" path="res://Assets/Sprite/Building Icon/Kebun.png" id="5_0n7cy"]
 [ext_resource type="Theme" uid="uid://2vx27ttvak05" path="res://UI/Saves/CuteTheme.tres" id="5_thpvx"]
+[ext_resource type="Script" uid="uid://cjx6sr1h25u2x" path="res://Controller/CameraController/Script/game_ui_builder.gd" id="5_vrspy"]
 [ext_resource type="Texture2D" uid="uid://05by687cr48y" path="res://Assets/Sprite/ItemIcon/gandum.png" id="7_dtmcr"]
 [ext_resource type="Texture2D" uid="uid://xhxf6ekr85ja" path="res://Assets/Sprite/ItemIcon/sampah.png" id="7_thpvx"]
 [ext_resource type="Texture2D" uid="uid://ci0o2jwkqs3yt" path="res://Assets/Sprite/GemastikFinalBuildingIcon/Perternakan.png" id="8_dn6ff"]
@@ -78,6 +79,7 @@
 [ext_resource type="Texture2D" uid="uid://b2ts7tuk36num" path="res://UI/Icon/PNG/White/2x/hammer.png" id="67_dg3oh"]
 [ext_resource type="Texture2D" uid="uid://rw1y812r0mg" path="res://UI/Icon/PNG/White/2x/trashcanOpen.png" id="67_hsyvo"]
 [ext_resource type="Script" uid="uid://6inmxhh3gu1t" path="res://Controller/CameraController/Script/archivements.gd" id="69_uhujx"]
+[ext_resource type="PackedScene" uid="uid://kw26uk3uvsrl" path="res://Object/Prefabs/tutorial/tutorial_panel.tscn" id="72_v5oob"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ijmff"]
 emission_shape_scale = Vector3(10.48, -0.18, 10.48)
@@ -551,7 +553,7 @@ size = Vector3(2.155, 1.4, 2.155)
 
 [node name="CameraPosition" type="Node3D" unique_id=508572600]
 script = ExtResource("60_84f65")
-starter_money = 3000
+starter_money = 4500
 
 [node name="CameraRotationX" type="Node3D" parent="." unique_id=1260349627]
 
@@ -588,7 +590,7 @@ libraries/ = SubResource("AnimationLibrary_dg3oh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=592404322]
 
-[node name="GameUIBuilder" type="Control" parent="CanvasLayer" unique_id=2145974824]
+[node name="GameUIBuilder" type="Control" parent="CanvasLayer" unique_id=2145974824 node_paths=PackedStringArray("tutorial_awal", "tutorial_sambung_pertanian", "tutorial_sambung_peternakan", "tutorial_sambung_toko", "tutorial_sambung_nebang", "tutorial_nanam_pohon")]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
@@ -598,6 +600,13 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 theme = ExtResource("5_thpvx")
+script = ExtResource("5_vrspy")
+tutorial_awal = NodePath("TutorialGroup/TutorialPanel")
+tutorial_sambung_pertanian = NodePath("TutorialGroup/TutorialPanel4")
+tutorial_sambung_peternakan = NodePath("TutorialGroup/TutorialPanel5")
+tutorial_sambung_toko = NodePath("TutorialGroup/TutorialPanel6")
+tutorial_sambung_nebang = NodePath("TutorialGroup/TutorialPanel7")
+tutorial_nanam_pohon = NodePath("TutorialGroup/TutorialPanel8")
 metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/GameUIBuilder" unique_id=1357470940]
@@ -657,7 +666,6 @@ anchor_bottom = 1.0
 offset_left = -0.6399994
 offset_top = -6.0
 offset_right = 0.6398926
-offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("3_0n7cy")
@@ -1463,7 +1471,7 @@ texture = ExtResource("62_c86fb")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Mode" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder" unique_id=67925656]
+[node name="Mode" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder" unique_id=67925656 node_paths=PackedStringArray("tutorial")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3
@@ -1477,6 +1485,7 @@ grow_vertical = 2
 pivot_offset = Vector2(2001.3201, 228)
 theme_override_constants/separation = 55
 script = ExtResource("65_dg3oh")
+tutorial = NodePath("../TutorialGroup/TutorialPanel2")
 
 [node name="BuildMode" parent="CanvasLayer/GameUIBuilder/Mode" unique_id=2056958084 instance=ExtResource("4_dn6ff")]
 layout_mode = 2
@@ -1532,12 +1541,66 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="Start" type="Timer" parent="CanvasLayer/GameUIBuilder" unique_id=702121724]
+wait_time = 1.5
+autostart = true
+
+[node name="TutorialGroup" type="Control" parent="CanvasLayer/GameUIBuilder" unique_id=424805411]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TutorialPanel" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=1872421202 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
+layout_mode = 1
+dialog = Array[String](["Selamat datang di Sampahnesia", "kota yang akan bapak pimpin", "dan bapak kelola mulai hari ini.", "...", "Di bagian bawah ini,", "terdapat 3 mode utama", "yang dapat Bapak gunakan:", "Membangun", "Seleksi", "dan Menghapus", "...", "Mari kita lihat tumpukan sampah di depan kita.", "Kita akan memberdayakannya.", "Silakan buka Panel Membangun."])
+highlight_target = [null, null, null, null, null, null, null, NodePath("../../Mode/BuildMode"), NodePath("../../Mode/SelectMode"), NodePath("../../Mode/DeleteMode"), null, null, null, NodePath("../../Mode/BuildMode")]
+
+[node name="TutorialPanel2" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=625658027 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
+layout_mode = 1
+dialog = Array[String](["Pada panel ini,", "terdapat 4 kategori fasilitas", "Produksi (pengolahan sampah),", "Energi (pembangkit listrik),", "Toko (tempat penjualan),", "dan Tanaman (penghijauan kota).", "...", "Jika Bapak mengarahkan kursor ke bangunan", "Bapak dapat melihat detail keterangannya.", "Kita akan mencoba mengolah sampah menjadi hal bernilai.", "...", "Silakan menuju Lahan Pertanian.", "Baris pertama menunjukkan bahan baku serta hasilnya,", " Di sini, Lahan Pertanian membutuhkan sampah", "untuk menghasilkan gandum.", "Baris kedua menunjukan estimasi pendapatannya.", "Baris ketiga menunjukkan ke mana hasil gandum tersebut dapat dijual", "...", "Sekarang, silakan letakkan Lahan Pertanian", "di area tanah yang kosong dengan klik kanan. "])
+highlight_target = [null, null, NodePath("../../TabContainer/Produksi"), NodePath("../../TabContainer/Energi"), NodePath("../../TabContainer/Toko"), NodePath("../../TabContainer/Tumbuhan"), null, null, null, null, null, NodePath("../../TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer/Pertanian"), NodePath("../../TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer/Pertanian/InformationPanel"), null, null, NodePath("../../TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer/Pertanian/InformationPanel"), NodePath("../../TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer/Pertanian/InformationPanel"), null, null, null]
+
+[node name="TutorialPanel3" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=58413537 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
+layout_mode = 1
+dialog = Array[String](["Selanjutnya", "tekan mode seleksi", "Menghubungkan Klik kiri pada tumpukan sampah", "lalu arahkan ke Lahan Pertanian tadi. "])
+highlight_target = [null, NodePath("../../Mode/SelectMode"), null, null]
+
+[node name="TutorialPanel4" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=1877235088 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
+layout_mode = 1
+dialog = Array[String](["Bagus sekali!", "Sekarang sampah tersebut mulai diproses", "menjadi pupuk dan benih untuk menghasilkan gandum.", "...", "Selanjutnya, kita akan memanfaatkan gandum", "sebagai pakan ternak.", "Buka kembali mode Membangun", "...", "pilih bangun Peternakan", "...", "lalu hubungkan Lahan Pertanian", "ke Peternakan tersebut"])
+highlight_target = [null, null, null, null, null, null, NodePath("../../Mode/BuildMode"), null, NodePath("../../TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer/Peternakan"), null, null, null]
+
+[node name="TutorialPanel5" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=1402583906 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
+layout_mode = 1
+dialog = Array[String](["Bagus!!", "Langkah berikutnya adalah", "menjual hasil olahan kita.", "...", "Pilih Mode Membangun", "ke bagian toko", "...", "pilih toko kecil", "...", "lalu bangun dan ", "hubungkan Peternakan"])
+highlight_target = [null, null, null, null, NodePath("../../Mode/BuildMode"), null, null, NodePath("../../TabContainer/Toko/ScrollContainer/VBoxContainer/HBoxContainer/BuildingSelectButton0"), null, null, null, null]
+
+[node name="TutorialPanel6" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=1979274103 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
+layout_mode = 1
+dialog = Array[String](["Perhatikan indikator di kanan atas layar", "pendapatan kota mulai bertambah ", "seiring berjalannya transaksi.", "Dana yang terkumpul dapat Bapak gunakan", "untuk mengembangkan fasilitas pengolahan lain", "ekonomi sirkular !!!", "...", "Selain itu", "Bapak dapat membuka lahan baru", "dengan menebang pohon", "...", "Ubah mode Menghapus", "lalu coba tebang 3 pohon di sekitar."])
+highlight_target = [NodePath("../../CityStatsRight/VBoxContainer/HBoxContainer/Panel"), null, null, null, null, null, null, null, null, null, null, NodePath("../../Mode/DeleteMode"), null]
+
+[node name="TutorialPanel7" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=19047868 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
+layout_mode = 1
+dialog = Array[String](["Umm sebenernya...", "hal ini melanggar moral", "...", "Perlu diperhatikan", "meskipun menebang pohon ", "dapat memperluas area pembangunan", "tindakan ini dapat menurunkan kualitas udara", "dan meningkatkan kadar polusi kota", "...", "Oleh karena itu", "pembukaan lahan harus tetap seimbang", "Sekarang, buka Mode  Membangun", "Pilih tumbuhan", "beli tanaman pohon "])
+highlight_target = [null, null, null, null, null, null, null, null, null, null, null, NodePath("../../Mode/BuildMode"), null, NodePath("../../TabContainer/Tumbuhan/ScrollContainer/VBoxContainer/HBoxContainer/BuildingSelectButton0")]
+
+[node name="TutorialPanel8" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=1768603524 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
+layout_mode = 1
+dialog = Array[String](["Sipp !!", "...", "Selanjutnya mari kita kembangkan produksinya", "Satu sumber sampah ", "dapat dialirkan ke beberapa fasilitas pengolahan", "secara sekaligus", "... ", "coba untuk membangun produksi dari sampah lagi", "kemudian sambungkanlah "])
+highlight_target = [null, null, null, null, null, null, null, null, null]
+
+[node name="TutorialPanel9" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=2062447838 instance=ExtResource("72_v5oob")]
+layout_mode = 1
+dialog = Array[String](["Bangunan produksi juga dapat menyalurkan", "hasilnya lebih dari satu tempat", "namun kecepatan semain melambat", "...", "mungkin itu saja cukup dari saya", "Terimakasih dan selamat atas jabatan barunya pak", "semoga target akan segera tercapai"])
+
 [node name="Pause" parent="CanvasLayer" unique_id=1940487218 instance=ExtResource("47_4yxc1")]
 unique_name_in_owner = true
 visible = false
 
-[node name="MouseFollowerObject" type="Marker3D" parent="." unique_id=943857534]
+[node name="MouseFollowerObject" type="Marker3D" parent="." unique_id=943857534 node_paths=PackedStringArray("tutorial")]
 script = ExtResource("59_0n7cy")
+tutorial = NodePath("../CanvasLayer/GameUIBuilder/TutorialGroup/TutorialPanel3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MouseFollowerObject" unique_id=2019744671]
 unique_name_in_owner = true
@@ -1594,6 +1657,9 @@ bus = &"Music"
 [connection signal="pressed" from="CanvasLayer/GameUIBuilder/Mode/BuildMode" to="CanvasLayer/GameUIBuilder/Mode" method="_on_build_mode_pressed"]
 [connection signal="pressed" from="CanvasLayer/GameUIBuilder/Mode/SelectMode" to="CanvasLayer/GameUIBuilder/Mode" method="_on_select_mode_pressed"]
 [connection signal="pressed" from="CanvasLayer/GameUIBuilder/Mode/DeleteMode" to="CanvasLayer/GameUIBuilder/Mode" method="_on_delete_mode_pressed"]
+[connection signal="timeout" from="CanvasLayer/GameUIBuilder/Start" to="CanvasLayer/GameUIBuilder" method="_on_start_timeout"]
 [connection signal="visibility_changed" from="CanvasLayer/Pause" to="." method="_on_pause_visibility_changed"]
 [connection signal="body_exited" from="MouseFollowerObject/CollidingCheckers" to="." method="_on_colliding_checkers_body_exited"]
 [connection signal="body_exited" from="MouseFollowerObject/CollidingCheckers" to="MouseFollowerObject" method="_on_colliding_checkers_body_exited"]
+
+[editable path="CanvasLayer/GameUIBuilder/TabContainer/Produksi/ScrollContainer/VBoxContainer/HBoxContainer/Pertanian"]

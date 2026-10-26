@@ -5,7 +5,31 @@ var dragging_access: bool = false
 var is_delivering: bool = false # Tambahan variabel state baru
 
 @onready var electricity_material: StandardMaterial3D = preload("res://Assets/Shaders/electricity.tres")
-@export var target_send: Area3D = null
+@export var target_send: Area3D = null:
+	set(value):
+		if target_send != value:
+			target_send = value
+			if get_parent().get_parent().building_category == 1:
+				Global.first_sampah_input = true
+			elif  get_parent().get_parent().building_category == 2:
+				Global.first_pertanian_input = true
+			elif get_parent().get_parent().building_category == 3:
+				Global.first_perternakan_input = true
+			elif  get_parent().get_parent().building_category == 4:
+				Global.first_toko_input = true
+			#match get_parent().get_parent().building_category:
+				#"SAMPAH":
+					#print("sampah")
+					##Global.first_sampah_input = true
+				#"PERTANIAN":
+					#print("pertanian")
+					##Global.first_pertanian_input = true
+				#"PETERNAKAN":
+					#print("perternakan")
+					##Global.first_perternakan_input = true
+				#"TOKO":
+					#print("toko")
+					##Global.first_toko_input = true
 @export var enable_mesh: MeshInstance3D
 @export var disable_mesh: MeshInstance3D
 @export var interact_line: Area3D
@@ -214,6 +238,8 @@ func _on_package_area_entered(area: Area3D) -> void:
 				
 				if area.is_get_money == true and the_parent.can_sell == true:
 					Global.stat_money += the_parent.price
+					Global.first_toko_input = true
+					
 			else:
 				# --- PROSES TRANSFER LISTRIK ---
 				area.electric_item += value_recive

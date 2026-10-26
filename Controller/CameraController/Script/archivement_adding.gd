@@ -10,7 +10,7 @@ func _ready() -> void:
 	$AnimationPlayer.play("popin")
 
 
-func _on_fade_animation_finished(anim_name: StringName) -> void:
+func _on_fade_animation_finished(_anim_name: StringName) -> void:
 	queue_free()
 
 

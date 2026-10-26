@@ -9,14 +9,14 @@ var title_archivement: Array[StringName] = [
 	"Awal Peradaban", "Penyemai Hayati", "Percikan Kehidupan",
 	"Langkah Finansial", "Pundi Melimpah", "Arsitek Industri",
 	"Jaringan Megawatt", "Mega Industri", "Tanpa Kegelapan",
-	"Banjir !!!", "Restorasi Total", "Surga Tanpa Polusi"
+	"Banjir !!!", "Restorasi Total", "Brand new day"
 ]
 
 var task_archivement: Array[String] = [
 	"Membangun 1 Bangunan Produksi", "Menanam 10 pohon", "Membangun 1 Pembangkit Listrik",
-	"Mencapai 5000 dolar pertama", "Mencapai 10000 dolar pertama", "Membangun 5 bangunan produksi",
+	"Mencapai 10000 dolar pertama", "Mencapai 20000 dolar pertama", "Membangun 5 bangunan produksi",
 	"Membangun 5 pembangkit listrik", "Membangun 15 bangunan Produksi", "Membangun 10 pembangkit listrik",
-	"Mengalami Banjir", "Memperbaiki Bangunan", "Udara Bersih Total"
+	"Mengalami Banjir", "Memperbaiki Bangunan", "hari pertama"
 ]
 var claimed_archivement: Array[bool] = [
 	false, false, false, false, false, false,

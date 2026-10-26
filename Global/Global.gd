@@ -3,6 +3,18 @@ extends Node
 var name_city: String = "sampahnesia"
 var mouse_pos: Vector3
 
+# Signal untuk memberitahu sistem lain jika state tutorial berubah
+signal tutorial_state_changed(is_active: bool)
+
+# Referensi ke instance node tutorial yang sedang berjalan
+var active_tutorial_instance: Node = null
+
+var is_on_tutorial: bool = false:
+	set(value):
+		if is_on_tutorial != value:
+			is_on_tutorial = value
+			tutorial_state_changed.emit(is_on_tutorial)
+
 signal is_inspecting(new_value: bool)
 var currently_are_inspecting: bool:
 	set(value):
@@ -38,32 +50,106 @@ var stat_money: int = 0:
 		if stat_money != value:
 			stat_money = value
 			money_change.emit(stat_money)
-			if stat_money >= 5000:
-				Archivement.validate_archivement(3)
 			if stat_money >= 10000:
+				Archivement.validate_archivement(3)
+			if stat_money >= 20000:
 				Archivement.validate_archivement(4)
 
 var stat_polution: int = 1
 var stat_oxigen: int = 1
 var repairement_unused: int = 3
 
+# Flag Koneksi Pertama Per Tipe Bangunan
+signal first_sampah_signal(new_value: bool)
+signal first_pertanian_signal(new_value: bool)
+signal first_perternakan_signal(new_value: bool)
+signal first_toko_signal(new_value: bool)
+signal first_nebang_signal(new_value: bool)
+signal first_nanem_signal(new_value: bool)
+signal first_sampah_double_linked_signal(new_value: bool)
+var first_sampah_input: bool = false:
+	set(value):
+		if first_sampah_input != value:
+			first_sampah_input = value
+			first_sampah_signal.emit(first_sampah_input)
+var first_pertanian_input: bool = false:
+	set(value):
+		if first_pertanian_input != value:
+			first_pertanian_input = value
+			first_pertanian_signal.emit(first_pertanian_input)
+var first_perternakan_input: bool = false:
+	set(value):
+		if first_perternakan_input != value:
+			first_perternakan_input = value
+			first_perternakan_signal.emit(first_perternakan_input)
+var first_toko_input: bool = false:
+	set(value):
+		if first_toko_input != value:
+			first_toko_input = value
+			first_toko_signal.emit(first_toko_input)
+var first_nebang_pohon: bool = false:
+	set(value):
+		if first_nebang_pohon != value:
+			first_nebang_pohon = value
+			first_nebang_signal.emit(first_nebang_pohon)
+var first_nanem_pohon: bool = false:
+	set(value):
+		if first_nanem_pohon != value:
+			first_nanem_pohon = value
+			first_nanem_signal.emit(first_nanem_pohon)
+
+var first_sampah_double_linked = false:
+		set(value):
+			if first_sampah_double_linked != value:
+				first_sampah_double_linked = value
+				first_sampah_double_linked_signal.emit(first_sampah_double_linked)
+				
+# --- FUNGSI MANAJEMEN TUTORIAL ---
+func register_tutorial(tutorial_node: Node) -> void:
+	if is_instance_valid(active_tutorial_instance) and active_tutorial_instance != tutorial_node:
+		if active_tutorial_instance.has_method("_force_delete"):
+			active_tutorial_instance._force_delete()
+		else:
+			active_tutorial_instance.queue_free()
+	
+	active_tutorial_instance = tutorial_node
+	is_on_tutorial = true
+
+
+func unregister_tutorial(tutorial_node: Node) -> void:
+	if active_tutorial_instance == tutorial_node:
+		active_tutorial_instance = null
+		is_on_tutorial = false
+
+
 # --- FUNGSI RESET GLOBAL ---
 func reset_game_data() -> void:
 	name_city = "sampahnesia"
 	mouse_pos = Vector3.ZERO
 	
-	# Reset state (akan otomatis memicu signal jika nilainya berubah)
+	if is_instance_valid(active_tutorial_instance):
+		active_tutorial_instance.queue_free()
+	
+	active_tutorial_instance = null
+	is_on_tutorial = false
+	
 	currently_are_inspecting = false
 	currently_are_selecting = false
 	currently_are_delete = false
 	currently_are_raining = false
 	
-	# Reset statistik game
 	stat_money = 0
 	stat_polution = 1
 	stat_oxigen = 1
 	repairement_unused = 3
 	
-	# Panggil reset pada Autoload Archivement
+	# Reset status koneksi tutorial
+	first_sampah_input = false
+	first_pertanian_input = false
+	first_perternakan_input = false
+	first_toko_input = false
+	first_nebang_pohon = false
+	first_nanem_pohon = false
+	first_sampah_double_linked = false
 	if Archivement.has_method("reset_archivement"):
 		Archivement.reset_archivement()

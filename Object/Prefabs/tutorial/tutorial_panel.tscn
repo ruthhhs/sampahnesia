@@ -1,0 +1,293 @@
+[gd_scene format=3 uid="uid://kw26uk3uvsrl"]
+
+[ext_resource type="Script" uid="uid://dnhplv12178a4" path="res://Object/Prefabs/tutorial/script/tutorial_panel.gd" id="1_2du6n"]
+[ext_resource type="Texture2D" uid="uid://bv6elth034iv6" path="res://UI/Karakter/sekretaris.png" id="1_n75sw"]
+[ext_resource type="FontFile" uid="uid://br5sqe7lk4xrr" path="res://UI/Font/Gaegu/Gaegu-Regular.ttf" id="2_qd0rx"]
+[ext_resource type="AudioStream" uid="uid://bcriaa26fxcb8" path="res://UI/UIFX/soundreality-keyboard-typing-sfx-525007.mp3" id="4_2du6n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bhunq"]
+
+[sub_resource type="Animation" id="Animation_2du6n"]
+resource_name = "speak"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kn2np"]
+_data = {
+&"speak": SubResource("Animation_2du6n")
+}
+
+[sub_resource type="Animation" id="Animation_qd0rx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sekretaris:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PanelDialog:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kdx1s"]
+resource_name = "start_conversation"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sekretaris:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.36666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-0.5, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PanelDialog:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.03333333, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_w6mf4"]
+resource_name = "stay_still"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sekretaris:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PanelDialog:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ef38"]
+_data = {
+&"RESET": SubResource("Animation_qd0rx"),
+&"start_conversation": SubResource("Animation_kdx1s"),
+&"stay_still": SubResource("Animation_w6mf4")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sn0t7"]
+bg_color = Color(1.4333704, 1.4333704, 1.4333704, 1)
+border_width_right = 5
+border_width_bottom = 10
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+anti_aliasing_size = 2.0
+
+[sub_resource type="FontVariation" id="FontVariation_riqys"]
+base_font = ExtResource("2_qd0rx")
+variation_embolden = 0.32
+
+[sub_resource type="LabelSettings" id="LabelSettings_bhunq"]
+line_spacing = 1.0
+font = SubResource("FontVariation_riqys")
+font_size = 36
+font_color = Color(0.10224319, 0.10224321, 0.10224321, 1)
+
+[sub_resource type="Animation" id="Animation_kn2np"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_6ef38"]
+resource_name = "reveal_text"
+length = 2.5000000000000004
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.65, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w6mf4"]
+_data = {
+&"RESET": SubResource("Animation_kn2np"),
+&"reveal_text": SubResource("Animation_6ef38")
+}
+
+[node name="TutorialPanel" type="Control" unique_id=1872421202 node_paths=PackedStringArray("highlight_target")]
+top_level = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_2du6n")
+dialog = Array[String](["", "", "", "", ""])
+highlight_target = [null, null, null, null, null]
+seconds_per_char = 0.06
+delay_after_text = 0.5
+
+[node name="Tutorial" type="Control" parent="." unique_id=70830760]
+layout_mode = 1
+anchor_left = -0.031000001
+anchor_top = 0.647
+anchor_right = 0.201
+anchor_bottom = 1.0
+offset_left = 3.5200043
+offset_top = -2.7600098
+offset_right = 0.07998657
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Sekertaris" type="PanelContainer" parent="Tutorial" unique_id=1590891515]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.043
+anchor_right = 0.957
+anchor_bottom = 1.0
+offset_left = 0.006000519
+offset_right = 0.0059814453
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bhunq")
+
+[node name="sekretaris" type="TextureRect" parent="Tutorial/Sekertaris" unique_id=1748915985]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.5, 0)
+offset_transform_pivot_ratio = Vector2(0.5, 1)
+texture = ExtResource("1_n75sw")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SekertarisAnimation" type="AnimationPlayer" parent="Tutorial/Sekertaris/sekretaris" unique_id=2003227159]
+libraries/ = SubResource("AnimationLibrary_kn2np")
+
+[node name="conversation" type="AnimationPlayer" parent="Tutorial/Sekertaris" unique_id=422395487]
+libraries/ = SubResource("AnimationLibrary_6ef38")
+
+[node name="PanelDialog" type="PanelContainer" parent="Tutorial" unique_id=964399926]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.781
+anchor_right = 0.781
+anchor_bottom = 0.303
+offset_left = -3.2019958
+offset_top = 31.0
+offset_right = 2.7980042
+offset_bottom = -0.04901886
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0, 1)
+offset_transform_enabled = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_sn0t7")
+
+[node name="DialogLabel" type="Label" parent="Tutorial/PanelDialog" unique_id=981105387]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_bhunq")
+visible_characters = 0
+visible_characters_behavior = 3
+visible_ratio = 0.0
+
+[node name="Dialog_animation" type="AnimationPlayer" parent="Tutorial/PanelDialog/DialogLabel" unique_id=741067863]
+libraries/ = SubResource("AnimationLibrary_w6mf4")
+
+[node name="TypingSFX" type="AudioStreamPlayer" parent="." unique_id=1999185606]
+stream = ExtResource("4_2du6n")
+volume_db = -20.0
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="animation_finished" from="Tutorial/PanelDialog/DialogLabel/Dialog_animation" to="." method="_on_dialog_animation_animation_finished"]

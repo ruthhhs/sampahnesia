@@ -39,14 +39,14 @@ font_size = 78
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vmonu"]
 
-[node name="Peternakan" type="Area3D" unique_id=1372270150 node_paths=PackedStringArray("popup_hover", "popup_warning", "image_input_value_item", "electrical_box_container", "label_value_item", "label_electricity_item", "popup_warning_value", "popup_warning_electricity") groups=["Objek", "listrik_kotor"]]
+[node name="Peternakan" type="Area3D" unique_id=1372270150 node_paths=PackedStringArray("popup_hover", "image_input_value_item", "electrical_box_container", "label_value_item", "label_electricity_item", "popup_warning_value", "popup_warning_electricity") groups=["Objek", "listrik_kotor"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 top_level = true
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_pe5vq")
+building_category = 3
 popup_hover = NodePath("Sprite3D/SubViewport/PopupHover")
-popup_warning = NodePath("Sprite3D/SubViewport/PopupWarning")
 image_input_value_item = NodePath("Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue/ImageInputValueItem")
 electrical_box_container = NodePath("Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/Electrical")
 label_value_item = NodePath("Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue/LabelValueItem")
