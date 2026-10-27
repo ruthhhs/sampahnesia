@@ -1,8 +1,6 @@
 [gd_scene format=4 uid="uid://bw5xtkjcy78n8"]
 
-[ext_resource type="PackedScene" uid="uid://ckbqjucdjdbjr" path="res://Level/TestEnviroment/Asset/Grass/grass.tscn" id="2_2xl1w"]
 [ext_resource type="Material" uid="uid://bwwws2fdlcuyh" path="res://Assets/3DModel/UniversalMaterial.tres" id="5_s24fe"]
-[ext_resource type="Shader" uid="uid://c1pmetlrwhnt5" path="res://Level/TestEnviroment/Asset/Water/Water.gdshader" id="8_805ib"]
 [ext_resource type="Script" uid="uid://c1u6vihwysjkc" path="res://Level/TestLevel/scripttest/bangunan.gd" id="9_qht6g"]
 [ext_resource type="PackedScene" uid="uid://c04cun56mpuam" path="res://Assets/3DModel/Bangunan/Buku/buku.tscn" id="11_7unjx"]
 [ext_resource type="PackedScene" uid="uid://cgf3b7qcm2pmw" path="res://Level/TestEnviroment/island.tscn" id="11_y3oou"]
@@ -11,109 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bo0b0b2gyvuio" path="res://Assets/3DModel/Bangunan/Kertas/kertas.tscn" id="14_lusqi"]
 [ext_resource type="PackedScene" uid="uid://chw8waltqc8of" path="res://Assets/3DModel/Bangunan/PerkebunanKayu/perkebunan_kayu.tscn" id="15_fxf6j"]
 [ext_resource type="PackedScene" uid="uid://r13bmnl33nei" path="res://Object/Pohon/pohon.tscn" id="17_d8h5f"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y3oou"]
-sky_top_color = Color(0.30565304, 0.5733604, 0.6465221, 1)
-sky_horizon_color = Color(1.184752, 1.3693259, 1.4385966, 1)
-ground_bottom_color = Color(0.3254902, 0.79607844, 1, 1)
-ground_horizon_color = Color(1.184752, 1.3693259, 1.4385966, 1)
-energy_multiplier = 0.6
-
-[sub_resource type="Sky" id="Sky_o00n3"]
-sky_material = SubResource("ProceduralSkyMaterial_y3oou")
-
-[sub_resource type="Environment" id="Environment_erhbu"]
-background_mode = 2
-sky = SubResource("Sky_o00n3")
-tonemap_mode = 2
-glow_enabled = true
-glow_normalized = true
-glow_strength = 1.6
-glow_bloom = 0.45
-fog_enabled = true
-fog_light_color = Color(0.34674418, 0.41128507, 0.3798067, 1)
-fog_light_energy = 0.81
-fog_sun_scatter = 0.34
-fog_height = 1024.0
-fog_depth_curve = 0.23325814
-fog_depth_begin = 155.5
-fog_depth_end = 4000.0
-volumetric_fog_emission_energy = 6.5
-volumetric_fog_gi_inject = 16.0
-volumetric_fog_anisotropy = 0.9
-volumetric_fog_detail_spread = 0.5
-volumetric_fog_ambient_inject = 7.84
-adjustment_enabled = true
-adjustment_contrast = 1.25
-adjustment_saturation = 0.72
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_1ktun"]
-dof_blur_far_enabled = true
-dof_blur_far_distance = 181.51
-dof_blur_far_transition = 91.02
-dof_blur_near_enabled = true
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_h8xky"]
-frequency = 0.0017
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x37m3"]
-width = 1000
-height = 1000
-noise = SubResource("FastNoiseLite_h8xky")
-seamless = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wn7b4"]
-render_priority = 0
-shader = ExtResource("8_805ib")
-shader_parameter/color_shallow = Color(0.01, 0.2, 0.3, 1)
-shader_parameter/color_deep = Color(0.3, 0.5, 0.6, 1)
-shader_parameter/transparency = 0.6
-shader_parameter/metallic = 0.0
-shader_parameter/roughness = 0.1
-shader_parameter/max_visible_depth = 20.0
-shader_parameter/wave_a = SubResource("NoiseTexture2D_x37m3")
-shader_parameter/wave_b = SubResource("NoiseTexture2D_x37m3")
-shader_parameter/wave_move_direction_a = Vector2(-0.5, 0)
-shader_parameter/wave_move_direction_b = Vector2(0, 0.5)
-shader_parameter/wave_noise_scale_a = 15.0
-shader_parameter/wave_noise_scale_b = 15.0
-shader_parameter/wave_time_scale_a = 0.15
-shader_parameter/wave_time_scale_b = 0.15
-shader_parameter/wave_height_scale = 1.0
-shader_parameter/wave_normal_flatness = 50.0
-shader_parameter/surface_normals_move_direction_a = Vector2(-1, 0.2)
-shader_parameter/surface_normals_move_direction_b = Vector2(0.2, 1)
-shader_parameter/surface_texture_roughness = 0.1499999966472
-shader_parameter/surface_texture_scale = 0.1
-shader_parameter/surface_texture_time_scale = 0.06
-shader_parameter/ssr_resolution = 1.0
-shader_parameter/ssr_max_travel = 30.0
-shader_parameter/ssr_max_diff = 4.0
-shader_parameter/ssr_mix_strength = 0.7
-shader_parameter/ssr_screen_border_fadeout = 0.3
-shader_parameter/refraction_intensity = 0.4
-shader_parameter/border_color = Color(1, 1, 1, 1)
-shader_parameter/border_scale = 0.999999977648
-shader_parameter/border_near = 0.5
-shader_parameter/border_far = 10000.0
-shader_parameter/cut_out_x = 0.0
-shader_parameter/cut_out_z = 0.0
-
-[sub_resource type="QuadMesh" id="QuadMesh_6suso"]
-material = SubResource("ShaderMaterial_wn7b4")
-size = Vector2(500, 500)
-subdivide_width = 500
-subdivide_depth = 500
-orientation = 1
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8xky"]
-shading_mode = 0
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="QuadMesh" id="QuadMesh_x37m3"]
-material = SubResource("StandardMaterial3D_h8xky")
-size = Vector2(500, 500)
-orientation = 1
 
 [sub_resource type="FontVariation" id="FontVariation_dn1u6"]
 
@@ -189,16 +84,52 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_akmc1")
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8kxuu"]
+sky_top_color = Color(0.30565304, 0.5733604, 0.6465221, 1)
+sky_horizon_color = Color(1.184752, 1.3693259, 1.4385966, 1)
+ground_bottom_color = Color(0.3254902, 0.79607844, 1, 1)
+ground_horizon_color = Color(1.184752, 1.3693259, 1.4385966, 1)
+energy_multiplier = 0.6
+
+[sub_resource type="Sky" id="Sky_o00n3"]
+sky_material = SubResource("ProceduralSkyMaterial_8kxuu")
+
+[sub_resource type="Environment" id="Environment_78ohg"]
+background_mode = 2
+sky = SubResource("Sky_o00n3")
+tonemap_mode = 2
+glow_enabled = true
+glow_normalized = true
+glow_strength = 1.6
+glow_bloom = 0.45
+fog_enabled = true
+fog_light_color = Color(0.34674418, 0.41128507, 0.3798067, 1)
+fog_light_energy = 0.81
+fog_sun_scatter = 0.34
+fog_height = 1024.0
+fog_depth_curve = 0.23325814
+fog_depth_begin = 155.5
+fog_depth_end = 4000.0
+volumetric_fog_emission_energy = 6.5
+volumetric_fog_gi_inject = 16.0
+volumetric_fog_anisotropy = 0.9
+volumetric_fog_detail_spread = 0.5
+volumetric_fog_ambient_inject = 7.84
+adjustment_enabled = true
+adjustment_contrast = 1.25
+adjustment_saturation = 0.72
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_y3oou"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 181.51
+dof_blur_far_transition = 91.02
+dof_blur_near_enabled = true
+
 [node name="bgscene" type="Node3D" unique_id=147036054]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=187556191]
 transform = Transform3D(0.99691737, 0.044213746, -0.06481493, 0.010425996, 0.74411905, 0.6679657, 0.07776329, -0.66658247, 0.7413642, -58.146645, 10.449845, 8.907947)
 current = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=980614779]
-unique_name_in_owner = true
-environment = SubResource("Environment_erhbu")
-camera_attributes = SubResource("CameraAttributesPractical_1ktun")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=535061880]
 transform = Transform3D(0.103666864, -0.95932233, -0.2625908, -0.8067887, -0.23550843, 0.5418744, -0.5816745, 0.15568087, -0.7983848, 0, 0, 0)
@@ -208,20 +139,6 @@ directional_shadow_mode = 0
 directional_shadow_blend_splits = true
 directional_shadow_max_distance = 419.7
 directional_shadow_pancake_size = 1024.0
-
-[node name="Grass" parent="." unique_id=1735189941 instance=ExtResource("2_2xl1w")]
-transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, 0, -3, 0)
-visible = false
-
-[node name="Water" type="MeshInstance3D" parent="." unique_id=1641030476]
-transform = Transform3D(2.4, 0, 0, 0, 1, 0, 0, 0, 2.3000002, 0, -10.947814, 0)
-visible = false
-mesh = SubResource("QuadMesh_6suso")
-
-[node name="Ground" type="MeshInstance3D" parent="." unique_id=1101578936]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.5, 0)
-visible = false
-mesh = SubResource("QuadMesh_x37m3")
 
 [node name="Bangunan" type="Node3D" parent="." unique_id=616396326]
 script = ExtResource("9_qht6g")
@@ -350,14 +267,6 @@ transform = Transform3D(1.5020205, 0, 0.5366185, 0, 1.595, 0, -0.5366185, 0, 1.5
 [node name="Pohon5" parent="Nature" unique_id=1476393072 instance=ExtResource("17_d8h5f")]
 transform = Transform3D(1.16, 0, 0, 0, 1.16, 0, 0, 0, 1.16, -15.02, 0, -48.519867)
 
-[node name="Pohon6" parent="Nature" unique_id=1922937889 instance=ExtResource("17_d8h5f")]
-transform = Transform3D(1.145, 0, 0, 0, 1.145, 0, 0, 0, 1.145, -34.667206, 0, -16.726753)
-visible = false
-
-[node name="Pohon7" parent="Nature" unique_id=91444165 instance=ExtResource("17_d8h5f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.80596, 0, -40.816807)
-visible = false
-
 [node name="Pohon8" parent="Nature" unique_id=1700767247 instance=ExtResource("17_d8h5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.742577, 0, -38.451286)
 
@@ -399,46 +308,14 @@ transform = Transform3D(0.95313925, 0, 0.30253193, 0, 1, 0, -0.30253193, 0, 0.95
 [node name="Pohon20" parent="Nature" unique_id=417408228 instance=ExtResource("17_d8h5f")]
 transform = Transform3D(1.1382544, 0.035815973, -0.19266148, -0.03497167, 1.1544427, 0.007997589, 0.19281642, -0.0020481218, 1.1387898, -50.603363, 0, 12.90346)
 
-[node name="Pohon21" parent="Nature" unique_id=746501356 instance=ExtResource("17_d8h5f")]
-transform = Transform3D(1.3598909, 0.013521609, -0.010663484, -0.013480022, 1.3599226, 0.005343403, 0.010716008, -0.0052372753, 1.3599477, -75.31468, 1.9073486e-06, 20.063786)
-visible = false
-
 [node name="Pohon22" parent="Nature" unique_id=1955074536 instance=ExtResource("17_d8h5f")]
 transform = Transform3D(0.94, 0, 0, 0, 0.94, 0, 0, 0, 0.94, -60.10641, 0, -15.989918)
-
-[node name="Pohon23" parent="Nature" unique_id=1934784434 instance=ExtResource("17_d8h5f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.1229, 0, 42.013733)
-visible = false
-
-[node name="Pohon24" parent="Nature" unique_id=1376430733 instance=ExtResource("17_d8h5f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.850113, 0, 60.417915)
-visible = false
-
-[node name="Pohon25" parent="Nature" unique_id=1768498585 instance=ExtResource("17_d8h5f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.58799, 0, 38.621296)
-visible = false
-
-[node name="Pohon26" parent="Nature" unique_id=1305506451 instance=ExtResource("17_d8h5f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.001877, 0, 35.241974)
-visible = false
 
 [node name="Pohon27" parent="Nature" unique_id=986094574 instance=ExtResource("17_d8h5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49616623, 0, 23.921253)
 
-[node name="Pohon28" parent="Nature" unique_id=695611746 instance=ExtResource("17_d8h5f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.688126, 0, 49.942024)
-visible = false
-
-[node name="Pohon29" parent="Nature" unique_id=538637079 instance=ExtResource("17_d8h5f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.912117, 0, 52.307545)
-visible = false
-
 [node name="Pohon30" parent="Nature" unique_id=1753118314 instance=ExtResource("17_d8h5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -197.90477, 0, 31.07016)
-
-[node name="Pohon31" parent="Nature" unique_id=1239920312 instance=ExtResource("17_d8h5f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.93175, 0, 49.474342)
-visible = false
 
 [node name="Pohon32" parent="Nature" unique_id=24815172 instance=ExtResource("17_d8h5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.19387, 0, 27.677723)
@@ -497,14 +374,6 @@ visible = false
 [node name="Pohon47" parent="Nature" unique_id=1887658528 instance=ExtResource("17_d8h5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.308296, 0, 17.927711)
 
-[node name="Pohon48" parent="Nature" unique_id=1819846316 instance=ExtResource("17_d8h5f")]
-transform = Transform3D(1.365, 0, 0, 0, 1.365, 0, 0, 0, 1.365, -68.32776, 0, -36.997913)
-visible = false
-
-[node name="Pohon49" parent="Nature" unique_id=1518125379 instance=ExtResource("17_d8h5f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.451767, 0, -10.977142)
-visible = false
-
 [node name="Pohon50" parent="Nature" unique_id=1799368386 instance=ExtResource("17_d8h5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.227776, 0, -8.611626)
 
@@ -520,22 +389,6 @@ visible = false
 
 [node name="Pohon54" parent="Nature" unique_id=566430532 instance=ExtResource("17_d8h5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.51544, 0, -64.70923)
-
-[node name="Pohon55" parent="Nature" unique_id=1137070685 instance=ExtResource("17_d8h5f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.705185, 0, -76.02995)
-visible = false
-
-[node name="Pohon56" parent="Nature" unique_id=69314706 instance=ExtResource("17_d8h5f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.829193, 0, -50.00918)
-visible = false
-
-[node name="Pohon57" parent="Nature" unique_id=1689310413 instance=ExtResource("17_d8h5f")]
-transform = Transform3D(1.335, 0, 0, 0, 1.335, 0, 0, 0, 1.335, -77.6052, 0, -30.654558)
-visible = false
-
-[node name="Pohon58" parent="Nature" unique_id=1119069027 instance=ExtResource("17_d8h5f")]
-transform = Transform3D(0.9578713, 0, -0.28719777, 0, 1, 0, 0.28719777, 0, 0.9578713, -34.37248, 0, -5.5254927)
-visible = false
 
 [node name="Pohon59" parent="Nature" unique_id=964941164 instance=ExtResource("17_d8h5f")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -90.05, 0, -5.22)
@@ -561,6 +414,15 @@ visible = false
 
 [node name="Island" parent="." unique_id=651829938 instance=ExtResource("11_y3oou")]
 transform = Transform3D(-7.9336175e-08, 0, 1.815, 0, 1.0003179, 0, -1.815, 0, -7.9336175e-08, 60.018837, 0, 93.48137)
+visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=620104091]
+unique_name_in_owner = true
+environment = SubResource("Environment_78ohg")
+camera_attributes = SubResource("CameraAttributesPractical_y3oou")
+
+[node name="Island" parent="WorldEnvironment" unique_id=1555145034 instance=ExtResource("11_y3oou")]
+transform = Transform3D(-7.9336175e-08, 0, 1.815, 0, 1.0003179, 0, -1.815, 0, -7.9336175e-08, 0, 0.4432261, 0)
 
 [connection signal="child_entered_tree" from="Bangunan" to="Bangunan" method="_on_child_entered_tree"]
 [connection signal="child_exiting_tree" from="Bangunan" to="Bangunan" method="_on_child_exiting_tree"]

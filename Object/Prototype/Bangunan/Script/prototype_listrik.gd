@@ -109,16 +109,12 @@ enum BuildingCategory {
 @export var is_electric_production: bool = false
 @export var is_electric_usage: bool = false:
 	set(value):
+		is_electric_usage = value
 		shorcut_electric_usage = value
-		if value == true:
-			if popup_warning_electricity != null and electrical_box_container != null:
-				popup_warning_electricity.visible = true
-				electrical_box_container.visible = true
-		else:
-			if popup_warning_electricity != null and electrical_box_container != null:
-				popup_warning_electricity.visible = false
-				electrical_box_container.visible = false
-	get():
+		if popup_warning_electricity != null and electrical_box_container != null:
+			popup_warning_electricity.visible = value
+			electrical_box_container.visible = value
+	get:
 		return is_electric_usage
 @export var electric_item: int:
 	set(value):

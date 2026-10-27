@@ -1,4 +1,5 @@
 extends Control
+
 @export var tutorial_awal: Control
 @export var tutorial_sambung_pertanian: Control
 @export var tutorial_sambung_peternakan: Control
@@ -10,9 +11,11 @@ extends Control
 @export var tutorial_double_input_bangunan: Control
 @export var tutorial_destroy_raycast: Control
 @export var event_banjir: Control
-func _ready() -> void:
-	# Hubungkan signal dari Global script
 
+# Variabel untuk melacak urutan tutorial yang sedang aktif
+var step_tutorial: int = 0
+
+func _ready() -> void:
 	Global.first_sampah_signal.connect(_on_first_sampah)
 	Global.first_pertanian_signal.connect(_on_first_pertanian)
 	Global.first_perternakan_signal.connect(_on_first_peternakan)
@@ -23,58 +26,102 @@ func _ready() -> void:
 	Global.first_bangunan_double_linked_signal.connect(_on_first_bangunan_double_linked)
 	Global.first_bangunan_double_input_signal.connect(_on_first_bangunan_double_input)
 	Global.first_destroy_raycast_signal.connect(_on_first_raycast_destroy)
+	
+	# Signal event independen (tidak masuk urutan)
 	Global.first_building_damage_signal.connect(_on_first_bangunan_rusak)
 
+
+# Helper function untuk menyembunyikan semua UI tutorial dan menampilkan step aktif
+func set_tutorial_step(next_step: int, node_ui: Control) -> void:
+	step_tutorial = next_step
+	sembunyikan_semua_tutorial()
+	if node_ui != null:
+		node_ui.visible = true
+
+
+func sembunyikan_semua_tutorial() -> void:
+	if tutorial_awal: tutorial_awal.visible = false
+	if tutorial_sambung_pertanian: tutorial_sambung_pertanian.visible = false
+	if tutorial_sambung_peternakan: tutorial_sambung_peternakan.visible = false
+	if tutorial_sambung_toko: tutorial_sambung_toko.visible = false
+	if tutorial_sambung_nebang: tutorial_sambung_nebang.visible = false
+	if tutorial_nanam_pohon: tutorial_nanam_pohon.visible = false
+	if tutorial_double_linked_sampah: tutorial_double_linked_sampah.visible = false
+	if tutorial_double_linked_bangunan: tutorial_double_linked_bangunan.visible = false
+	if tutorial_double_input_bangunan: tutorial_double_input_bangunan.visible = false
+	if tutorial_destroy_raycast: tutorial_destroy_raycast.visible = false
+
+
+# Step 0: Timeout Awal
 func _on_start_timeout() -> void:
-	if tutorial_awal != null:
-		tutorial_awal.visible = true
+	if step_tutorial == 0:
+		set_tutorial_step(1, tutorial_awal)
+
+
+# Step 1 -> Step 2
+func _on_first_sampah(status: bool) -> void:
+	if status and step_tutorial == 1:
+		set_tutorial_step(2, tutorial_sambung_pertanian)
+
+
+# Step 2 -> Step 3
+func _on_first_pertanian(status: bool) -> void:
+	if status and step_tutorial == 2:
+		set_tutorial_step(3, tutorial_sambung_peternakan)
+
+
+# Step 3 -> Step 4
+func _on_first_peternakan(status: bool) -> void:
+	if status and step_tutorial == 3:
+		set_tutorial_step(4, tutorial_sambung_toko)
+
+
+# Step 4 -> Step 5
+func _on_first_toko(status: bool) -> void:
+	if status and step_tutorial == 4:
+		set_tutorial_step(5, tutorial_sambung_nebang)
+
+
+# Step 5 -> Step 6
+func _on_first_nebang(status: bool) -> void:
+	if status and step_tutorial == 5:
+		set_tutorial_step(6, tutorial_nanam_pohon)
+
+
+# Step 6 -> Step 7
+func _on_first_nanem(status: bool) -> void:
+	if status and step_tutorial == 6:
+		set_tutorial_step(7, tutorial_double_linked_sampah)
+
+
+# Step 7 -> Step 8
+func _on_first_sampah_double_linked(status: bool) -> void:
+	if status and step_tutorial == 7:
+		set_tutorial_step(8, tutorial_double_linked_bangunan)
+
+
+# Step 8 -> Step 9
+func _on_first_bangunan_double_linked(status: bool) -> void:
+	if status and step_tutorial == 8:
+		set_tutorial_step(9, tutorial_double_input_bangunan)
+
+
+# Step 9 -> Step 10
+func _on_first_bangunan_double_input(status: bool) -> void:
+	if status and step_tutorial == 9:
+		set_tutorial_step(10, tutorial_destroy_raycast)
+
+
+# Step 10: Selesai
+func _on_first_raycast_destroy(status: bool) -> void:
+	if status and step_tutorial == 10:
+		step_tutorial = 11
+		sembunyikan_semua_tutorial()
 
 
 # ==========================================
-# Callback Signal dari Global Script
+# Event Bebas / Independen
 # ==========================================
-func _on_first_sampah(is_connected_1: bool) -> void:
-	if is_connected_1 and tutorial_sambung_pertanian != null:
-		tutorial_sambung_pertanian.visible = true
-
-
-func _on_first_pertanian(is_connected_2: bool) -> void:
-	if is_connected_2 and tutorial_sambung_peternakan != null:
-		tutorial_sambung_peternakan.visible = true
-
-
-func _on_first_peternakan(is_connected_3: bool) -> void:
-	if is_connected_3 and tutorial_sambung_peternakan != null:
-		tutorial_sambung_peternakan.visible = true
-
-
-func _on_first_toko(is_connected_4: bool) -> void:
-	if is_connected_4 and tutorial_sambung_toko != null:
-		tutorial_sambung_toko.visible = true
-
-func _on_first_nebang(is_connected_5: bool) -> void:
-	if is_connected_5 and tutorial_sambung_nebang != null:
-		tutorial_sambung_nebang.visible = true
-
-func _on_first_nanem(is_connected_6: bool) -> void:
-	if is_connected_6 and tutorial_nanam_pohon != null:
-		tutorial_nanam_pohon.visible = true
-
-func _on_first_sampah_double_linked(is_connected_7: bool)-> void:
-	if is_connected_7 and tutorial_double_linked_sampah != null:
-		tutorial_double_linked_sampah.visible = true
-
-func _on_first_bangunan_double_linked(is_connected_8: bool) ->void:
-	if is_connected_8 and tutorial_double_linked_bangunan != null:
-		tutorial_double_linked_bangunan.visible = true
-
-func _on_first_bangunan_double_input(is_connected_9: bool)-> void:
-	if is_connected_9 and tutorial_double_input_bangunan != null:
-		tutorial_double_input_bangunan.visible = true
-
-func _on_first_raycast_destroy(is_connected_10: bool) -> void:
-	if is_connected_10 and tutorial_destroy_raycast != null:
-		tutorial_destroy_raycast.visible = true
-func _on_first_bangunan_rusak(is_connnected_11: bool) -> void:
-	if is_connnected_11 and event_banjir != null:
+func _on_first_bangunan_rusak(status: bool) -> void:
+	if status and event_banjir != null:
 		event_banjir.visible = true

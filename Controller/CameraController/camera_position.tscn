@@ -1531,7 +1531,6 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_v1usf")
 autostart = true
 
 [node name="MouseTutorial" type="VBoxContainer" parent="CanvasLayer/GameUIBuilder" unique_id=340776659]
-visible = false
 modulate = Color(1, 1, 1, 0.78431374)
 layout_mode = 1
 anchors_preset = -1
@@ -1567,7 +1566,7 @@ size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/GameUIBuilder/MouseTutorial/HBoxContainer2" unique_id=1838849138]
 layout_mode = 2
-text = "Bangun / Hancur"
+text = "Bangun"
 label_settings = SubResource("LabelSettings_3o3u8")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/GameUIBuilder/MouseTutorial/HBoxContainer2" unique_id=1148473206]

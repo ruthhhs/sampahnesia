@@ -109,7 +109,6 @@ func _input(_event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	if Global.on_pause == false:
-			
 		if target_send == null:
 			return
 			
@@ -121,43 +120,46 @@ func _process(delta: float) -> void:
 		else:
 			is_target_full = (target_send.item_value >= target_send.maximum_item_value)
 
-		# 2. Jika paket sedang stanby (belum berangkat)
+		# 2. Jika paket sedang standby (belum berangkat)
 		if not is_delivering:
 			var can_start_delivery: bool = false
 			
 			# Cek ketersediaan resource di pengirim
 			if the_parent.is_electric_production:
+				# Jika produsen listrik: butuh item_value > 0 (atau is_self_added)
 				can_start_delivery = (the_parent.is_self_added or the_parent.item_value > 0)
 			else:
+				# Jika pengirim butuh listrik: WAJIB item_value > 0 DAN electric_item > 0
 				if the_parent.is_electric_usage:
 					can_start_delivery = (the_parent.item_value > 0 and the_parent.electric_item > 0)
 				else:
 					can_start_delivery = (the_parent.item_value > 0)
 			
-			# BERANGKAT! Kurangi resource di awal keberangkatan
+			# BERANGKAT! Kurangi resource pengirim di awal keberangkatan
 			if can_start_delivery and not is_target_full:
 				is_delivering = true
 				
-				if the_parent.is_electric_production == false:
+				if not the_parent.is_electric_production:
+					# Kurangi stok barang
 					the_parent.item_value -= value_recive
-					if the_parent.shorcut_electric_usage == true:
-						the_parent.electric_item -= value_recive
+					
+					# Kurangi stok listrik JIKA bangunan ini mengonsumsi listrik
+					if the_parent.is_electric_usage:
+						the_parent.electric_item = max(0, the_parent.electric_item - value_recive)
 				else:
-					if the_parent.is_self_added == false:
+					# Jika bangunan produsen listrik
+					if not the_parent.is_self_added:
 						the_parent.item_value = max(0, the_parent.item_value - value_recive)
 					the_parent.electric_item = max(0, the_parent.electric_item - value_recive)
 
 		# 3. Eksekusi pergerakan di jalan
 		if is_delivering:
 			sprite_3d.visible = true
-			#if speed_applier > 1:
-				
 			%Ekspedisi.progress += speed_applier * delta
 		else:
 			# Menunggu resource atau target full
 			sprite_3d.visible = false
 			%Ekspedisi.progress = 0
-
 func _delete_connection() -> void:
 	if my_parent != null:
 		if target_send != null:
