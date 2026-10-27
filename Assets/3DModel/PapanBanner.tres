@@ -1,7 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://cc1jg7rthbfmp"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ej6ty"]
-load_path = "res://.godot/imported/Tambahkan sedikit teks isi (5).png-b035142c70a19e16cf9bb174e63b8abb.s3tc.ctex"
 
 [resource]
 albedo_texture = SubResource("CompressedTexture2D_ej6ty")

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://di6pfrj7w1s7m"]
 
 [ext_resource type="Script" uid="uid://br6ny0r5iuewx" path="res://UI/Scnee/MainMenu/Script/main_menu.gd" id="1_6sk4h"]
-[ext_resource type="Shader" uid="uid://ds83waeyl5lgg" path="res://UI/Scnee/MainMenu/main_menu.gdshader" id="2_t7fd0"]
+[ext_resource type="Shader" uid="uid://dfx4dsh82xliq" path="res://UI/Scnee/MainMenu/main_menu.gdshader" id="2_t7fd0"]
 [ext_resource type="Texture2D" uid="uid://hif5ga6ofull" path="res://UI/Logo/name-color.png" id="2_tgfyh"]
 [ext_resource type="Texture2D" uid="uid://c3ddhfprxi3e3" path="res://UI/Item/envelope.png" id="3_6sk4h"]
 [ext_resource type="PackedScene" uid="uid://c2ele75e6i3pi" path="res://UI/Prefabs/Button/button.tscn" id="4_fxxad"]
@@ -140,15 +140,15 @@ alignment = 1
 
 [node name="Play" parent="Forground/VBoxContainer/HBoxContainer/ButtonList" unique_id=721622896 instance=ExtResource("4_fxxad")]
 layout_mode = 2
-text = "Play"
+text = "Main"
 
 [node name="Setting" parent="Forground/VBoxContainer/HBoxContainer/ButtonList" unique_id=1360431569 instance=ExtResource("4_fxxad")]
 layout_mode = 2
-text = "Setting"
+text = "Pengaturan"
 
 [node name="Exit" parent="Forground/VBoxContainer/HBoxContainer/ButtonList" unique_id=2141875630 instance=ExtResource("4_fxxad")]
 layout_mode = 2
-text = "Exit"
+text = "Keluar"
 
 [node name="VSeparator2" type="VSeparator" parent="Forground/VBoxContainer/HBoxContainer" unique_id=621801578]
 layout_mode = 2

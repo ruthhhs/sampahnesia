@@ -3,7 +3,7 @@ extends Control
 @export var dialog: Array[String]
 @export var highlight_target: Array[Control]
 @export var seconds_per_char: float = 0.03
-@export var delay_after_text: float = 1.5
+@export var delay_after_text: float = 1.5 # (Opsional jika masih mau dipakai setelah selesai)
 
 # Ubah nodepath & tipe variabel ke RichTextLabel
 @onready var dialog_label: RichTextLabel = $Tutorial/PanelDialog/DialogLabel
@@ -14,6 +14,7 @@ extends Control
 var current_dialog: int = 0
 var active_highlight: Node = null
 var text_tween: Tween
+var is_text_finished: bool = false # Penanda apakah animasi teks sudah selesai
 
 
 func _ready() -> void:
@@ -25,9 +26,38 @@ func _ready() -> void:
 		dialog_label.bbcode_enabled = true
 
 
-func start_show_dialog() -> void:
-	if current_dialog == 0:
+# Menangkap input klik mouse atau tombol (Spasi / Enter)
+func _input(event: InputEvent) -> void:
+	# Pastikan node ini sedang aktif/visible di layar
+	if not visible:
+		return
 		
+	var is_click = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed
+	var is_action = Input.is_action_just_pressed("ui_accept") # Tombol Spasi / Enter
+	
+	if is_click or is_action:
+		handle_player_input()
+
+
+func handle_player_input() -> void:
+	# Kondisi 1: Jika teks masih berjalan (belum selesai diketik), skip animasinya agar langsung penuh
+	if text_tween and text_tween.is_running():
+		text_tween.kill() # Matikan tween
+		_stop_typing_sfx()
+		if is_instance_valid(dialog_label):
+			dialog_label.visible_ratio = 1.0 # Tampilkan seluruh teks seketika
+		is_text_finished = true
+	
+	# Kondisi 2: Jika teks sudah selesai diketik, lanjut ke dialog berikutnya
+	elif is_text_finished:
+		is_text_finished = false
+		start_show_dialog()
+
+
+func start_show_dialog() -> void:
+	is_text_finished = false # Reset status saat dialog baru mulai
+	
+	if current_dialog == 0:
 		var was_already_on_tutorial := Global.is_on_tutorial
 		Global.register_tutorial(self)
 
@@ -46,7 +76,6 @@ func start_show_dialog() -> void:
 		print("dialog: ", dialog[current_dialog])
 		var text_to_show := dialog[current_dialog]
 		if is_instance_valid(dialog_label):
-			# Pada RichTextLabel, gunakan text atau text = text_to_show jika bbcode aktif
 			dialog_label.text = text_to_show
 			_reveal_text_dynamic(text_to_show)
 
@@ -75,7 +104,6 @@ func _reveal_text_dynamic(_text: String) -> void:
 	# Reset animasi ketik RichTextLabel ke 0
 	dialog_label.visible_ratio = 0.0
 	
-	# Untuk RichTextLabel, hitung panjang teks bersih (tanpa tag BBCode) agar durasi animasi pas
 	var clean_text_length: int = dialog_label.get_parsed_text().length()
 	var duration: float = clean_text_length * seconds_per_char
 
@@ -85,7 +113,10 @@ func _reveal_text_dynamic(_text: String) -> void:
 	text_tween = create_tween()
 	text_tween.tween_property(dialog_label, "visible_ratio", 1.0, duration)
 	text_tween.tween_callback(_stop_typing_sfx)
-	text_tween.tween_interval(delay_after_text)
+	# (Opsional) Interval delay_after_text dihapus atau dikomentari agar tidak auto-lanjut,
+	# karena sekarang murni menunggu klik user setelah teks selesai:
+	# text_tween.tween_interval(delay_after_text)
+	
 	text_tween.finished.connect(_on_text_reveal_finished)
 
 
@@ -95,7 +126,9 @@ func _stop_typing_sfx() -> void:
 
 
 func _on_text_reveal_finished() -> void:
-	start_show_dialog()
+	# Tandai bahwa teks sudah selesai diketik sepenuhnya
+	is_text_finished = true
+	# Catatan: Baris `start_show_dialog()` dihapus dari sini agar tidak otomatis lanjut.
 
 
 func _finish_tutorial() -> void:
@@ -120,7 +153,6 @@ func _force_delete() -> void:
 
 
 func _on_visibility_changed() -> void:
-	#if Global.is_on_tutorial == true:
 	if visible :
 		if not is_node_ready():
 			await ready
