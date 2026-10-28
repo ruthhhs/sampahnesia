@@ -596,9 +596,6 @@ size = Vector3(2.155, 1.4, 2.155)
 [node name="CameraPosition" type="Node3D" unique_id=508572600]
 script = ExtResource("60_84f65")
 starter_money = 4500
-year_start = 1
-month = 1
-durasi_jabatan = 6
 
 [node name="CameraRotationX" type="Node3D" parent="." unique_id=1260349627]
 
@@ -674,7 +671,7 @@ highlight_target = [null, null, null]
 
 [node name="TutorialPanel2" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=625658027 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
 layout_mode = 1
-dialog = Array[String](["Pada panel ini, terdapat 4 kategori fasilitas: [b]Produksi[/b] (pengolahan sampah), [b]Energi[/b] (pembangkit listrik), [b]Toko[/b] (tempat penjualan), dan [b]Tanaman[/b] (penghijauan kota).", "Jika Bapak mengarahkan kursor ke fasilitas di kategori Produksi, Bapak dapat melihat detail keterangannya.", "Kita akan mencoba mengolah sampah menjadi hal bernilai. Silakan pilih [b]Lahan Pertanian[/b].", "Baris pertama menunjukkan bahan baku yang dibutuhkan serta hasilnya. Di sini, Lahan Pertanian membutuhkan sampah untuk menghasilkan gandum.", "Baris kedua menunjukan estimasi pendapatannya.", "Baris ketiga menunjukkan ke mana hasil gandum tersebut dapat dijual.", "Sekarang, silakan klik kiri Lahan Pertanian untuk memilih bangunan, kemudian klik kanan untuk meletakkan bangunan tersebut di area tanah yang kosong."])
+dialog = Array[String](["Pada panel ini, terdapat 4 kategori fasilitas: [b]Produksi[/b] (pengolahan sampah), [b]Energi[/b] (pembangkit listrik), [b]Toko[/b] (tempat penjualan), dan [b]Tanaman[/b] (penghijauan kota).", "Jika Bapak mengarahkan kursor ke fasilitas di kategori Produksi, Bapak dapat melihat detail keterangannya.", "Kita akan mencoba mengolah sampah menjadi hal bernilai. Silakan pilih [b]Lahan Pertanian[/b].", "Baris pertama menunjukkan bahan baku yang dibutuhkan serta hasilnya. Di sini, Lahan Pertanian membutuhkan sampah untuk menghasilkan gandum.", "Baris kedua menunjukan estimasi pendapatannya.", "Baris ketiga menunjukkan ke mana hasil gandum tersebut dapat dijual.", "Sekarang, silakan klik kanan Lahan Pertanian untuk memilih bangunan, kemudian klik kanan untuk meletakkan bangunan tersebut di area tanah yang kosong."])
 highlight_target = []
 
 [node name="TutorialPanel3" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=58413537 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
@@ -689,13 +686,13 @@ highlight_target = [null, null]
 
 [node name="TutorialPanel5" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=1402583906 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
 layout_mode = 1
-dialog = Array[String](["Bagus!!", "Langkah berikutnya adalah menjual hasil olahan kita. Buka [b]Panel Membangun[/b], pilih [b]Toko Kecil[/b], lalu hubungkan Peternakan ke Toko Kecil tersebut."])
-highlight_target = [null, null]
+dialog = Array[String](["Bagus!! Langkah berikutnya adalah menjual hasil olahan kita. Buka [b]Panel Membangun[/b], pilih [b]Toko Kecil[/b], lalu hubungkan Peternakan ke Toko Kecil tersebut."])
+highlight_target = [null]
 
 [node name="TutorialPanel6" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=1979274103 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
 layout_mode = 1
 dialog = Array[String](["Perhatikan indikator di kanan atas layar, pendapatan kota mulai bertambah seiring berjalannya transaksi.", "Dana yang terkumpul dapat Bapak gunakan kembali untuk mengembangkan fasilitas pengolahan lain (ekonomi sirkular).", "Selain itu, Bapak dapat membuka lahan baru dengan menebang pohon. Buka [b]Panel Menghapus[/b], lalu coba tebang 2 atau 3 pohon di sekitar."])
-highlight_target = [null, null, null]
+highlight_target = [NodePath("../../CityStatsRight/VBoxContainer/HBoxContainer/Panel"), null, null]
 
 [node name="TutorialPanel7" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=19047868 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
 layout_mode = 1
@@ -714,8 +711,8 @@ highlight_target = [null, null]
 
 [node name="TutorialPanel10" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=353152739 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
 layout_mode = 1
-dialog = Array[String](["Begitu pula sebaliknya, sebuah fasilitas dapat menerima suplai dari beberapa sumber. Namun, karena kapasitas penampungan terbatas, penerimaan barang tidak bisa terus-menerus. Silakan coba hubungkan 2 Lahan Pertanian ke 1 Peternakan."])
-highlight_target = [null]
+dialog = Array[String](["Begitu pula sebaliknya, sebuah fasilitas dapat menerima suplai dari beberapa sumber. ", "Namun, karena kapasitas penampungan terbatas, penerimaan barang tidak bisa terus-menerus. Silakan coba hubungkan 2 Lahan Pertanian ke 1 Peternakan."])
+highlight_target = [null, null]
 
 [node name="TutorialPanel11" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=199403853 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
 layout_mode = 1

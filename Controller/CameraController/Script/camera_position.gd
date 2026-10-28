@@ -165,7 +165,7 @@ func _on_timer_watch_timeout() -> void:
 	if month >= 12:
 		month = 0
 		year_start += 1
-		%YearLabel.text = str(year_start)
+		%YearLabel.text = str(year_start + 1)
 	if year_start >= durasi_jabatan:
 		%EndAnim.play("GameOver")
 		#Transition.oksigen = Global.stat_oxigen

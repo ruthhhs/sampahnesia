@@ -80,55 +80,56 @@ var first_sampah_input: bool = false:
 			first_sampah_signal.emit(first_sampah_input)
 var first_pertanian_input: bool = false:
 	set(value):
-		if first_pertanian_input != value:
+		if first_pertanian_input != value and first_sampah_input == true:
 			first_pertanian_input = value
 			first_pertanian_signal.emit(first_pertanian_input)
 var first_perternakan_input: bool = false:
 	set(value):
-		if first_perternakan_input != value:
+		if first_perternakan_input != value and first_pertanian_input == true:
 			first_perternakan_input = value
 			first_perternakan_signal.emit(first_perternakan_input)
 var first_toko_input: bool = false:
 	set(value):
-		if first_toko_input != value:
+		if first_toko_input != value and first_perternakan_input == true:
+			
 			first_toko_input = value
 			first_toko_signal.emit(first_toko_input)
-var first_nebang_pohon: bool = false:
+var first_nebang_pohon: bool = false :
 	set(value):
-		if first_nebang_pohon != value:
+		if first_nebang_pohon != value and first_toko_input:
 			first_nebang_pohon = value
 			first_nebang_signal.emit(first_nebang_pohon)
-var first_nanem_pohon: bool = false:
+var first_nanem_pohon: bool = false :
 	set(value):
-		if first_nanem_pohon != value:
+		if first_nanem_pohon != value and first_nebang_pohon:
 			first_nanem_pohon = value
 			first_nanem_signal.emit(first_nanem_pohon)
 
 var first_sampah_double_linked: bool = false:
 	set(value):
-		if first_sampah_double_linked != value:
+		if first_sampah_double_linked != value and first_nanem_pohon:
 			first_sampah_double_linked = value
 			first_sampah_double_linked_signal.emit(first_sampah_double_linked)
 var first_bangunan_double_linked: bool = false: #not yet implement
 	set(value):
-		if first_bangunan_double_linked != value:
+		if first_bangunan_double_linked != value and first_sampah_double_linked:
 			first_bangunan_double_linked = value
 			first_bangunan_double_linked_signal.emit(first_bangunan_double_linked)
 			
 var first_bangunan_double_input: bool = false: #not yet implement
 	set(value):
-		if first_bangunan_double_input != value:
+		if first_bangunan_double_input != value and first_bangunan_double_linked:
 			first_bangunan_double_input = value
 			first_bangunan_double_input_signal.emit(first_bangunan_double_input)
 
 var first_destroy_raycster: bool = false: #not yet implement
 	set(value):
-		if first_destroy_raycster != value:
+		if first_destroy_raycster != value and first_bangunan_double_input:
 			first_destroy_raycster = value
 			first_destroy_raycast_signal.emit(first_destroy_raycster)
 var first_building_damage: bool = false:
 	set (value):
-		if first_building_damage != value:
+		if first_building_damage != value and first_destroy_raycster:
 			first_building_damage = value
 			first_building_damage_signal.emit(first_building_damage)
 

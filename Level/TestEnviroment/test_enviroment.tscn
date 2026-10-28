@@ -404,7 +404,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -211.05495, 0, -155.32071)
 [node name="Sampah_added" type="Node3D" parent="." unique_id=1765756609 node_paths=PackedStringArray("target_spawn")]
 script = ExtResource("11_eq4fp")
 target_spawn = NodePath("../Sampah")
-antrian_sampah = 6
+antrian_sampah = 3
 
 [node name="Raycaster" type="Node3D" parent="Sampah_added" unique_id=80819525]
 
