@@ -3,59 +3,53 @@ extends Control
 @export var dialog: Array[String]
 @export var highlight_target: Array[Control]
 @export var seconds_per_char: float = 0.03
-@export var delay_after_text: float = 1.5 # (Opsional jika masih mau dipakai setelah selesai)
+@export var delay_after_text: float = 1.5
 
-# Ubah nodepath & tipe variabel ke RichTextLabel
 @onready var dialog_label: RichTextLabel = $Tutorial/PanelDialog/DialogLabel
 @onready var start_conversation: AnimationPlayer = $Tutorial/Sekertaris/conversation
 @onready var highlight_panel: PackedScene = preload("res://Object/Prefabs/tutorial/highlight.tscn")
-@onready var typing_sfx: AudioStreamPlayer = $TypingSFX # Node suara ketikan
+@onready var typing_sfx: AudioStreamPlayer = $TypingSFX
 
 var current_dialog: int = 0
 var active_highlight: Node = null
 var text_tween: Tween
-var is_text_finished: bool = false # Penanda apakah animasi teks sudah selesai
+var is_text_finished: bool = false
 
 
 func _ready() -> void:
-	# Memastikan UI selalu berada di depan layar dan memenuhi screen
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 	
-	# Aktifkan BBCode secara terprogram untuk mendukung formatting teks ([b], [color], dll)
 	if is_instance_valid(dialog_label):
 		dialog_label.bbcode_enabled = true
 
 
-# Menangkap input klik mouse atau tombol (Spasi / Enter)
 func _input(event: InputEvent) -> void:
-	# Pastikan node ini sedang aktif/visible di layar
 	if not visible:
 		return
 		
 	var is_click = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed
-	var is_action = Input.is_action_just_pressed("ui_accept") # Tombol Spasi / Enter
+	var is_action = Input.is_action_just_pressed("ui_accept")
 	
 	if is_click or is_action:
+		# Hentikan event input agar tidak bocor ke objek 3D di bawahnya
+		get_viewport().set_input_as_handled()
 		handle_player_input()
 
 
 func handle_player_input() -> void:
-	# Kondisi 1: Jika teks masih berjalan (belum selesai diketik), skip animasinya agar langsung penuh
 	if text_tween and text_tween.is_running():
-		text_tween.kill() # Matikan tween
+		text_tween.kill()
 		_stop_typing_sfx()
 		if is_instance_valid(dialog_label):
-			dialog_label.visible_ratio = 1.0 # Tampilkan seluruh teks seketika
+			dialog_label.visible_ratio = 1.0
 		is_text_finished = true
-	
-	# Kondisi 2: Jika teks sudah selesai diketik, lanjut ke dialog berikutnya
 	elif is_text_finished:
 		is_text_finished = false
 		start_show_dialog()
 
 
 func start_show_dialog() -> void:
-	is_text_finished = false # Reset status saat dialog baru mulai
+	is_text_finished = false
 	
 	if current_dialog == 0:
 		var was_already_on_tutorial := Global.is_on_tutorial
@@ -73,13 +67,11 @@ func start_show_dialog() -> void:
 		active_highlight.queue_free()
 
 	if current_dialog < dialog.size():
-		print("dialog: ", dialog[current_dialog])
 		var text_to_show := dialog[current_dialog]
 		if is_instance_valid(dialog_label):
 			dialog_label.text = text_to_show
 			_reveal_text_dynamic(text_to_show)
 
-		# Pengecekan keamanan untuk highlight target & highlight_panel
 		if current_dialog < highlight_target.size():
 			var target = highlight_target[current_dialog]
 			if is_instance_valid(target):
@@ -101,7 +93,6 @@ func _reveal_text_dynamic(_text: String) -> void:
 	if not is_instance_valid(dialog_label):
 		return
 
-	# Reset animasi ketik RichTextLabel ke 0
 	dialog_label.visible_ratio = 0.0
 	
 	var clean_text_length: int = dialog_label.get_parsed_text().length()
@@ -113,10 +104,6 @@ func _reveal_text_dynamic(_text: String) -> void:
 	text_tween = create_tween()
 	text_tween.tween_property(dialog_label, "visible_ratio", 1.0, duration)
 	text_tween.tween_callback(_stop_typing_sfx)
-	# (Opsional) Interval delay_after_text dihapus atau dikomentari agar tidak auto-lanjut,
-	# karena sekarang murni menunggu klik user setelah teks selesai:
-	# text_tween.tween_interval(delay_after_text)
-	
 	text_tween.finished.connect(_on_text_reveal_finished)
 
 
@@ -126,9 +113,7 @@ func _stop_typing_sfx() -> void:
 
 
 func _on_text_reveal_finished() -> void:
-	# Tandai bahwa teks sudah selesai diketik sepenuhnya
 	is_text_finished = true
-	# Catatan: Baris `start_show_dialog()` dihapus dari sini agar tidak otomatis lanjut.
 
 
 func _finish_tutorial() -> void:
@@ -143,7 +128,6 @@ func _finish_tutorial() -> void:
 
 
 func _force_delete() -> void:
-	print("WARNING: Tutorial dihapus paksa oleh instance lain!")
 	_stop_typing_sfx()
 	if is_instance_valid(active_highlight):
 		active_highlight.queue_free()
@@ -153,7 +137,7 @@ func _force_delete() -> void:
 
 
 func _on_visibility_changed() -> void:
-	if visible :
+	if visible:
 		if not is_node_ready():
 			await ready
 		start_show_dialog()

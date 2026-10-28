@@ -73,6 +73,7 @@
 [ext_resource type="Texture2D" uid="uid://c1opnovcu6fgc" path="res://UI/Icon/Keyboard & Mouse/Double/mouse_scroll.png" id="62_c86fb"]
 [ext_resource type="AudioStream" uid="uid://bdoywicygjqbl" path="res://UI/UIFX/kenney_interface-sounds/Audio/switch_006.ogg" id="63_84f65"]
 [ext_resource type="AudioStream" uid="uid://cdf7ix6556xk8" path="res://Assets/Music/WhatsApp Audio 2026-08-14 at 12.57.16.mp3" id="64_kohko"]
+[ext_resource type="Script" uid="uid://duaa7fsgs4epu" path="res://Controller/CameraController/Script/mouse_tutorial.gd" id="65_8jbnc"]
 [ext_resource type="Script" uid="uid://d1xeymny1apg7" path="res://Controller/CameraController/Script/mode.gd" id="65_dg3oh"]
 [ext_resource type="Texture2D" uid="uid://bmvpl273fmewb" path="res://Assets/Sprite/kenney_pattern-pack/Selecting.png" id="65_jdguq"]
 [ext_resource type="Texture2D" uid="uid://cfpox3mropgnf" path="res://UI/Icon/PNG/White/2x/upLeft.png" id="65_ykp4m"]
@@ -462,6 +463,42 @@ shadow_color = Color(0.0627451, 0.17254902, 0.19607843, 0.19607843)
 [sub_resource type="LabelSettings" id="LabelSettings_3o3u8"]
 font = ExtResource("59_ijmff")
 font_size = 22
+
+[sub_resource type="Animation" id="Animation_iifq8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_50xed"]
+resource_name = "fade-out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m5h88"]
+_data = {
+&"RESET": SubResource("Animation_iifq8"),
+&"fade-out": SubResource("Animation_50xed")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hsyvo"]
 bg_color = Color(0.36078432, 0.5058824, 0.6784314, 1)
@@ -1528,7 +1565,6 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_v1usf")
 autostart = true
 
 [node name="MouseTutorial" type="VBoxContainer" parent="CanvasLayer/GameUIBuilder" unique_id=340776659]
-modulate = Color(1, 1, 1, 0.78431374)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.022000002
@@ -1540,6 +1576,7 @@ offset_top = -1.5258789e-05
 offset_right = 0.23999023
 offset_bottom = -0.52001953
 grow_vertical = 2
+script = ExtResource("65_8jbnc")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder/MouseTutorial" unique_id=1583229762]
 layout_mode = 2
@@ -1547,7 +1584,9 @@ size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/GameUIBuilder/MouseTutorial/HBoxContainer" unique_id=1943752172]
 layout_mode = 2
-text = "Memilih / Menyambung"
+text = "- Membangun 
+- Menyambung 
+- Menghapus"
 label_settings = SubResource("LabelSettings_3o3u8")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/GameUIBuilder/MouseTutorial/HBoxContainer" unique_id=92072441]
@@ -1558,6 +1597,7 @@ expand_mode = 2
 stretch_mode = 4
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder/MouseTutorial" unique_id=1340829971]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -1579,7 +1619,7 @@ size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/GameUIBuilder/MouseTutorial/HBoxContainer3" unique_id=1991077732]
 layout_mode = 2
-text = "Dekat / Jauh"
+text = "- Dekat / Jauh"
 label_settings = SubResource("LabelSettings_3o3u8")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/GameUIBuilder/MouseTutorial/HBoxContainer3" unique_id=259345108]
@@ -1588,6 +1628,13 @@ size_flags_horizontal = 3
 texture = ExtResource("62_c86fb")
 expand_mode = 2
 stretch_mode = 4
+
+[node name="MouseAnim" type="AnimationPlayer" parent="CanvasLayer/GameUIBuilder/MouseTutorial" unique_id=923952589]
+libraries/ = SubResource("AnimationLibrary_m5h88")
+
+[node name="Timer" type="Timer" parent="CanvasLayer/GameUIBuilder/MouseTutorial" unique_id=588904846]
+wait_time = 12.0
+autostart = true
 
 [node name="Mode" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder" unique_id=67925656 node_paths=PackedStringArray("tutorial")]
 layout_mode = 1
@@ -1754,6 +1801,8 @@ bus = &"Music"
 [connection signal="tab_changed" from="CanvasLayer/GameUIBuilder/TabContainer" to="MouseFollowerObject" method="_on_tab_container_tab_changed"]
 [connection signal="pressed" from="CanvasLayer/GameUIBuilder/CityStatsRight/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="CanvasLayer/GameUIBuilder/Calendar/TimerWatch" to="." method="_on_timer_watch_timeout"]
+[connection signal="animation_finished" from="CanvasLayer/GameUIBuilder/MouseTutorial/MouseAnim" to="CanvasLayer/GameUIBuilder/MouseTutorial" method="_on_mouse_anim_animation_finished"]
+[connection signal="timeout" from="CanvasLayer/GameUIBuilder/MouseTutorial/Timer" to="CanvasLayer/GameUIBuilder/MouseTutorial" method="_on_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/GameUIBuilder/Mode/BuildMode" to="CanvasLayer/GameUIBuilder/Mode" method="_on_build_mode_pressed"]
 [connection signal="pressed" from="CanvasLayer/GameUIBuilder/Mode/SelectMode" to="CanvasLayer/GameUIBuilder/Mode" method="_on_select_mode_pressed"]
 [connection signal="pressed" from="CanvasLayer/GameUIBuilder/Mode/DeleteMode" to="CanvasLayer/GameUIBuilder/Mode" method="_on_delete_mode_pressed"]
