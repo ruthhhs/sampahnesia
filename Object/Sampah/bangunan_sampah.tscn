@@ -12,10 +12,10 @@
 [ext_resource type="Script" uid="uid://c1c5onpeebwl6" path="res://Object/Sampah/Script/kumpulan_ray.gd" id="8_7ama4"]
 [ext_resource type="Script" uid="uid://cmi4f5dabk2am" path="res://Object/Sampah/Script/timer_modal.gd" id="10_2ds5u"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_q4aoa"]
-size = Vector3(9.5, 6.5, 9.5)
+[sub_resource type="SphereShape3D" id="SphereShape3D_ys2ro"]
+radius = 5.6531706
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_pyg1e"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_b5hqc"]
 viewport_path = NodePath("Sprite3D/SubViewport")
 
 [sub_resource type="FontVariation" id="FontVariation_gayf8"]
@@ -31,6 +31,8 @@ corner_radius_top_left = 38
 corner_radius_top_right = 38
 corner_radius_bottom_right = 38
 corner_radius_bottom_left = 38
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3xd07"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nopbq"]
 font = ExtResource("5_7ama4")
@@ -72,8 +74,8 @@ infinite_connection = true
 can_delete = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1864420134]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.09500024, 2.8700414, 0.09500026)
-shape = SubResource("BoxShape3D_q4aoa")
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_ys2ro")
 debug_color = Color(13.609984, 13.18741, 13.891701, 1)
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=336094838]
@@ -82,7 +84,7 @@ pixel_size = 0.0002
 billboard = 1
 no_depth_test = true
 fixed_size = true
-texture = SubResource("ViewportTexture_pyg1e")
+texture = SubResource("ViewportTexture_b5hqc")
 
 [node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=609652335]
 transparent_bg = true
@@ -163,11 +165,18 @@ layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
+[node name="VSeparator2" type="VSeparator" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue" unique_id=1107312217]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_3xd07")
+
 [node name="ImageInputValueItem" type="TextureRect" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue" unique_id=1343033815]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-expand_mode = 2
+texture = ExtResource("2_2awq0")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="TextureRect2" type="TextureRect" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue/ImageInputValueItem" unique_id=727293641]
@@ -195,10 +204,16 @@ horizontal_alignment = 1
 [node name="LabelValueItem" type="Label" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue" unique_id=865192223]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "10/10"
+text = "100/100"
 label_settings = SubResource("LabelSettings_qefh5")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue" unique_id=14951719]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.15
+theme_override_styles/separator = SubResource("StyleBoxEmpty_3xd07")
 
 [node name="Electrical" type="HBoxContainer" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie" unique_id=650442007]
 visible = false

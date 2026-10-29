@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bvp07c3p3xcf7" path="res://UI/UIFX/kenney_interface-sounds/Audio/confirmation_003.ogg" id="5_njkql"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhunq"]
-bg_color = Color(0.8353652, 0.51557326, 5.7756904e-07, 1)
+bg_color = Color(0.9999998, 0.67472327, 0.29381967, 1)
 corner_radius_top_left = 14
 corner_radius_bottom_left = 14
 corner_detail = 1

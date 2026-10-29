@@ -296,6 +296,7 @@ material = SubResource("StandardMaterial3D_fyipr")
 size = Vector2(700, 700)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dwbtc"]
+render_priority = -1
 transparency = 1
 albedo_color = Color(0, 0.53100014, 0.54, 1)
 
@@ -323,6 +324,7 @@ seamless = true
 seamless_blend_skirt = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6fhyq"]
+render_priority = -1
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0

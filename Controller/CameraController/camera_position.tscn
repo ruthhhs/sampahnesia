@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cpo6j6qvxs46g" path="res://Assets/Sprite/Building Icon/Kebun.png" id="5_0n7cy"]
 [ext_resource type="Theme" uid="uid://2vx27ttvak05" path="res://UI/Saves/CuteTheme.tres" id="5_thpvx"]
 [ext_resource type="Script" uid="uid://cjx6sr1h25u2x" path="res://Controller/CameraController/Script/game_ui_builder.gd" id="5_vrspy"]
+[ext_resource type="PackedScene" uid="uid://de0aynw1cij1g" path="res://Controller/CameraController/quest_card.tscn" id="6_iifq8"]
 [ext_resource type="Texture2D" uid="uid://05by687cr48y" path="res://Assets/Sprite/ItemIcon/gandum.png" id="7_dtmcr"]
 [ext_resource type="Texture2D" uid="uid://xhxf6ekr85ja" path="res://Assets/Sprite/ItemIcon/sampah.png" id="7_thpvx"]
 [ext_resource type="Texture2D" uid="uid://ci0o2jwkqs3yt" path="res://Assets/Sprite/GemastikFinalBuildingIcon/Perternakan.png" id="8_dn6ff"]
@@ -633,6 +634,8 @@ size = Vector3(2.155, 1.4, 2.155)
 [node name="CameraPosition" type="Node3D" unique_id=508572600]
 script = ExtResource("60_84f65")
 starter_money = 4500
+min_zoom = 10.0
+max_range_move = Vector3(150, 0, 150)
 
 [node name="CameraRotationX" type="Node3D" parent="." unique_id=1260349627]
 
@@ -677,7 +680,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 theme = ExtResource("5_thpvx")
 script = ExtResource("5_vrspy")
 tutorial_awal = NodePath("TutorialGroup/TutorialPanel")
@@ -693,6 +696,69 @@ tutorial_destroy_raycast = NodePath("TutorialGroup/TutorialPanel12")
 event_banjir = NodePath("TutorialGroup/TutorialPanel13")
 metadata/_edit_lock_ = true
 
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameUIBuilder" unique_id=622748701]
+layout_mode = 0
+offset_top = 185.0
+offset_right = 344.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="QuestCard" parent="CanvasLayer/GameUIBuilder/VBoxContainer" unique_id=665310371 instance=ExtResource("6_iifq8")]
+visible = false
+layout_mode = 2
+text_yang_mau_dimasukkin = "Buka panel membangun"
+
+[node name="QuestCard2" parent="CanvasLayer/GameUIBuilder/VBoxContainer" unique_id=312170160 instance=ExtResource("6_iifq8")]
+visible = false
+layout_mode = 2
+text_yang_mau_dimasukkin = "Membangun lahan pertanian"
+
+[node name="QuestCard3" parent="CanvasLayer/GameUIBuilder/VBoxContainer" unique_id=342726069 instance=ExtResource("6_iifq8")]
+visible = false
+layout_mode = 2
+text_yang_mau_dimasukkin = "Menghubungkan sampah"
+
+[node name="QuestCard4" parent="CanvasLayer/GameUIBuilder/VBoxContainer" unique_id=1129233026 instance=ExtResource("6_iifq8")]
+visible = false
+layout_mode = 2
+text_yang_mau_dimasukkin = "Membangun peternakan dan menghubungkan"
+
+[node name="QuestCard5" parent="CanvasLayer/GameUIBuilder/VBoxContainer" unique_id=988354547 instance=ExtResource("6_iifq8")]
+visible = false
+layout_mode = 2
+text_yang_mau_dimasukkin = "Membangun toko dan sambungkan"
+
+[node name="QuestCard6" parent="CanvasLayer/GameUIBuilder/VBoxContainer" unique_id=1363545178 instance=ExtResource("6_iifq8")]
+visible = false
+layout_mode = 2
+text_yang_mau_dimasukkin = "Menebang 3 pohon"
+
+[node name="QuestCard7" parent="CanvasLayer/GameUIBuilder/VBoxContainer" unique_id=1538830337 instance=ExtResource("6_iifq8")]
+visible = false
+layout_mode = 2
+text_yang_mau_dimasukkin = "Menanam pohon"
+
+[node name="QuestCard8" parent="CanvasLayer/GameUIBuilder/VBoxContainer" unique_id=684719406 instance=ExtResource("6_iifq8")]
+visible = false
+layout_mode = 2
+text_yang_mau_dimasukkin = "Menghubungkan sampah ke lebih dari satu bangunan"
+
+[node name="QuestCard9" parent="CanvasLayer/GameUIBuilder/VBoxContainer" unique_id=568328004 instance=ExtResource("6_iifq8")]
+visible = false
+layout_mode = 2
+text_yang_mau_dimasukkin = "Menerima hubungan dari lebih dari satu bangunan lain"
+
+[node name="QuestCard10" parent="CanvasLayer/GameUIBuilder/VBoxContainer" unique_id=1135954897 instance=ExtResource("6_iifq8")]
+visible = false
+layout_mode = 2
+text_yang_mau_dimasukkin = "Menggabungkan target bangunan yang sama"
+
+[node name="QuestCard11" parent="CanvasLayer/GameUIBuilder/VBoxContainer" unique_id=586319756 instance=ExtResource("6_iifq8")]
+visible = false
+layout_mode = 2
+text_yang_mau_dimasukkin = "Menghapus sambungan"
+
 [node name="TutorialGroup" type="Control" parent="CanvasLayer/GameUIBuilder" unique_id=424805411]
 layout_mode = 1
 anchors_preset = 15
@@ -700,70 +766,120 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
-[node name="TutorialPanel" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=1872421202 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
+[node name="TutorialPanel" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=1872421202 node_paths=PackedStringArray("quest_added", "highlight_target") instance=ExtResource("72_v5oob")]
+visible = false
 layout_mode = 1
+quest_added = NodePath("../../VBoxContainer/QuestCard")
 dialog = Array[String](["Selamat datang di Sampahnesia, kota yang akan Bapak pimpin dan kelola mulai hari ini.", "Di bagian bawah ini, terdapat 3 panel tindakan utama yang dapat Bapak gunakan: [b]Membangun[/b], [b]Menghubungkan[/b], dan [b]Menghapus[/b].", "Mari kita lihat tumpukan sampah di depan kita. Kita akan memberdayakannya. Silakan buka [b]Panel Membangun[/b]."])
-highlight_target = [null, null, null]
+highlight_target = [null, null]
+delay_after_text = 1.5
 
-[node name="TutorialPanel2" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=625658027 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
+[node name="TutorialPanel2" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=625658027 node_paths=PackedStringArray("quest_added", "quest_delisted", "highlight_target") instance=ExtResource("72_v5oob")]
+visible = false
 layout_mode = 1
+quest_added = NodePath("../../VBoxContainer/QuestCard2")
+quest_delisted = NodePath("../../VBoxContainer/QuestCard")
 dialog = Array[String](["Pada panel ini, terdapat 4 kategori fasilitas: [b]Produksi[/b] (pengolahan sampah), [b]Energi[/b] (pembangkit listrik), [b]Toko[/b] (tempat penjualan), dan [b]Tanaman[/b] (penghijauan kota).", "Jika Bapak mengarahkan kursor ke fasilitas di kategori Produksi, Bapak dapat melihat detail keterangannya.", "Kita akan mencoba mengolah sampah menjadi hal bernilai. Silakan pilih [b]Lahan Pertanian[/b].", "Baris pertama menunjukkan bahan baku yang dibutuhkan serta hasilnya. Di sini, Lahan Pertanian membutuhkan sampah untuk menghasilkan gandum.", "Baris kedua menunjukan estimasi pendapatannya.", "Baris ketiga menunjukkan ke mana hasil gandum tersebut dapat dijual.", "Sekarang, silakan klik kanan Lahan Pertanian untuk memilih bangunan, kemudian klik kanan untuk meletakkan bangunan tersebut di area tanah yang kosong."])
-highlight_target = []
+highlight_target = [null, null, null, null, null, null, null]
+delay_after_text = 1.5
 
-[node name="TutorialPanel3" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=58413537 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
+[node name="TutorialPanel3" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=58413537 node_paths=PackedStringArray("quest_added", "quest_delisted", "highlight_target") instance=ExtResource("72_v5oob")]
+visible = false
 layout_mode = 1
+quest_added = NodePath("../../VBoxContainer/QuestCard3")
+quest_delisted = NodePath("../../VBoxContainer/QuestCard2")
 dialog = Array[String](["Selanjutnya, buka [b]Panel Menghubungkan[/b]. Klik kiri dan tahan tumpukan sampah, lalu arahkan ke Lahan Pertanian tadi."])
-highlight_target = [null]
+highlight_target = []
+delay_after_text = 1.5
 
-[node name="TutorialPanel4" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=1877235088 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
+[node name="TutorialPanel4" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=1877235088 node_paths=PackedStringArray("quest_added", "quest_delisted", "highlight_target") instance=ExtResource("72_v5oob")]
+visible = false
 layout_mode = 1
+quest_added = NodePath("../../VBoxContainer/QuestCard4")
+quest_delisted = NodePath("../../VBoxContainer/QuestCard3")
 dialog = Array[String](["Bagus sekali! Sekarang sampah tersebut mulai diproses menjadi pupuk dan benih untuk menghasilkan gandum.", "Selanjutnya, kita akan memanfaatkan gandum tersebut sebagai pakan ternak. Buka kembali [b]Panel Membangun[/b], buat [b]Peternakan[/b], lalu hubungkan Lahan Pertanian ke Peternakan tersebut."])
-highlight_target = [null, null]
+highlight_target = []
+delay_after_text = 1.5
 
-[node name="TutorialPanel5" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=1402583906 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
+[node name="TutorialPanel5" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=1402583906 node_paths=PackedStringArray("quest_added", "quest_delisted", "highlight_target") instance=ExtResource("72_v5oob")]
+visible = false
 layout_mode = 1
+quest_added = NodePath("../../VBoxContainer/QuestCard5")
+quest_delisted = NodePath("../../VBoxContainer/QuestCard4")
 dialog = Array[String](["Bagus!! Langkah berikutnya adalah menjual hasil olahan kita. Buka [b]Panel Membangun[/b], pilih [b]Toko Kecil[/b], lalu hubungkan Peternakan ke Toko Kecil tersebut."])
-highlight_target = [null]
+highlight_target = []
+delay_after_text = 1.5
 
-[node name="TutorialPanel6" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=1979274103 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
+[node name="TutorialPanel6" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=1979274103 node_paths=PackedStringArray("quest_added", "quest_delisted", "highlight_target") instance=ExtResource("72_v5oob")]
+visible = false
 layout_mode = 1
+quest_added = NodePath("../../VBoxContainer/QuestCard6")
+quest_delisted = NodePath("../../VBoxContainer/QuestCard5")
 dialog = Array[String](["Perhatikan indikator di kanan atas layar, pendapatan kota mulai bertambah seiring berjalannya transaksi.", "Dana yang terkumpul dapat Bapak gunakan kembali untuk mengembangkan fasilitas pengolahan lain (ekonomi sirkular).", "Selain itu, Bapak dapat membuka lahan baru dengan menebang pohon. Buka [b]Panel Menghapus[/b], lalu coba tebang 2 atau 3 pohon di sekitar."])
-highlight_target = [NodePath("../../CityStatsRight/VBoxContainer/HBoxContainer/Panel"), null, null]
+highlight_target = []
+delay_after_text = 1.5
 
-[node name="TutorialPanel7" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=19047868 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
+[node name="TutorialPanel7" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=19047868 node_paths=PackedStringArray("quest_added", "quest_delisted", "highlight_target") instance=ExtResource("72_v5oob")]
+visible = false
 layout_mode = 1
+quest_added = NodePath("../../VBoxContainer/QuestCard7")
+quest_delisted = NodePath("../../VBoxContainer/QuestCard6")
 dialog = Array[String](["Perlu diperhatikan, meskipun menebang pohon dapat memperluas area pembangunan, tindakan ini dapat meningkatkan kadar polusi udara kota.", "Oleh karena itu, pembukaan lahan harus tetap seimbang dengan penghijauan.", "Sekarang, buka [b]Panel Membangun[/b] dan tanam beberapa pohon baru."])
-highlight_target = [null]
+highlight_target = []
+delay_after_text = 1.5
 
-[node name="TutorialPanel8" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=1768603524 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
+[node name="TutorialPanel8" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=1768603524 node_paths=PackedStringArray("quest_added", "quest_delisted", "highlight_target") instance=ExtResource("72_v5oob")]
+visible = false
 layout_mode = 1
+quest_added = NodePath("../../VBoxContainer/QuestCard8")
+quest_delisted = NodePath("../../VBoxContainer/QuestCard7")
 dialog = Array[String](["Mohon atur strategi penggunaan lahan dengan bijak: tentukan mana area yang difokuskan untuk produksi dan mana yang dialokasikan untuk kelestarian lingkungan.", "Selanjutnya, mari kita kembangkan rantai produksi pengolahan sampah.", "Satu sumber sampah dapat dialirkan ke beberapa fasilitas pengolahan sekaligus. Silakan coba hubungkan sumber sampah tadi ke Lahan Pertanian kedua."])
-highlight_target = [null, null, null]
+highlight_target = []
+delay_after_text = 1.5
 
-[node name="TutorialPanel9" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=2062447838 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
+[node name="TutorialPanel9" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=2062447838 node_paths=PackedStringArray("quest_added", "quest_delisted", "highlight_target") instance=ExtResource("72_v5oob")]
+visible = false
 layout_mode = 1
+quest_added = NodePath("../../VBoxContainer/QuestCard9")
+quest_delisted = NodePath("../../VBoxContainer/QuestCard8")
 dialog = Array[String](["Sebuah fasilitas juga dapat menyalurkan hasilnya ke lebih dari satu tempat. Namun ingat, kecepatannya akan terbagi sehingga produksi menjadi sedikit lebih lambat.", "Silakan coba hubungkan 1 Lahan Pertanian ke 1 Peternakan dan 1 Pengolahan Kayu."])
-highlight_target = [null, null]
+highlight_target = []
+delay_after_text = 1.5
 
-[node name="TutorialPanel10" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=353152739 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
+[node name="TutorialPanel10" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=353152739 node_paths=PackedStringArray("quest_added", "quest_delisted", "highlight_target") instance=ExtResource("72_v5oob")]
+visible = false
 layout_mode = 1
+quest_added = NodePath("../../VBoxContainer/QuestCard10")
+quest_delisted = NodePath("../../VBoxContainer/QuestCard9")
 dialog = Array[String](["Begitu pula sebaliknya, sebuah fasilitas dapat menerima suplai dari beberapa sumber. ", "Namun, karena kapasitas penampungan terbatas, penerimaan barang tidak bisa terus-menerus. Silakan coba hubungkan 2 Lahan Pertanian ke 1 Peternakan."])
-highlight_target = [null, null]
+highlight_target = []
+delay_after_text = 1.5
 
-[node name="TutorialPanel11" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=199403853 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
+[node name="TutorialPanel11" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=199403853 node_paths=PackedStringArray("quest_added", "quest_delisted", "highlight_target") instance=ExtResource("72_v5oob")]
+visible = false
 layout_mode = 1
+quest_added = NodePath("../../VBoxContainer/QuestCard11")
+quest_delisted = NodePath("../../VBoxContainer/QuestCard10")
 dialog = Array[String](["Terakhir, jika ada bangunan yang menghalangi jalan, salah posisi, atau tidak lagi dibutuhkan, Bapak dapat menghapusnya. Semua jalur penghubung pada bangunan tersebut juga akan otomatis terputus. Silakan coba hapus salah satu Lahan Pertanian yang telah dibuat."])
-highlight_target = [null]
+highlight_target = []
+delay_after_text = 1.5
 
-[node name="TutorialPanel12" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=1585308614 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
+[node name="TutorialPanel12" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=1585308614 node_paths=PackedStringArray("quest_delisted", "highlight_target") instance=ExtResource("72_v5oob")]
+visible = false
 layout_mode = 1
+quest_delisted = NodePath("../../VBoxContainer/QuestCard11")
 dialog = Array[String](["Secara garis besar, alur utama tata kelola kota kita meliputi tiga langkah mendasar: [b]Membangun[/b], [b]Menghubungkan[/b], dan [b]Menghapus[/b].", "Apa penjelasan saya bisa dimengerti?", "Kalau begitu... Mari kita mulai bekerja."])
-highlight_target = [null]
+highlight_target = []
+delay_after_text = 1.5
 
-[node name="TutorialPanel13" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=1068883268 instance=ExtResource("72_v5oob")]
+[node name="TutorialPanel13" parent="CanvasLayer/GameUIBuilder/TutorialGroup" unique_id=1068883268 node_paths=PackedStringArray("highlight_target") instance=ExtResource("72_v5oob")]
+visible = false
 layout_mode = 1
 dialog = Array[String](["Lapor pak terdapat bangunan yang sedang rusak akibat banjir. Banjir ini akan sering terjadi apabila semakin buruknya kualitas lingkungan", "Bangunan yang menerima banjir mengalami kerusakan bangunan. Namun jangan khawatir pak, karena kita bisa melakukan reparasi bangunan", "pilih panel [b]Menghubungkan[/b] kemudian pilih bangunan yang mengalami kerusakan. Akan ada muncul tagihan perbaikan"])
+highlight_target = []
+delay_after_text = 1.5
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/GameUIBuilder" unique_id=1357470940]
 layout_mode = 1
@@ -1173,6 +1289,7 @@ theme_override_constants/separation = 7
 layout_mode = 2
 id_building = 20
 nama_bangunan = "PLT-Sampah"
+price_bangunan = 500
 control_parent = NodePath("../../../../../../../../MouseFollowerObject")
 gambar_bangunan = ExtResource("45_my0lq")
 gambar_input = ExtResource("7_thpvx")
@@ -1191,6 +1308,7 @@ is_generator_electric = true
 layout_mode = 2
 id_building = 21
 nama_bangunan = "PLT-Surya"
+price_bangunan = 2500
 control_parent = NodePath("../../../../../../../../MouseFollowerObject")
 gambar_bangunan = ExtResource("46_jjbiq")
 is_generator_electric = true
@@ -1279,7 +1397,7 @@ theme_override_constants/separation = 7
 layout_mode = 2
 id_building = 26
 nama_bangunan = "Pohon"
-price_bangunan = 500
+price_bangunan = 200
 control_parent = NodePath("../../../../../../../../MouseFollowerObject")
 hoverd_disabled = true
 gambar_bangunan = ExtResource("50_qd056")
@@ -1565,6 +1683,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_v1usf")
 autostart = true
 
 [node name="MouseTutorial" type="VBoxContainer" parent="CanvasLayer/GameUIBuilder" unique_id=340776659]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.022000002
@@ -1572,9 +1691,9 @@ anchor_top = 0.17500001
 anchor_right = 0.178
 anchor_bottom = 0.344
 offset_left = -0.24000168
-offset_top = -1.5258789e-05
+offset_top = 675.0
 offset_right = 0.23999023
-offset_bottom = -0.52001953
+offset_bottom = 674.48
 grow_vertical = 2
 script = ExtResource("65_8jbnc")
 
@@ -1593,7 +1712,7 @@ label_settings = SubResource("LabelSettings_3o3u8")
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("60_jdguq")
-expand_mode = 2
+expand_mode = 1
 stretch_mode = 4
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder/MouseTutorial" unique_id=1340829971]
@@ -1633,7 +1752,7 @@ stretch_mode = 4
 libraries/ = SubResource("AnimationLibrary_m5h88")
 
 [node name="Timer" type="Timer" parent="CanvasLayer/GameUIBuilder/MouseTutorial" unique_id=588904846]
-wait_time = 12.0
+wait_time = 50.0
 autostart = true
 
 [node name="Mode" type="HBoxContainer" parent="CanvasLayer/GameUIBuilder" unique_id=67925656 node_paths=PackedStringArray("tutorial")]
@@ -1707,7 +1826,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Start" type="Timer" parent="CanvasLayer/GameUIBuilder" unique_id=702121724]
-wait_time = 1.5
 autostart = true
 
 [node name="End" type="Label" parent="CanvasLayer/GameUIBuilder" unique_id=544053407]

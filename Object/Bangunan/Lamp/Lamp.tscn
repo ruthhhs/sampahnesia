@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cncj7wvh3dvoa" path="res://UI/Icon/SelfMade/lightning-01.png" id="7_qfjxl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q4aoa"]
-size = Vector3(3.5, 3, 6)
+size = Vector3(3.029419, 2.767212, 5.2836914)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_gxeky"]
 viewport_path = NodePath("Sprite3D/SubViewport")
@@ -64,7 +64,7 @@ can_sell = true
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1864420134]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.092785e-08, 1.5500002, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.038818352, 1.4336061, -0.23529053)
 shape = SubResource("BoxShape3D_q4aoa")
 debug_color = Color(1, 0.54837996, 0.43495825, 1)
 

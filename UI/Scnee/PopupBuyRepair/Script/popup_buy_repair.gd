@@ -2,7 +2,7 @@ extends Control
 @onready var harga_tidak_cukup = preload("res://UI/Prefabs/PopupText/popup_text.tscn")
 
 @export var harga_reparasi: int = 100
-@export var id_minigame: int = 2
+@export var id_minigame: int = 4
 
 # diisi oleh Building sebelum popup di-add_child
 var destroy_timer_node_insert: Node3D
@@ -48,7 +48,7 @@ func _on_popup_anim_animation_finished(anim_name: StringName) -> void:
 			push_warning("Root minigame belum memakai script minigame_repairement.gd")
 
 		destroy_timer_node_insert.repair_in_progress = true
-		get_tree().root.add_child(minigame_instance)
+		get_parent().add_child(minigame_instance)
 		Archivement.validate_archivement(10)
 		
 

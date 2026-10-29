@@ -132,4 +132,4 @@ func selesai() -> void:
 	Global.on_tutorial = false
 	await $AnimationPlayer.animation_finished
 	Transition.change_scnee(main_menu)
-	OS.shell_open("https://forms.gle/xucovEAZ8P6keA7AA")
+	#OS.shell_open("https://forms.gle/xucovEAZ8P6keA7AA")

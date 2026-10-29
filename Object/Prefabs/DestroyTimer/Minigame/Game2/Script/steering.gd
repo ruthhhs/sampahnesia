@@ -5,7 +5,7 @@ var is_dragging: bool = false
 var nilai_aktual_dam: float 
 @export var rotation_speed: float = 15.0
 @export var min_rotation_degrees: float = 0.0     # Batas minimal (misal: 0 derajat / tertutup)
-@export var max_rotation_degrees: float = 360.0 * 5  # Batas maksimal (misal: 360 derajat / terbuka penuh)
+@export var max_rotation_degrees: float = 360.0 * 8  # Batas maksimal (misal: 360 derajat / terbuka penuh)
 
 # Menyimpan sudut mouse sebelumnya untuk menghitung selisih putaran
 var last_mouse_angle: float = 0.0

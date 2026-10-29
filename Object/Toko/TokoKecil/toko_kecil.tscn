@@ -68,6 +68,7 @@ popup_hover = NodePath("Sprite3D/SubViewport/PopupHover")
 parent_group = "bangunan_complete_toko_1"
 particle_trigger = NodePath("GPUParticles3D")
 is_get_money = true
+maintenance_activity_id = 3
 
 [node name="StarterAnim" parent="." unique_id=223462457 instance=ExtResource("2_nfjok")]
 

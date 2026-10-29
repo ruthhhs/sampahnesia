@@ -40,6 +40,7 @@ anchor_right = 0.7
 anchor_bottom = 0.8
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_jbxuv")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1112286420]
@@ -59,6 +60,7 @@ texture = ExtResource("2_52iaq")
 [node name="Game" type="Control" parent="PanelContainer" unique_id=240102945]
 modulate = Color(7.7608867, 7.7608867, 7.7608867, 1)
 layout_mode = 2
+mouse_filter = 2
 script = ExtResource("2_8qwck")
 array_color = Array[Color]([Color(0.58431375, 0.12156863, 0.19215687, 1), Color(0.14509805, 0.26666668, 0.47058824, 1), Color(0.9852924, 0.47841644, 0, 1), Color(0, 0.7682428, 0.5233203, 1), Color(0.84628505, 0.7758588, 1.1551381e-06, 1)])
 
@@ -71,6 +73,7 @@ offset_left = 54.0
 offset_right = -54.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = SubResource("Theme_3xd07")
 theme_override_constants/separation = 144
 

@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cncj7wvh3dvoa" path="res://UI/Icon/SelfMade/lightning-01.png" id="7_lprpl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q4aoa"]
-size = Vector3(5.5, 2.5, 6)
+size = Vector3(4.357422, 2.4960938, 5.33844)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_3mh8e"]
 viewport_path = NodePath("Sprite3D/SubViewport")
@@ -55,8 +55,8 @@ popup_warning_electricity = NodePath("Sprite3D/SubViewport/PopupWarning/VBoxCont
 parent_group = "Glass_cup"
 target_group = Array[String](["bangunan_complete_toko_1"])
 jumlah_polusi = 1
-kapasitas_koneksi = 3
 can_sell = true
+maintenance_activity_id = 4
 
 [node name="StarterAnim" parent="." unique_id=223462457 instance=ExtResource("2_bed6n")]
 
@@ -64,7 +64,7 @@ can_sell = true
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1864420134]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.060000073, 1.3000002, 0.07749987)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.019808397, 1.2980471, -0.4937892)
 shape = SubResource("BoxShape3D_q4aoa")
 debug_color = Color(1, 0.54837996, 0.43495825, 1)
 

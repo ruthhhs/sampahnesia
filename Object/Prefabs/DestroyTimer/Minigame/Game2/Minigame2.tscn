@@ -121,7 +121,7 @@ script = ExtResource("4_pueui")
 shape = SubResource("CircleShape2D_jq8tk")
 
 [node name="Timer" type="Timer" parent="PanelContainer/Game" unique_id=783050096]
-wait_time = 0.1
+wait_time = 0.06
 autostart = true
 
 [node name="UI" type="Control" parent="PanelContainer" unique_id=1945175037]
@@ -144,7 +144,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_jq8tk")
 theme_override_styles/fill = SubResource("StyleBoxFlat_6fhyq")
-max_value = 142.165
+max_value = 300.0
 fill_mode = 3
 
 [connection signal="area_entered" from="PanelContainer/Game/Steering/Interact" to="PanelContainer/Game/Steering" method="_on_interact_area_entered"]

@@ -47,10 +47,8 @@ adjustment_contrast = 1.25
 adjustment_saturation = 0.72
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_v8hku"]
-dof_blur_far_enabled = true
 dof_blur_far_distance = 181.51
 dof_blur_far_transition = 91.02
-dof_blur_near_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8xky"]
 shading_mode = 0
@@ -69,7 +67,6 @@ size = Vector3(11, 4, 11)
 
 [node name="TestEnviroment" type="Node3D" unique_id=147036054]
 script = ExtResource("1_fyipr")
-udara_pohon = 5
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1276303847]
 unique_name_in_owner = true

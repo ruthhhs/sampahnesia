@@ -2,27 +2,30 @@ extends RayCast3D
 
 var height_curve: float = 2.0
 var dragging_access: bool = false
-var is_delivering: bool = false # Tambahan variabel state baru
+var is_delivering: bool = false
 
 @onready var electricity_material: StandardMaterial3D = preload("res://Assets/Shaders/electricity.tres")
 @export var target_send: Area3D = null:
 	set(value):
 		if target_send != value:
 			target_send = value
+			if target_send != null:
+				can_connect = true
+				
 			if get_parent().get_parent().building_category == 1:
 				Global.first_sampah_input = true
-			elif  get_parent().get_parent().building_category == 2:
+			elif get_parent().get_parent().building_category == 2:
 				Global.first_pertanian_input = true
 			elif get_parent().get_parent().building_category == 3:
 				Global.first_perternakan_input = true
-			elif  get_parent().get_parent().building_category == 4:
+			elif get_parent().get_parent().building_category == 4:
 				Global.first_toko_input = true
 
 @export var enable_mesh: MeshInstance3D
 @export var disable_mesh: MeshInstance3D
 @export var interact_line: Area3D
 
-@onready var sprite_3d = $DistributePath/Ekspedisi/Package/Sprite3D
+@onready var sprite_3d: Sprite3D = $DistributePath/Ekspedisi/Package/Sprite3D
 
 var _texture_sprite: Texture2D
 @export var texture_sprite: Texture2D:
@@ -37,7 +40,6 @@ var value_recive: int = 1
 var speed_applier: int = 25
 var speed_expedition: int = 25:
 	set(value):
-		# nilai minimal selalu 1 (1 = berhenti)
 		speed_expedition = max(1, value)
 		speed_applier = speed_expedition
 var price: int
@@ -67,6 +69,11 @@ func _ready() -> void:
 	the_parent = get_parent().get_parent()
 	speed_expedition = the_parent.new_speed
 	speed_applier = speed_expedition
+	
+	# MEMASIKAN TEKSTUR SPRITE PASTI TERPASANG PADA SAAT READY
+	if _texture_sprite != null and sprite_3d != null:
+		sprite_3d.texture = _texture_sprite
+		
 	distribute_path.curve = Curve3D.new()
 	distribute_path.curve.add_point(Vector3.ZERO)
 	distribute_path.curve.add_point(Vector3(0.04, 0, 0))
@@ -82,7 +89,7 @@ func _input(_event: InputEvent) -> void:
 			get_positions = Global.mouse_pos
 			
 		var dir = (get_positions - global_position)
-		var angle = atan2(dir.x, dir.z) # z dan x dibalik karena Godot 3D pakai z sebagai depan
+		var angle = atan2(dir.x, dir.z)
 		rotation.y = angle
 		
 		target_position.z = global_position.distance_to(get_positions) / 2
@@ -95,10 +102,9 @@ func _input(_event: InputEvent) -> void:
 		distribute_path.curve.set_point_out(0, Vector3(-target_position.z / 2, height_curve + (target_position.z / 3), 0))
 
 		if Input.is_action_just_released("mouse_selected"):
-			dragging_access = false # Mutlak dimatikan agar tidak bocor target
+			dragging_access = false
 			
 			if target_send == null:
-				# Dibatalkan / tidak terhubung ke bangunan
 				rotation.y = 0
 				target_position.z = 0
 				area_selected.global_position.x = global_position.x
@@ -114,52 +120,41 @@ func _process(delta: float) -> void:
 			
 		var is_target_full: bool = false
 		
-		# 1. Cek apakah kapasitas target penuh
 		if the_parent.is_electric_production:
 			is_target_full = (target_send.electric_item >= target_send.maximum_electric_item)
 		else:
 			is_target_full = (target_send.item_value >= target_send.maximum_item_value)
 
-		# 2. Jika paket sedang standby (belum berangkat)
 		if not is_delivering:
 			var can_start_delivery: bool = false
 			
-			# Cek ketersediaan resource di pengirim
 			if the_parent.is_electric_production:
-				# Jika produsen listrik: butuh item_value > 0 (atau is_self_added)
 				can_start_delivery = (the_parent.is_self_added or the_parent.item_value > 0)
 			else:
-				# Jika pengirim butuh listrik: WAJIB item_value > 0 DAN electric_item > 0
 				if the_parent.is_electric_usage:
 					can_start_delivery = (the_parent.item_value > 0 and the_parent.electric_item > 0)
 				else:
 					can_start_delivery = (the_parent.item_value > 0)
 			
-			# BERANGKAT! Kurangi resource pengirim di awal keberangkatan
 			if can_start_delivery and not is_target_full:
 				is_delivering = true
 				
 				if not the_parent.is_electric_production:
-					# Kurangi stok barang
 					the_parent.item_value -= value_recive
-					
-					# Kurangi stok listrik JIKA bangunan ini mengonsumsi listrik
 					if the_parent.is_electric_usage:
 						the_parent.electric_item = max(0, the_parent.electric_item - value_recive)
 				else:
-					# Jika bangunan produsen listrik
 					if not the_parent.is_self_added:
 						the_parent.item_value = max(0, the_parent.item_value - value_recive)
 					the_parent.electric_item = max(0, the_parent.electric_item - value_recive)
 
-		# 3. Eksekusi pergerakan di jalan
 		if is_delivering:
 			sprite_3d.visible = true
 			%Ekspedisi.progress += speed_applier * delta
 		else:
-			# Menunggu resource atau target full
 			sprite_3d.visible = false
 			%Ekspedisi.progress = 0
+
 func _delete_connection() -> void:
 	if my_parent != null:
 		if target_send != null:
@@ -167,10 +162,8 @@ func _delete_connection() -> void:
 		my_parent.list_node_tersambung.erase(target_send)
 		queue_free()
 
-# Melakukan interaksi koneksi (menyambungkan bangunan)
 func _on_area_selected_area_entered(area: Area3D) -> void:
-	# Mencegah target terganti kalau area tidak sengaja menyentuh bangunan baru
-	if target_send != null:
+	if target_send != null or not can_connect:
 		return 
 		
 	if the_parent.is_electric_production == true:
@@ -178,21 +171,23 @@ func _on_area_selected_area_entered(area: Area3D) -> void:
 			var usage: bool = area.shorcut_electric_usage 
 			var produc: bool = area.is_electric_production
 			if usage == true and produc == false:
-				print("bisa menyambung")
-				area.list_node_tersambung.append(my_parent)
-				my_parent.list_node_tersambung.append(area)
+				print("bisa menyambung listrik")
+				if area.has_method("register_connection"):
+					area.register_connection(my_parent)
+				if my_parent.has_method("register_connection"):
+					my_parent.register_connection(area)
 				target_send = area
-			print("usage status: ", area.shorcut_electric_usage, " | ","is_electric_production: ", area.is_electric_production)
 	else:
 		if "parent_group" in area:
-			for i in the_parent.target_group: # mengecek apakah masuk target
+			for i in the_parent.target_group:
 				if area.parent_group == i: 
 					if not area.list_node_tersambung.has(my_parent) and %Disable.visible == false and area != the_parent:
-						area.list_node_tersambung.append(my_parent)
-						my_parent.list_node_tersambung.append(area)
+						if area.has_method("register_connection"):
+							area.register_connection(my_parent)
+						if my_parent.has_method("register_connection"):
+							my_parent.register_connection(area)
 						target_send = area
 
-# Interact to line (Delete Koneksi via klik)
 func _on_interact_to_line_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed: 
 		if Global.currently_are_delete == true:
@@ -218,26 +213,19 @@ func _on_interact_to_line_area_exited(area: Area3D) -> void:
 		if overlap_bangunan == 0 and overlap_line == 0:
 			can_connect = true
 
-# Fungsi Utama Pengiriman Paket (Sampai di Tujuan)
 func _on_package_area_entered(area: Area3D) -> void:
-	# Hanya proses jika area adalah target dan statusnya sedang mengirim
 	if area == target_send and is_delivering:
-		if area != get_parent().get_parent(): # bukan mengirim ke diri sendiri
+		if area != get_parent().get_parent():
 			%AudioEnd.play()
 			
 			if the_parent.is_electric_production == false:
-				# --- PROSES TRANSFER BARANG (NON-LISTRIK) ---
 				area.item_value += value_recive
-				
 				if area.is_get_money == true and the_parent.can_sell == true:
 					Global.stat_money += the_parent.price
 					Global.first_toko_input = true
-					
 			else:
-				# --- PROSES TRANSFER LISTRIK ---
 				area.electric_item += value_recive
 				
-		# PENTING: Matikan state pengiriman dan reset posisi ke titik awal
 		is_delivering = false
 		speed_applier = speed_expedition
 		%Ekspedisi.progress = 0

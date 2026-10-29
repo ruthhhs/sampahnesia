@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://bt7cwi81tt10y" path="res://Assets/3DModel/Pohon/Pohon.tscn" id="2_aki4d"]
 [ext_resource type="PackedScene" uid="uid://b368u4y7laqgy" path="res://Object/Prefabs/StarterAnim/starter_anim.tscn" id="2_hwnee"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_5pjkx"]
-size = Vector3(6.5, 6, 7.5)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_enygd"]
+height = 4.5
+radius = 3.0
 
 [node name="Pohon" type="Area3D" unique_id=2046109367 groups=["Objek", "tumbuhan"]]
 script = ExtResource("1_lrtq3")
@@ -16,8 +17,8 @@ script = ExtResource("1_lrtq3")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1027856785 groups=["Objek"]]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.42000008, 2.993206, -0.42000008)
-shape = SubResource("BoxShape3D_5pjkx")
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.07999992, 1.743206, -0.42000008)
+shape = SubResource("CylinderShape3D_enygd")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

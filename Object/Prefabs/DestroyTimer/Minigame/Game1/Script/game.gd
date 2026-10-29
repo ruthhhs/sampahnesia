@@ -55,7 +55,7 @@ func added(preloading,child_target: Marker2D)-> void:
 	var preloading_instanciate = preloading.instantiate()
 	child_target.add_child(preloading_instanciate)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var center_pos = get_parent().size/2
 	collision_playable.shape.size = get_parent().get_parent().size
 	playable_area.position = center_pos

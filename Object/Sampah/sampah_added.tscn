@@ -8,9 +8,8 @@ size = Vector3(0.5, 0.5, 0.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_3xd07"]
 size = Vector3(11, 4, 11)
 
-[node name="Sampah_added" type="Node3D" unique_id=447221677 node_paths=PackedStringArray("target_spawn")]
+[node name="Sampah_added" type="Node3D" unique_id=447221677]
 script = ExtResource("1_37oc6")
-target_spawn = NodePath("")
 antrian_sampah = 10
 
 [node name="Raycaster" type="Node3D" parent="." unique_id=989397480]
@@ -20,6 +19,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, -6)
 target_position = Vector3(0, -10, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Raycaster/RayCast3D" unique_id=844576930]
+visible = false
 mesh = SubResource("BoxMesh_3xd07")
 
 [node name="RayCast3D2" type="RayCast3D" parent="Raycaster" unique_id=1424315810]
@@ -27,6 +27,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 1, -6)
 target_position = Vector3(0, -10, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Raycaster/RayCast3D2" unique_id=1678718565]
+visible = false
 mesh = SubResource("BoxMesh_3xd07")
 
 [node name="RayCast3D3" type="RayCast3D" parent="Raycaster" unique_id=205143217]
@@ -34,6 +35,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 6)
 target_position = Vector3(0, -10, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Raycaster/RayCast3D3" unique_id=719842508]
+visible = false
 mesh = SubResource("BoxMesh_3xd07")
 
 [node name="RayCast3D4" type="RayCast3D" parent="Raycaster" unique_id=2058753514]
@@ -41,6 +43,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 1, 6)
 target_position = Vector3(0, -10, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Raycaster/RayCast3D4" unique_id=343569733]
+visible = false
 mesh = SubResource("BoxMesh_3xd07")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1122924818]

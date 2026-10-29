@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cncj7wvh3dvoa" path="res://UI/Icon/SelfMade/lightning-01.png" id="7_2kk6q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q4aoa"]
-size = Vector3(4, 3.5, 4)
+size = Vector3(3.5605469, 2.534668, 3.5819092)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_jtvkp"]
 viewport_path = NodePath("Sprite3D/SubViewport")
@@ -55,7 +55,6 @@ popup_warning_electricity = NodePath("Sprite3D/SubViewport/PopupWarning/VBoxCont
 parent_group = "Kertas"
 target_group = Array[String](["bangunan_complete_toko_1", "Buku"])
 jumlah_polusi = 2
-kapasitas_koneksi = 3
 can_sell = true
 is_electric_usage = true
 
@@ -65,7 +64,7 @@ is_electric_usage = true
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1864420134]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.092785e-08, 1.5, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.056579586, 1.017334, 0.21972656)
 shape = SubResource("BoxShape3D_q4aoa")
 debug_color = Color(1, 0.54837996, 0.43495825, 1)
 

@@ -9,6 +9,16 @@ viewport_path = NodePath("Sprite3D/SubViewport")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3xd07"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_riqys"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 28
+corner_radius_top_right = 28
+corner_radius_bottom_right = 28
+corner_radius_bottom_left = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_bhunq"]
+font_size = 54
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o57mo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jq8tk"]
@@ -75,11 +85,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 29
 
 [node name="HSeparator" type="HSeparator" parent="Sprite3D/SubViewport/Control/VBoxContainer" unique_id=2039985133]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/separator = SubResource("StyleBoxEmpty_3xd07")
+
+[node name="KlikUntukPerbaiki" type="Label" parent="Sprite3D/SubViewport/Control/VBoxContainer" unique_id=401515505]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_riqys")
+text = "Klik untuk
+memperbaiki"
+label_settings = SubResource("LabelSettings_bhunq")
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Sprite3D/SubViewport/Control/VBoxContainer" unique_id=458257984]
 layout_mode = 2

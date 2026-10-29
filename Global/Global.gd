@@ -47,7 +47,7 @@ var currently_are_raining: bool = false:
 			is_raining.emit(currently_are_raining)
 
 signal money_change(new_value: int)
-var stat_money: int = 0:
+var stat_money: int :
 	set(value):
 		if stat_money != value:
 			stat_money = value

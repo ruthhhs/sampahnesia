@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://d3g4r4hbpttlg" path="res://Assets/Sprite/ItemIcon/silicon-waffer.png" id="7_p661f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q4aoa"]
-size = Vector3(5.2021484, 4, 7)
+size = Vector3(3.034546, 2.7644043, 7)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_pyg1e"]
 viewport_path = NodePath("Sprite3D/SubViewport")
@@ -68,6 +68,7 @@ target_group = Array[String](["bangunan_complete_1", "bangunan_complete_2", "Bij
 jumlah_polusi = 19
 infinite_connection = true
 kapasitas_koneksi = 5
+maintenance_activity_id = 1
 is_electric_production = true
 
 [node name="StarterAnim" parent="." unique_id=223462457 instance=ExtResource("4_022gv")]
@@ -76,7 +77,7 @@ is_electric_production = true
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1864420134]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.05999994, 2.0500002, 0.023574352)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.059999987, 1.4322023, -1.0602269)
 shape = SubResource("BoxShape3D_q4aoa")
 debug_color = Color(0.6853361, 0.7355926, 1.1551381e-06, 1)
 

@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cncj7wvh3dvoa" path="res://UI/Icon/SelfMade/lightning-01.png" id="7_xdkem"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_fnwhq"]
-height = 4.284668
+height = 3.229309
 radius = 3.3461914
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_osy3a"]
@@ -67,7 +67,7 @@ is_electric_usage = true
 transform = Transform3D(0.5, 0, 0, 0, 0.5763052, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1864420134]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.9423342, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.4146547, 0)
 shape = SubResource("CylinderShape3D_fnwhq")
 debug_color = Color(4.428029e-06, 0.7569722, 0.9990763, 1)
 
