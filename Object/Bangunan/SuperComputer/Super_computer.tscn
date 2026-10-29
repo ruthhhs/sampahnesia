@@ -57,6 +57,7 @@ target_group = Array[String](["bangunan_complete_toko_2"])
 jumlah_polusi = 1
 kapasitas_koneksi = 3
 can_sell = true
+maintenance_activity_id = 1
 
 [node name="StarterAnim" parent="." unique_id=223462457 instance=ExtResource("2_enygd")]
 
@@ -163,19 +164,6 @@ texture = ExtResource("4_enygd")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="TextureRect2" type="TextureRect" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue/ImageInputValueItem" unique_id=1144274225]
-modulate = Color(1.0480936, 0.6446457, 0, 1)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.481
-anchor_top = 0.537
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_8kr1i")
-stretch_mode = 5
-
 [node name="Equal" type="Label" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue" unique_id=219412261]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -203,19 +191,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("7_t6ino")
 expand_mode = 2
-stretch_mode = 5
-
-[node name="TextureRect2" type="TextureRect" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/Electrical/ImageElectricityItem" unique_id=817162970]
-modulate = Color(1.0480936, 0.6446457, 0, 1)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.481
-anchor_top = 0.537
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_8kr1i")
 stretch_mode = 5
 
 [node name="Equal2" type="Label" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/Electrical" unique_id=1029711648]

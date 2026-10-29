@@ -4,7 +4,6 @@ extends Control
 @export var harga_reparasi: int = 100
 @export var id_minigame: int = 4
 
-# diisi oleh Building sebelum popup di-add_child
 var destroy_timer_node_insert: Node3D
 var is_on_payment: bool = false
 
@@ -16,7 +15,6 @@ func _on_tidak_setuju_pressed() -> void:
 	%PopupAnim.play("close")
 
 func _on_setuju_pressed() -> void:
-	# timer bisa saja sudah habis (bangunan hancur) saat popup masih terbuka
 	if not is_instance_valid(destroy_timer_node_insert):
 		queue_free()
 		return
@@ -41,15 +39,15 @@ func _on_popup_anim_animation_finished(anim_name: StringName) -> void:
 		var path_minigame: String = str("res://Object/Prefabs/DestroyTimer/Minigame/Game", id_minigame, "/Minigame", id_minigame, ".tscn")
 		var minigame = load(path_minigame)
 		var minigame_instance = minigame.instantiate()
-		# KONEKSI UTAMA: kirim referensi timer ke minigame SEBELUM add_child
+		
 		if "destroy_timer_node_insert" in minigame_instance:
 			minigame_instance.destroy_timer_node_insert = destroy_timer_node_insert
 		else:
 			push_warning("Root minigame belum memakai script minigame_repairement.gd")
 
+		# Tandai bahwa perbaikan sedang berjalan
 		destroy_timer_node_insert.repair_in_progress = true
 		get_parent().add_child(minigame_instance)
 		Archivement.validate_archivement(10)
-		
 
 	queue_free()

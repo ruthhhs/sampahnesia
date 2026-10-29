@@ -147,7 +147,6 @@ func register_connection(other_building: Area3D) -> void:
 		list_node_tersambung.append(other_building)
 		print("List node tersambung sekarang: ", list_node_tersambung)
 		
-		# Cek koneksi masuk dari luar ke bangunan ini
 		var incoming = get_my_incoming_connections()
 		if incoming.has(other_building):
 			print("Ada bangunan baru yang menyambung ke SAYA! Total koneksi masuk: ", incoming.size())
@@ -185,7 +184,6 @@ func update_warning_visibility() -> void:
 	if popup_warning_electricity != null and popup_warning_electricity.visible:
 		_needs_warning = true
 
-	# Pastikan popup hover tidak sengaja muncul jika tidak sedang inspecting
 	if not Global.currently_are_inspecting and popup_hover != null:
 		popup_hover.visible = false
 
@@ -273,7 +271,7 @@ func change_input_output_texture():
 func _open_maintenance_popup() -> void:
 	if not is_instance_valid(destroy_timer_access):
 		return
-	if destroy_timer_access.is_repair:
+	if destroy_timer_access.repair_in_progress or destroy_timer_access.is_repair:
 		return
 
 	var root := get_parent().get_parent()
@@ -284,12 +282,14 @@ func _open_maintenance_popup() -> void:
 
 	var popup := maintenance_popup.instantiate()
 	popup.destroy_timer_node_insert = destroy_timer_access
-	if is_get_money == true:
+	
+	# --- PENENTUAN ID MINIGAME SESUAI ATURAN ---
+	if is_electric_production:
+		popup.id_minigame = 4
+	elif is_get_money:
 		popup.id_minigame = 3
-	elif is_electric_production == true:
-		popup.id_minigame = 1
 	else:
-		popup.id_minigame = [1, 4].pick_random()
+		popup.id_minigame = maintenance_activity_id
 	
 	container.add_child(popup)
 

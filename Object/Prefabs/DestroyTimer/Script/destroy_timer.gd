@@ -5,7 +5,6 @@ extends Node3D
 var speed: float = 1.0
 var repair_in_progress: bool = false
 
-# Gunakan setter agar setiap kali is_repair diubah jadi true, label langsung hilang
 var is_repair: bool = false:
 	set(value):
 		is_repair = value
@@ -22,8 +21,8 @@ func _ready() -> void:
 
 func _update_label_visibility() -> void:
 	if label_pengingat != null:
-		# Label HANYA muncul jika sedang inspecting DAN BELUM di-repair
-		label_pengingat.visible = Global.currently_are_inspecting and not is_repair
+		# Label HANYA muncul jika sedang inspecting DAN BELUM dalam proses repair
+		label_pengingat.visible = Global.currently_are_inspecting and not is_repair and not repair_in_progress
 
 func _on_is_inspecting_changed(_inspecting: bool) -> void:
 	_update_label_visibility()

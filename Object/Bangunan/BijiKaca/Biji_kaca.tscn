@@ -67,7 +67,7 @@ parent_group = "Biji_kaca"
 target_group = Array[String](["bangunan_complete_toko_1", "Silicon", "Glass_bulb", "Glass_cup"])
 jumlah_polusi = 1
 can_sell = true
-maintenance_activity_id = 4
+maintenance_activity_id = 1
 is_electric_usage = true
 
 [node name="StarterAnim" parent="." unique_id=223462457 instance=ExtResource("5_8flhi")]
@@ -112,6 +112,7 @@ vertical_alignment = 1
 
 [node name="PopupHover" type="Control" parent="Sprite3D/SubViewport" unique_id=312235558]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -173,19 +174,6 @@ size_flags_horizontal = 3
 expand_mode = 2
 stretch_mode = 5
 
-[node name="TextureRect2" type="TextureRect" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue/ImageInputValueItem" unique_id=8489787]
-modulate = Color(1.0480936, 0.6446457, 0, 1)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.481
-anchor_top = 0.537
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_ttefi")
-stretch_mode = 5
-
 [node name="Equal" type="Label" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/ItemValue" unique_id=1771577951]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -213,19 +201,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("7_v4i07")
 expand_mode = 2
-stretch_mode = 5
-
-[node name="TextureRect2" type="TextureRect" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/Electrical/ImageElectricityItem" unique_id=281683425]
-modulate = Color(1.0480936, 0.6446457, 0, 1)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.481
-anchor_top = 0.537
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_ttefi")
 stretch_mode = 5
 
 [node name="Equal2" type="Label" parent="Sprite3D/SubViewport/PopupHover/VBoxContainer/Panel/Valie/Electrical" unique_id=908985152]
