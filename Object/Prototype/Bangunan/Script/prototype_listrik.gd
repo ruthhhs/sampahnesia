@@ -1,4 +1,3 @@
-class_name Building
 extends Area3D
 
 var destroy_timer_access: Node3D
@@ -11,6 +10,10 @@ var standard_speed: int = 25
 var new_speed: int
 var shorcut_electric_usage: bool
 var maximum_electric_item: int
+
+# Variabel pencatat barang/listrik yang sedang OTW ke bangunan ini
+var item_incoming: int = 0
+var electric_incoming: int = 0
 
 var on_maintenance: bool = false:
 	set(value):
@@ -283,7 +286,6 @@ func _open_maintenance_popup() -> void:
 	var popup := maintenance_popup.instantiate()
 	popup.destroy_timer_node_insert = destroy_timer_access
 	
-	# --- PENENTUAN ID MINIGAME SESUAI ATURAN ---
 	if is_electric_production:
 		popup.id_minigame = 4
 	elif is_get_money:
