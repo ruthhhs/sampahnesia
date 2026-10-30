@@ -83,6 +83,7 @@
 [ext_resource type="Script" uid="uid://6inmxhh3gu1t" path="res://Controller/CameraController/Script/archivements.gd" id="69_uhujx"]
 [ext_resource type="PackedScene" uid="uid://kw26uk3uvsrl" path="res://Object/Prefabs/tutorial/tutorial_panel.tscn" id="72_v5oob"]
 [ext_resource type="Material" uid="uid://dabntd7a8fpgc" path="res://Assets/Shaders/preview_building_enable.tres" id="78_50xed"]
+[ext_resource type="Texture2D" uid="uid://b45xoplw8wg56" path="res://UI/Icon/SelfMade/playdate_button_menu_outline.png" id="80_m5h88"]
 [ext_resource type="AudioStream" uid="uid://cr7l8g4jteg0c" path="res://UI/UIFX/wind1.wav" id="81_ftrdj"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ijmff"]
@@ -1872,22 +1873,31 @@ mesh = SubResource("BoxMesh_bhunq")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MouseFollowerObject" unique_id=2019744671]
 unique_name_in_owner = true
 transform = Transform3D(0.00012849097, -4.5890007, -2.005916e-07, 0, -2.005916e-07, 4.5890007, -4.5890007, -0.00012849097, -5.616519e-12, 3, 0.0247344, -3)
+visible = false
 mesh = SubResource("QuadMesh_b2g4k")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="MouseFollowerObject" unique_id=1280652472]
 unique_name_in_owner = true
 transform = Transform3D(4.585554, 0.0059556975, -0.17772947, 0.17782918, -0.14911088, 4.583129, 0.000173093, -4.5865736, -0.14922968, 3, 0.0247344, 3)
+visible = false
 mesh = SubResource("QuadMesh_b2g4k")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="MouseFollowerObject" unique_id=1813842881]
 unique_name_in_owner = true
 transform = Transform3D(-0.0001285024, 4.5890007, 2.005916e-07, 0, -2.005916e-07, 4.5890007, 4.5890007, 0.0001285024, 5.617019e-12, -2.9999998, 0.0247344, 3)
+visible = false
 mesh = SubResource("QuadMesh_b2g4k")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="MouseFollowerObject" unique_id=740809109]
 unique_name_in_owner = true
 transform = Transform3D(-4.5890007, -0.00012815591, -5.601874e-12, -4.9754035e-19, -2.005916e-07, 4.5890007, -0.00012815591, 4.5890007, 2.005916e-07, -3.0000002, 0.0247344, -3)
+visible = false
 mesh = SubResource("QuadMesh_b2g4k")
+
+[node name="MeshInstance3D5" type="Sprite3D" parent="MouseFollowerObject" unique_id=2125938717]
+unique_name_in_owner = true
+transform = Transform3D(-4.5890007, -0.00012815591, -5.601874e-12, -4.9754035e-19, -2.005916e-07, 4.5890007, -0.00012815591, 4.5890007, 2.005916e-07, 0, 0, 0)
+texture = ExtResource("80_m5h88")
 
 [node name="CollidingCheckers" type="Area3D" parent="MouseFollowerObject" unique_id=518951340 groups=["collision_checkers"]]
 
@@ -1916,7 +1926,7 @@ volume_db = -9.853
 autoplay = true
 bus = &"Music"
 
-[node name="Music2" type="AudioStreamPlayer" parent="." unique_id=1501870769]
+[node name="Wind" type="AudioStreamPlayer" parent="." unique_id=1501870769]
 stream = ExtResource("81_ftrdj")
 volume_db = -9.853
 autoplay = true
