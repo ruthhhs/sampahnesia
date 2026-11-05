@@ -148,12 +148,9 @@ enum BuildingCategory {
 func register_connection(other_building: Area3D) -> void:
 	if not list_node_tersambung.has(other_building):
 		list_node_tersambung.append(other_building)
-		print("List node tersambung sekarang: ", list_node_tersambung)
 		
 		var incoming = get_my_incoming_connections()
-		if incoming.has(other_building):
-			print("Ada bangunan baru yang menyambung ke SAYA! Total koneksi masuk: ", incoming.size())
-			
+
 		if list_node_tersambung.size() > 2:
 			Global.first_bangunan_double_input = true
 

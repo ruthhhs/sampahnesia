@@ -3,7 +3,6 @@ extends RayCast3D
 var height_curve: float = 2.0
 var dragging_access: bool = false
 var is_delivering: bool = false
-
 @onready var electricity_material: StandardMaterial3D = preload("res://Assets/Shaders/electricity.tres")
 @export var target_send: Area3D = null:
 	set(value):
@@ -24,7 +23,6 @@ var is_delivering: bool = false
 @export var enable_mesh: MeshInstance3D
 @export var disable_mesh: MeshInstance3D
 @export var interact_line: Area3D
-
 @onready var sprite_3d: Sprite3D = $DistributePath/Ekspedisi/Package/Sprite3D
 
 var _texture_sprite: Texture2D
@@ -61,6 +59,7 @@ var can_connect: bool = true:
 	get:
 		return can_connect
 
+var is_can_be_deleted: bool = false
 @onready var area_selected: Area3D = $AreaSelected
 @onready var scaler: Node3D = $Scaller
 @onready var distribute_path: Path3D = $DistributePath
@@ -70,7 +69,6 @@ func _ready() -> void:
 	speed_expedition = the_parent.new_speed
 	speed_applier = speed_expedition
 	
-	# MEMASIKAN TEKSTUR SPRITE PASTI TERPASANG PADA SAAT READY
 	if _texture_sprite != null and sprite_3d != null:
 		sprite_3d.texture = _texture_sprite
 		
@@ -78,9 +76,15 @@ func _ready() -> void:
 	distribute_path.curve.add_point(Vector3.ZERO)
 	distribute_path.curve.add_point(Vector3(0.04, 0, 0))
 	if the_parent.is_electric_production == true:
-		%Enable.material_override = electricity_material
+		$Scaller/Enable.material_override = electricity_material
 
 func _input(_event: InputEvent) -> void:
+	if Global.currently_are_delete and is_can_be_deleted:
+		if Input.is_action_pressed("mouse_selected"):
+			Global.first_destroy_raycster = true
+			_delete_connection()
+			return
+
 	if dragging_access:
 		var get_positions: Vector3
 		if target_send != null:
@@ -150,10 +154,10 @@ func _process(delta: float) -> void:
 
 		if is_delivering:
 			sprite_3d.visible = true
-			%Ekspedisi.progress += speed_applier * delta
+			$DistributePath/Ekspedisi.progress += speed_applier * delta
 		else:
 			sprite_3d.visible = false
-			%Ekspedisi.progress = 0
+			$DistributePath/Ekspedisi.progress = 0
 
 func _delete_connection() -> void:
 	if my_parent != null:
@@ -165,12 +169,31 @@ func _delete_connection() -> void:
 func _on_area_selected_area_entered(area: Area3D) -> void:
 	if target_send != null or not can_connect:
 		return 
+	_selected_area(area)
+
+# --- FUNGSI PEMBANTU Pengecekan Target Valid ---
+func _is_valid_target(area: Area3D) -> bool:
+	if area == null or area == the_parent:
+		return false
 		
-	if the_parent.is_electric_production == true:
+	if the_parent.is_electric_production:
+		if "shorcut_electric_usage" in area and "is_electric_production" in area:
+			return area.shorcut_electric_usage and not area.is_electric_production
+	else:
+		if "parent_group" in area and "target_group" in the_parent:
+			return area.parent_group in the_parent.target_group
+			
+	return false
+
+func _selected_area(area: Area3D) -> void:
+	if target_send != null or not can_connect:
+		return
+		
+	if the_parent.is_electric_production:
 		if "is_electric_usage" in area and "is_electric_production" in area:
 			var usage: bool = area.shorcut_electric_usage 
 			var produc: bool = area.is_electric_production
-			if usage == true and produc == false:
+			if usage and not produc:
 				print("bisa menyambung listrik")
 				if area.has_method("register_connection"):
 					area.register_connection(my_parent)
@@ -181,34 +204,50 @@ func _on_area_selected_area_entered(area: Area3D) -> void:
 		if "parent_group" in area:
 			for i in the_parent.target_group:
 				if area.parent_group == i: 
-					if not area.list_node_tersambung.has(my_parent) and %Disable.visible == false and area != the_parent:
+					if not area.list_node_tersambung.has(my_parent) and $Scaller/Disable.visible == false and area != the_parent:
 						if area.has_method("register_connection"):
 							area.register_connection(my_parent)
 						if my_parent.has_method("register_connection"):
 							my_parent.register_connection(area)
 						target_send = area
 
-func _on_interact_to_line_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.pressed: 
-		if Global.currently_are_delete == true:
-			Global.first_destroy_raycster = true
-			_delete_connection()
-
 func _on_interact_to_line_area_entered(area: Area3D) -> void:
-	if target_send == null and interact_line != null:
-		if area.is_in_group("raycaster") and not area.get_parent().get_parent().get_parent() == get_parent() and area.get_parent().get_parent().target_send != the_parent:
-			can_connect = false
-			overlap_line += 1
-		if area.is_in_group("Objek") and not area == get_parent().get_parent():
-			can_connect = false
-			overlap_bangunan += 1
+	if Global.currently_are_delete and area.is_in_group("delete_checker"):
+		is_can_be_deleted = true
+		$Scaller/Disable.visible = true
+		$Scaller/Enable.visible = false
+
+	if interact_line != null:
+		# 1. Cek & Toleransi Target Valid: Langsung eksekusi penyambungan dan abaikan sebagai rintangan tabrakan
+		if _is_valid_target(area):
+			if target_send == null:
+				_selected_area(area)
+			return # Hentikan fungsi agar tidak dihitung ke overlap_bangunan
+
+		# 2. Deteksi Rintangan Lain (Raycaster / Bangunan non-target)
+		if target_send == null:
+			if area.is_in_group("raycaster") and not area.get_parent().get_parent().get_parent() == get_parent() and area.get_parent().get_parent().target_send != the_parent:
+				can_connect = false
+				overlap_line += 1
+			if area.is_in_group("Objek") and not area == get_parent().get_parent():
+				can_connect = false
+				overlap_bangunan += 1
 
 func _on_interact_to_line_area_exited(area: Area3D) -> void:
-	if target_send == null and interact_line != null:
+	if Global.currently_are_delete and area.is_in_group("delete_checker"):
+		is_can_be_deleted = false
+		$Scaller/Disable.visible = false
+		$Scaller/Enable.visible = true
+
+	if interact_line != null:
+		# Abaikan area target yang valid saat keluar agar tidak mengurangi overlap_bangunan secara salah
+		if _is_valid_target(area):
+			return
+
 		if area.is_in_group("raycaster") and not area.get_parent().get_parent().get_parent() == get_parent() and area.get_parent().get_parent().target_send != the_parent:
-			overlap_line -= 1
+			overlap_line = max(0, overlap_line - 1)
 		if area.is_in_group("Objek") and not area == get_parent().get_parent():
-			overlap_bangunan -= 1
+			overlap_bangunan = max(0, overlap_bangunan - 1)
 			
 		if overlap_bangunan == 0 and overlap_line == 0:
 			can_connect = true
@@ -228,14 +267,4 @@ func _on_package_area_entered(area: Area3D) -> void:
 				
 		is_delivering = false
 		speed_applier = speed_expedition
-		%Ekspedisi.progress = 0
-
-func _on_interact_to_line_mouse_entered() -> void:
-	if Global.currently_are_delete == true:
-		%Disable.visible = true
-		%Enable.visible = false
-
-func _on_interact_to_line_mouse_exited() -> void:
-	if Global.currently_are_delete == true:
-		%Disable.visible = false
-		%Enable.visible = true
+		$DistributePath/Ekspedisi.progress = 0

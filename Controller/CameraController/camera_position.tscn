@@ -636,6 +636,9 @@ material = SubResource("StandardMaterial3D_c8m7d")
 [sub_resource type="BoxShape3D" id="BoxShape3D_eysth"]
 size = Vector3(2.155, 1.4, 2.155)
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bhunq"]
+radius = 1.3085938
+
 [node name="CameraPosition" type="Node3D" unique_id=508572600]
 script = ExtResource("60_84f65")
 starter_money = 4500
@@ -1909,6 +1912,14 @@ shape = SubResource("BoxShape3D_eysth")
 unique_name_in_owner = true
 stream = ExtResource("63_84f65")
 bus = &"Effect"
+
+[node name="MouseDeleteDetection" type="Area3D" parent="MouseFollowerObject" unique_id=86209445 groups=["delete_checker"]]
+
+[node name="CollisionDeleteDetection" type="CollisionShape3D" parent="MouseFollowerObject/MouseDeleteDetection" unique_id=1655737413]
+unique_name_in_owner = true
+shape = SubResource("CylinderShape3D_bhunq")
+disabled = true
+debug_color = Color(0.9142427, 0.8210579, 0, 1)
 
 [node name="BuildAudio" type="AudioStreamPlayer" parent="." unique_id=78582240]
 unique_name_in_owner = true

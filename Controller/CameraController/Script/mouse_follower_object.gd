@@ -102,14 +102,16 @@ func _update_preview_visibility() -> void:
 		if preview_object.visible:
 			_check_preview_placement_validity()
 
-func _on_selecting_changed(_is_selecting: bool) -> void:
-	if _is_selecting:
-		id_input = -1
+func _on_selecting_changed(__is_selecting: bool) -> void:
+	id_input = -1 #reset ke 0
 	_update_preview_visibility()
 
 func _on_delete_changed(_is_delete: bool) -> void:
-	_update_preview_visibility()
-
+	if _is_delete:
+		%CollisionDeleteDetection.disabled = false
+	else:
+		%CollisionDeleteDetection.disabled = true
+	
 # ===================================================
 # FUNGSI DINAMIS BENTUK COLLISION & PREVIEW MESH
 # ===================================================
