@@ -529,6 +529,10 @@ shadow_color = Color(0, 0, 0, 0.3764706)
 shadow_size = 1
 shadow_offset = Vector2(2.005, 3.29)
 
+[sub_resource type="LabelSettings" id="LabelSettings_m5h88"]
+font = ExtResource("58_l5jbk")
+font_size = 41
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dg3oh"]
 bg_color = Color(0.36078432, 0.5058824, 0.6784314, 1)
 corner_radius_top_left = 15
@@ -1779,7 +1783,7 @@ theme_override_constants/separation = 55
 script = ExtResource("65_dg3oh")
 tutorial = NodePath("../TutorialGroup/TutorialPanel2")
 
-[node name="BuildMode" parent="CanvasLayer/GameUIBuilder/Mode" unique_id=2056958084 instance=ExtResource("4_dn6ff")]
+[node name="BuildMode" parent="CanvasLayer/GameUIBuilder/Mode" unique_id=2056958084 node_paths=PackedStringArray("hover_information") instance=ExtResource("4_dn6ff")]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/icon_normal_color = Color(0.66656864, 0.6665687, 0.66656864, 1)
@@ -1790,8 +1794,23 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_iifq8")
 icon = ExtResource("67_dg3oh")
 icon_alignment = 1
 expand_icon = true
+hover_information = NodePath("Membangun")
 
-[node name="SelectMode" parent="CanvasLayer/GameUIBuilder/Mode" unique_id=1916206109 instance=ExtResource("4_dn6ff")]
+[node name="Membangun" type="Label" parent="CanvasLayer/GameUIBuilder/Mode/BuildMode" unique_id=439513716]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0, -1)
+text = "Membangun"
+label_settings = SubResource("LabelSettings_m5h88")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectMode" parent="CanvasLayer/GameUIBuilder/Mode" unique_id=1916206109 node_paths=PackedStringArray("hover_information") instance=ExtResource("4_dn6ff")]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/icon_normal_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
@@ -1803,8 +1822,23 @@ disabled = true
 icon = ExtResource("65_ykp4m")
 icon_alignment = 1
 expand_icon = true
+hover_information = NodePath("Menghubungkan")
 
-[node name="DeleteMode" parent="CanvasLayer/GameUIBuilder/Mode" unique_id=220459223 instance=ExtResource("4_dn6ff")]
+[node name="Menghubungkan" type="Label" parent="CanvasLayer/GameUIBuilder/Mode/SelectMode" unique_id=943260264]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0, -1)
+text = "Menghubungkan"
+label_settings = SubResource("LabelSettings_m5h88")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DeleteMode" parent="CanvasLayer/GameUIBuilder/Mode" unique_id=220459223 node_paths=PackedStringArray("hover_information") instance=ExtResource("4_dn6ff")]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/icon_normal_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
@@ -1815,6 +1849,21 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_m5h88")
 icon = ExtResource("67_hsyvo")
 icon_alignment = 1
 expand_icon = true
+hover_information = NodePath("Menghapus")
+
+[node name="Menghapus" type="Label" parent="CanvasLayer/GameUIBuilder/Mode/DeleteMode" unique_id=1305753936]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0, -1)
+text = "Menghapus"
+label_settings = SubResource("LabelSettings_m5h88")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Archivements" type="ScrollContainer" parent="CanvasLayer/GameUIBuilder" unique_id=1990418275]
 layout_mode = 1
