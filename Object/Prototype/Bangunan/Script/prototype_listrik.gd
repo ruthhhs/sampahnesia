@@ -187,14 +187,8 @@ func update_warning_visibility() -> void:
 	if not Global.currently_are_inspecting and popup_hover != null:
 		popup_hover.visible = false
 
-func _see_on_inspect(is_inspecting: bool) -> void:
-	sprite_3d.visible = is_inspecting
-	if not is_inspecting:
-		_hide_all_popups()
 
-func _hide_all_popups() -> void:
-	if popup_hover != null:
-		popup_hover.visible = false
+
 
 func _ready() -> void:
 	Global.is_inspecting.connect(_see_on_inspect)
@@ -224,6 +218,16 @@ func _ready() -> void:
 			image_input_value_item.visible = false
 			image_input_value_item.get_parent().get_child(1).visible = false
 
+func _see_on_inspect(is_inspecting: bool) -> void:
+	pass
+	#sprite_3d.visible = is_inspecting
+	#if not is_inspecting:
+		#_hide_all_popups()
+
+func _hide_all_popups() -> void:
+	pass
+	#if popup_hover != null:
+		#popup_hover.visible = false
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_end"):
 		item_value = item_value + 1
@@ -312,11 +316,16 @@ func _on_input_event(_camera: Node, event: InputEvent, _event_position: Vector3,
 func _on_mouse_entered() -> void:
 	if can_delete == true and Global.currently_are_delete:
 		get_child(0).get_child(1).get_child(0).material_overlay = waiting_for_delete
-
+	print("currently are inspecting: ", Global.currently_are_inspecting)
+	if Global.currently_are_inspecting and popup_hover != null:
+		popup_hover.visible = true
+		update_warning_visibility()
 func _on_mouse_exited() -> void:
 	if can_delete == true:
 		get_child(0).get_child(1).get_child(0).material_overlay = null
-
+	if Global.currently_are_inspecting and popup_hover != null:
+		_hide_all_popups()
+		update_warning_visibility()
 func _on_area_entered(area: Area3D) -> void:
 	if area.is_in_group("water") and on_maintenance == false:
 		if is_sampah == false:
@@ -327,6 +336,7 @@ func _on_area_entered(area: Area3D) -> void:
 			Global.first_building_damage = true
 			
 	if area.is_in_group("collision_checkers"):
+		print("currently are inspecting: ", Global.currently_are_inspecting)
 		if Global.currently_are_inspecting and popup_hover != null:
 			popup_hover.visible = true
 			update_warning_visibility()
@@ -359,8 +369,8 @@ func _on_jumlah_child_berubah() -> void:
 		new_speed = roundi(remap(total_child, 1, kapasitas_koneksi, standard_speed, 0.0))
 		new_speed = maxi(new_speed, 2)
 
-	print("koneksi: ", total_child, "/", kapasitas_koneksi, " | new_speed: ", new_speed)
+	#print("koneksi: ", total_child, "/", kapasitas_koneksi, " | new_speed: ", new_speed)
 
 	for ray in kumpulan_ray.get_children():
 		ray.speed_expedition = new_speed
-		print("kecepatan ", ray, " = ", ray.speed_expedition)
+		#print("kecepatan ", ray, " = ", ray.speed_expedition)

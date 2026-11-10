@@ -14,7 +14,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_q4aoa"]
 size = Vector3(5, 2.4818115, 5)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_b5hqc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ajdm8"]
 viewport_path = NodePath("Sprite3D/SubViewport")
 
 [sub_resource type="FontVariation" id="FontVariation_gayf8"]
@@ -79,7 +79,7 @@ pixel_size = 0.0002
 billboard = 1
 no_depth_test = true
 fixed_size = true
-texture = SubResource("ViewportTexture_b5hqc")
+texture = SubResource("ViewportTexture_ajdm8")
 
 [node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=609652335]
 transparent_bg = true
