@@ -220,14 +220,14 @@ func _ready() -> void:
 
 func _see_on_inspect(is_inspecting: bool) -> void:
 	pass
-	#sprite_3d.visible = is_inspecting
-	#if not is_inspecting:
-		#_hide_all_popups()
+	sprite_3d.visible = is_inspecting
+	if not is_inspecting:
+		_hide_all_popups()
 
 func _hide_all_popups() -> void:
 	pass
-	#if popup_hover != null:
-		#popup_hover.visible = false
+	if popup_hover != null:
+		popup_hover.visible = false
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_end"):
 		item_value = item_value + 1
@@ -317,7 +317,7 @@ func _on_mouse_entered() -> void:
 	if can_delete == true and Global.currently_are_delete:
 		get_child(0).get_child(1).get_child(0).material_overlay = waiting_for_delete
 	print("currently are inspecting: ", Global.currently_are_inspecting)
-	if Global.currently_are_inspecting and popup_hover != null:
+	if Global.currently_are_inspecting and popup_hover != null and on_maintenance == false:
 		popup_hover.visible = true
 		update_warning_visibility()
 func _on_mouse_exited() -> void:
@@ -335,16 +335,17 @@ func _on_area_entered(area: Area3D) -> void:
 			on_maintenance = true
 			Global.first_building_damage = true
 			
-	if area.is_in_group("collision_checkers"):
-		print("currently are inspecting: ", Global.currently_are_inspecting)
-		if Global.currently_are_inspecting and popup_hover != null:
-			popup_hover.visible = true
-			update_warning_visibility()
+	#if area.is_in_group("collision_checkers"):
+		#print("currently are inspecting: ", Global.currently_are_inspecting)
+		#if Global.currently_are_inspecting and popup_hover != null:
+			#popup_hover.visible = true
+			#update_warning_visibility()
 
 func _on_area_exited(area: Area3D) -> void:
-	if area.is_in_group("collision_checkers"):
-		_hide_all_popups()
-		update_warning_visibility()
+	pass
+	#if area.is_in_group("collision_checkers"):
+		#_hide_all_popups()
+		#update_warning_visibility()
 
 func _on_delete_change(is_can_delete: bool) -> void:
 	if is_can_delete:
